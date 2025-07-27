@@ -443,9 +443,6 @@ public class Engine
     /// <returns>GameObject criado</returns>
     public GameObject CreateCube(string name, Vector3 position, Vector3 size, RgbaFloat color, float mass = 1f)
     {
-        // Converter dimensões completas para half-extents que o BepuPhysics espera
-        var halfExtents = size * 0.5f;
-        
         var gameObject = new GameObject(name)
         {
             Position = position,
@@ -455,9 +452,14 @@ public class Engine
         // Criar rigidbody com física correta
         bool isStatic = mass <= 0f;
         var rigidbody = CreateRigidbody(Math.Max(mass, 1f), isStatic);
+        
+        // Converter dimensões completas para half-extents que o BepuPhysics espera
+        var halfExtents = size;
         rigidbody.Shape = new BoxShape(halfExtents); // BepuPhysics usa half-extents
         rigidbody.Material = Material.Default;
         rigidbody.Pose = new BepuPhysics.RigidPose(position, Quaternion.Identity);
+        
+        LoggingService.LogInfo($"CreateCube - {name}: visual size {size}, physics halfExtents {halfExtents}, position: {position}");
         
         gameObject.AddComponent(rigidbody);
         
@@ -525,28 +527,62 @@ public class Engine
     {
         return CreateCube("Ground", position, size, color, 0f); // Massa 0 = estático
     }
-    
+
     /// <summary>
-    /// Cria um chão simples na altura especificada
+    /// Cria um objeto estático (massa 0) - útil para chão, paredes, etc.
     /// </summary>
-    /// <param name="groundLevel">Altura da SUPERFÍCIE do chão</param>
-    /// <param name="thickness">Espessura do chão</param>
-    /// <param name="width">Largura do chão</param>
-    /// <param name="depth">Profundidade do chão</param>
-    /// <param name="color">Cor do chão</param>
+    /// <param name="name">Nome do objeto</param>
+    /// <param name="position">Posição do centro</param>
+    /// <param name="size">Dimensões completas</param>
+    /// <param name="color">Cor</param>
     /// <returns>GameObject criado</returns>
-    public GameObject CreateGroundAtLevel(float groundLevel = 0f, float thickness = 1f, float width = 20f, float depth = 20f, RgbaFloat? color = null)
+    public GameObject CreateStaticCube(string name, Vector3 position, Vector3 size, RgbaFloat color)
     {
-        var groundColor = color ?? new RgbaFloat(0.7f, 0.7f, 0.7f, 1f);
+        return CreateCube(name, position, size, color, 0f); // Massa 0 = estático
+    }
+
+    /// <summary>
+    /// Cria uma rampa inclinada
+    /// </summary>
+    /// <param name="name">Nome da rampa</param>
+    /// <param name="position">Posição do centro da rampa</param>
+    /// <param name="size">Dimensões da rampa (largura, altura, profundidade)</param>
+    /// <param name="angleDegrees">Ângulo de inclinação em graus</param>
+    /// <param name="color">Cor da rampa</param>
+    /// <returns>GameObject criado</returns>
+    public GameObject CreateRamp(string name, Vector3 position, Vector3 size, float angleDegrees, RgbaFloat color)
+    {
         
-        // Posicionar o centro do chão para que a superfície fique no groundLevel
-        var centerY = groundLevel - (thickness * 0.5f);
-        var position = new Vector3(0, centerY, 0);
-        var size = new Vector3(width, thickness, depth);
+        var gameObject = new GameObject(name)
+        {
+            Position = position,
+            Scale = size,
+            Rotation = new Vector3(0, 0, MathF.PI * angleDegrees / 180f) // Rotação no eixo Z para inclinar
+        };
         
-        var ground = CreateGround(position, size, groundColor);
+        // Criar rigidbody estático (rampas não se movem)
+        var rigidbody = CreateRigidbody(1f, true); // Estático
+        var halfExtents = size;
+        rigidbody.Shape = new BoxShape(halfExtents);
+        rigidbody.Material = Material.Default;
         
-        return ground;
+        // Aplicar a rotação na pose do rigidbody
+        var rotationQuaternion = Quaternion.CreateFromYawPitchRoll(0, 0, MathF.PI * angleDegrees / 180f);
+        rigidbody.Pose = new BepuPhysics.RigidPose(position, rotationQuaternion);
+        
+        gameObject.AddComponent(rigidbody);
+        
+        // Renderização
+        var renderer = CreateCubeRenderer(color);
+        gameObject.AddComponent(renderer);
+        
+        // Adicionar ao mundo físico e cena
+        _physicsWorldBepu?.AddBody(rigidbody);
+        AddGameObject(gameObject);
+        
+        LoggingService.LogInfo($"CreateRamp - {name} at {position} with angle {angleDegrees}° and size {size}");
+        
+        return gameObject;
     }
 
     private void Render()

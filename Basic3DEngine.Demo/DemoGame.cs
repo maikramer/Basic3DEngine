@@ -48,29 +48,41 @@ public class DemoGame
     
     private void CreateSimpleScene()
     {
-        // Chão simples com superfície em Y = 0
-        _engine.CreateGroundAtLevel(
-            groundLevel: 0f,    // Superfície do chão em Y = 0
-            thickness: 1f,      // Espessura de 1 unidade
-            width: 20f,         // Largura
-            depth: 20f          // Profundidade
-        );
+        CreateRollingScene();
+    }
+    
+    private void CreateRollingScene()
+    {
+        // Cores da demo
+        var groundColor = new RgbaFloat(0.7f, 0.7f, 0.7f, 1f);
+        var rampColor = new RgbaFloat(0.8f, 0.6f, 0.4f, 1f);
+        var sphereColor1 = new RgbaFloat(1f, 0f, 0f, 1f); // Vermelho
+        var sphereColor2 = new RgbaFloat(0f, 0f, 1f, 1f); // Azul
+        var sphereColor3 = new RgbaFloat(0f, 1f, 0f, 1f); // Verde
         
-        // Teste com duas esferas de raios diferentes para depuração
-        _engine.CreateSphere(
-            "TestSphere1",                            // Nome
-            new Vector3(-2, 5, 0),                   // Posição inicial
-            0.5f,                                     // Raio 0.5
-            new RgbaFloat(1f, 0f, 0f, 1f),           // Vermelho
-            2f                                        // Massa
-        );
+        // Chão principal - posicionar para que a superfície fique em Y = 0
+        var groundThickness = 1f;
+        var groundPosition = new Vector3(0, -groundThickness * 0.5f, 0);
+        var groundSize = new Vector3(30f, groundThickness, 20f);
+        _engine.CreateStaticCube("Ground", groundPosition, groundSize, groundColor);
         
-        _engine.CreateSphere(
-            "TestSphere2",                            // Nome
-            new Vector3(2, 5, 0),                    // Posição inicial
-            1.0f,                                     // Raio 1.0
-            new RgbaFloat(0f, 0f, 1f, 1f),           // Azul
-            2f                                        // Massa
-        );
+        // Rampa inclinada maior para as esferas rolarem (inclinada para baixo no sentido direito)
+        var rampPosition = new Vector3(-6f, 3f, 0f);
+        var rampSize = new Vector3(12f, 0.5f, 6f); // Maior: 12x6 em vez de 8x4
+        var rampAngle = -15f; // -15 graus = inclinada para baixo no lado direito
+        _engine.CreateRamp("Ramp", rampPosition, rampSize, rampAngle, rampColor);
+        
+        // Parede no final para as esferas não saírem
+        var wallPosition = new Vector3(15f, 2f, 0f);
+        var wallSize = new Vector3(1f, 4f, 15f);
+        _engine.CreateStaticCube("Wall", wallPosition, wallSize, groundColor);
+        
+        // TESTE: Esferas exatamente no centro da rampa para debug
+        // Rampa está em X=-6, Z=0, então vamos posicionar as esferas bem no centro
+        _engine.CreateSphere("RollingSphere1", new Vector3(-10f, 8f, 0f), 0.5f, sphereColor1, 2f);
+        _engine.CreateSphere("RollingSphere2", new Vector3(-8f, 8f, 0f), 0.7f, sphereColor2, 3f);
+        _engine.CreateSphere("RollingSphere3", new Vector3(-6f, 8f, 0f), 0.4f, sphereColor3, 1.5f);
+        
+        LoggingService.LogInfo("Rolling scene created - esferas irão rolar pela rampa!");
     }
 } 
