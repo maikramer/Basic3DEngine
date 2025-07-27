@@ -238,8 +238,8 @@ void main()
 
     public override void Update(float deltaSeconds)
     {
-        // Atualiza a matriz de transformação
-        var rotationMatrix = Matrix4x4.CreateFromAxisAngle(Vector3.UnitY, Rotation.Y);
+        // Atualiza a matriz de transformação corretamente
+        var rotationMatrix = Matrix4x4.CreateFromYawPitchRoll(Rotation.Y, Rotation.X, Rotation.Z);
         var scaleMatrix = Matrix4x4.CreateScale(Scale);
         var translationMatrix = Matrix4x4.CreateTranslation(Position);
         _worldMatrix = scaleMatrix * rotationMatrix * translationMatrix;

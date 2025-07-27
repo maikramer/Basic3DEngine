@@ -4,21 +4,19 @@ namespace Basic3DEngine.Entities;
 
 public class GameObject
 {
-    private readonly Dictionary<Type, Component> _components;
+    private readonly Dictionary<Type, Component> _components = new();
 
-    public GameObject(string name = "GameObject")
+    public GameObject(string name)
     {
         Name = name;
-        Position = Vector3.Zero;
-        Rotation = Vector3.Zero;
-        Scale = Vector3.One;
-        _components = new Dictionary<Type, Component>();
     }
 
     public string Name { get; set; }
+    public string Tag { get; set; } = "Untagged";
     public Vector3 Position { get; set; }
     public Vector3 Rotation { get; set; }
-    public Vector3 Scale { get; set; }
+    public Vector3 Scale { get; set; } = Vector3.One;
+    public bool Enabled { get; set; } = true;
 
     public void AddComponent<T>(T component) where T : Component
     {

@@ -69,15 +69,15 @@
           "dependencies": {
             "Serilog": {
               "target": "Package",
-              "version": "[3.1.1, )"
+              "version": "[4.3.0, )"
             },
             "Serilog.Sinks.Console": {
               "target": "Package",
-              "version": "[5.0.1, )"
+              "version": "[6.0.0, )"
             },
             "Serilog.Sinks.File": {
               "target": "Package",
-              "version": "[5.0.0, )"
+              "version": "[7.0.0, )"
             },
             "System.Numerics.Vectors": {
               "target": "Package",
@@ -379,7 +379,7 @@
               "include": "Runtime, Build, Native, ContentFiles, Analyzers",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[1.1.1, )"
+              "version": "[8.0.0, )"
             },
             "NETStandard.Library": {
               "suppressParent": "All",
@@ -391,11 +391,11 @@
               "include": "Runtime, Build, Native, ContentFiles, Analyzers",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[3.4.255, )"
+              "version": "[3.7.115, )"
             },
             "System.Runtime.CompilerServices.Unsafe": {
               "target": "Package",
-              "version": "[6.0.0, )"
+              "version": "[6.1.2, )"
             }
           },
           "imports": [
@@ -460,7 +460,7 @@
               "include": "Runtime, Build, Native, ContentFiles, Analyzers",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[1.1.1, )"
+              "version": "[8.0.0, )"
             },
             "NETStandard.Library": {
               "suppressParent": "All",
@@ -472,7 +472,7 @@
               "include": "Runtime, Build, Native, ContentFiles, Analyzers",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[3.4.255, )"
+              "version": "[3.7.115, )"
             }
           },
           "imports": [
@@ -537,7 +537,7 @@
               "include": "Runtime, Build, Native, ContentFiles, Analyzers",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[1.1.1, )"
+              "version": "[8.0.0, )"
             },
             "NETStandard.Library": {
               "suppressParent": "All",
@@ -553,15 +553,15 @@
               "include": "Runtime, Build, Native, ContentFiles, Analyzers",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[3.4.255, )"
+              "version": "[3.7.115, )"
             },
             "System.Numerics.Vectors": {
               "target": "Package",
-              "version": "[4.5.0, )"
+              "version": "[4.6.1, )"
             },
             "System.Runtime.CompilerServices.Unsafe": {
               "target": "Package",
-              "version": "[4.5.0, )"
+              "version": "[6.1.2, )"
             }
           },
           "imports": [
@@ -633,7 +633,7 @@
               "include": "Runtime, Build, Native, ContentFiles, Analyzers",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[1.1.1, )"
+              "version": "[8.0.0, )"
             },
             "NETStandard.Library": {
               "suppressParent": "All",
@@ -645,7 +645,7 @@
               "include": "Runtime, Build, Native, ContentFiles, Analyzers",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[3.4.255, )"
+              "version": "[3.7.115, )"
             }
           },
           "imports": [
@@ -790,7 +790,7 @@
               "include": "Runtime, Build, Native, ContentFiles, Analyzers",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[1.1.1, )"
+              "version": "[8.0.0, )"
             },
             "NETStandard.Library": {
               "suppressParent": "All",
@@ -806,19 +806,19 @@
               "include": "Runtime, Build, Native, ContentFiles, Analyzers",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[3.4.255, )"
+              "version": "[3.7.115, )"
             },
             "System.Memory": {
               "target": "Package",
-              "version": "[4.5.5, )"
+              "version": "[4.6.3, )"
             },
             "System.Numerics.Vectors": {
               "target": "Package",
-              "version": "[4.5.0, )"
+              "version": "[4.6.1, )"
             },
             "System.Runtime.CompilerServices.Unsafe": {
               "target": "Package",
-              "version": "[6.0.0, )"
+              "version": "[6.1.2, )"
             },
             "Vk": {
               "target": "Package",

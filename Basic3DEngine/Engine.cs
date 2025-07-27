@@ -1,6 +1,9 @@
 using System.Numerics;
+using Basic3DEngine.Core;
+using Basic3DEngine.Core.Interfaces;
 using Basic3DEngine.Entities;
 using Basic3DEngine.Physics;
+using Basic3DEngine.Physics.Shapes;
 using Basic3DEngine.Services;
 using Veldrid;
 using Veldrid.Sdl2;
@@ -29,6 +32,14 @@ public class Engine
     
     // Window
     private Sdl2Window? _window;
+    
+    // Time management
+    private float _fixedTimeAccumulator;
+
+    /// <summary>
+    /// Mundo físico da engine
+    /// </summary>
+    public PhysicsWorldBepu? PhysicsWorld => _physicsWorldBepu;
 
     /// <summary>
     /// Executa um jogo usando a engine
@@ -84,22 +95,33 @@ public class Engine
             var currentTime = DateTime.Now.TimeOfDay.TotalSeconds;
             var deltaTime = (float)(currentTime - previousTime);
             previousTime = currentTime;
+            
+            // Atualizar Time
+            Time.UnscaledDeltaTime = deltaTime;
+            Time.DeltaTime = deltaTime * Time.TimeScale;
+            Time.TotalTime += Time.DeltaTime;
 
-            // Atualizar física
-            _physicsWorldBepu?.Update(deltaTime);
+            // Física com fixed timestep
+            _fixedTimeAccumulator += Time.DeltaTime;
+            while (_fixedTimeAccumulator >= Time.FixedDeltaTime)
+            {
+                // Atualizar física
+                _physicsWorldBepu?.Update(Time.FixedDeltaTime);
+                _fixedTimeAccumulator -= Time.FixedDeltaTime;
+            }
 
             // Atualizar GameObjects
             foreach (var gameObject in _gameObjects) 
-                gameObject?.Update(deltaTime);
+                gameObject?.Update(Time.DeltaTime);
                 
             // Atualizar o jogo
-            _game.Update(deltaTime);
+            _game.Update(Time.DeltaTime);
 
             // Processar eventos da janela
             _window.PumpEvents();
 
             // Atualizar câmera
-            _cameraRotation += deltaTime * 0.2f;
+            _cameraRotation += Time.DeltaTime * 0.2f;
             _cameraPosition = Vector3.Transform(new Vector3(0, 3, 7),
                 Quaternion.CreateFromAxisAngle(Vector3.UnitY, _cameraRotation));
 
@@ -109,7 +131,7 @@ public class Engine
             // Log periódico a cada 60 frames
             if (frameCount % 60 == 0)
             {
-                LoggingService.LogInfo($"Frame {frameCount} - FPS: {60.0f / (currentTime - previousTime + deltaTime * 60):F1}");
+                LoggingService.LogInfo($"Frame {frameCount} - FPS: {1f / Time.UnscaledDeltaTime:F1}");
             }
         }
 
@@ -121,6 +143,7 @@ public class Engine
         // Limpar recursos
         _cl?.Dispose();
         _gd?.Dispose();
+        _physicsWorldBepu?.Dispose();
         
         LoggingService.LogInfo("Resources disposed - Engine shutdown complete");
     }
@@ -139,6 +162,22 @@ public class Engine
     public void RemoveGameObject(GameObject gameObject)
     {
         _gameObjects.Remove(gameObject);
+    }
+    
+    /// <summary>
+    /// Busca um GameObject pelo nome
+    /// </summary>
+    public GameObject? FindGameObject(string name)
+    {
+        return _gameObjects.FirstOrDefault(go => go.Name == name);
+    }
+    
+    /// <summary>
+    /// Busca todos os GameObjects com uma tag específica
+    /// </summary>
+    public IEnumerable<GameObject> FindGameObjectsWithTag(string tag)
+    {
+        return _gameObjects.Where(go => go.Tag == tag);
     }
     
     /// <summary>
@@ -175,19 +214,213 @@ public class Engine
     }
     
     /// <summary>
-    /// Adiciona física de caixa a um rigidbody
+    /// Cria uma forma de caixa
     /// </summary>
-    public void AddBoxPhysics(RigidbodyComponent rigidbody, Vector3 size)
+    public BoxShape CreateBoxShape(Vector3 size)
     {
-        _physicsWorldBepu?.AddBox(rigidbody, size);
+        return new BoxShape(size);
     }
     
     /// <summary>
-    /// Adiciona física de esfera a um rigidbody
+    /// Cria uma forma de esfera
+    /// </summary>
+    public SphereShape CreateSphereShape(float radius)
+    {
+        return new SphereShape(radius);
+    }
+    
+    /// <summary>
+    /// Adiciona física de caixa a um rigidbody (método de compatibilidade)
+    /// </summary>
+    public void AddBoxPhysics(RigidbodyComponent rigidbody, Vector3 size)
+    {
+        rigidbody.Shape = CreateBoxShape(size);
+        _physicsWorldBepu?.AddBody(rigidbody);
+    }
+    
+    /// <summary>
+    /// Adiciona física de esfera a um rigidbody (método de compatibilidade)
     /// </summary>
     public void AddSpherePhysics(RigidbodyComponent rigidbody, float radius)
     {
-        _physicsWorldBepu?.AddSphere(rigidbody, radius);
+        rigidbody.Shape = CreateSphereShape(radius);
+        _physicsWorldBepu?.AddBody(rigidbody);
+    }
+    
+    /// <summary>
+    /// Faz um raycast no mundo físico
+    /// </summary>
+    public bool Raycast(Vector3 origin, Vector3 direction, float maxDistance, out RaycastHit hit)
+    {
+        if (_physicsWorldBepu == null)
+        {
+            hit = default;
+            return false;
+        }
+        
+        return _physicsWorldBepu.Raycast(origin, direction, maxDistance, out hit);
+    }
+    
+    // Métodos de Física Avançada
+    
+    /// <summary>
+    /// Ativa o modo de física avançada com propriedades por corpo
+    /// </summary>
+    public void EnableAdvancedPhysics()
+    {
+        if (_physicsWorldBepu == null)
+            throw new InvalidOperationException("Physics not initialized");
+            
+        _physicsWorldBepu.SetPhysicsMode(PhysicsMode.Advanced);
+        LoggingService.LogInfo("Advanced physics mode enabled");
+    }
+    
+    /// <summary>
+    /// Desativa o modo de física avançada, voltando ao modo simples
+    /// </summary>
+    public void DisableAdvancedPhysics()
+    {
+        if (_physicsWorldBepu == null)
+            throw new InvalidOperationException("Physics not initialized");
+            
+        _physicsWorldBepu.SetPhysicsMode(PhysicsMode.Simple);
+        LoggingService.LogInfo("Simple physics mode enabled");
+    }
+    
+    /// <summary>
+    /// Verifica se a física avançada está ativa
+    /// </summary>
+    public bool IsAdvancedPhysicsEnabled => _physicsWorldBepu?.Mode == PhysicsMode.Advanced;
+    
+    /// <summary>
+    /// Cria um rigidbody com propriedades físicas avançadas
+    /// </summary>
+    public RigidbodyComponent CreateAdvancedRigidbody(
+        float mass = 1f,
+        bool isStatic = false,
+        float linearDamping = 0.03f,
+        float angularDamping = 0.03f,
+        float gravityScale = 1f,
+        float maxLinearVelocity = float.MaxValue,
+        float maxAngularVelocity = float.MaxValue)
+    {
+        if (_physicsWorldBepu == null)
+            throw new InvalidOperationException("Physics not initialized");
+            
+        var rigidbody = new RigidbodyComponent(_physicsWorldBepu, mass, isStatic);
+        
+        // Configurar propriedades avançadas
+        rigidbody.BodyProperties = new BodyProperties(
+            linearDamping,
+            angularDamping,
+            maxLinearVelocity,
+            maxAngularVelocity,
+            gravityScale
+        );
+        
+        return rigidbody;
+    }
+    
+    /// <summary>
+    /// Cria um rigidbody com propriedades pré-definidas
+    /// </summary>
+    public RigidbodyComponent CreateRigidbodyWithPreset(
+        float mass = 1f,
+        bool isStatic = false,
+        BodyProperties preset = default)
+    {
+        if (_physicsWorldBepu == null)
+            throw new InvalidOperationException("Physics not initialized");
+            
+        var rigidbody = new RigidbodyComponent(_physicsWorldBepu, mass, isStatic);
+        
+        // Usar preset se fornecido, senão usar Default
+        rigidbody.BodyProperties = preset.Equals(default(BodyProperties)) 
+            ? BodyProperties.Default 
+            : preset;
+        
+        return rigidbody;
+    }
+    
+    /// <summary>
+    /// Define o amortecimento global padrão
+    /// </summary>
+    public void SetGlobalDamping(float linearDamping, float angularDamping)
+    {
+        if (_physicsWorldBepu == null)
+            throw new InvalidOperationException("Physics not initialized");
+            
+        _physicsWorldBepu.SetDefaultDamping(linearDamping, angularDamping);
+        LoggingService.LogInfo($"Global damping set to: Linear={linearDamping}, Angular={angularDamping}");
+    }
+    
+    /// <summary>
+    /// Define a gravidade global
+    /// </summary>
+    public void SetGravity(Vector3 gravity)
+    {
+        if (_physicsWorldBepu == null)
+            throw new InvalidOperationException("Physics not initialized");
+            
+        _physicsWorldBepu.SetDefaultGravity(gravity);
+        LoggingService.LogInfo($"Gravity set to: {gravity}");
+    }
+    
+    /// <summary>
+    /// Define a gravidade global usando um valor escalar (Y negativo)
+    /// </summary>
+    public void SetGravity(float gravity)
+    {
+        SetGravity(new Vector3(0, -Math.Abs(gravity), 0));
+    }
+    
+    /// <summary>
+    /// Aplica propriedades físicas a um rigidbody existente
+    /// </summary>
+    public void ApplyBodyProperties(RigidbodyComponent rigidbody, BodyProperties properties)
+    {
+        if (rigidbody == null)
+            throw new ArgumentNullException(nameof(rigidbody));
+            
+        rigidbody.BodyProperties = properties;
+    }
+    
+    /// <summary>
+    /// Cria um GameObject com física avançada
+    /// </summary>
+    public GameObject CreatePhysicsGameObject(
+        string name,
+        Vector3 position,
+        IPhysicsShape shape,
+        Material material,
+        float mass = 1f,
+        BodyProperties? bodyProperties = null)
+    {
+        var gameObject = new GameObject(name)
+        {
+            Position = position
+        };
+        
+        // Criar rigidbody
+        var rigidbody = bodyProperties.HasValue 
+            ? CreateRigidbodyWithPreset(mass, false, bodyProperties.Value)
+            : CreateRigidbody(mass, false);
+            
+        rigidbody.Shape = shape;
+        rigidbody.Material = material;
+        
+        // IMPORTANTE: Definir a pose ANTES de adicionar ao mundo físico
+        rigidbody.Pose = new BepuPhysics.RigidPose(position, Quaternion.Identity);
+        
+        gameObject.AddComponent(rigidbody);
+        
+        // Adicionar ao mundo físico
+        _physicsWorldBepu?.AddBody(rigidbody);
+        
+        // Adicionar à cena
+        AddGameObject(gameObject);
+        
+        return gameObject;
     }
 
     private void Render()
