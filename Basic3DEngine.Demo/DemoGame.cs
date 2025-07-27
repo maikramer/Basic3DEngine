@@ -137,7 +137,7 @@ public class DemoGame
             LoggingService.LogInfo($"Ground rigidbody created - IsStatic: {rigidbody.IsStatic}");
         }
         
-        var groundRenderer = engine.CreateCubeRenderer(new RgbaFloat(0.3f, 0.6f, 0.3f, 1f));
+        var groundRenderer = engine.CreateCubeRenderer(new RgbaFloat(0.7f, 0.7f, 0.7f, 1f)); // Cinza mais visível
         ground.AddComponent(groundRenderer);
         ground.Tag = "Static";
         
