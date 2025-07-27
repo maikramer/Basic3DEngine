@@ -1,0 +1,1375 @@
+2025-07-27 00:18:20.675 -03:00 [INF] Logging service initialized
+2025-07-27 00:18:20.731 -03:00 [INF] Starting Basic3DEngine with game: DemoGame
+2025-07-27 00:18:20.853 -03:00 [INF] OpenGL failed: Unable to create OpenGL Context: "The specified window isn't an OpenGL window". This may indicate that the system does not support the requested OpenGL profile, version, or Swapchain format.
+2025-07-27 00:18:20.863 -03:00 [INF] Vulkan failed: The type initializer for 'Vulkan.VulkanNative' threw an exception.
+2025-07-27 00:18:20.869 -03:00 [ERR] All graphics backends failed! OpenGL: Unable to create OpenGL Context: "The specified window isn't an OpenGL window". This may indicate that the system does not support the requested OpenGL profile, version, or Swapchain format., Vulkan: The type initializer for 'Vulkan.VulkanNative' threw an exception., OpenGL ES: Unable to create OpenGL Context: "The specified window isn't an OpenGL window". This may indicate that the system does not support the requested OpenGL profile, version, or Swapchain format.
+2025-07-27 00:24:42.856 -03:00 [INF] Logging service initialized
+2025-07-27 00:24:42.915 -03:00 [INF] Starting Basic3DEngine with game: DemoGame
+2025-07-27 00:24:43.058 -03:00 [INF] OpenGL failed: Unable to create OpenGL Context: "The specified window isn't an OpenGL window". This may indicate that the system does not support the requested OpenGL profile, version, or Swapchain format.
+2025-07-27 00:24:43.068 -03:00 [INF] Vulkan failed: The type initializer for 'Vulkan.VulkanNative' threw an exception.
+2025-07-27 00:24:43.078 -03:00 [ERR] All graphics backends failed! OpenGL: Unable to create OpenGL Context: "The specified window isn't an OpenGL window". This may indicate that the system does not support the requested OpenGL profile, version, or Swapchain format., Vulkan: The type initializer for 'Vulkan.VulkanNative' threw an exception., OpenGL ES: Unable to create OpenGL Context: "The specified window isn't an OpenGL window". This may indicate that the system does not support the requested OpenGL profile, version, or Swapchain format.
+2025-07-27 00:27:32.440 -03:00 [INF] Logging service initialized
+2025-07-27 00:27:32.495 -03:00 [INF] Starting Basic3DEngine with game: DemoGame
+2025-07-27 00:27:32.664 -03:00 [INF] Graphics device created: OpenGL
+2025-07-27 00:27:32.664 -03:00 [INF] Command list created
+2025-07-27 00:27:32.722 -03:00 [INF] Physics world initialized
+2025-07-27 00:27:32.722 -03:00 [INF] Simple physics mode enabled
+2025-07-27 00:27:32.728 -03:00 [INF] Gravity set to: <0. -9,81. 0>
+2025-07-27 00:27:32.756 -03:00 [INF] Creating ground at position: <0. -2. 0>, scale: <10. 1. 10>
+2025-07-27 00:27:32.756 -03:00 [INF] Ground rigidbody pose: <0. -2. 0>
+2025-07-27 00:27:32.761 -03:00 [INF] Creating sphere at position: <0. 5. 0>, scale: <1. 1. 1>
+2025-07-27 00:27:32.761 -03:00 [INF] Sphere rigidbody pose: <0. 5. 0>, radius: 0.5
+2025-07-27 00:27:32.761 -03:00 [INF] Game initialized
+2025-07-27 00:27:32.761 -03:00 [INF] Entering main game loop
+2025-07-27 00:27:32.764 -03:00 [DBG] TestSphere - Pose: <0. 5. 0>, Velocity: <0. 0. 0>
+2025-07-27 00:27:32.765 -03:00 [INF] TestSphere position: <0. 5. 0>
+2025-07-27 00:27:32.776 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:32.779 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:32.857 -03:00 [DBG] TestSphere - Pose: <0. 4,9972763. 0>, Velocity: <0. -0,16341703. 0>
+2025-07-27 00:27:32.857 -03:00 [INF] TestSphere position: <0. 4,9972763. 0>
+2025-07-27 00:27:32.858 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:32.858 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:32.859 -03:00 [DBG] TestSphere - Pose: <0. 4,959173. 0>, Velocity: <0. -0,81625617. 0>
+2025-07-27 00:27:32.859 -03:00 [INF] TestSphere position: <0. 4,959173. 0>
+2025-07-27 00:27:32.859 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:32.859 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:32.859 -03:00 [DBG] TestSphere - Pose: <0. 4,959173. 0>, Velocity: <0. -0,81625617. 0>
+2025-07-27 00:27:32.859 -03:00 [INF] TestSphere position: <0. 4,959173. 0>
+2025-07-27 00:27:32.860 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:32.860 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:32.862 -03:00 [DBG] TestSphere - Pose: <0. 4,942852. 0>, Velocity: <0. -0,9792589. 0>
+2025-07-27 00:27:32.862 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:32.862 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:32.863 -03:00 [DBG] TestSphere - Pose: <0. 4,942852. 0>, Velocity: <0. -0,9792589. 0>
+2025-07-27 00:27:32.863 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:32.863 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:32.867 -03:00 [DBG] TestSphere - Pose: <0. 4,942852. 0>, Velocity: <0. -0,9792589. 0>
+2025-07-27 00:27:32.868 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:32.868 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:32.880 -03:00 [DBG] TestSphere - Pose: <0. 4,9238157. 0>, Velocity: <0. -1,1421789. 0>
+2025-07-27 00:27:32.881 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:32.881 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:32.897 -03:00 [DBG] TestSphere - Pose: <0. 4,9020653. 0>, Velocity: <0. -1,3050162. 0>
+2025-07-27 00:27:32.897 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:32.897 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:32.914 -03:00 [DBG] TestSphere - Pose: <0. 4,8776026. 0>, Velocity: <0. -1,4677708. 0>
+2025-07-27 00:27:32.914 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:32.915 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:32.931 -03:00 [DBG] TestSphere - Pose: <0. 4,8504286. 0>, Velocity: <0. -1,630443. 0>
+2025-07-27 00:27:32.931 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:32.931 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:32.947 -03:00 [DBG] TestSphere - Pose: <0. 4,8205447. 0>, Velocity: <0. -1,7930324. 0>
+2025-07-27 00:27:32.947 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:32.947 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:32.963 -03:00 [DBG] TestSphere - Pose: <0. 4,7879524. 0>, Velocity: <0. -1,9555395. 0>
+2025-07-27 00:27:32.964 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:32.964 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:32.980 -03:00 [DBG] TestSphere - Pose: <0. 4,752653. 0>, Velocity: <0. -2,117964. 0>
+2025-07-27 00:27:32.980 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:32.980 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:32.996 -03:00 [DBG] TestSphere - Pose: <0. 4,7146482. 0>, Velocity: <0. -2,280306. 0>
+2025-07-27 00:27:32.997 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:32.997 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.014 -03:00 [DBG] TestSphere - Pose: <0. 4,6739388. 0>, Velocity: <0. -2,442566. 0>
+2025-07-27 00:27:33.014 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.014 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.031 -03:00 [DBG] TestSphere - Pose: <0. 4,6305265. 0>, Velocity: <0. -2,6047432. 0>
+2025-07-27 00:27:33.031 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.032 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.047 -03:00 [DBG] TestSphere - Pose: <0. 4,5844126. 0>, Velocity: <0. -2,7668383. 0>
+2025-07-27 00:27:33.047 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.047 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.064 -03:00 [DBG] TestSphere - Pose: <0. 4,5355983. 0>, Velocity: <0. -2,9288511. 0>
+2025-07-27 00:27:33.064 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.064 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.080 -03:00 [DBG] TestSphere - Pose: <0. 4,484085. 0>, Velocity: <0. -3,0907817. 0>
+2025-07-27 00:27:33.081 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.081 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.097 -03:00 [DBG] TestSphere - Pose: <0. 4,4298744. 0>, Velocity: <0. -3,25263. 0>
+2025-07-27 00:27:33.097 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.097 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.114 -03:00 [DBG] TestSphere - Pose: <0. 4,3729677. 0>, Velocity: <0. -3,4143963. 0>
+2025-07-27 00:27:33.114 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.114 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.130 -03:00 [DBG] TestSphere - Pose: <0. 4,3133664. 0>, Velocity: <0. -3,5760806. 0>
+2025-07-27 00:27:33.130 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.131 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.147 -03:00 [DBG] TestSphere - Pose: <0. 4,251072. 0>, Velocity: <0. -3,7376826. 0>
+2025-07-27 00:27:33.147 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.147 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.164 -03:00 [DBG] TestSphere - Pose: <0. 4,186085. 0>, Velocity: <0. -3,8992026. 0>
+2025-07-27 00:27:33.164 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.164 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.181 -03:00 [DBG] TestSphere - Pose: <0. 4,1184077. 0>, Velocity: <0. -4,060641. 0>
+2025-07-27 00:27:33.181 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.181 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.197 -03:00 [DBG] TestSphere - Pose: <0. 4,0480413. 0>, Velocity: <0. -4,221997. 0>
+2025-07-27 00:27:33.197 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.197 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.213 -03:00 [DBG] TestSphere - Pose: <0. 3,9749868. 0>, Velocity: <0. -4,3832707. 0>
+2025-07-27 00:27:33.214 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.214 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.230 -03:00 [DBG] TestSphere - Pose: <0. 3,8992457. 0>, Velocity: <0. -4,544463. 0>
+2025-07-27 00:27:33.230 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.230 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.247 -03:00 [DBG] TestSphere - Pose: <0. 3,8208196. 0>, Velocity: <0. -4,7055736. 0>
+2025-07-27 00:27:33.247 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.247 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.263 -03:00 [DBG] TestSphere - Pose: <0. 3,7397096. 0>, Velocity: <0. -4,866602. 0>
+2025-07-27 00:27:33.264 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.264 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.280 -03:00 [DBG] TestSphere - Pose: <0. 3,6559172. 0>, Velocity: <0. -5,027549. 0>
+2025-07-27 00:27:33.280 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.280 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.305 -03:00 [DBG] TestSphere - Pose: <0. 3,5694437. 0>, Velocity: <0. -5,188414. 0>
+2025-07-27 00:27:33.306 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.306 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.313 -03:00 [DBG] TestSphere - Pose: <0. 3,4802904. 0>, Velocity: <0. -5,349198. 0>
+2025-07-27 00:27:33.313 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.313 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.330 -03:00 [DBG] TestSphere - Pose: <0. 3,3884587. 0>, Velocity: <0. -5,5098996. 0>
+2025-07-27 00:27:33.330 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.330 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.347 -03:00 [DBG] TestSphere - Pose: <0. 3,29395. 0>, Velocity: <0. -5,67052. 0>
+2025-07-27 00:27:33.347 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.347 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.363 -03:00 [DBG] TestSphere - Pose: <0. 3,1967657. 0>, Velocity: <0. -5,8310585. 0>
+2025-07-27 00:27:33.363 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.363 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.380 -03:00 [DBG] TestSphere - Pose: <0. 3,0969071. 0>, Velocity: <0. -5,991516. 0>
+2025-07-27 00:27:33.380 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.380 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.397 -03:00 [DBG] TestSphere - Pose: <0. 2,9943757. 0>, Velocity: <0. -6,151892. 0>
+2025-07-27 00:27:33.397 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.397 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.413 -03:00 [DBG] TestSphere - Pose: <0. 2,8891726. 0>, Velocity: <0. -6,3121867. 0>
+2025-07-27 00:27:33.414 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.414 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.430 -03:00 [DBG] TestSphere - Pose: <0. 2,781299. 0>, Velocity: <0. -6,4723997. 0>
+2025-07-27 00:27:33.430 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.430 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.446 -03:00 [DBG] TestSphere - Pose: <0. 2,6707568. 0>, Velocity: <0. -6,6325316. 0>
+2025-07-27 00:27:33.447 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.447 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.463 -03:00 [DBG] TestSphere - Pose: <0. 2,557547. 0>, Velocity: <0. -6,792582. 0>
+2025-07-27 00:27:33.463 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.464 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.480 -03:00 [DBG] TestSphere - Pose: <0. 2,4416711. 0>, Velocity: <0. -6,9525514. 0>
+2025-07-27 00:27:33.480 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.480 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.497 -03:00 [DBG] TestSphere - Pose: <0. 2,3231304. 0>, Velocity: <0. -7,1124396. 0>
+2025-07-27 00:27:33.497 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.497 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.513 -03:00 [DBG] TestSphere - Pose: <0. 2,2019262. 0>, Velocity: <0. -7,272247. 0>
+2025-07-27 00:27:33.514 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.514 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.530 -03:00 [DBG] TestSphere - Pose: <0. 2,07806. 0>, Velocity: <0. -7,431973. 0>
+2025-07-27 00:27:33.530 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.530 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.547 -03:00 [DBG] TestSphere - Pose: <0. 1,951533. 0>, Velocity: <0. -7,591618. 0>
+2025-07-27 00:27:33.547 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.547 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.563 -03:00 [DBG] TestSphere - Pose: <0. 1,8223466. 0>, Velocity: <0. -7,751182. 0>
+2025-07-27 00:27:33.564 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.564 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.580 -03:00 [DBG] TestSphere - Pose: <0. 1,6905022. 0>, Velocity: <0. -7,910665. 0>
+2025-07-27 00:27:33.580 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.580 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.597 -03:00 [DBG] TestSphere - Pose: <0. 1,5560011. 0>, Velocity: <0. -8,070067. 0>
+2025-07-27 00:27:33.597 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.597 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.613 -03:00 [DBG] TestSphere - Pose: <0. 1,4188446. 0>, Velocity: <0. -8,229388. 0>
+2025-07-27 00:27:33.614 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.614 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.630 -03:00 [DBG] TestSphere - Pose: <0. 1,2790341. 0>, Velocity: <0. -8,388628. 0>
+2025-07-27 00:27:33.630 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.630 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.647 -03:00 [DBG] TestSphere - Pose: <0. 1,136571. 0>, Velocity: <0. -8,547788. 0>
+2025-07-27 00:27:33.647 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.647 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.663 -03:00 [DBG] TestSphere - Pose: <0. 0,9914566. 0>, Velocity: <0. -8,706866. 0>
+2025-07-27 00:27:33.663 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.663 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.680 -03:00 [DBG] TestSphere - Pose: <0. 0,84369224. 0>, Velocity: <0. -8,865864. 0>
+2025-07-27 00:27:33.680 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.680 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.697 -03:00 [DBG] TestSphere - Pose: <0. 0,6932792. 0>, Velocity: <0. -9,024781. 0>
+2025-07-27 00:27:33.697 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.697 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.713 -03:00 [DBG] TestSphere - Pose: <0. 0,5402189. 0>, Velocity: <0. -9,183618. 0>
+2025-07-27 00:27:33.713 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.713 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.730 -03:00 [DBG] TestSphere - Pose: <0. 0,38451266. 0>, Velocity: <0. -9,342374. 0>
+2025-07-27 00:27:33.730 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.730 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.747 -03:00 [DBG] TestSphere - Pose: <0. 0,22616184. 0>, Velocity: <0. -9,501049. 0>
+2025-07-27 00:27:33.747 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.747 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.766 -03:00 [INF] Frame 60 - FPS: 59,8
+2025-07-27 00:27:33.766 -03:00 [DBG] TestSphere - Pose: <0. 0,065167755. 0>, Velocity: <0. -9,659644. 0>
+2025-07-27 00:27:33.766 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.766 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.780 -03:00 [DBG] TestSphere - Pose: <0. -0,09846823. 0>, Velocity: <0. -9,818158. 0>
+2025-07-27 00:27:33.780 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.780 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.796 -03:00 [DBG] TestSphere - Pose: <0. -0,26474476. 0>, Velocity: <0. -9,976592. 0>
+2025-07-27 00:27:33.796 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.797 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.814 -03:00 [DBG] TestSphere - Pose: <0. -0,43366054. 0>, Velocity: <0. -10,134946. 0>
+2025-07-27 00:27:33.814 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.814 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.830 -03:00 [DBG] TestSphere - Pose: <0. -0,6052142. 0>, Velocity: <0. -10,293219. 0>
+2025-07-27 00:27:33.830 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.830 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.846 -03:00 [DBG] TestSphere - Pose: <0. -0,7794044. 0>, Velocity: <0. -10,451411. 0>
+2025-07-27 00:27:33.847 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.847 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.863 -03:00 [DBG] TestSphere - Pose: <0. -0,9562298. 0>, Velocity: <0. -10,609524. 0>
+2025-07-27 00:27:33.863 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.864 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.911 -03:00 [DBG] TestSphere - Pose: <0. -1,0079106. 0>, Velocity: <0. -3,1008482. 0>
+2025-07-27 00:27:33.911 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.911 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.913 -03:00 [DBG] TestSphere - Pose: <0. -1,0098091. 0>, Velocity: <0. 0,02921781. 0>
+2025-07-27 00:27:33.913 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.913 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.913 -03:00 [DBG] TestSphere - Pose: <0. -1,0098091. 0>, Velocity: <0. 0,02921781. 0>
+2025-07-27 00:27:33.913 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.913 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.930 -03:00 [DBG] TestSphere - Pose: <0. -1,0091548. 0>, Velocity: <0. 0,039260402. 0>
+2025-07-27 00:27:33.930 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.930 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.947 -03:00 [DBG] TestSphere - Pose: <0. -1,0084907. 0>, Velocity: <0. 0,039845593. 0>
+2025-07-27 00:27:33.947 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.947 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.964 -03:00 [DBG] TestSphere - Pose: <0. -1,007826. 0>, Velocity: <0. 0,03987968. 0>
+2025-07-27 00:27:33.964 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.964 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.980 -03:00 [DBG] TestSphere - Pose: <0. -1,0071613. 0>, Velocity: <0. 0,03988167. 0>
+2025-07-27 00:27:33.980 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.980 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.997 -03:00 [DBG] TestSphere - Pose: <0. -1,0064965. 0>, Velocity: <0. 0,039881796. 0>
+2025-07-27 00:27:33.997 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:33.997 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.013 -03:00 [DBG] TestSphere - Pose: <0. -1,0058318. 0>, Velocity: <0. 0,039881803. 0>
+2025-07-27 00:27:34.014 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.014 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.030 -03:00 [DBG] TestSphere - Pose: <0. -1,0051671. 0>, Velocity: <0. 0,039881796. 0>
+2025-07-27 00:27:34.031 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.031 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.047 -03:00 [DBG] TestSphere - Pose: <0. -1,0045024. 0>, Velocity: <0. 0,039881803. 0>
+2025-07-27 00:27:34.047 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.047 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.063 -03:00 [DBG] TestSphere - Pose: <0. -1,0038377. 0>, Velocity: <0. 0,039881796. 0>
+2025-07-27 00:27:34.064 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.064 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.080 -03:00 [DBG] TestSphere - Pose: <0. -1,003173. 0>, Velocity: <0. 0,039881803. 0>
+2025-07-27 00:27:34.080 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.080 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.097 -03:00 [DBG] TestSphere - Pose: <0. -1,0025083. 0>, Velocity: <0. 0,039881796. 0>
+2025-07-27 00:27:34.097 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.097 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.113 -03:00 [DBG] TestSphere - Pose: <0. -1,0018436. 0>, Velocity: <0. 0,039881803. 0>
+2025-07-27 00:27:34.113 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.114 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.130 -03:00 [DBG] TestSphere - Pose: <0. -1,0011789. 0>, Velocity: <0. 0,039881796. 0>
+2025-07-27 00:27:34.130 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.130 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.147 -03:00 [DBG] TestSphere - Pose: <0. -1,0006206. 0>, Velocity: <0. 0,0334953. 0>
+2025-07-27 00:27:34.147 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.147 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.163 -03:00 [DBG] TestSphere - Pose: <0. -1,0003898. 0>, Velocity: <0. 0,013850108. 0>
+2025-07-27 00:27:34.163 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.163 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.180 -03:00 [DBG] TestSphere - Pose: <0. -1,0003109. 0>, Velocity: <0. 0,004737705. 0>
+2025-07-27 00:27:34.180 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.180 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.197 -03:00 [DBG] TestSphere - Pose: <0. -1,0002862. 0>, Velocity: <0. 0,0014822483. 0>
+2025-07-27 00:27:34.197 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.197 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.213 -03:00 [DBG] TestSphere - Pose: <0. -1,0002788. 0>, Velocity: <0. 0,00044062734. 0>
+2025-07-27 00:27:34.213 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.213 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.230 -03:00 [DBG] TestSphere - Pose: <0. -1,0002768. 0>, Velocity: <0. 0,00012476742. 0>
+2025-07-27 00:27:34.230 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.230 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.247 -03:00 [DBG] TestSphere - Pose: <0. -1,0002762. 0>, Velocity: <0. 3,6403537E-05. 0>
+2025-07-27 00:27:34.247 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.247 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.274 -03:00 [DBG] TestSphere - Pose: <0. -1,0002761. 0>, Velocity: <0. 1,0684133E-05. 0>
+2025-07-27 00:27:34.274 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.274 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.290 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 5,066395E-06. 0>
+2025-07-27 00:27:34.290 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.291 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.307 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 6,2584877E-07. 0>
+2025-07-27 00:27:34.307 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.307 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.324 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,5762787E-07. 0>
+2025-07-27 00:27:34.324 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.324 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.340 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:34.340 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.341 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.357 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:34.357 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.357 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.374 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:34.374 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.374 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.390 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:34.390 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.390 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.407 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:34.407 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.408 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.424 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:34.424 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.424 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.442 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:34.442 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.442 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.457 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:34.458 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.458 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.489 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:34.489 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.489 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.490 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:34.490 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.490 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.507 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:34.507 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.507 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.523 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:34.523 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.523 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.540 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:34.540 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.540 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.557 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:34.557 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.557 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.574 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:34.574 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.574 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.590 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:34.590 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.590 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.607 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:34.607 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.607 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.623 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:34.624 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.624 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.640 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:34.640 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.640 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.657 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:34.657 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.657 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.673 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:34.673 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.674 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.690 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:34.690 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.690 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.707 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:34.707 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.707 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.724 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:34.724 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.724 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.740 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:34.740 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.740 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.757 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:34.757 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.757 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.773 -03:00 [INF] Frame 120 - FPS: 61,1
+2025-07-27 00:27:34.774 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:34.774 -03:00 [INF] TestSphere position: <0. -1,000276. 0>
+2025-07-27 00:27:34.774 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.774 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.790 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:34.790 -03:00 [INF] TestSphere position: <0. -1,000276. 0>
+2025-07-27 00:27:34.790 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.790 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.807 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:34.807 -03:00 [INF] TestSphere position: <0. -1,000276. 0>
+2025-07-27 00:27:34.807 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.807 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.823 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:34.823 -03:00 [INF] TestSphere position: <0. -1,000276. 0>
+2025-07-27 00:27:34.823 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.824 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.840 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:34.840 -03:00 [INF] TestSphere position: <0. -1,000276. 0>
+2025-07-27 00:27:34.840 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.840 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.857 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:34.857 -03:00 [INF] TestSphere position: <0. -1,000276. 0>
+2025-07-27 00:27:34.857 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.857 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.873 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:34.873 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.873 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.890 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:34.890 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.890 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.907 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:34.907 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.907 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.923 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:34.924 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.924 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.940 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:34.940 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.940 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.957 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:34.957 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.957 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.973 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:34.973 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.974 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.990 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:34.990 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:34.990 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.007 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:35.007 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.007 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.023 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:35.023 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.023 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.040 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:35.040 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.040 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.057 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:35.057 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.057 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.074 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:35.074 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.074 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.090 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:35.090 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.090 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.107 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:35.107 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.107 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.123 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:35.123 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.123 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.140 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:35.140 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.140 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.157 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:35.157 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.157 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.173 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:35.174 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.174 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.191 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:35.191 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.191 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.207 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:35.207 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.207 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.223 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:35.224 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.224 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.240 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:35.240 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.240 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.257 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:35.257 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.257 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.273 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:35.273 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.274 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.295 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:35.295 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.295 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.311 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:35.311 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.311 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.328 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:35.328 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.329 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.345 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:35.345 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.345 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.361 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:35.361 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.361 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.378 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:35.378 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.378 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.394 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:35.394 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.395 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.411 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:35.411 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.411 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.428 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:35.428 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.428 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.444 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:35.445 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.445 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.461 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:35.461 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.462 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.478 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:35.478 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.478 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.494 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:35.495 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.495 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.511 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:35.511 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.511 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.528 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:35.528 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.528 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.545 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:35.545 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.545 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.562 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:35.562 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.562 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.578 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:35.578 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.578 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.595 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:35.595 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.595 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.611 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:35.611 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.611 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.628 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:35.628 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.628 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.645 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:35.645 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.645 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.661 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:35.661 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.661 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.678 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:35.678 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.678 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.694 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:35.694 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.695 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.711 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:35.711 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.711 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.728 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:35.728 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.728 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.745 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:35.745 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.745 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.761 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:35.761 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.761 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.778 -03:00 [INF] Frame 180 - FPS: 59,5
+2025-07-27 00:27:35.778 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:35.778 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.778 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.794 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:35.795 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.795 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.811 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:35.811 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.811 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.828 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:35.828 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.828 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.845 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:35.845 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.845 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.861 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:35.861 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.861 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.878 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:35.878 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.878 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.895 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:35.895 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.895 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.912 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:35.912 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.912 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.928 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:35.928 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.928 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.945 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:35.945 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.945 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.962 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:35.962 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.962 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.978 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:35.978 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.978 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.995 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:35.995 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:35.995 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.011 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:36.011 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.011 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.028 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:36.028 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.028 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.045 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:36.045 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.045 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.061 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:36.062 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.062 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.078 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:36.078 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.078 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.095 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:36.095 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.095 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.111 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:36.111 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.111 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.128 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:36.128 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.128 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.145 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:36.145 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.145 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.161 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:36.161 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.161 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.178 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:36.178 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.178 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.195 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:36.195 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.195 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.211 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:36.211 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.211 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.228 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:36.228 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.228 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.244 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:36.244 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.244 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.261 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:36.261 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.261 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.278 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:36.278 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.278 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.298 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:36.298 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.298 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.314 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:36.314 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.315 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.331 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:36.331 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.331 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.348 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:36.348 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.348 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.364 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:36.364 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.365 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.381 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:36.381 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.381 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.398 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:36.398 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.398 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.414 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:36.414 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.414 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.431 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:36.431 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.431 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.448 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:36.448 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.448 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.465 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:36.465 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.465 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.482 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:36.482 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.482 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.498 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:36.498 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.498 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.514 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:36.514 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.515 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.531 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:36.531 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.531 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.549 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:36.549 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.549 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.568 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:36.568 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.568 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.582 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:36.582 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.582 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.598 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:36.599 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.599 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.614 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:36.614 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.614 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.631 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:36.631 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.631 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.648 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:36.648 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.648 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.665 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:36.665 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.665 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.681 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:36.682 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.682 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.698 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:36.698 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.699 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.714 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:36.715 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.715 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.731 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:36.731 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.731 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.748 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:36.748 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.748 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.764 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:36.765 -03:00 [INF] TestSphere position: <0. -1,000276. 0>
+2025-07-27 00:27:36.765 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.765 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.781 -03:00 [INF] Frame 240 - FPS: 60,9
+2025-07-27 00:27:36.781 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:36.781 -03:00 [INF] TestSphere position: <0. -1,000276. 0>
+2025-07-27 00:27:36.781 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.781 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.798 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:36.798 -03:00 [INF] TestSphere position: <0. -1,000276. 0>
+2025-07-27 00:27:36.798 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.798 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.815 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:36.815 -03:00 [INF] TestSphere position: <0. -1,000276. 0>
+2025-07-27 00:27:36.815 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.815 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.832 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:36.832 -03:00 [INF] TestSphere position: <0. -1,000276. 0>
+2025-07-27 00:27:36.832 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.832 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.849 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:36.849 -03:00 [INF] TestSphere position: <0. -1,000276. 0>
+2025-07-27 00:27:36.849 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.849 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.865 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:36.865 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.865 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.881 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:36.882 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.882 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.898 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:36.898 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.898 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.914 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:36.914 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.915 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.932 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:36.932 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.932 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.948 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:36.948 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.948 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.977 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:36.977 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.978 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.999 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:36.999 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:36.999 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.014 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:37.015 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.015 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.031 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:37.031 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.031 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.048 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:37.048 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.048 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.064 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:37.065 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.065 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.081 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:37.081 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.081 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.098 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:37.098 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.098 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.115 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:37.115 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.115 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.131 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:37.131 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.131 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.148 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:37.148 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.149 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.165 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:37.165 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.165 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.181 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:37.181 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.181 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.198 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:37.198 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.199 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.215 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:37.215 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.215 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.231 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:37.231 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.231 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.249 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:37.249 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.249 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.265 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:37.265 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.265 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.282 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:37.282 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.282 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.298 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:37.298 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.298 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.315 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:37.315 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.315 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.332 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:37.332 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.332 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.348 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:37.349 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.349 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.365 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:37.366 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.366 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.382 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:37.382 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.382 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.399 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:37.399 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.399 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.415 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:37.415 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.416 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.432 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:37.432 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.432 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.448 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:37.449 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.449 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.465 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:37.466 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.466 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.482 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:37.482 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.482 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.498 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:37.499 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.499 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.516 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:37.516 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.516 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.532 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:37.532 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.532 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.548 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:37.548 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.549 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.565 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:37.565 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.566 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.581 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:37.582 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.582 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.598 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:37.599 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.599 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.615 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:37.615 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.616 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.632 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:37.632 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.632 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.649 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:37.649 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.649 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.665 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:37.665 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.666 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.682 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:37.682 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.682 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.698 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:37.699 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.699 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.715 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:37.715 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.715 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.732 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:37.732 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.732 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.748 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:37.748 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.748 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.765 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:37.765 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.765 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.782 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:37.782 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.782 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.798 -03:00 [INF] Frame 300 - FPS: 59,4
+2025-07-27 00:27:37.799 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:37.799 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.799 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.815 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:37.815 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.815 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.832 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:37.832 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.832 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.848 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:37.848 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.848 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.865 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:37.865 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.865 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.882 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:37.882 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.882 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.898 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:37.898 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.898 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.915 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:37.915 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.915 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.932 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:37.932 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.932 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.948 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:37.949 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.949 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.965 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:37.965 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.965 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.982 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:37.982 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.982 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.998 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:37.998 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:37.998 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.014 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:38.015 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.015 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.032 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:38.032 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.032 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.048 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:38.048 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.048 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.065 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:38.065 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.065 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.082 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:38.082 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.082 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.098 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:38.098 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.098 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.115 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:38.115 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.115 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.132 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:38.132 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.132 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.148 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:38.149 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.149 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.165 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:38.165 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.165 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.181 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:38.182 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.182 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.198 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:38.199 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.199 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.215 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:38.215 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.215 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.231 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:38.232 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.232 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.248 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:38.249 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.249 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.265 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:38.265 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.265 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.282 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:38.282 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.282 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.298 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:38.299 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.299 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.315 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:38.315 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.315 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.333 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:38.333 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.333 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.350 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:38.350 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.350 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.366 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:38.366 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.366 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.383 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:38.383 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.383 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.400 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:38.400 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.400 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.416 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:38.416 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.416 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.433 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:38.433 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.433 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.449 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:38.450 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.450 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.466 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:38.466 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.466 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.483 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:38.483 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.483 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.499 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:38.499 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.500 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.516 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:38.516 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.516 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.533 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:38.533 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.533 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.549 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:38.549 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.549 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.566 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:38.566 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.566 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.583 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:38.583 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.583 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.600 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:38.600 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.600 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.616 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:38.616 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.617 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.633 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:38.633 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.633 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.650 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:38.650 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.650 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.666 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:38.666 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.666 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.683 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:38.683 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.683 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.699 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:38.700 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.700 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.716 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:38.716 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.716 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.733 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:38.733 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.733 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.749 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:38.750 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.750 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.766 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:38.766 -03:00 [INF] TestSphere position: <0. -1,000276. 0>
+2025-07-27 00:27:38.766 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.766 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.783 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:38.783 -03:00 [INF] TestSphere position: <0. -1,000276. 0>
+2025-07-27 00:27:38.783 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.783 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.799 -03:00 [INF] Frame 360 - FPS: 59,3
+2025-07-27 00:27:38.800 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:38.800 -03:00 [INF] TestSphere position: <0. -1,000276. 0>
+2025-07-27 00:27:38.800 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.800 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.816 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:38.816 -03:00 [INF] TestSphere position: <0. -1,000276. 0>
+2025-07-27 00:27:38.817 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.817 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.833 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:38.833 -03:00 [INF] TestSphere position: <0. -1,000276. 0>
+2025-07-27 00:27:38.833 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.833 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.850 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:38.850 -03:00 [INF] TestSphere position: <0. -1,000276. 0>
+2025-07-27 00:27:38.850 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.850 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.866 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:38.866 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.866 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.883 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:38.883 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.883 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.899 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:38.899 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.899 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.909 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:38.909 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.909 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.927 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:38.927 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.927 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.944 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:38.944 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.944 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.962 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:38.962 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.962 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.982 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:38.983 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.983 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.999 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:38.999 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:38.999 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.012 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:39.012 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.012 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.029 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:39.029 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.029 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.047 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:39.047 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.047 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.065 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:39.066 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.066 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.083 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:39.083 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.083 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.099 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:39.099 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.099 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.116 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:39.116 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.116 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.133 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:39.133 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.133 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.149 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:39.150 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.150 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.166 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:39.166 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.166 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.183 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:39.183 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.183 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.199 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:39.199 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.199 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.216 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:39.216 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.216 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.233 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:39.233 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.233 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.249 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:39.249 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.250 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.266 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:39.266 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.266 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.283 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:39.283 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.283 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.299 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:39.299 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.299 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.316 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:39.316 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.316 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.333 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:39.333 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.333 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.349 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:39.350 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.350 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.366 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:39.366 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.366 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.383 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:39.383 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.383 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.399 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:39.399 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.400 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.416 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:39.416 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.416 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.433 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:39.433 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.433 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.449 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:39.449 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.449 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.466 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:39.466 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.466 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.483 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:39.483 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.483 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.500 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:39.500 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.500 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.516 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:39.516 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.516 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.533 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:39.533 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.533 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.549 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:39.550 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.550 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.566 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:39.566 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.566 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.583 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:39.583 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.583 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.599 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:39.599 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.599 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.616 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:39.616 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.616 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.633 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:39.633 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.633 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.649 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:39.649 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.649 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.666 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:39.666 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.666 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.682 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:39.683 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.683 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.699 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:39.700 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.700 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.716 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:39.716 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.716 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.732 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:39.733 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.733 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.750 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:39.750 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.750 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.766 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:39.767 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.767 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.783 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:39.783 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.783 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.799 -03:00 [INF] Frame 420 - FPS: 60,6
+2025-07-27 00:27:39.800 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:39.800 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.800 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.816 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:39.816 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.816 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.833 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:39.833 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.833 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.849 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:39.849 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.850 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.866 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:39.866 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.866 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.883 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:39.883 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.883 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.899 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:39.899 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.899 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.916 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:39.916 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.916 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.932 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:39.933 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.933 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.949 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:39.949 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.949 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.967 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:39.967 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.967 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.983 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:39.983 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.983 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.999 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:39.999 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:39.999 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:40.016 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:40.016 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:40.016 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:40.033 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:40.033 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:40.033 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:40.049 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:40.049 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:40.049 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:40.066 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:40.066 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:40.066 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:40.083 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:40.083 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:40.083 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:40.099 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:40.099 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:40.099 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:40.116 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:40.116 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:40.116 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent
+2025-07-27 00:27:40.132 -03:00 [DBG] TestSphere - Pose: <0. -1,000276. 0>, Velocity: <0. 3,427267E-07. 0>
+2025-07-27 00:27:40.134 -03:00 [DBG] GameObject SimpleGround - Components: CubeRenderComponent, RigidbodyComponent
+2025-07-27 00:27:40.134 -03:00 [DBG] GameObject TestSphere - Components: SphereRenderComponent, RigidbodyComponent

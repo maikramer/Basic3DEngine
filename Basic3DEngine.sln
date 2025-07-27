@@ -18,6 +18,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Veldrid.StartupUtilities", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Veldrid.SDL2", "veldrid\src\Veldrid.SDL2\Veldrid.SDL2.csproj", "{5824630E-B1D8-4848-BB63-32DE06E01E46}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demos", "bepuphysics2\Demos\Demos.csproj", "{96DC787A-F16F-47B7-87D2-DBF4E702C075}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoUtilities", "bepuphysics2\DemoUtilities\DemoUtilities.csproj", "{48ADF7EB-C777-4638-A499-E59EE895C3CF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoContentLoader", "bepuphysics2\DemoContentLoader\DemoContentLoader.csproj", "{0F5E8776-8CB8-4BE7-A25A-35A196874973}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoRenderer", "bepuphysics2\DemoRenderer\DemoRenderer.csproj", "{793B24C4-BCC0-40F2-B1A6-62DAA7F9AE08}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -60,5 +68,21 @@ Global
 		{5824630E-B1D8-4848-BB63-32DE06E01E46}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5824630E-B1D8-4848-BB63-32DE06E01E46}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5824630E-B1D8-4848-BB63-32DE06E01E46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96DC787A-F16F-47B7-87D2-DBF4E702C075}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96DC787A-F16F-47B7-87D2-DBF4E702C075}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96DC787A-F16F-47B7-87D2-DBF4E702C075}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96DC787A-F16F-47B7-87D2-DBF4E702C075}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48ADF7EB-C777-4638-A499-E59EE895C3CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48ADF7EB-C777-4638-A499-E59EE895C3CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48ADF7EB-C777-4638-A499-E59EE895C3CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48ADF7EB-C777-4638-A499-E59EE895C3CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F5E8776-8CB8-4BE7-A25A-35A196874973}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F5E8776-8CB8-4BE7-A25A-35A196874973}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F5E8776-8CB8-4BE7-A25A-35A196874973}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F5E8776-8CB8-4BE7-A25A-35A196874973}.Release|Any CPU.Build.0 = Release|Any CPU
+		{793B24C4-BCC0-40F2-B1A6-62DAA7F9AE08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{793B24C4-BCC0-40F2-B1A6-62DAA7F9AE08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{793B24C4-BCC0-40F2-B1A6-62DAA7F9AE08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{793B24C4-BCC0-40F2-B1A6-62DAA7F9AE08}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

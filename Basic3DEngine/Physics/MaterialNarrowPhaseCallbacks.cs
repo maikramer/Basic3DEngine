@@ -1,3 +1,4 @@
+using System;
 using System.Numerics;
 using System.Runtime.CompilerServices;
 using BepuPhysics;
@@ -75,9 +76,17 @@ public struct MaterialNarrowPhaseCallbacks : INarrowPhaseCallbacks
         // Para velocidade máxima de recuperação, usamos o máximo
         var maxRecoveryVelocity = MathF.Max(materialA.MaximumRecoveryVelocity, materialB.MaximumRecoveryVelocity);
         
-        // Aplicar restituição à velocidade de recuperação
-        // Quanto maior a restituição, maior a velocidade permitida para "quicar"
-        pairMaterial.MaximumRecoveryVelocity = maxRecoveryVelocity * (1.0f + restitution * 2.0f);
+        // CORREÇÃO: Aplicar restituição de forma mais conservadora e estável
+        // A fórmula anterior criava velocidades extremas que causavam NaN
+        // Nova fórmula: usar restitution como multiplicador direto, limitado a valores seguros
+        var safeRestitution = Math.Clamp(restitution, 0f, 0.95f); // Limitar restitution
+        var safeMaxRecoveryVelocity = Math.Clamp(maxRecoveryVelocity, 0.1f, 10f); // Limitar velocidade base
+        
+        // Aplicar restituição de forma linear e controlada
+        pairMaterial.MaximumRecoveryVelocity = safeMaxRecoveryVelocity * (0.5f + safeRestitution * 0.5f);
+        
+        // Garantir que nunca exceda um limite absoluto seguro
+        pairMaterial.MaximumRecoveryVelocity = Math.Min(pairMaterial.MaximumRecoveryVelocity, 8f);
         
         // Calcular velocidade relativa aproximada para determinar se usar atrito estático ou dinâmico
         // Nota: Esta é uma aproximação. Para velocidade exata, precisaríamos acessar os corpos
@@ -98,34 +107,34 @@ public struct MaterialNarrowPhaseCallbacks : INarrowPhaseCallbacks
         
         pairMaterial.FrictionCoefficient = frictionCoefficient;
         
-        // Configurar SpringSettings combinando os dois materiais
-        // Usar o material mais rígido (maior frequência) como base
+        // CORREÇÃO: Usar SpringSettings mais simples e estáveis
+        // Baseado nas demos oficiais do BepuPhysics que usam SpringSettings(30, 1)
         SpringSettings springA = materialA.SpringSettings;
         SpringSettings springB = materialB.SpringSettings;
         
-        if (springA.Frequency > springB.Frequency)
+        // Verificar se as SpringSettings são válidas primeiro
+        if (!SpringSettings.Validate(springA))
         {
-            pairMaterial.SpringSettings = springA;
+            springA = new SpringSettings(30, 1); // Fallback seguro
         }
-        else if (springB.Frequency > springA.Frequency)
+        if (!SpringSettings.Validate(springB))
         {
-            pairMaterial.SpringSettings = springB;
-        }
-        else
-        {
-            // Se frequências são iguais, usar média do damping ratio
-            var avgDampingRatio = (springA.DampingRatio + springB.DampingRatio) * 0.5f;
-            pairMaterial.SpringSettings = new SpringSettings(springA.Frequency, avgDampingRatio);
+            springB = new SpringSettings(30, 1); // Fallback seguro
         }
         
-        // Aplicar contact damping combinado
-        var contactDamping = (materialA.ContactDamping + materialB.ContactDamping) * 0.5f;
-        if (contactDamping > 0)
-        {
-            // Reduzir a frequência da mola baseado no damping para simular absorção de impacto
-            pairMaterial.SpringSettings.Frequency *= (1f - contactDamping * 0.5f);
-            pairMaterial.SpringSettings.DampingRatio += contactDamping;
-        }
+        // Usar a frequency menor para evitar instabilidade
+        // (frequencies muito altas podem causar problemas numéricos)
+        float safeFrequency = Math.Min(springA.Frequency, springB.Frequency);
+        float safeDampingRatio = Math.Max(springA.DampingRatio, springB.DampingRatio);
+        
+        // Garantir valores seguros (baseado nas demos do BepuPhysics)
+        safeFrequency = Math.Clamp(safeFrequency, 5f, 50f);  // Entre 5 e 50 Hz
+        safeDampingRatio = Math.Clamp(safeDampingRatio, 0.1f, 2f);  // Entre 0.1 e 2.0
+        
+        pairMaterial.SpringSettings = new SpringSettings(safeFrequency, safeDampingRatio);
+        
+        // REMOVIDO: Lógica complexa de contact damping que estava causando instabilidade
+        // A modificação dinâmica das SpringSettings pode causar valores inválidos
         
         // Para suportar TwistFriction (rotação durante colisões), o coeficiente de atrito
         // é automaticamente usado pelo BepuPhysics para calcular o torque máximo permitido

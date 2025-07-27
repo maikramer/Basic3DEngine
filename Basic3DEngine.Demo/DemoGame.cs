@@ -1,610 +1,381 @@
 using System.Numerics;
 using Basic3DEngine.Entities;
 using Basic3DEngine.Physics;
-using Basic3DEngine.Core;
+using Basic3DEngine.Physics.Shapes;
 using Basic3DEngine.Services;
 using Veldrid;
 
 namespace Basic3DEngine.Demo;
 
-public class DemoGame : Game
+public class DemoGame
 {
-    private readonly Random _random = new();
-    private float _timeSinceLastBall;
-    private float _timeSinceLastSpawn;
-    private int _demoSection;
-    private float _sectionTimer;
-    
-    public override void Initialize(Engine engine)
+    private readonly Engine _engine;
+    private readonly List<GameObject> _demoObjects = new();
+    private float _demoTimer = 0f;
+    private int _currentDemo = 0;
+    private bool _initialized = false;
+
+    public DemoGame(Engine engine)
     {
         _engine = engine;
         
-        // Ativar física avançada para demonstrar todas as capacidades
-        engine.EnableAdvancedPhysics();
-        
-        // Configurar gravidade mais realista
-        engine.SetGravity(9.81f);
-        
-        // TESTE SIMPLES - apenas chão e uma esfera
-        CreateSimpleGround(engine);
-        CreateTestSphere(engine);
-        
-        // Comentar o resto por enquanto
-        /*
-        // Criar o cenário base
-        CreateGround(engine);
-        CreateWalls(engine);
-        
-        // Criar rampas para demonstrar atrito
-        CreateRamps(engine);
-        
-        // Iniciar com a primeira seção da demo
-        StartDemoSection(0);
-        */
+        // Aguardar a inicialização da engine antes de configurar a física
+        // A configuração será feita no Update quando a física estiver disponível
     }
     
     private void CreateGround(Engine engine)
     {
-        // Chão principal com material concreto - tamanho normal
-        var groundObject = new GameObject("Ground")
-        {
-            Position = new Vector3(0, -1, 0),
-            Scale = new Vector3(20, 1, 20), // Tamanho mais normal
-            Tag = "Ground"
-        };
-
-        var groundRenderComponent = engine.CreateCubeRenderer(new RgbaFloat(0.5f, 0.5f, 0.5f, 1f));
-        groundObject.AddComponent(groundRenderComponent);
-
-        var groundRigidbody = engine.CreateRigidbody(0, true);
-        groundRigidbody.Material = Material.Concrete;
-        groundRigidbody.Shape = engine.CreateBoxShape(groundObject.Scale);
-        groundObject.AddComponent(groundRigidbody);
-
-        engine.PhysicsWorld?.AddBody(groundRigidbody);
-        AddGameObject(groundObject);
-    }
-
-    private void CreateWalls(Engine engine)
-    {
-        // Paredes de vidro menores e mais visíveis
-        CreateWall(engine, new Vector3(0, 3, -12), new Vector3(20, 6, 1), "FrontWall");
-        CreateWall(engine, new Vector3(0, 3, 12), new Vector3(20, 6, 1), "BackWall");
-        CreateWall(engine, new Vector3(-12, 3, 0), new Vector3(1, 6, 20), "LeftWall");
-        CreateWall(engine, new Vector3(12, 3, 0), new Vector3(1, 6, 20), "RightWall");
+        var ground = engine.CreatePhysicsGameObject(
+            "Ground",
+            new Vector3(0, -1, 0),
+            new BoxShape(new Vector3(20, 1, 20)),
+            Material.Concrete,
+            0f // massa 0 para objeto estático
+        );
+        
+        var groundRenderer = engine.CreateCubeRenderer(new RgbaFloat(0.5f, 0.5f, 0.5f, 1f));
+        ground.AddComponent(groundRenderer);
+        ground.Tag = "Static";
     }
     
-    private void CreateWall(Engine engine, Vector3 position, Vector3 scale, string name)
+    private void CreateWalls(Engine engine)
     {
-        var wall = new GameObject(name)
-        {
-            Position = position,
-            Scale = scale,
-            Tag = "Wall"
-        };
+        // Parede traseira
+        var backWall = engine.CreatePhysicsGameObject(
+            "BackWall",
+            new Vector3(0, 5, -10),
+            new BoxShape(new Vector3(20, 10, 1)),
+            Material.Concrete,
+            0f
+        );
+        var backWallRenderer = engine.CreateCubeRenderer(new RgbaFloat(0.3f, 0.3f, 0.3f, 1f));
+        backWall.AddComponent(backWallRenderer);
+        backWall.Tag = "Static";
         
-        // Tornar as paredes visíveis
-        var wallRenderer = engine.CreateCubeRenderer(new RgbaFloat(0.3f, 0.3f, 0.8f, 0.5f));
-        wall.AddComponent(wallRenderer);
+        // Paredes laterais
+        var leftWall = engine.CreatePhysicsGameObject(
+            "LeftWall",
+            new Vector3(-10, 5, 0),
+            new BoxShape(new Vector3(1, 10, 20)),
+            Material.Concrete,
+            0f
+        );
+        var leftWallRenderer = engine.CreateCubeRenderer(new RgbaFloat(0.3f, 0.3f, 0.3f, 1f));
+        leftWall.AddComponent(leftWallRenderer);
+        leftWall.Tag = "Static";
         
-        var wallRigidbody = engine.CreateRigidbody(0, true);
-        wallRigidbody.Material = Material.Glass;
-        wallRigidbody.Shape = engine.CreateBoxShape(scale);
-        wall.AddComponent(wallRigidbody);
-        
-        engine.PhysicsWorld?.AddBody(wallRigidbody);
-        AddGameObject(wall);
+        var rightWall = engine.CreatePhysicsGameObject(
+            "RightWall",
+            new Vector3(10, 5, 0),
+            new BoxShape(new Vector3(1, 10, 20)),
+            Material.Concrete,
+            0f
+        );
+        var rightWallRenderer = engine.CreateCubeRenderer(new RgbaFloat(0.3f, 0.3f, 0.3f, 1f));
+        rightWall.AddComponent(rightWallRenderer);
+        rightWall.Tag = "Static";
     }
     
     private void CreateRamps(Engine engine)
     {
-        // Rampa 1: Material Ice (muito escorregadio)
-        CreateRamp(engine, new Vector3(-8, 2, -5), 15f, Material.IceSlippery, 
-            new RgbaFloat(0.8f, 0.9f, 1f, 1f), "IceRamp");
-        
-        // Rampa 2: Material WoodRough (alto atrito)
-        CreateRamp(engine, new Vector3(0, 2, -5), 15f, Material.WoodRough, 
-            new RgbaFloat(0.4f, 0.2f, 0.1f, 1f), "WoodRamp");
-        
-        // Rampa 3: Material MetalSmooth (médio atrito)
-        CreateRamp(engine, new Vector3(8, 2, -5), 15f, Material.MetalSmooth, 
-            new RgbaFloat(0.8f, 0.8f, 0.9f, 1f), "MetalRamp");
-    }
-    
-    private void CreateRamp(Engine engine, Vector3 position, float angle, Material material, RgbaFloat color, string name)
-    {
-        var ramp = new GameObject(name)
-        {
-            Position = position,
-            Scale = new Vector3(4f, 0.5f, 8f), // Rampas maiores
-            Rotation = new Vector3(0, 0, -angle * MathF.PI / 180f),
-            Tag = "Ramp"
-        };
-        
-        var rampRenderer = engine.CreateCubeRenderer(color);
-        ramp.AddComponent(rampRenderer);
-        
-        var rampRigidbody = engine.CreateRigidbody(0, true);
-        rampRigidbody.Material = material;
-        rampRigidbody.Shape = engine.CreateBoxShape(ramp.Scale);
-        rampRigidbody.Pose = new BepuPhysics.RigidPose(
-            position, 
-            Quaternion.CreateFromYawPitchRoll(0, 0, -angle * MathF.PI / 180f)
+        // Rampa de metal (baixo atrito)
+        var metalRamp = engine.CreatePhysicsGameObject(
+            "MetalRamp",
+            new Vector3(-6, 2, 5),
+            new BoxShape(new Vector3(3, 0.2f, 6)),
+            Material.Metal,
+            0f
         );
-        ramp.AddComponent(rampRigidbody);
+        metalRamp.Rotation = new Vector3(20f * MathF.PI / 180f, 0, 0); // 20 graus
+        var metalRampRenderer = engine.CreateCubeRenderer(new RgbaFloat(0.8f, 0.8f, 0.9f, 1f));
+        metalRamp.AddComponent(metalRampRenderer);
+        metalRamp.Tag = "Static";
         
-        engine.PhysicsWorld?.AddBody(rampRigidbody);
-        AddGameObject(ramp);
+        // Rampa de madeira (atrito médio)
+        var woodRamp = engine.CreatePhysicsGameObject(
+            "WoodRamp",
+            new Vector3(0, 2, 5),
+            new BoxShape(new Vector3(3, 0.2f, 6)),
+            Material.Wood,
+            0f
+        );
+        woodRamp.Rotation = new Vector3(20f * MathF.PI / 180f, 0, 0);
+        var woodRampRenderer = engine.CreateCubeRenderer(new RgbaFloat(0.6f, 0.4f, 0.2f, 1f));
+        woodRamp.AddComponent(woodRampRenderer);
+        woodRamp.Tag = "Static";
+        
+        // Rampa de borracha (alto atrito)
+        var rubberRamp = engine.CreatePhysicsGameObject(
+            "RubberRamp",
+            new Vector3(6, 2, 5),
+            new BoxShape(new Vector3(3, 0.2f, 6)),
+            Material.Rubber,
+            0f
+        );
+        rubberRamp.Rotation = new Vector3(20f * MathF.PI / 180f, 0, 0);
+        var rubberRampRenderer = engine.CreateCubeRenderer(new RgbaFloat(0.2f, 0.2f, 0.2f, 1f));
+        rubberRamp.AddComponent(rubberRampRenderer);
+        rubberRamp.Tag = "Static";
     }
     
     private void CreateSimpleGround(Engine engine)
     {
-        // Chão muito simples e grande
-        var groundObject = new GameObject("SimpleGround")
+        LoggingService.LogInfo("Creating simple ground for basic physics test");
+        
+        var ground = engine.CreatePhysicsGameObject(
+            "SimpleGround",
+            new Vector3(0, 0, 0),
+            new BoxShape(new Vector3(20, 2, 20)),
+            Material.Default,
+            0f
+        );
+        
+        // Forçar o rigidbody a ser estático manualmente
+        var rigidbody = ground.GetComponent<RigidbodyComponent>();
+        if (rigidbody != null)
         {
-            Position = new Vector3(0, -2, 0),
-            Scale = new Vector3(10, 1, 10),
-            Tag = "Ground"
-        };
-
-        var groundRenderComponent = engine.CreateCubeRenderer(new RgbaFloat(0.8f, 0.8f, 0.8f, 1f));
-        groundObject.AddComponent(groundRenderComponent);
-
-        var groundRigidbody = engine.CreateRigidbody(0, true);
-        groundRigidbody.Material = Material.Concrete;
-        groundRigidbody.Shape = engine.CreateBoxShape(groundObject.Scale);
+            LoggingService.LogInfo($"Ground rigidbody created - IsStatic: {rigidbody.IsStatic}");
+        }
         
-        // IMPORTANTE: Definir a pose explicitamente
-        groundRigidbody.Pose = new BepuPhysics.RigidPose(groundObject.Position, Quaternion.Identity);
+        var groundRenderer = engine.CreateCubeRenderer(new RgbaFloat(0.3f, 0.6f, 0.3f, 1f));
+        ground.AddComponent(groundRenderer);
+        ground.Tag = "Static";
         
-        groundObject.AddComponent(groundRigidbody);
-
-        engine.PhysicsWorld?.AddBody(groundRigidbody);
-        AddGameObject(groundObject);
+        LoggingService.LogInfo("Simple ground created successfully");
     }
     
     private void CreateTestSphere(Engine engine)
     {
-        // Esfera de teste simples - VERSÃO CORRIGIDA
-        var sphereObject = new GameObject("TestSphere")
-        {
-            Position = new Vector3(0, 5, 0),
-            Tag = "TestObject"
-        };
-
-        var sphereRenderer = engine.CreateSphereRenderer(new RgbaFloat(1f, 0f, 0f, 1f));
-        sphereObject.AddComponent(sphereRenderer);
-
-        var sphereRigidbody = engine.CreateRigidbody(1f, false); // Massa explícita de 1kg
-        sphereRigidbody.Material = Material.Metal;
-        sphereRigidbody.Shape = engine.CreateSphereShape(0.5f);
+        LoggingService.LogInfo("Creating test sphere for physics test");
         
-        // IMPORTANTE: Definir pose normalizada explicitamente
-        sphereRigidbody.Pose = new BepuPhysics.RigidPose(
-            new Vector3(0, 5, 0), 
-            Quaternion.Identity
+        var testSphere = engine.CreatePhysicsGameObject(
+            "TestSphere",
+            new Vector3(0, 10, 0),
+            new SphereShape(1f),
+            Material.Default,
+            2f
         );
         
-        sphereObject.AddComponent(sphereRigidbody);
-
-        engine.PhysicsWorld?.AddBody(sphereRigidbody);
-        AddGameObject(sphereObject);
+        var sphereRenderer = engine.CreateSphereRenderer(new RgbaFloat(1f, 0f, 0f, 1f));
+        testSphere.AddComponent(sphereRenderer);
+        testSphere.Tag = "DemoObject";
+        
+        LoggingService.LogInfo("Test sphere created successfully");
+    }
+    
+    private void CreateDampingDemo(Engine engine)
+    {
+        CleanupDemoObjects();
+        
+        float y = 15f; // Altura maior para demonstrar o efeito
+        
+        // Três esferas com diferentes comportamentos (simulados com física básica)
+        
+        // Esfera 1: Básica
+        var sphere1 = engine.CreatePhysicsGameObject(
+            "Sphere_Basic1",
+            new Vector3(-4, y, 2),
+            new SphereShape(1f),
+            Material.Metal,
+            2f
+        );
+        var renderer1 = engine.CreateSphereRenderer(new RgbaFloat(1f, 0f, 0f, 1f));
+        sphere1.AddComponent(renderer1);
+        sphere1.Tag = "DemoObject";
+        
+        // Esfera 2: Básica
+        var sphere2 = engine.CreatePhysicsGameObject(
+            "Sphere_Basic2",
+            new Vector3(0, y, 2),
+            new SphereShape(1f),
+            Material.Metal,
+            2f
+        );
+        var renderer2 = engine.CreateSphereRenderer(new RgbaFloat(0f, 1f, 0f, 1f));
+        sphere2.AddComponent(renderer2);
+        sphere2.Tag = "DemoObject";
+        
+        // Esfera 3: Básica
+        var sphere3 = engine.CreatePhysicsGameObject(
+            "Sphere_Basic3",
+            new Vector3(4, y, 2),
+            new SphereShape(1f),
+            Material.Metal,
+            2f
+        );
+        var renderer3 = engine.CreateSphereRenderer(new RgbaFloat(0f, 0f, 1f, 1f));
+        sphere3.AddComponent(renderer3);
+        sphere3.Tag = "DemoObject";
+        
+        // Aplicar velocidade inicial para demonstrar o movimento
+        var rigidbody1 = sphere1.GetComponent<RigidbodyComponent>();
+        var rigidbody2 = sphere2.GetComponent<RigidbodyComponent>();
+        var rigidbody3 = sphere3.GetComponent<RigidbodyComponent>();
+        
+        rigidbody1?.SetVelocity(new Vector3(0, 0, 0), Vector3.Zero);
+        rigidbody2?.SetVelocity(new Vector3(0, 0, 0), Vector3.Zero);
+        rigidbody3?.SetVelocity(new Vector3(0, 0, 0), Vector3.Zero);
+        
+        _demoObjects.AddRange(new[] { sphere1, sphere2, sphere3 });
+        
+        LoggingService.LogInfo("Basic physics demo: Three spheres with basic physics behavior");
+    }
+    
+    public void Update(float deltaTime)
+    {
+        // Inicializar na primeira execução quando a física estiver disponível
+        if (!_initialized && _engine.PhysicsWorld != null)
+        {
+            _initialized = true;
+            
+            // Configurar gravidade mais realista
+            _engine.SetGravity(9.81f);
+            
+            // TESTE SIMPLES - apenas chão e uma esfera
+            CreateSimpleGround(_engine);
+            CreateTestSphere(_engine);
+            
+            LoggingService.LogInfo("DemoGame initialized successfully");
+        }
+        
+        if (!_initialized) return; // Aguardar inicialização
+        
+        _demoTimer += deltaTime;
+        
+        // Trocar demo a cada 15 segundos - TEMPORARIAMENTE DESABILITADO
+        /*
+        if (_demoTimer >= 15f)
+        {
+            _demoTimer = 0f;
+            _currentDemo = (_currentDemo + 1) % 3; // Ciclar entre 3 demos
+            StartDemoSection(_currentDemo);
+        }
+        */
+        
+        // Log de debugging específico para o objeto de teste
+        if (_demoTimer < 1f) // Só nos primeiros segundos
+        {
+            var testSphere = _engine.FindGameObject("TestSphere");
+            if (testSphere != null)
+            {
+                LoggingService.LogDebug($"TestSphere Position: {testSphere.Position}");
+            }
+        }
     }
     
     private void StartDemoSection(int section)
     {
-        _demoSection = section;
-        _sectionTimer = 0;
-        
-        // Limpar objetos dinâmicos existentes
-        CleanupDynamicObjects();
+        LoggingService.LogInfo($"Starting demo section {section}");
         
         switch (section)
         {
             case 0:
-                // Seção 1: Demonstração de amortecimento (damping)
-                DemoDampingSection();
+                CreateDampingDemo(_engine);
                 break;
-                
             case 1:
-                // Seção 2: Demonstração de atrito estático vs dinâmico
-                DemoFrictionSection();
+                CreateMaterialDemo(_engine);
                 break;
-                
             case 2:
-                // Seção 3: Demonstração de restituição (bouncing)
-                DemoRestitutionSection();
-                break;
-                
-            case 3:
-                // Seção 4: Demonstração de conservação de momento angular
-                DemoAngularMomentumSection();
-                break;
-                
-            case 4:
-                // Seção 5: Demonstração de propriedades especiais
-                DemoSpecialPropertiesSection();
+                CreateComplexDemo(_engine);
                 break;
         }
     }
     
-    private void DemoDampingSection()
+    private void CreateMaterialDemo(Engine engine)
     {
-        if (_engine == null) return;
+        CleanupDemoObjects();
         
-        // Criar três esferas com diferentes níveis de amortecimento
-        float y = 8f;
+        float y = 15f;
         
-        // Esfera 1: Sem amortecimento (no ar)
-        var sphere1 = _engine.CreatePhysicsGameObject(
-            "Sphere_Undamped",
-            new Vector3(-4, y, 2),
-            _engine.CreateSphereShape(1f), // Esferas maiores
+        // Cubos com diferentes materiais
+        var metalCube = engine.CreatePhysicsGameObject(
+            "MetalCube",
+            new Vector3(-3, y, 0),
+            new BoxShape(new Vector3(1, 1, 1)),
             Material.Metal,
-            2f, // Massa maior
-            BodyProperties.Undamped
+            5f
         );
-        var renderer1 = _engine.CreateSphereRenderer(new RgbaFloat(1f, 0f, 0f, 1f));
-        sphere1.AddComponent(renderer1);
-        sphere1.Tag = "DemoObject";
+        var metalRenderer = engine.CreateCubeRenderer(new RgbaFloat(0.8f, 0.8f, 0.9f, 1f));
+        metalCube.AddComponent(metalRenderer);
+        metalCube.Tag = "DemoObject";
         
-        // Esfera 2: Amortecimento padrão
-        var sphere2 = _engine.CreatePhysicsGameObject(
-            "Sphere_Default",
-            new Vector3(0, y, 2),
-            _engine.CreateSphereShape(1f),
-            Material.Metal,
-            2f,
-            BodyProperties.Default
-        );
-        var renderer2 = _engine.CreateSphereRenderer(new RgbaFloat(0f, 1f, 0f, 1f));
-        sphere2.AddComponent(renderer2);
-        sphere2.Tag = "DemoObject";
-        
-        // Esfera 3: Alto amortecimento (como se estivesse em líquido)
-        var sphere3 = _engine.CreatePhysicsGameObject(
-            "Sphere_HighDamping",
-            new Vector3(4, y, 2),
-            _engine.CreateSphereShape(1f),
-            Material.Metal,
-            2f,
-            BodyProperties.Underwater
-        );
-        var renderer3 = _engine.CreateSphereRenderer(new RgbaFloat(0f, 0f, 1f, 1f));
-        sphere3.AddComponent(renderer3);
-        sphere3.Tag = "DemoObject";
-        
-        // Aplicar velocidade inicial para demonstrar o amortecimento
-        sphere1.GetComponent<RigidbodyComponent>()?.SetVelocity(new Vector3(0, -2, 0), Vector3.Zero);
-        sphere2.GetComponent<RigidbodyComponent>()?.SetVelocity(new Vector3(0, -2, 0), Vector3.Zero);
-        sphere3.GetComponent<RigidbodyComponent>()?.SetVelocity(new Vector3(0, -2, 0), Vector3.Zero);
-    }
-    
-    private void DemoFrictionSection()
-    {
-        if (_engine == null) return;
-        
-        // Criar cubos nas rampas para demonstrar diferentes atritos
-        float startY = 4f;
-        
-        // Cubo na rampa de gelo
-        var iceCube = _engine.CreatePhysicsGameObject(
-            "Cube_OnIce",
-            new Vector3(-8, startY, -8),
-            _engine.CreateBoxShape(new Vector3(1.5f, 1.5f, 1.5f)), // Cubos maiores
+        var woodCube = engine.CreatePhysicsGameObject(
+            "WoodCube",
+            new Vector3(0, y, 0),
+            new BoxShape(new Vector3(1, 1, 1)),
             Material.Wood,
-            3f, // Massa maior
-            BodyProperties.Default
+            3f
         );
-        var iceRenderer = _engine.CreateCubeRenderer(new RgbaFloat(0.6f, 0.4f, 0.2f, 1f));
-        iceCube.AddComponent(iceRenderer);
-        iceCube.Tag = "DemoObject";
-        
-        // Cubo na rampa de madeira áspera
-        var woodCube = _engine.CreatePhysicsGameObject(
-            "Cube_OnWood",
-            new Vector3(0, startY, -8),
-            _engine.CreateBoxShape(new Vector3(1.5f, 1.5f, 1.5f)),
-            Material.Wood,
-            3f,
-            BodyProperties.Default
-        );
-        var woodRenderer = _engine.CreateCubeRenderer(new RgbaFloat(0.6f, 0.4f, 0.2f, 1f));
+        var woodRenderer = engine.CreateCubeRenderer(new RgbaFloat(0.6f, 0.4f, 0.2f, 1f));
         woodCube.AddComponent(woodRenderer);
         woodCube.Tag = "DemoObject";
         
-        // Cubo na rampa de metal liso
-        var metalCube = _engine.CreatePhysicsGameObject(
-            "Cube_OnMetal",
-            new Vector3(8, startY, -8),
-            _engine.CreateBoxShape(new Vector3(1.5f, 1.5f, 1.5f)),
-            Material.Wood,
-            3f,
-            BodyProperties.Default
-        );
-        var metalRenderer = _engine.CreateCubeRenderer(new RgbaFloat(0.6f, 0.4f, 0.2f, 1f));
-        metalCube.AddComponent(metalRenderer);
-        metalCube.Tag = "DemoObject";
-    }
-    
-    private void DemoRestitutionSection()
-    {
-        if (_engine == null) return;
-        
-        // Criar bolas com diferentes níveis de restituição
-        float y = 8f;
-        
-        // Bola 1: Vidro (baixa restituição)
-        var glassBall = _engine.CreatePhysicsGameObject(
-            "Ball_Glass",
-            new Vector3(-6, y, 5),
-            _engine.CreateSphereShape(0.4f),
-            Material.Glass,
-            0.5f
-        );
-        var glassRenderer = _engine.CreateSphereRenderer(new RgbaFloat(0.7f, 0.9f, 1f, 0.8f));
-        glassBall.AddComponent(glassRenderer);
-        glassBall.Tag = "DemoObject";
-        
-        // Bola 2: Borracha normal
-        var rubberBall = _engine.CreatePhysicsGameObject(
-            "Ball_Rubber",
-            new Vector3(-2, y, 5),
-            _engine.CreateSphereShape(0.4f),
+        var rubberCube = engine.CreatePhysicsGameObject(
+            "RubberCube",
+            new Vector3(3, y, 0),
+            new BoxShape(new Vector3(1, 1, 1)),
             Material.Rubber,
-            0.5f
+            2f
         );
-        var rubberRenderer = _engine.CreateSphereRenderer(new RgbaFloat(0.2f, 0.2f, 0.2f, 1f));
-        rubberBall.AddComponent(rubberRenderer);
-        rubberBall.Tag = "DemoObject";
+        var rubberRenderer = engine.CreateCubeRenderer(new RgbaFloat(0.2f, 0.2f, 0.2f, 1f));
+        rubberCube.AddComponent(rubberRenderer);
+        rubberCube.Tag = "DemoObject";
         
-        // Bola 3: Super borracha (alta restituição)
-        var superBall = _engine.CreatePhysicsGameObject(
-            "Ball_SuperBouncy",
-            new Vector3(2, y, 5),
-            _engine.CreateSphereShape(0.4f),
-            Material.RubberBouncy,
-            0.5f
-        );
-        var superRenderer = _engine.CreateSphereRenderer(new RgbaFloat(1f, 0f, 1f, 1f));
-        superBall.AddComponent(superRenderer);
-        superBall.Tag = "DemoObject";
+        _demoObjects.AddRange(new[] { metalCube, woodCube, rubberCube });
         
-        // Bola 4: Metal (restituição média)
-        var metalBall = _engine.CreatePhysicsGameObject(
-            "Ball_Metal",
-            new Vector3(6, y, 5),
-            _engine.CreateSphereShape(0.4f),
-            Material.Metal,
-            0.5f
-        );
-        var metalBallRenderer = _engine.CreateSphereRenderer(new RgbaFloat(0.7f, 0.7f, 0.8f, 1f));
-        metalBall.AddComponent(metalBallRenderer);
-        metalBall.Tag = "DemoObject";
+        LoggingService.LogInfo("Material demo: Different materials with different properties");
     }
     
-    private void DemoAngularMomentumSection()
+    private void CreateComplexDemo(Engine engine)
     {
-        if (_engine == null) return;
+        CleanupDemoObjects();
         
-        // Criar objetos girando para demonstrar conservação de momento angular
-        
-        // Cubo grande com baixa velocidade angular
-        var largeCube = _engine.CreatePhysicsGameObject(
-            "LargeSpinningCube",
-            new Vector3(-5, 5, 0),
-            _engine.CreateBoxShape(new Vector3(2, 2, 2)),
-            Material.Metal,
-            5f,
-            BodyProperties.Space // Sem amortecimento para ver conservação pura
-        );
-        var largeRenderer = _engine.CreateCubeRenderer(new RgbaFloat(0.8f, 0.2f, 0.2f, 1f));
-        largeCube.AddComponent(largeRenderer);
-        largeCube.Tag = "DemoObject";
-        largeCube.GetComponent<RigidbodyComponent>()?.SetVelocity(
-            Vector3.Zero, 
-            new Vector3(0, 2f, 0) // Rotação em Y
-        );
-        
-        // Cubo pequeno com alta velocidade angular
-        var smallCube = _engine.CreatePhysicsGameObject(
-            "SmallSpinningCube",
-            new Vector3(5, 5, 0),
-            _engine.CreateBoxShape(Vector3.One * 0.5f),
-            Material.Metal,
-            0.5f,
-            BodyProperties.Space
-        );
-        var smallRenderer = _engine.CreateCubeRenderer(new RgbaFloat(0.2f, 0.8f, 0.2f, 1f));
-        smallCube.AddComponent(smallRenderer);
-        smallCube.Tag = "DemoObject";
-        smallCube.GetComponent<RigidbodyComponent>()?.SetVelocity(
-            Vector3.Zero,
-            new Vector3(0, 8f, 0) // Rotação rápida em Y
-        );
-        
-        // Objeto complexo girando em múltiplos eixos
-        var complexObject = _engine.CreatePhysicsGameObject(
-            "ComplexSpinner",
-            new Vector3(0, 5, 0),
-            _engine.CreateBoxShape(new Vector3(1.5f, 0.5f, 0.5f)),
-            Material.Wood,
-            2f,
-            BodyProperties.Space
-        );
-        var complexRenderer = _engine.CreateCubeRenderer(new RgbaFloat(0.6f, 0.4f, 0.2f, 1f));
-        complexObject.AddComponent(complexRenderer);
-        complexObject.Tag = "DemoObject";
-        complexObject.GetComponent<RigidbodyComponent>()?.SetVelocity(
-            Vector3.Zero,
-            new Vector3(3f, 5f, 2f) // Rotação em múltiplos eixos
-        );
-    }
-    
-    private void DemoSpecialPropertiesSection()
-    {
-        if (_engine == null) return;
-        
-        // Demonstrar limites de velocidade e outras propriedades especiais
-        
-        // Objeto com limite de velocidade (como se tivesse resistência do ar)
-        var limitedObject = _engine.CreatePhysicsGameObject(
-            "VelocityLimited",
-            new Vector3(-5, 15, 0),
-            _engine.CreateSphereShape(0.6f),
-            Material.Rubber,
-            1f,
-            new BodyProperties(
-                linearDamping: 0.1f,
-                angularDamping: 0.1f,
-                maxLinearVelocity: 5f,  // Velocidade máxima limitada
-                maxAngularVelocity: 10f,
-                gravityScale: 1f
-            )
-        );
-        var limitedRenderer = _engine.CreateSphereRenderer(new RgbaFloat(1f, 1f, 0f, 1f));
-        limitedObject.AddComponent(limitedRenderer);
-        limitedObject.Tag = "DemoObject";
-        
-        // Objeto com gravidade reduzida (como um balão)
-        var balloonObject = _engine.CreatePhysicsGameObject(
-            "Balloon",
-            new Vector3(0, 5, 0),
-            _engine.CreateSphereShape(0.8f),
-            Material.Rubber,
-            0.1f,
-            new BodyProperties(
-                linearDamping: 0.05f,
-                angularDamping: 0.05f,
-                maxLinearVelocity: float.MaxValue,
-                maxAngularVelocity: float.MaxValue,
-                gravityScale: 0.1f  // Gravidade muito reduzida
-            )
-        );
-        var balloonRenderer = _engine.CreateSphereRenderer(new RgbaFloat(1f, 0.5f, 0.5f, 0.8f));
-        balloonObject.AddComponent(balloonRenderer);
-        balloonObject.Tag = "DemoObject";
-        
-        // Objeto pesado com gravidade aumentada
-        var heavyObject = _engine.CreatePhysicsGameObject(
-            "HeavyObject",
-            new Vector3(5, 5, 0),
-            _engine.CreateBoxShape(Vector3.One * 1.2f),
-            Material.Metal,
-            10f,
-            new BodyProperties(
-                linearDamping: 0.01f,
-                angularDamping: 0.01f,
-                maxLinearVelocity: float.MaxValue,
-                maxAngularVelocity: float.MaxValue,
-                gravityScale: 2f  // Gravidade dobrada
-            )
-        );
-        var heavyRenderer = _engine.CreateCubeRenderer(new RgbaFloat(0.3f, 0.3f, 0.3f, 1f));
-        heavyObject.AddComponent(heavyRenderer);
-        heavyObject.Tag = "DemoObject";
-    }
-    
-    private void CleanupDynamicObjects()
-    {
-        if (_engine == null) return;
-        
-        var objectsToRemove = _engine.FindGameObjectsWithTag("DemoObject").ToList();
-        foreach (var obj in objectsToRemove)
+        // Torre de caixas
+        for (int i = 0; i < 5; i++)
         {
-            RemoveGameObject(obj);
+            var box = engine.CreatePhysicsGameObject(
+                $"TowerBox_{i}",
+                new Vector3(0, 2 + i * 2.1f, 0),
+                new BoxShape(new Vector3(1, 1, 1)),
+                Material.Wood,
+                1f
+            );
+            var boxRenderer = engine.CreateCubeRenderer(new RgbaFloat(0.6f, 0.4f, 0.2f, 1f));
+            box.AddComponent(boxRenderer);
+            box.Tag = "DemoObject";
+            _demoObjects.Add(box);
         }
-    }
-
-    public override void Update(float deltaTime)
-    {
-        if (_engine == null) return;
         
-        // TESTE SIMPLES - apenas verificar se a esfera saiu da área
-        var testSphere = _engine.FindGameObject("TestSphere");
-        if (testSphere != null)
+        // Projétil para derrubar a torre
+        Task.Delay(2000).ContinueWith(_ =>
         {
-            // Log da posição a cada segundo para monitorar
-            if ((int)(Time.TotalTime) % 2 == 0 && Time.TotalTime - (int)Time.TotalTime < 0.1f)
-            {
-                LoggingService.LogInfo($"TestSphere position: {testSphere.Position}");
-            }
+            var projectile = engine.CreatePhysicsGameObject(
+                "Projectile",
+                new Vector3(-10, 8, 0),
+                new SphereShape(0.5f),
+                Material.Metal,
+                3f
+            );
+            var projectileRenderer = engine.CreateSphereRenderer(new RgbaFloat(1f, 0f, 0f, 1f));
+            projectile.AddComponent(projectileRenderer);
+            projectile.Tag = "DemoObject";
             
-            if (testSphere.Position.Y < -10)
-            {
-                LoggingService.LogWarning("TestSphere fell through! Collision not working. Resetting position.");
-                // Se a esfera caiu muito, reposicionar ela no topo
-                var rigidbody = testSphere.GetComponent<RigidbodyComponent>();
-                if (rigidbody != null)
-                {
-                    rigidbody.Pose = new BepuPhysics.RigidPose(new Vector3(0, 5, 0), Quaternion.Identity);
-                    rigidbody.SetVelocity(Vector3.Zero, Vector3.Zero);
-                }
-            }
-        }
-        
-        /* LÓGICA COMPLEXA COMENTADA POR ENQUANTO
-        _sectionTimer += deltaTime;
-        _timeSinceLastSpawn += deltaTime;
-        
-        // Mudar de seção a cada 20 segundos
-        if (_sectionTimer > 20f)
-        {
-            _demoSection = (_demoSection + 1) % 5; // 5 seções no total
-            StartDemoSection(_demoSection);
-        }
-        
-        // Adicionar objetos extras dependendo da seção
-        if (_timeSinceLastSpawn > 3f)
-        {
-            switch (_demoSection)
-            {
-                case 2: // Seção de restituição - adicionar mais bolas
-                    if (_random.NextDouble() > 0.5)
-                    {
-                        var pos = new Vector3(
-                            (float)(_random.NextDouble() * 10 - 5),
-                            10,
-                            5
-                        );
-                        var ball = _engine.CreatePhysicsGameObject(
-                            $"ExtraBall_{DateTime.Now.Ticks}",
-                            pos,
-                            _engine.CreateSphereShape(0.3f),
-                            Material.RubberBouncy,
-                            0.3f
-                        );
-                        var renderer = _engine.CreateSphereRenderer(
-                            new RgbaFloat(
-                                (float)_random.NextDouble(),
-                                (float)_random.NextDouble(),
-                                (float)_random.NextDouble(),
-                                1f
-                            )
-                        );
-                        ball.AddComponent(renderer);
-                        ball.Tag = "DemoObject";
-                    }
-                    break;
-            }
-            _timeSinceLastSpawn = 0;
-        }
-        
-        // Remover objetos que caíram muito baixo
-        var objectsToRemove = _engine.FindGameObjectsWithTag("DemoObject")
-            .Where(obj => obj.Position.Y < -20)
-            .ToList();
+            // Aplicar impulso
+            var rigidbody = projectile.GetComponent<RigidbodyComponent>();
+            rigidbody?.AddImpulse(new Vector3(15f, 0f, 0f));
             
-        foreach (var obj in objectsToRemove)
-        {
-            RemoveGameObject(obj);
-        }
-        */
+            _demoObjects.Add(projectile);
+        });
+        
+        LoggingService.LogInfo("Complex demo: Tower destruction with projectile");
     }
     
-    public override void Shutdown()
+    private void CleanupDemoObjects()
     {
-        // Desativar física avançada ao sair
-        _engine?.DisableAdvancedPhysics();
+        foreach (var obj in _demoObjects)
+        {
+            _engine.RemoveGameObject(obj);
+        }
+        _demoObjects.Clear();
     }
 } 

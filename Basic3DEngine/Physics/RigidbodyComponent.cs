@@ -2,6 +2,7 @@ using System.Numerics;
 using Basic3DEngine.Core;
 using Basic3DEngine.Core.Interfaces;
 using Basic3DEngine.Entities;
+using Basic3DEngine.Services;
 using BepuPhysics;
 using BepuPhysics.Collidables;
 using BepuUtilities;
@@ -21,8 +22,6 @@ public sealed class RigidbodyComponent : Component
     private RigidPose _pose;
     private Vector3 _linearVelocity;
     private Vector3 _angularVelocity;
-    private BodyProperties? _bodyProperties;
-    private Vector3 _centerOfMass = Vector3.Zero;
     
     /// <summary>
     /// Referência ao corpo no mundo físico
@@ -91,31 +90,6 @@ public sealed class RigidbodyComponent : Component
     }
     
     /// <summary>
-    /// Propriedades físicas avançadas do corpo
-    /// </summary>
-    public BodyProperties? BodyProperties
-    {
-        get => _bodyProperties;
-        set
-        {
-            _bodyProperties = value;
-            if (_physicsWorld != null && BodyHandle.Value >= 0)
-            {
-                OnBodyPropertiesChanged();
-            }
-        }
-    }
-    
-    /// <summary>
-    /// Centro de massa do corpo
-    /// </summary>
-    public Vector3 CenterOfMass 
-    { 
-        get => _centerOfMass;
-        set => _centerOfMass = value;
-    }
-    
-    /// <summary>
     /// Indica se o corpo é estático
     /// </summary>
     public bool IsStatic => _isStatic;
@@ -145,39 +119,17 @@ public sealed class RigidbodyComponent : Component
             _linearVelocity = bodyRef.Velocity.Linear;
             _angularVelocity = bodyRef.Velocity.Angular;
             
-            // Aplicar limites de velocidade se configurados
-            if (_bodyProperties.HasValue)
+            // Log para debug - apenas para o objeto de teste
+            if (GameObject.Name == "TestSphere")
             {
-                bool velocityChanged = false;
-                
-                // Limitar velocidade linear
-                if (_bodyProperties.Value.MaxLinearVelocity < float.MaxValue)
-                {
-                    var speed = _linearVelocity.Length();
-                    if (speed > _bodyProperties.Value.MaxLinearVelocity)
-                    {
-                        _linearVelocity = _linearVelocity * (_bodyProperties.Value.MaxLinearVelocity / speed);
-                        bodyRef.Velocity.Linear = _linearVelocity;
-                        velocityChanged = true;
-                    }
-                }
-                
-                // Limitar velocidade angular
-                if (_bodyProperties.Value.MaxAngularVelocity < float.MaxValue)
-                {
-                    var angularSpeed = _angularVelocity.Length();
-                    if (angularSpeed > _bodyProperties.Value.MaxAngularVelocity)
-                    {
-                        _angularVelocity = _angularVelocity * (_bodyProperties.Value.MaxAngularVelocity / angularSpeed);
-                        bodyRef.Velocity.Angular = _angularVelocity;
-                        velocityChanged = true;
-                    }
-                }
-                
-                if (velocityChanged)
-                {
-                    bodyRef.Velocity = new BodyVelocity { Linear = _linearVelocity, Angular = _angularVelocity };
-                }
+                LoggingService.LogDebug($"TestSphere - Pose: {_pose.Position}, Velocity: {_linearVelocity}");
+            }
+            
+            // Verificar se as posições são válidas
+            if (float.IsNaN(_pose.Position.X) || float.IsNaN(_pose.Position.Y) || float.IsNaN(_pose.Position.Z))
+            {
+                LoggingService.LogError("TestSphere has invalid position (NaN)");
+                return;
             }
             
             // Atualizar posição e rotação do GameObject
@@ -237,58 +189,6 @@ public sealed class RigidbodyComponent : Component
     public void Stop()
     {
         SetVelocity(Vector3.Zero, Vector3.Zero);
-    }
-    
-    /// <summary>
-    /// Define o amortecimento linear
-    /// </summary>
-    public void SetLinearDamping(float damping)
-    {
-        var props = _bodyProperties ?? Physics.BodyProperties.Default;
-        _bodyProperties = props with { LinearDamping = Math.Clamp(damping, 0f, 1f) };
-        OnBodyPropertiesChanged();
-    }
-    
-    /// <summary>
-    /// Define o amortecimento angular
-    /// </summary>
-    public void SetAngularDamping(float damping)
-    {
-        var props = _bodyProperties ?? Physics.BodyProperties.Default;
-        _bodyProperties = props with { AngularDamping = Math.Clamp(damping, 0f, 1f) };
-        OnBodyPropertiesChanged();
-    }
-    
-    /// <summary>
-    /// Define a escala de gravidade
-    /// </summary>
-    public void SetGravityScale(float scale)
-    {
-        var props = _bodyProperties ?? Physics.BodyProperties.Default;
-        _bodyProperties = props with { GravityScale = Math.Max(0f, scale) };
-        OnBodyPropertiesChanged();
-    }
-    
-    /// <summary>
-    /// Define os limites de velocidade
-    /// </summary>
-    public void SetVelocityLimits(float maxLinearVelocity, float maxAngularVelocity)
-    {
-        var props = _bodyProperties ?? Physics.BodyProperties.Default;
-        _bodyProperties = props with 
-        { 
-            MaxLinearVelocity = Math.Max(0f, maxLinearVelocity),
-            MaxAngularVelocity = Math.Max(0f, maxAngularVelocity)
-        };
-        OnBodyPropertiesChanged();
-    }
-    
-    private void OnBodyPropertiesChanged()
-    {
-        if (_physicsWorld != null && BodyHandle.Value >= 0 && _bodyProperties.HasValue)
-        {
-            _physicsWorld.RegisterBodyProperties(BodyHandle, _bodyProperties.Value);
-        }
     }
     
     private static Vector3 QuaternionToEuler(Quaternion q)

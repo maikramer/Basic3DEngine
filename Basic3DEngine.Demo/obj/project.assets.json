@@ -1046,6 +1046,41 @@
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
       },
+      "Veldrid.SPIRV/1.0.15": {
+        "type": "package",
+        "dependencies": {
+          "System.Runtime.CompilerServices.Unsafe": "6.0.0",
+          "Veldrid": "4.8.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Veldrid.SPIRV.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Veldrid.SPIRV.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/linux-x64/native/libveldrid-spirv.so": {
+            "assetType": "native",
+            "rid": "linux-x64"
+          },
+          "runtimes/osx/native/libveldrid-spirv.dylib": {
+            "assetType": "native",
+            "rid": "osx"
+          },
+          "runtimes/win-x64/native/libveldrid-spirv.dll": {
+            "assetType": "native",
+            "rid": "win-x64"
+          },
+          "runtimes/win-x86/native/libveldrid-spirv.dll": {
+            "assetType": "native",
+            "rid": "win-x86"
+          }
+        }
+      },
       "Vk/1.0.25": {
         "type": "package",
         "compile": {
@@ -1181,6 +1216,7 @@
           "Veldrid": "1.0.0",
           "Veldrid.OpenGLBindings": "1.0.0",
           "Veldrid.SDL2": "1.0.0",
+          "Veldrid.SPIRV": "1.0.15",
           "Veldrid.StartupUtilities": "1.0.0"
         },
         "compile": {
@@ -4129,6 +4165,31 @@
         "ref/xamarinwatchos10/_._",
         "system.xml.xdocument.4.0.11.nupkg.sha512",
         "system.xml.xdocument.nuspec"
+      ]
+    },
+    "Veldrid.SPIRV/1.0.15": {
+      "sha512": "hzupRH5uGibW8P/URwTFX1lDEmi1LWZKWf0euQyfS0FKVDI2gGDTB5ucq6JViG8Bk6U7Q2s1EsTXIDfXpu0oVQ==",
+      "type": "package",
+      "path": "veldrid.spirv/1.0.15",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/MonoAndroid10/Veldrid.SPIRV.targets",
+        "build/MonoAndroid10/native/arm64-v8a/libveldrid-spirv.so",
+        "build/MonoAndroid10/native/armeabi-v7a/libveldrid-spirv.so",
+        "build/MonoAndroid10/native/x86_64/libveldrid-spirv.so",
+        "build/Xamarin.iOS10/Veldrid.SPIRV.dll.config",
+        "build/Xamarin.iOS10/Veldrid.SPIRV.targets",
+        "build/Xamarin.iOS10/native/libveldrid-spirv-combined.a",
+        "build/net40/Veldrid.SPIRV.targets",
+        "lib/netstandard2.0/Veldrid.SPIRV.dll",
+        "lib/netstandard2.0/Veldrid.SPIRV.xml",
+        "runtimes/linux-x64/native/libveldrid-spirv.so",
+        "runtimes/osx/native/libveldrid-spirv.dylib",
+        "runtimes/win-x64/native/libveldrid-spirv.dll",
+        "runtimes/win-x86/native/libveldrid-spirv.dll",
+        "veldrid.spirv.1.0.15.nupkg.sha512",
+        "veldrid.spirv.nuspec"
       ]
     },
     "Vk/1.0.25": {

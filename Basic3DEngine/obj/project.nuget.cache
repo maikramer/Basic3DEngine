@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "3yyibVzaBE0=",
+  "dgSpecHash": "qx/zErvzGqU=",
   "success": true,
   "projectFilePath": "/home/maikeu/MeusProgramas/Basic3DEngine/Basic3DEngine/Basic3DEngine.csproj",
   "expectedPackageFiles": [
@@ -64,6 +64,7 @@
     "/home/maikeu/.nuget/packages/system.threading.thread/4.0.0/system.threading.thread.4.0.0.nupkg.sha512",
     "/home/maikeu/.nuget/packages/system.xml.readerwriter/4.0.11/system.xml.readerwriter.4.0.11.nupkg.sha512",
     "/home/maikeu/.nuget/packages/system.xml.xdocument/4.0.11/system.xml.xdocument.4.0.11.nupkg.sha512",
+    "/home/maikeu/.nuget/packages/veldrid.spirv/1.0.15/veldrid.spirv.1.0.15.nupkg.sha512",
     "/home/maikeu/.nuget/packages/vk/1.0.25/vk.1.0.25.nupkg.sha512",
     "/home/maikeu/.nuget/packages/vortice.d3dcompiler/2.4.2/vortice.d3dcompiler.2.4.2.nupkg.sha512",
     "/home/maikeu/.nuget/packages/vortice.direct3d11/2.4.2/vortice.direct3d11.2.4.2.nupkg.sha512",

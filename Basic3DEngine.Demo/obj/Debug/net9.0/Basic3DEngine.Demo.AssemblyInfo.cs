@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Basic3DEngine.Demo")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+329890c3746fb9fe4d9e45bbc5fb00559dc78dd3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2d80898d0f69793577613d1d8f298bfbf2b9058d")]
 [assembly: System.Reflection.AssemblyProductAttribute("Basic3DEngine.Demo")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Basic3DEngine.Demo")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

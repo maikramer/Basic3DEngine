@@ -106,7 +106,7 @@ public class Engine
             while (_fixedTimeAccumulator >= Time.FixedDeltaTime)
             {
                 // Atualizar física
-                _physicsWorldBepu?.Update(Time.FixedDeltaTime);
+                _physicsWorldBepu?.Step(Time.FixedDeltaTime);
                 _fixedTimeAccumulator -= Time.FixedDeltaTime;
             }
 
@@ -146,6 +146,95 @@ public class Engine
         _physicsWorldBepu?.Dispose();
         
         LoggingService.LogInfo("Resources disposed - Engine shutdown complete");
+    }
+
+    /// <summary>
+    /// Executa a engine sem um jogo específico (para inicialização manual)
+    /// </summary>
+    public void Run()
+    {
+        // Inicializar o serviço de logging
+        var logPath = Path.Combine(Directory.GetCurrentDirectory(), "logs", "engine.log");
+        LoggingService.Initialize(logPath);
+        LoggingService.LogInfo("Starting Basic3DEngine");
+
+        // Configuração da janela
+        var windowCi = new WindowCreateInfo
+        {
+            X = 100,
+            Y = 100,
+            WindowWidth = 1280,
+            WindowHeight = 720,
+            WindowTitle = "Basic 3D Engine"
+        };
+
+        var options = new GraphicsDeviceOptions(
+            false,
+            syncToVerticalBlank: true,
+            swapchainDepthFormat: PixelFormat.D24_UNorm_S8_UInt
+        );
+        
+        VeldridStartup.CreateWindowAndGraphicsDevice(windowCi, options, out _window, out _gd);
+        _factory = _gd.ResourceFactory;
+        _cl = _factory.CreateCommandList();
+
+        LoggingService.LogInfo($"Graphics device created: {_gd.BackendType}");
+        LoggingService.LogInfo("Command list created");
+
+        // Inicializar física
+        _physicsWorldBepu = new PhysicsWorldBepu();
+        LoggingService.LogInfo("Physics world initialized");
+
+        // Loop principal
+        LoggingService.LogInfo("Entering main game loop");
+        var previousTime = DateTime.Now.TimeOfDay.TotalSeconds;
+        var frameCount = 0;
+        
+        while (_window.Exists)
+        {
+            frameCount++;
+            var currentTime = DateTime.Now.TimeOfDay.TotalSeconds;
+            var deltaTime = (float)(currentTime - previousTime);
+            previousTime = currentTime;
+            
+            // Atualizar Time
+            Time.UnscaledDeltaTime = deltaTime;
+            Time.DeltaTime = deltaTime * Time.TimeScale;
+            Time.TotalTime += Time.DeltaTime;
+
+            // Física com fixed timestep
+            _fixedTimeAccumulator += Time.DeltaTime;
+            while (_fixedTimeAccumulator >= Time.FixedDeltaTime)
+            {
+                // Atualizar física
+                _physicsWorldBepu?.Step(Time.FixedDeltaTime);
+                _fixedTimeAccumulator -= Time.FixedDeltaTime;
+            }
+
+            // Atualizar GameObjects
+            foreach (var gameObject in _gameObjects) 
+                gameObject?.Update(Time.DeltaTime);
+
+            // Processar eventos da janela
+            var inputSnapshot = _window.PumpEvents();
+            
+            // Renderizar
+            Render();
+            
+            // Controlar FPS se necessário
+            if (frameCount % 300 == 0) // A cada 300 frames (cerca de 5s a 60 FPS)
+            {
+                LoggingService.LogDebug($"Frame {frameCount}, DeltaTime: {deltaTime:F4}s");
+                LoggingService.LogDebug($"Total GameObjects: {_gameObjects.Count}");
+            }
+        }
+
+        // Limpeza
+        _physicsWorldBepu?.Dispose();
+        _cl?.Dispose();
+        _gd?.Dispose();
+        _window?.Close();
+        LoggingService.LogInfo("Engine shutdown complete");
     }
 
     /// <summary>
@@ -205,7 +294,9 @@ public class Engine
     /// <summary>
     /// Cria um componente de física para rigidbody
     /// </summary>
-    public RigidbodyComponent CreateRigidbody(float mass = 1f, bool isStatic = false)
+    public RigidbodyComponent CreateRigidbody(
+        float mass = 1f,
+        bool isStatic = false)
     {
         if (_physicsWorldBepu == null)
             throw new InvalidOperationException("Physics not initialized");
@@ -250,7 +341,7 @@ public class Engine
     /// <summary>
     /// Faz um raycast no mundo físico
     /// </summary>
-    public bool Raycast(Vector3 origin, Vector3 direction, float maxDistance, out RaycastHit hit)
+    public bool Raycast(Vector3 origin, Vector3 direction, float maxDistance, out PhysicsWorldBepu.RaycastResult hit)
     {
         if (_physicsWorldBepu == null)
         {
@@ -260,87 +351,7 @@ public class Engine
         
         return _physicsWorldBepu.Raycast(origin, direction, maxDistance, out hit);
     }
-    
-    // Métodos de Física Avançada
-    
-    /// <summary>
-    /// Ativa o modo de física avançada com propriedades por corpo
-    /// </summary>
-    public void EnableAdvancedPhysics()
-    {
-        if (_physicsWorldBepu == null)
-            throw new InvalidOperationException("Physics not initialized");
-            
-        _physicsWorldBepu.SetPhysicsMode(PhysicsMode.Advanced);
-        LoggingService.LogInfo("Advanced physics mode enabled");
-    }
-    
-    /// <summary>
-    /// Desativa o modo de física avançada, voltando ao modo simples
-    /// </summary>
-    public void DisableAdvancedPhysics()
-    {
-        if (_physicsWorldBepu == null)
-            throw new InvalidOperationException("Physics not initialized");
-            
-        _physicsWorldBepu.SetPhysicsMode(PhysicsMode.Simple);
-        LoggingService.LogInfo("Simple physics mode enabled");
-    }
-    
-    /// <summary>
-    /// Verifica se a física avançada está ativa
-    /// </summary>
-    public bool IsAdvancedPhysicsEnabled => _physicsWorldBepu?.Mode == PhysicsMode.Advanced;
-    
-    /// <summary>
-    /// Cria um rigidbody com propriedades físicas avançadas
-    /// </summary>
-    public RigidbodyComponent CreateAdvancedRigidbody(
-        float mass = 1f,
-        bool isStatic = false,
-        float linearDamping = 0.03f,
-        float angularDamping = 0.03f,
-        float gravityScale = 1f,
-        float maxLinearVelocity = float.MaxValue,
-        float maxAngularVelocity = float.MaxValue)
-    {
-        if (_physicsWorldBepu == null)
-            throw new InvalidOperationException("Physics not initialized");
-            
-        var rigidbody = new RigidbodyComponent(_physicsWorldBepu, mass, isStatic);
-        
-        // Configurar propriedades avançadas
-        rigidbody.BodyProperties = new BodyProperties(
-            linearDamping,
-            angularDamping,
-            maxLinearVelocity,
-            maxAngularVelocity,
-            gravityScale
-        );
-        
-        return rigidbody;
-    }
-    
-    /// <summary>
-    /// Cria um rigidbody com propriedades pré-definidas
-    /// </summary>
-    public RigidbodyComponent CreateRigidbodyWithPreset(
-        float mass = 1f,
-        bool isStatic = false,
-        BodyProperties preset = default)
-    {
-        if (_physicsWorldBepu == null)
-            throw new InvalidOperationException("Physics not initialized");
-            
-        var rigidbody = new RigidbodyComponent(_physicsWorldBepu, mass, isStatic);
-        
-        // Usar preset se fornecido, senão usar Default
-        rigidbody.BodyProperties = preset.Equals(default(BodyProperties)) 
-            ? BodyProperties.Default 
-            : preset;
-        
-        return rigidbody;
-    }
+
     
     /// <summary>
     /// Define o amortecimento global padrão
@@ -375,37 +386,23 @@ public class Engine
     }
     
     /// <summary>
-    /// Aplica propriedades físicas a um rigidbody existente
-    /// </summary>
-    public void ApplyBodyProperties(RigidbodyComponent rigidbody, BodyProperties properties)
-    {
-        if (rigidbody == null)
-            throw new ArgumentNullException(nameof(rigidbody));
-            
-        rigidbody.BodyProperties = properties;
-    }
-    
-    /// <summary>
-    /// Cria um GameObject com física avançada
+    /// Cria um GameObject com física básica
     /// </summary>
     public GameObject CreatePhysicsGameObject(
         string name,
         Vector3 position,
         IPhysicsShape shape,
         Material material,
-        float mass = 1f,
-        BodyProperties? bodyProperties = null)
+        float mass = 1f)
     {
         var gameObject = new GameObject(name)
         {
             Position = position
         };
         
-        // Criar rigidbody
-        var rigidbody = bodyProperties.HasValue 
-            ? CreateRigidbodyWithPreset(mass, false, bodyProperties.Value)
-            : CreateRigidbody(mass, false);
-            
+        // Criar rigidbody básico - massa 0 ou negativa = estático
+        bool isStatic = mass <= 0f;
+        var rigidbody = CreateRigidbody(Math.Max(mass, 1f), isStatic);
         rigidbody.Shape = shape;
         rigidbody.Material = material;
         

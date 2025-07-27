@@ -146,6 +146,10 @@
             "System.Numerics.Vectors": {
               "target": "Package",
               "version": "[4.6.1, )"
+            },
+            "Veldrid.SPIRV": {
+              "target": "Package",
+              "version": "[1.0.15, )"
             }
           },
           "imports": [
