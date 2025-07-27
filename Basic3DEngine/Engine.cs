@@ -14,9 +14,9 @@ namespace Basic3DEngine;
 public class Engine
 {
     // Camera
-    private Vector3 _cameraPosition = new(0, 3, 7);
+    private Vector3 _cameraPosition = new(0, 8, 15); // Mais alta e mais longe para ver o chão
     private float _cameraRotation;
-    private readonly Vector3 _cameraTarget = new(0, 0, 0);
+    private readonly Vector3 _cameraTarget = new(0, 2, 0); // Olhando um pouco acima do chão
     private CommandList? _cl;
     private ResourceFactory? _factory;
 
@@ -32,6 +32,9 @@ public class Engine
     
     // Window
     private Sdl2Window? _window;
+    
+    // Render frame counter
+    private int _renderFrameCount = 0;
     
     // Time management
     private float _fixedTimeAccumulator;
@@ -91,47 +94,56 @@ public class Engine
         
         while (_window.Exists)
         {
-            frameCount++;
-            var currentTime = DateTime.Now.TimeOfDay.TotalSeconds;
-            var deltaTime = (float)(currentTime - previousTime);
-            previousTime = currentTime;
-            
-            // Atualizar Time
-            Time.UnscaledDeltaTime = deltaTime;
-            Time.DeltaTime = deltaTime * Time.TimeScale;
-            Time.TotalTime += Time.DeltaTime;
-
-            // Física com fixed timestep
-            _fixedTimeAccumulator += Time.DeltaTime;
-            while (_fixedTimeAccumulator >= Time.FixedDeltaTime)
+            try
             {
-                // Atualizar física
-                _physicsWorldBepu?.Step(Time.FixedDeltaTime);
-                _fixedTimeAccumulator -= Time.FixedDeltaTime;
-            }
-
-            // Atualizar GameObjects
-            foreach (var gameObject in _gameObjects) 
-                gameObject?.Update(Time.DeltaTime);
+                frameCount++;
+                var currentTime = DateTime.Now.TimeOfDay.TotalSeconds;
+                var deltaTime = (float)(currentTime - previousTime);
+                previousTime = currentTime;
                 
-            // Atualizar o jogo
-            _game.Update(Time.DeltaTime);
+                // Atualizar Time
+                Time.UnscaledDeltaTime = deltaTime;
+                Time.DeltaTime = deltaTime * Time.TimeScale;
+                Time.TotalTime += Time.DeltaTime;
 
-            // Processar eventos da janela
-            _window.PumpEvents();
+                // Física com fixed timestep
+                _fixedTimeAccumulator += Time.DeltaTime;
+                while (_fixedTimeAccumulator >= Time.FixedDeltaTime)
+                {
+                    // Atualizar física
+                    _physicsWorldBepu?.Step(Time.FixedDeltaTime);
+                    _fixedTimeAccumulator -= Time.FixedDeltaTime;
+                }
 
-            // Atualizar câmera
-            _cameraRotation += Time.DeltaTime * 0.2f;
-            _cameraPosition = Vector3.Transform(new Vector3(0, 3, 7),
-                Quaternion.CreateFromAxisAngle(Vector3.UnitY, _cameraRotation));
+                // Atualizar GameObjects
+                foreach (var gameObject in _gameObjects) 
+                    gameObject?.Update(Time.DeltaTime);
+                    
+                // Atualizar o jogo
+                _game.Update(Time.DeltaTime);
 
-            // Renderizar
-            Render();
-            
-            // Log periódico a cada 60 frames
-            if (frameCount % 60 == 0)
+                // Processar eventos da janela
+                _window.PumpEvents();
+
+                // Atualizar câmera
+                _cameraRotation += Time.DeltaTime * 0.2f;
+                _cameraPosition = Vector3.Transform(new Vector3(0, 8, 15),
+                    Quaternion.CreateFromAxisAngle(Vector3.UnitY, _cameraRotation));
+
+                // Renderizar
+                Render();
+                
+                // Log periódico a cada 60 frames
+                if (frameCount % 60 == 0)
+                {
+                    LoggingService.LogInfo($"Frame {frameCount} - FPS: {1f / Time.UnscaledDeltaTime:F1}");
+                }
+            }
+            catch (Exception ex)
             {
-                LoggingService.LogInfo($"Frame {frameCount} - FPS: {1f / Time.UnscaledDeltaTime:F1}");
+                LoggingService.LogError($"Exception in main loop frame {frameCount}: {ex.Message}");
+                LoggingService.LogError($"Stack trace: {ex.StackTrace}");
+                break; // Sair do loop se houver exceção
             }
         }
 
@@ -420,10 +432,129 @@ public class Engine
         return gameObject;
     }
 
+    /// <summary>
+    /// Cria um cubo físico simples e intuitivo
+    /// </summary>
+    /// <param name="name">Nome do objeto</param>
+    /// <param name="position">Posição do centro do cubo</param>
+    /// <param name="size">Dimensões completas do cubo (largura, altura, profundidade)</param>
+    /// <param name="color">Cor do cubo</param>
+    /// <param name="mass">Massa (0 = estático)</param>
+    /// <returns>GameObject criado</returns>
+    public GameObject CreateCube(string name, Vector3 position, Vector3 size, RgbaFloat color, float mass = 1f)
+    {
+        // Converter dimensões completas para half-extents que o BepuPhysics espera
+        var halfExtents = size * 0.5f;
+        
+        var gameObject = new GameObject(name)
+        {
+            Position = position,
+            Scale = size // Escala visual = dimensões desejadas
+        };
+        
+        // Criar rigidbody com física correta
+        bool isStatic = mass <= 0f;
+        var rigidbody = CreateRigidbody(Math.Max(mass, 1f), isStatic);
+        rigidbody.Shape = new BoxShape(halfExtents); // BepuPhysics usa half-extents
+        rigidbody.Material = Material.Default;
+        rigidbody.Pose = new BepuPhysics.RigidPose(position, Quaternion.Identity);
+        
+        gameObject.AddComponent(rigidbody);
+        
+        // Renderização automaticamente consistente
+        var renderer = CreateCubeRenderer(color);
+        gameObject.AddComponent(renderer);
+        
+        // Adicionar ao mundo físico e cena
+        _physicsWorldBepu?.AddBody(rigidbody);
+        AddGameObject(gameObject);
+        
+        return gameObject;
+    }
+    
+    /// <summary>
+    /// Cria uma esfera física simples e intuitiva
+    /// </summary>
+    /// <param name="name">Nome do objeto</param>
+    /// <param name="position">Posição do centro da esfera</param>
+    /// <param name="radius">Raio da esfera</param>
+    /// <param name="color">Cor da esfera</param>
+    /// <param name="mass">Massa (0 = estático)</param>
+    /// <returns>GameObject criado</returns>
+    public GameObject CreateSphere(string name, Vector3 position, float radius, RgbaFloat color, float mass = 1f)
+    {
+        var gameObject = new GameObject(name)
+        {
+            Position = position,
+            Scale = Vector3.One * radius // Escala visual = raio (SimpleSphere tem geometria de raio 1.0)
+        };
+        
+        // Criar rigidbody com física correta
+        bool isStatic = mass <= 0f;
+        var rigidbody = CreateRigidbody(Math.Max(mass, 1f), isStatic);
+        
+        // TESTE: Dobrar o raio na física para compensar problema de escala
+        var physicsRadius = radius * 2f;
+        rigidbody.Shape = new SphereShape(physicsRadius); // TESTE: Usar raio dobrado
+        rigidbody.Material = Material.Default;
+        rigidbody.Pose = new BepuPhysics.RigidPose(position, Quaternion.Identity);
+        
+        LoggingService.LogInfo($"CreateSphere - visual radius: {radius}, physics radius: {physicsRadius}, position: {position}, scale: {Vector3.One * radius}");
+        
+        gameObject.AddComponent(rigidbody);
+        
+        // Renderização (temporariamente cubo até implementarmos esfera real)
+        var renderer = CreateSphereRenderer(color);
+        gameObject.AddComponent(renderer);
+        
+        // Adicionar ao mundo físico e cena
+        _physicsWorldBepu?.AddBody(rigidbody);
+        AddGameObject(gameObject);
+        
+        return gameObject;
+    }
+    
+    /// <summary>
+    /// Cria um chão físico simples e intuitivo
+    /// </summary>
+    /// <param name="position">Posição do centro do chão</param>
+    /// <param name="size">Dimensões completas do chão (largura, altura, profundidade)</param>
+    /// <param name="color">Cor do chão</param>
+    /// <returns>GameObject criado</returns>
+    public GameObject CreateGround(Vector3 position, Vector3 size, RgbaFloat color)
+    {
+        return CreateCube("Ground", position, size, color, 0f); // Massa 0 = estático
+    }
+    
+    /// <summary>
+    /// Cria um chão simples na altura especificada
+    /// </summary>
+    /// <param name="groundLevel">Altura da SUPERFÍCIE do chão</param>
+    /// <param name="thickness">Espessura do chão</param>
+    /// <param name="width">Largura do chão</param>
+    /// <param name="depth">Profundidade do chão</param>
+    /// <param name="color">Cor do chão</param>
+    /// <returns>GameObject criado</returns>
+    public GameObject CreateGroundAtLevel(float groundLevel = 0f, float thickness = 1f, float width = 20f, float depth = 20f, RgbaFloat? color = null)
+    {
+        var groundColor = color ?? new RgbaFloat(0.7f, 0.7f, 0.7f, 1f);
+        
+        // Posicionar o centro do chão para que a superfície fique no groundLevel
+        var centerY = groundLevel - (thickness * 0.5f);
+        var position = new Vector3(0, centerY, 0);
+        var size = new Vector3(width, thickness, depth);
+        
+        var ground = CreateGround(position, size, groundColor);
+        
+        return ground;
+    }
+
     private void Render()
     {
         if (_gd == null || _cl == null || _physicsWorldBepu == null)
             return;
+
+        _renderFrameCount++;
 
         // Criar matrizes de visualização e projeção
         var viewMatrix = Matrix4x4.CreateLookAt(_cameraPosition, _cameraTarget, Vector3.UnitY);
@@ -439,15 +570,15 @@ public class Engine
         _cl.ClearDepthStencil(1f);
 
         // Renderizar todos os GameObjects
+        
         foreach (var gameObject in _gameObjects)
         {
-            LoggingService.LogDebug($"GameObject {gameObject.Name} - Components: {string.Join(", ", gameObject.GetAllComponents().Select(c => c.GetType().Name))}");
             var renderComponent = gameObject.GetComponent<RenderComponent>();
             if (renderComponent != null)
             {
                 renderComponent.Render(_cl, viewMatrix, projectionMatrix);
             }
-            else
+            else if (_renderFrameCount == 1)
             {
                 LoggingService.LogWarning($"GameObject {gameObject.Name} has no RenderComponent");
             }

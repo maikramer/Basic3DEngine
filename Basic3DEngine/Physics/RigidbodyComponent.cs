@@ -119,10 +119,10 @@ public sealed class RigidbodyComponent : Component
             _linearVelocity = bodyRef.Velocity.Linear;
             _angularVelocity = bodyRef.Velocity.Angular;
             
-            // Log para debug - apenas para o objeto de teste
-            if (GameObject.Name == "TestSphere")
+            // Log para debug - esferas de teste
+            if (GameObject.Name == "TestSphere1" || GameObject.Name == "TestSphere2")
             {
-                LoggingService.LogDebug($"TestSphere - Pose: {_pose.Position}, Velocity: {_linearVelocity}");
+                LoggingService.LogDebug($"{GameObject.Name} - Pose: {_pose.Position}, Velocity: {_linearVelocity}");
             }
             
             // Verificar se as posições são válidas

@@ -1,15 +1,17 @@
+using System.IO;
 using System.Numerics;
 using System.Text;
 using Veldrid;
+using Basic3DEngine.Services;
 
-namespace Basic3DEngine.Entities;
+namespace Basic3DEngine.Entities.Primitives;
 
-public class Cube : Geometry
+public class SimpleSphere : Geometry
 {
     private static StreamWriter _logFile;
     private readonly RgbaFloat _color;
 
-    public Cube(GraphicsDevice graphicsDevice, ResourceFactory factory, CommandList commandList, Vector3 position,
+    public SimpleSphere(GraphicsDevice graphicsDevice, ResourceFactory factory, CommandList commandList, Vector3 position,
         RgbaFloat color)
         : base(graphicsDevice, factory, commandList, position)
     {
@@ -19,41 +21,12 @@ public class Cube : Geometry
 
     private void CreateResources()
     {
-        Log("Cube.CreateResources() called");
-        // Definição dos vértices do cubo com a cor especificada
-        // Os vértices são definidos em torno da origem e serão transformados pela matriz world
-        VertexPositionColor[] vertices =
-        {
-            // Frente
-            new(new Vector3(-0.5f, -0.5f, -0.5f), _color),
-            new(new Vector3(0.5f, -0.5f, -0.5f), _color),
-            new(new Vector3(0.5f, 0.5f, -0.5f), _color),
-            new(new Vector3(-0.5f, 0.5f, -0.5f), _color),
-            // Trás
-            new(new Vector3(-0.5f, -0.5f, 0.5f), _color),
-            new(new Vector3(0.5f, -0.5f, 0.5f), _color),
-            new(new Vector3(0.5f, 0.5f, 0.5f), _color),
-            new(new Vector3(-0.5f, 0.5f, 0.5f), _color)
-        };
+        Log("SimpleSphere.CreateResources() called");
+        
+        // Gerar vértices da esfera (versão simplificada)
+        var (vertices, indices) = GenerateSimpleSphere(8, 6); // 8 segmentos horizontais, 6 verticais
 
-        // Índices para formar os triângulos
-        ushort[] indices =
-        {
-            // Frente
-            0, 1, 2, 0, 2, 3,
-            // Topo
-            3, 2, 6, 3, 6, 7,
-            // Trás
-            7, 6, 5, 7, 5, 4,
-            // Fundo
-            4, 5, 1, 4, 1, 0,
-            // Direita
-            1, 5, 6, 1, 6, 2,
-            // Esquerda
-            4, 0, 3, 4, 3, 7
-        };
-
-        // Criação dos buffers
+        // Criação dos buffers - mesma estrutura do Cube
         try
         {
             Log("Creating vertex buffer");
@@ -76,18 +49,17 @@ public class Cube : Geometry
             throw;
         }
 
-        // Criação dos shaders
+        // Usar exatamente os mesmos shaders do Cube
         Log("Creating shaders");
         CreateShaders();
         Log("Shaders created successfully");
 
-        // Criação do buffer de uniformes para as matrizes
-        // 3 matrizes de 4x4 floats (4 bytes cada) = 3 * 16 * 4 = 192 bytes
+        // Uniform buffer - mesma estrutura do Cube
         try
         {
             Log("Creating uniform buffer");
             _uniformBuffer = _factory.CreateBuffer(new BufferDescription(
-                192,
+                192, // 3 matrizes de 4x4 floats
                 BufferUsage.UniformBuffer));
             Log("Uniform buffer created successfully");
         }
@@ -97,7 +69,7 @@ public class Cube : Geometry
             throw;
         }
 
-        // Criação do layout de recursos
+        // Resource layout - mesmo do Cube
         try
         {
             Log("Creating resource layout");
@@ -115,7 +87,7 @@ public class Cube : Geometry
             throw;
         }
 
-        // Criação do conjunto de recursos
+        // Resource set - mesmo do Cube
         try
         {
             Log("Creating resource set");
@@ -131,87 +103,52 @@ public class Cube : Geometry
             throw;
         }
 
-        // Criação do pipeline
+        // Pipeline - mesmo do Cube
         Log("Creating pipeline");
         CreatePipeline();
         Log("Pipeline created successfully");
-        Log("Cube.CreateResources() completed");
+        Log("SimpleSphere.CreateResources() completed");
     }
 
     private void CreateShaders()
     {
-        Log("Cube.CreateShaders() called");
-        var vertexShaderCode = @"
-#version 330
-
-layout(location = 0) in vec3 Position;
-layout(location = 1) in vec4 Color;
-
-uniform ProjectionViewWorld
-{
-    mat4 projection;
-    mat4 view;
-    mat4 world;
-};
-
-out vec4 fsin_Color;
-
-void main()
-{
-    vec4 worldPosition = world * vec4(Position, 1);
-    vec4 viewPosition = view * worldPosition;
-    vec4 clipPosition = projection * viewPosition;
-    gl_Position = clipPosition;
-    fsin_Color = Color;
-}";
-
-        var fragmentShaderCode = @"
-#version 330
-
-in vec4 fsin_Color;
-out vec4 OutputColor;
-
-void main()
-{
-    OutputColor = fsin_Color;
-}";
-
-        var vertexShaderDesc = new ShaderDescription(
-            ShaderStages.Vertex,
-            Encoding.UTF8.GetBytes(vertexShaderCode),
-            "main");
-
-        var fragmentShaderDesc = new ShaderDescription(
-            ShaderStages.Fragment,
-            Encoding.UTF8.GetBytes(fragmentShaderCode),
-            "main");
-
-        _shaders = new Shader[2];
+        Log("SimpleSphere.CreateShaders() called");
+        
         try
         {
-            Log("Creating vertex shader");
-            _shaders[0] = _factory.CreateShader(vertexShaderDesc);
-            Log("Creating fragment shader");
-            _shaders[1] = _factory.CreateShader(fragmentShaderDesc);
-            Log("Shaders created successfully");
+            var shadersBasePath = ShaderLoader.GetShadersBasePath();
+            var cubeShaderPath = Path.Combine(shadersBasePath, "Cube");
+            
+            Log($"Loading cube shaders from: {cubeShaderPath}");
+            
+            var vertexShader = ShaderLoader.LoadShader(_factory, 
+                Path.Combine(cubeShaderPath, "cube.vert"), 
+                ShaderStages.Vertex);
+                
+            var fragmentShader = ShaderLoader.LoadShader(_factory, 
+                Path.Combine(cubeShaderPath, "cube.frag"), 
+                ShaderStages.Fragment);
+
+            _shaders = new Shader[] { vertexShader, fragmentShader };
+            Log("Cube shaders loaded successfully for SimpleSphere");
         }
         catch (Exception ex)
         {
-            Log($"Error creating shaders: {ex.Message}");
+            Log($"Error loading shaders: {ex.Message}");
             throw;
         }
     }
 
     private void CreatePipeline()
     {
-        Log("Cube.CreatePipeline() called");
-        // Descrição do layout dos vértices
+        Log("SimpleSphere.CreatePipeline() called");
+        
+        // Exatamente o mesmo pipeline do Cube
         var vertexLayout = new VertexLayoutDescription(
             new VertexElementDescription("Position", VertexElementSemantic.TextureCoordinate,
                 VertexElementFormat.Float3),
             new VertexElementDescription("Color", VertexElementSemantic.TextureCoordinate, VertexElementFormat.Float4));
 
-        // Descrição do pipeline
         var pipelineDescription = new GraphicsPipelineDescription(
             BlendStateDescription.SingleOverrideBlend,
             DepthStencilStateDescription.DepthOnlyLessEqual,
@@ -236,9 +173,54 @@ void main()
         }
     }
 
+    private (VertexPositionColor[], ushort[]) GenerateSimpleSphere(int horizontalSegments, int verticalSegments)
+    {
+        var vertices = new List<VertexPositionColor>();
+        var indices = new List<ushort>();
+
+        // Gerar vértices da esfera (raio 1.0 para ser escalada corretamente)
+        for (int v = 0; v <= verticalSegments; v++)
+        {
+            float phi = (float)(Math.PI * v / verticalSegments);
+            float y = (float)Math.Cos(phi); // Raio 1.0
+            float radius = (float)Math.Sin(phi); // Raio 1.0
+
+            for (int h = 0; h <= horizontalSegments; h++)
+            {
+                float theta = (float)(2.0 * Math.PI * h / horizontalSegments);
+                float x = radius * (float)Math.Cos(theta);
+                float z = radius * (float)Math.Sin(theta);
+
+                vertices.Add(new VertexPositionColor(new Vector3(x, y, z), _color));
+            }
+        }
+
+        // Gerar índices
+        for (int v = 0; v < verticalSegments; v++)
+        {
+            for (int h = 0; h < horizontalSegments; h++)
+            {
+                int current = v * (horizontalSegments + 1) + h;
+                int next = current + horizontalSegments + 1;
+
+                // Triângulo 1 (ordem corrigida para winding anti-horário)
+                indices.Add((ushort)current);
+                indices.Add((ushort)next);
+                indices.Add((ushort)(current + 1));
+
+                // Triângulo 2 (ordem corrigida para winding anti-horário)
+                indices.Add((ushort)(current + 1));
+                indices.Add((ushort)next);
+                indices.Add((ushort)(next + 1));
+            }
+        }
+
+        return (vertices.ToArray(), indices.ToArray());
+    }
+
     public override void Update(float deltaSeconds)
     {
-        // Atualiza a matriz de transformação corretamente
+        // Mesma lógica do Cube
         var rotationMatrix = Matrix4x4.CreateFromYawPitchRoll(Rotation.Y, Rotation.X, Rotation.Z);
         var scaleMatrix = Matrix4x4.CreateScale(Scale);
         var translationMatrix = Matrix4x4.CreateTranslation(Position);
@@ -247,22 +229,16 @@ void main()
 
     public override void Render(CommandList commandList, Matrix4x4 viewMatrix, Matrix4x4 projectionMatrix)
     {
-        Log($"Cube.Render() called with position: {Position}, scale: {Scale}");
+        Log($"SimpleSphere.Render() called with position: {Position}, scale: {Scale}");
 
         if (_vertexBuffer == null || _indexBuffer == null || _shaders == null ||
             _pipeline == null || _resourceSet == null || _uniformBuffer == null)
         {
-            Log("Cube.Render() early exit - one or more resources are null");
-            Log($"vertexBuffer: {_vertexBuffer != null}");
-            Log($"indexBuffer: {_indexBuffer != null}");
-            Log($"shaders: {_shaders != null}");
-            Log($"pipeline: {_pipeline != null}");
-            Log($"resourceSet: {_resourceSet != null}");
-            Log($"uniformBuffer: {_uniformBuffer != null}");
+            Log("SimpleSphere.Render() early exit - one or more resources are null");
             return;
         }
 
-        // Criar estrutura para as matrizes
+        // Mesma estrutura de renderização do Cube
         var ubo = new UniformBufferObject
         {
             Projection = projectionMatrix,
@@ -270,28 +246,17 @@ void main()
             World = _worldMatrix
         };
 
-        // Atualiza o buffer de uniformes com as matrizes
         _graphicsDevice.UpdateBuffer(_uniformBuffer, 0, ubo);
 
-        // Define o pipeline
         commandList.SetPipeline(_pipeline);
-
-        // Define os buffers de vértices e índices
         commandList.SetVertexBuffer(0, _vertexBuffer);
         commandList.SetIndexBuffer(_indexBuffer, IndexFormat.UInt16);
-
-        // Define o conjunto de recursos
         commandList.SetGraphicsResourceSet(0, _resourceSet);
 
-        // Desenha o cubo
-        commandList.DrawIndexed(
-            36, // 12 triângulos * 3 vértices
-            1,
-            0,
-            0,
-            0);
+        // Renderizar todos os triângulos da esfera
+        commandList.DrawIndexed((uint)(_indexBuffer.SizeInBytes / sizeof(ushort)), 1, 0, 0, 0);
 
-        Log("Cube.Render() completed");
+        Log("SimpleSphere.Render() completed");
     }
 
     public override void Dispose()
@@ -311,10 +276,9 @@ void main()
 
     private static void Log(string message)
     {
-        // Lazy initialization of log file
         if (_logFile == null)
         {
-            _logFile = new StreamWriter("/home/maikeu/MeusProgramas/TestQwen/cube_debug.log", false);
+            _logFile = new StreamWriter("/home/maikeu/MeusProgramas/TestQwen/simple_sphere_debug.log", false);
             _logFile.AutoFlush = true;
         }
 
@@ -322,7 +286,7 @@ void main()
     }
 }
 
-// Estrutura para os vértices com posição e cor
+// Reutilizar a estrutura do Cube
 public struct VertexPositionColor
 {
     public Vector3 Position;
@@ -335,4 +299,4 @@ public struct VertexPositionColor
     }
 
     public static readonly uint SizeInBytes = (3 + 4) * 4; // 3 floats para posição + 4 floats para cor
-}
+} 

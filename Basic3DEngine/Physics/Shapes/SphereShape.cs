@@ -19,6 +19,8 @@ public sealed class SphereShape(float radius) : IPhysicsShape
     public TypedIndex CreateShape(BepuPhysics.Collidables.Shapes shapes)
     {
         var sphere = new Sphere(Radius);
+        // Log para debug da forma física
+        Console.WriteLine($"SphereShape.CreateShape: radius={Radius}, sphere.Radius={sphere.Radius}");
         return shapes.Add(sphere);
     }
 

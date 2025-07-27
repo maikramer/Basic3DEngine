@@ -1,4 +1,5 @@
 using System.Numerics;
+using Basic3DEngine.Entities.Primitives;
 using Veldrid;
 
 namespace Basic3DEngine.Entities;
@@ -7,17 +8,30 @@ public class SphereRenderComponent : RenderComponent
 {
     private static StreamWriter _logFile;
     private int _resolution;
-    private readonly Cube _sphere;
+    private readonly Icosphere _sphere;
 
     public SphereRenderComponent(GraphicsDevice graphicsDevice, ResourceFactory factory, CommandList commandList,
-        RgbaFloat color, int resolution = 16)
+        RgbaFloat color, int resolution = 2)
         : base(graphicsDevice, factory, commandList, color)
     {
-        Log("Creating SphereRenderComponent");
+        Log("Creating SphereRenderComponent with corrected Icosphere");
         _resolution = resolution;
-        // Por enquanto, vamos usar um cubo como fallback até implementar uma esfera real
-        _sphere = new Cube(graphicsDevice, factory, commandList, Vector3.Zero, color);
-        Log("SphereRenderComponent created successfully");
+        
+        try
+        {
+            Log("About to create SimpleSphere...");
+            // Usar SimpleSphere que funciona como Cube mas com geometria de esfera
+            _sphere = new Icosphere(graphicsDevice, factory, commandList, Vector3.Zero, color);
+            Log("SimpleSphere created successfully");   
+        }
+        catch (Exception ex)
+        {
+            Log($"ERROR creating SimpleSphere: {ex.Message}");
+            Log($"Stack trace: {ex.StackTrace}");
+            throw; // Re-throw para o sistema capturar
+        }
+        
+        Log("SphereRenderComponent created successfully with Icosphere");
     }
 
     public override void Render(CommandList commandList, Matrix4x4 viewMatrix, Matrix4x4 projectionMatrix)
