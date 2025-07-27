@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Library</OutputType>
+        <TargetFramework>net9.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Serilog" Version="3.1.1"/>
+        <PackageReference Include="Serilog.Sinks.Console" Version="5.0.1"/>
+        <PackageReference Include="Serilog.Sinks.File" Version="5.0.0"/>
+        <PackageReference Include="System.Numerics.Vectors" Version="4.6.1"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\bepuphysics2\BepuPhysics\BepuPhysics.csproj"/>
+        <ProjectReference Include="..\bepuphysics2\BepuUtilities\BepuUtilities.csproj"/>
+        <ProjectReference Include="..\bepuphysics2\DemoUtilities\DemoUtilities.csproj"/>
+        <ProjectReference Include="..\veldrid\src\Veldrid.OpenGLBindings\Veldrid.OpenGLBindings.csproj"/>
+        <ProjectReference Include="..\veldrid\src\Veldrid.SDL2\Veldrid.SDL2.csproj"/>
+        <ProjectReference Include="..\veldrid\src\Veldrid.StartupUtilities\Veldrid.StartupUtilities.csproj"/>
+        <ProjectReference Include="..\veldrid\src\Veldrid\Veldrid.csproj"/>
+    </ItemGroup>
+
+</Project>

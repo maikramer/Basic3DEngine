@@ -1,0 +1,73 @@
+{
+  "tasks": [
+    {
+      "id": "9f96ff86-0950-4f74-a76e-a119120d3328",
+      "name": "Implementar métodos de força no RigidbodyComponent",
+      "description": "Implementar os métodos AddForce, AddTorque e AddImpulse na classe RigidbodyComponent usando os métodos correspondentes do BepuPhysics. Isso envolve acessar o BodyReference do corpo físico e chamar os métodos apropriados.",
+      "notes": "É importante verificar se o corpo é dinâmico antes de aplicar forças. Os métodos do BepuPhysics estão em BodyReference.",
+      "status": "completed",
+      "dependencies": [],
+      "createdAt": "2025-07-26T21:31:40.391Z",
+      "updatedAt": "2025-07-26T21:36:21.486Z",
+      "relatedFiles": [
+        {
+          "path": "Basic3DEngine/Physics/RigidbodyComponent.cs",
+          "type": "TO_MODIFY",
+          "description": "Arquivo a ser modificado para implementar os métodos de força"
+        }
+      ],
+      "implementationGuide": "1. Modificar o arquivo RigidbodyComponent.cs\n2. Implementar AddForce(Vector3 force) usando BodyReference.ApplyLinearImpulse\n3. Implementar AddTorque(Vector3 torque) usando BodyReference.ApplyAngularImpulse\n4. Implementar AddImpulse(Vector3 impulse) usando BodyReference.ApplyImpulse\n5. Certificar-se de que os métodos funcionam apenas para corpos dinâmicos, não para estáticos",
+      "verificationCriteria": "Os métodos devem aplicar forças corretamente aos corpos físicos quando chamados. Testar com corpos estáticos e dinâmicos para garantir que apenas os corpos dinâmicos sejam afetados.",
+      "analysisResult": "Implementa\\u00e7\\u00e3o de campos de for\\u00e7a no motor de f\\u00edsica Basic3DEngine para simular for\\u00e7as como gravidade, magn\\u00e9ticas ou el\\u00e9tricas que podem afetar os RigidbodyComponent. A solu\\u00e7\\u00e3o segue a arquitetura existente do projeto e reutiliza componentes do BepuPhysics onde apropriado.",
+      "summary": "Implementei os métodos AddForce, AddTorque e AddImpulse na classe RigidbodyComponent usando os métodos correspondentes do BepuPhysics. Adicionei também um método GetBodyReference à classe PhysicsWorldBepu para permitir que o RigidbodyComponent obtenha uma referência ao corpo físico. Os métodos verificam se o corpo é estático antes de aplicar as forças e usam os métodos apropriados da classe BodyReference do BepuPhysics.",
+      "completedAt": "2025-07-26T21:36:21.485Z"
+    },
+    {
+      "id": "f3d98625-3a81-47f6-a053-632e90be481d",
+      "name": "Criar componente ForceFieldComponent",
+      "description": "Criar uma nova classe ForceFieldComponent que herde de Component e defina propriedades para campos de força como tipo, intensidade, direção e área de efeito.",
+      "notes": "O componente deve ser facilmente configurável e extensível para novos tipos de campos de força.",
+      "status": "pending",
+      "dependencies": [],
+      "createdAt": "2025-07-26T21:31:40.391Z",
+      "updatedAt": "2025-07-26T21:31:40.391Z",
+      "relatedFiles": [
+        {
+          "path": "Basic3DEngine/Physics/ForceFieldComponent.cs",
+          "type": "CREATE",
+          "description": "Novo arquivo a ser criado para o componente de campo de força"
+        }
+      ],
+      "implementationGuide": "1. Criar o arquivo ForceFieldComponent.cs\n2. Definir enum para tipos de campo de força (gravidade, magnético, elétrico)\n3. Adicionar propriedades para intensidade, direção e área de efeito\n4. Implementar método para calcular a força aplicada a um RigidbodyComponent com base nessas propriedades",
+      "verificationCriteria": "O componente deve ser instanciado corretamente e suas propriedades devem ser configuráveis. O método de cálculo de força deve retornar valores corretos para diferentes configurações.",
+      "analysisResult": "Implementa\\u00e7\\u00e3o de campos de for\\u00e7a no motor de f\\u00edsica Basic3DEngine para simular for\\u00e7as como gravidade, magn\\u00e9ticas ou el\\u00e9tricas que podem afetar os RigidbodyComponent. A solu\\u00e7\\u00e3o segue a arquitetura existente do projeto e reutiliza componentes do BepuPhysics onde apropriado."
+    },
+    {
+      "id": "39e1347b-8ef0-4ffd-ae6c-03d5cba4bd51",
+      "name": "Modificar PhysicsWorldBepu para gerenciar campos de força",
+      "description": "Modificar a classe PhysicsWorldBepu para gerenciar e aplicar campos de força durante a atualização da simulação física.",
+      "notes": "É importante aplicar os campos de força antes da atualização da simulação para que tenham efeito na física.",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "9f96ff86-0950-4f74-a76e-a119120d3328"
+        },
+        {
+          "taskId": "f3d98625-3a81-47f6-a053-632e90be481d"
+        }
+      ],
+      "createdAt": "2025-07-26T21:31:40.391Z",
+      "updatedAt": "2025-07-26T21:31:40.391Z",
+      "relatedFiles": [
+        {
+          "path": "Basic3DEngine/Physics/PhysicsWorldBepu.cs",
+          "type": "TO_MODIFY",
+          "description": "Arquivo a ser modificado para gerenciar e aplicar campos de força"
+        }
+      ],
+      "implementationGuide": "1. Modificar o arquivo PhysicsWorldBepu.cs\n2. Adicionar uma lista para armazenar referências aos campos de força\n3. Adicionar métodos para adicionar e remover campos de força\n4. No método Update, antes de atualizar a simulação, iterar pelos campos de força e aplicar as forças apropriadas aos RigidbodyComponent afetados\n5. Otimizar a detecção de quais corpos são afetados por quais campos (considerar uso de estruturas espaciais no futuro)",
+      "verificationCriteria": "Os campos de força devem ser gerenciados corretamente e as forças devem ser aplicadas aos corpos físicos durante a atualização da simulação. Testar com diferentes tipos de campos e configurações.",
+      "analysisResult": "Implementa\\u00e7\\u00e3o de campos de for\\u00e7a no motor de f\\u00edsica Basic3DEngine para simular for\\u00e7as como gravidade, magn\\u00e9ticas ou el\\u00e9tricas que podem afetar os RigidbodyComponent. A solu\\u00e7\\u00e3o segue a arquitetura existente do projeto e reutiliza componentes do BepuPhysics onde apropriado."
+    }
+  ]
+}

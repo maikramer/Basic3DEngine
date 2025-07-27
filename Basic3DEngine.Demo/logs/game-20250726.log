@@ -1,0 +1,1711 @@
+2025-07-26 21:01:02.011 -03:00 [INF] Logging service initialized
+2025-07-26 21:01:02.055 -03:00 [INF] Starting game initialization
+2025-07-26 21:01:02.055 -03:00 [INF] Creating window and graphics device
+2025-07-26 21:01:02.200 -03:00 [INF] Graphics device created: True
+2025-07-26 21:01:02.200 -03:00 [INF] Command list created: True
+2025-07-26 21:01:02.200 -03:00 [INF] Creating physics world
+2025-07-26 21:01:02.256 -03:00 [INF] Physics world created: True
+2025-07-26 21:01:02.257 -03:00 [INF] Game object list initialized
+2025-07-26 21:01:02.257 -03:00 [INF] Creating ground object
+2025-07-26 21:01:02.257 -03:00 [INF] Creating ground render component
+2025-07-26 21:01:02.275 -03:00 [INF] Ground render component created: True
+2025-07-26 21:01:02.275 -03:00 [INF] Creating ground rigidbody component
+2025-07-26 21:01:02.276 -03:00 [INF] Ground rigidbody created: True
+2025-07-26 21:01:02.276 -03:00 [INF] Adding ground to physics world
+2025-07-26 21:01:02.284 -03:00 [INF] Adding ground to game objects list
+2025-07-26 21:01:02.284 -03:00 [INF] Ground object added successfully
+2025-07-26 21:01:02.284 -03:00 [INF] Creating cube objects
+2025-07-26 21:01:02.284 -03:00 [INF] Creating cube 0
+2025-07-26 21:01:02.284 -03:00 [INF] Creating cube 0 render component
+2025-07-26 21:01:02.285 -03:00 [INF] Cube 0 render component created: True
+2025-07-26 21:01:02.285 -03:00 [INF] Creating cube 0 rigidbody component
+2025-07-26 21:01:02.285 -03:00 [INF] Cube 0 rigidbody created: True
+2025-07-26 21:01:02.285 -03:00 [INF] Adding cube 0 to physics world
+2025-07-26 21:01:02.289 -03:00 [INF] Adding cube 0 to game objects list
+2025-07-26 21:01:02.289 -03:00 [INF] Cube 0 added successfully
+2025-07-26 21:01:02.289 -03:00 [INF] Creating cube 1
+2025-07-26 21:01:02.289 -03:00 [INF] Creating cube 1 render component
+2025-07-26 21:01:02.289 -03:00 [INF] Cube 1 render component created: True
+2025-07-26 21:01:02.289 -03:00 [INF] Creating cube 1 rigidbody component
+2025-07-26 21:01:02.290 -03:00 [INF] Cube 1 rigidbody created: True
+2025-07-26 21:01:02.290 -03:00 [INF] Adding cube 1 to physics world
+2025-07-26 21:01:02.290 -03:00 [INF] Adding cube 1 to game objects list
+2025-07-26 21:01:02.290 -03:00 [INF] Cube 1 added successfully
+2025-07-26 21:01:02.290 -03:00 [INF] Creating cube 2
+2025-07-26 21:01:02.290 -03:00 [INF] Creating cube 2 render component
+2025-07-26 21:01:02.290 -03:00 [INF] Cube 2 render component created: True
+2025-07-26 21:01:02.290 -03:00 [INF] Creating cube 2 rigidbody component
+2025-07-26 21:01:02.290 -03:00 [INF] Cube 2 rigidbody created: True
+2025-07-26 21:01:02.290 -03:00 [INF] Adding cube 2 to physics world
+2025-07-26 21:01:02.291 -03:00 [INF] Adding cube 2 to game objects list
+2025-07-26 21:01:02.292 -03:00 [INF] Cube 2 added successfully
+2025-07-26 21:01:02.292 -03:00 [INF] Creating cube 3
+2025-07-26 21:01:02.292 -03:00 [INF] Creating cube 3 render component
+2025-07-26 21:01:02.292 -03:00 [INF] Cube 3 render component created: True
+2025-07-26 21:01:02.292 -03:00 [INF] Creating cube 3 rigidbody component
+2025-07-26 21:01:02.292 -03:00 [INF] Cube 3 rigidbody created: True
+2025-07-26 21:01:02.292 -03:00 [INF] Adding cube 3 to physics world
+2025-07-26 21:01:02.292 -03:00 [INF] Adding cube 3 to game objects list
+2025-07-26 21:01:02.292 -03:00 [INF] Cube 3 added successfully
+2025-07-26 21:01:02.292 -03:00 [INF] Creating cube 4
+2025-07-26 21:01:02.292 -03:00 [INF] Creating cube 4 render component
+2025-07-26 21:01:02.293 -03:00 [INF] Cube 4 render component created: True
+2025-07-26 21:01:02.293 -03:00 [INF] Creating cube 4 rigidbody component
+2025-07-26 21:01:02.293 -03:00 [INF] Cube 4 rigidbody created: True
+2025-07-26 21:01:02.293 -03:00 [INF] Adding cube 4 to physics world
+2025-07-26 21:01:02.293 -03:00 [INF] Adding cube 4 to game objects list
+2025-07-26 21:01:02.293 -03:00 [INF] Cube 4 added successfully
+2025-07-26 21:01:02.293 -03:00 [INF] Creating sphere objects
+2025-07-26 21:01:02.293 -03:00 [INF] Creating sphere 0
+2025-07-26 21:01:02.293 -03:00 [INF] Creating sphere 0 render component
+2025-07-26 21:01:02.293 -03:00 [INF] Sphere 0 render component created: True
+2025-07-26 21:01:02.293 -03:00 [INF] Creating sphere 0 rigidbody component
+2025-07-26 21:01:02.293 -03:00 [INF] Sphere 0 rigidbody created: True
+2025-07-26 21:01:02.293 -03:00 [INF] Adding sphere 0 to physics world
+2025-07-26 21:01:02.295 -03:00 [INF] Adding sphere 0 to game objects list
+2025-07-26 21:01:02.295 -03:00 [INF] Sphere 0 added successfully
+2025-07-26 21:01:02.295 -03:00 [INF] Creating sphere 1
+2025-07-26 21:01:02.295 -03:00 [INF] Creating sphere 1 render component
+2025-07-26 21:01:02.295 -03:00 [INF] Sphere 1 render component created: True
+2025-07-26 21:01:02.295 -03:00 [INF] Creating sphere 1 rigidbody component
+2025-07-26 21:01:02.295 -03:00 [INF] Sphere 1 rigidbody created: True
+2025-07-26 21:01:02.295 -03:00 [INF] Adding sphere 1 to physics world
+2025-07-26 21:01:02.295 -03:00 [INF] Adding sphere 1 to game objects list
+2025-07-26 21:01:02.295 -03:00 [INF] Sphere 1 added successfully
+2025-07-26 21:01:02.295 -03:00 [INF] Creating sphere 2
+2025-07-26 21:01:02.295 -03:00 [INF] Creating sphere 2 render component
+2025-07-26 21:01:02.295 -03:00 [INF] Sphere 2 render component created: True
+2025-07-26 21:01:02.295 -03:00 [INF] Creating sphere 2 rigidbody component
+2025-07-26 21:01:02.295 -03:00 [INF] Sphere 2 rigidbody created: True
+2025-07-26 21:01:02.295 -03:00 [INF] Adding sphere 2 to physics world
+2025-07-26 21:01:02.295 -03:00 [INF] Adding sphere 2 to game objects list
+2025-07-26 21:01:02.295 -03:00 [INF] Sphere 2 added successfully
+2025-07-26 21:01:02.295 -03:00 [INF] Entering main game loop
+2025-07-26 21:01:02.358 -03:00 [INF] Render() called
+2025-07-26 21:01:02.358 -03:00 [INF] Framebuffer size: 1280x720
+2025-07-26 21:01:02.363 -03:00 [INF] Camera position: <6,874002E-05. 3. 7>, target: <0. 0. 0>
+2025-07-26 21:01:02.363 -03:00 [INF] Beginning command list
+2025-07-26 21:01:02.365 -03:00 [INF] Setting framebuffer
+2025-07-26 21:01:02.366 -03:00 [INF] Clearing color target
+2025-07-26 21:01:02.367 -03:00 [INF] Clearing depth stencil
+2025-07-26 21:01:02.367 -03:00 [INF] Rendering 9 game objects
+2025-07-26 21:01:02.367 -03:00 [INF] Object Ground has no render component
+2025-07-26 21:01:02.367 -03:00 [INF] Object Cube 0 has no render component
+2025-07-26 21:01:02.367 -03:00 [INF] Object Cube 1 has no render component
+2025-07-26 21:01:02.367 -03:00 [INF] Object Cube 2 has no render component
+2025-07-26 21:01:02.367 -03:00 [INF] Object Cube 3 has no render component
+2025-07-26 21:01:02.367 -03:00 [INF] Object Cube 4 has no render component
+2025-07-26 21:01:02.367 -03:00 [INF] Object Sphere 0 has no render component
+2025-07-26 21:01:02.367 -03:00 [INF] Object Sphere 1 has no render component
+2025-07-26 21:01:02.367 -03:00 [INF] Object Sphere 2 has no render component
+2025-07-26 21:01:02.367 -03:00 [INF] Rendered 0 objects
+2025-07-26 21:01:02.367 -03:00 [INF] Ending command list
+2025-07-26 21:01:02.368 -03:00 [INF] Submitting commands
+2025-07-26 21:01:02.368 -03:00 [INF] Swapping buffers
+2025-07-26 21:01:02.373 -03:00 [INF] Render() completed
+2025-07-26 21:01:02.374 -03:00 [INF] Render() called
+2025-07-26 21:01:02.374 -03:00 [INF] Framebuffer size: 1280x720
+2025-07-26 21:01:02.374 -03:00 [INF] Camera position: <0,108368546. 3. 6,999161>, target: <0. 0. 0>
+2025-07-26 21:01:02.374 -03:00 [INF] Beginning command list
+2025-07-26 21:01:02.374 -03:00 [INF] Setting framebuffer
+2025-07-26 21:01:02.374 -03:00 [INF] Clearing color target
+2025-07-26 21:01:02.374 -03:00 [INF] Clearing depth stencil
+2025-07-26 21:01:02.374 -03:00 [INF] Rendering 9 game objects
+2025-07-26 21:01:02.374 -03:00 [INF] Object Ground has no render component
+2025-07-26 21:01:02.374 -03:00 [INF] Object Cube 0 has no render component
+2025-07-26 21:01:02.374 -03:00 [INF] Object Cube 1 has no render component
+2025-07-26 21:01:02.374 -03:00 [INF] Object Cube 2 has no render component
+2025-07-26 21:01:02.374 -03:00 [INF] Object Cube 3 has no render component
+2025-07-26 21:01:02.374 -03:00 [INF] Object Cube 4 has no render component
+2025-07-26 21:01:02.374 -03:00 [INF] Object Sphere 0 has no render component
+2025-07-26 21:01:02.374 -03:00 [INF] Object Sphere 1 has no render component
+2025-07-26 21:01:02.374 -03:00 [INF] Object Sphere 2 has no render component
+2025-07-26 21:01:02.374 -03:00 [INF] Rendered 0 objects
+2025-07-26 21:01:02.374 -03:00 [INF] Ending command list
+2025-07-26 21:01:02.374 -03:00 [INF] Submitting commands
+2025-07-26 21:01:02.374 -03:00 [INF] Swapping buffers
+2025-07-26 21:01:02.374 -03:00 [INF] Render() completed
+2025-07-26 21:01:02.375 -03:00 [INF] Render() called
+2025-07-26 21:01:02.375 -03:00 [INF] Framebuffer size: 1280x720
+2025-07-26 21:01:02.375 -03:00 [INF] Camera position: <0,110771224. 3. 6,999124>, target: <0. 0. 0>
+2025-07-26 21:01:02.375 -03:00 [INF] Beginning command list
+2025-07-26 21:01:02.375 -03:00 [INF] Setting framebuffer
+2025-07-26 21:01:02.375 -03:00 [INF] Clearing color target
+2025-07-26 21:01:02.375 -03:00 [INF] Clearing depth stencil
+2025-07-26 21:01:02.375 -03:00 [INF] Rendering 9 game objects
+2025-07-26 21:01:02.375 -03:00 [INF] Object Ground has no render component
+2025-07-26 21:01:02.375 -03:00 [INF] Object Cube 0 has no render component
+2025-07-26 21:01:02.375 -03:00 [INF] Object Cube 1 has no render component
+2025-07-26 21:01:02.375 -03:00 [INF] Object Cube 2 has no render component
+2025-07-26 21:01:02.375 -03:00 [INF] Object Cube 3 has no render component
+2025-07-26 21:01:02.375 -03:00 [INF] Object Cube 4 has no render component
+2025-07-26 21:01:02.375 -03:00 [INF] Object Sphere 0 has no render component
+2025-07-26 21:01:02.375 -03:00 [INF] Object Sphere 1 has no render component
+2025-07-26 21:01:02.375 -03:00 [INF] Object Sphere 2 has no render component
+2025-07-26 21:01:02.375 -03:00 [INF] Rendered 0 objects
+2025-07-26 21:01:02.375 -03:00 [INF] Ending command list
+2025-07-26 21:01:02.375 -03:00 [INF] Submitting commands
+2025-07-26 21:01:02.375 -03:00 [INF] Swapping buffers
+2025-07-26 21:01:02.377 -03:00 [INF] Render() completed
+2025-07-26 21:01:02.377 -03:00 [INF] Render() called
+2025-07-26 21:01:02.377 -03:00 [INF] Framebuffer size: 1280x720
+2025-07-26 21:01:02.377 -03:00 [INF] Camera position: <0,114086844. 2,9999998. 6,9990706>, target: <0. 0. 0>
+2025-07-26 21:01:02.377 -03:00 [INF] Beginning command list
+2025-07-26 21:01:02.377 -03:00 [INF] Setting framebuffer
+2025-07-26 21:01:02.377 -03:00 [INF] Clearing color target
+2025-07-26 21:01:02.377 -03:00 [INF] Clearing depth stencil
+2025-07-26 21:01:02.377 -03:00 [INF] Rendering 9 game objects
+2025-07-26 21:01:02.377 -03:00 [INF] Object Ground has no render component
+2025-07-26 21:01:02.377 -03:00 [INF] Object Cube 0 has no render component
+2025-07-26 21:01:02.377 -03:00 [INF] Object Cube 1 has no render component
+2025-07-26 21:01:02.377 -03:00 [INF] Object Cube 2 has no render component
+2025-07-26 21:01:02.377 -03:00 [INF] Object Cube 3 has no render component
+2025-07-26 21:01:02.377 -03:00 [INF] Object Cube 4 has no render component
+2025-07-26 21:01:02.377 -03:00 [INF] Object Sphere 0 has no render component
+2025-07-26 21:01:02.377 -03:00 [INF] Object Sphere 1 has no render component
+2025-07-26 21:01:02.377 -03:00 [INF] Object Sphere 2 has no render component
+2025-07-26 21:01:02.377 -03:00 [INF] Rendered 0 objects
+2025-07-26 21:01:02.377 -03:00 [INF] Ending command list
+2025-07-26 21:01:02.377 -03:00 [INF] Submitting commands
+2025-07-26 21:01:02.377 -03:00 [INF] Swapping buffers
+2025-07-26 21:01:02.378 -03:00 [INF] Render() completed
+2025-07-26 21:01:02.378 -03:00 [INF] Render() called
+2025-07-26 21:01:02.378 -03:00 [INF] Framebuffer size: 1280x720
+2025-07-26 21:01:02.378 -03:00 [INF] Camera position: <0,11513431. 3,0000002. 6,9990535>, target: <0. 0. 0>
+2025-07-26 21:01:02.378 -03:00 [INF] Beginning command list
+2025-07-26 21:01:02.378 -03:00 [INF] Setting framebuffer
+2025-07-26 21:01:02.378 -03:00 [INF] Clearing color target
+2025-07-26 21:01:02.378 -03:00 [INF] Clearing depth stencil
+2025-07-26 21:01:02.378 -03:00 [INF] Rendering 9 game objects
+2025-07-26 21:01:02.378 -03:00 [INF] Object Ground has no render component
+2025-07-26 21:01:02.378 -03:00 [INF] Object Cube 0 has no render component
+2025-07-26 21:01:02.378 -03:00 [INF] Object Cube 1 has no render component
+2025-07-26 21:01:02.378 -03:00 [INF] Object Cube 2 has no render component
+2025-07-26 21:01:02.378 -03:00 [INF] Object Cube 3 has no render component
+2025-07-26 21:01:02.378 -03:00 [INF] Object Cube 4 has no render component
+2025-07-26 21:01:02.378 -03:00 [INF] Object Sphere 0 has no render component
+2025-07-26 21:01:02.378 -03:00 [INF] Object Sphere 1 has no render component
+2025-07-26 21:01:02.378 -03:00 [INF] Object Sphere 2 has no render component
+2025-07-26 21:01:02.378 -03:00 [INF] Rendered 0 objects
+2025-07-26 21:01:02.378 -03:00 [INF] Ending command list
+2025-07-26 21:01:02.378 -03:00 [INF] Submitting commands
+2025-07-26 21:01:02.378 -03:00 [INF] Swapping buffers
+2025-07-26 21:01:02.382 -03:00 [INF] Render() completed
+2025-07-26 21:01:02.383 -03:00 [INF] Render() called
+2025-07-26 21:01:02.383 -03:00 [INF] Framebuffer size: 1280x720
+2025-07-26 21:01:02.383 -03:00 [INF] Camera position: <0,121783644. 3. 6,99894>, target: <0. 0. 0>
+2025-07-26 21:01:02.383 -03:00 [INF] Beginning command list
+2025-07-26 21:01:02.383 -03:00 [INF] Setting framebuffer
+2025-07-26 21:01:02.383 -03:00 [INF] Clearing color target
+2025-07-26 21:01:02.383 -03:00 [INF] Clearing depth stencil
+2025-07-26 21:01:02.383 -03:00 [INF] Rendering 9 game objects
+2025-07-26 21:01:02.383 -03:00 [INF] Object Ground has no render component
+2025-07-26 21:01:02.383 -03:00 [INF] Object Cube 0 has no render component
+2025-07-26 21:01:02.383 -03:00 [INF] Object Cube 1 has no render component
+2025-07-26 21:01:02.383 -03:00 [INF] Object Cube 2 has no render component
+2025-07-26 21:01:02.383 -03:00 [INF] Object Cube 3 has no render component
+2025-07-26 21:01:02.383 -03:00 [INF] Object Cube 4 has no render component
+2025-07-26 21:01:02.383 -03:00 [INF] Object Sphere 0 has no render component
+2025-07-26 21:01:02.383 -03:00 [INF] Object Sphere 1 has no render component
+2025-07-26 21:01:02.383 -03:00 [INF] Object Sphere 2 has no render component
+2025-07-26 21:01:02.383 -03:00 [INF] Rendered 0 objects
+2025-07-26 21:01:02.383 -03:00 [INF] Ending command list
+2025-07-26 21:01:02.383 -03:00 [INF] Submitting commands
+2025-07-26 21:01:02.383 -03:00 [INF] Swapping buffers
+2025-07-26 21:01:02.398 -03:00 [INF] Render() completed
+2025-07-26 21:01:02.398 -03:00 [INF] Render() called
+2025-07-26 21:01:02.398 -03:00 [INF] Framebuffer size: 1280x720
+2025-07-26 21:01:02.398 -03:00 [INF] Camera position: <0,14344852. 3. 6,99853>, target: <0. 0. 0>
+2025-07-26 21:01:02.398 -03:00 [INF] Beginning command list
+2025-07-26 21:01:02.398 -03:00 [INF] Setting framebuffer
+2025-07-26 21:01:02.398 -03:00 [INF] Clearing color target
+2025-07-26 21:01:02.398 -03:00 [INF] Clearing depth stencil
+2025-07-26 21:01:02.398 -03:00 [INF] Rendering 9 game objects
+2025-07-26 21:01:02.398 -03:00 [INF] Object Ground has no render component
+2025-07-26 21:01:02.398 -03:00 [INF] Object Cube 0 has no render component
+2025-07-26 21:01:02.398 -03:00 [INF] Object Cube 1 has no render component
+2025-07-26 21:01:02.398 -03:00 [INF] Object Cube 2 has no render component
+2025-07-26 21:01:02.398 -03:00 [INF] Object Cube 3 has no render component
+2025-07-26 21:01:02.398 -03:00 [INF] Object Cube 4 has no render component
+2025-07-26 21:01:02.398 -03:00 [INF] Object Sphere 0 has no render component
+2025-07-26 21:01:02.398 -03:00 [INF] Object Sphere 1 has no render component
+2025-07-26 21:01:02.398 -03:00 [INF] Object Sphere 2 has no render component
+2025-07-26 21:01:02.398 -03:00 [INF] Rendered 0 objects
+2025-07-26 21:01:02.398 -03:00 [INF] Ending command list
+2025-07-26 21:01:02.398 -03:00 [INF] Submitting commands
+2025-07-26 21:01:02.398 -03:00 [INF] Swapping buffers
+2025-07-26 21:01:02.414 -03:00 [INF] Render() completed
+2025-07-26 21:01:02.415 -03:00 [INF] Render() called
+2025-07-26 21:01:02.415 -03:00 [INF] Framebuffer size: 1280x720
+2025-07-26 21:01:02.415 -03:00 [INF] Camera position: <0,16671738. 3. 6,9980145>, target: <0. 0. 0>
+2025-07-26 21:01:02.415 -03:00 [INF] Beginning command list
+2025-07-26 21:01:02.415 -03:00 [INF] Setting framebuffer
+2025-07-26 21:01:02.415 -03:00 [INF] Clearing color target
+2025-07-26 21:01:02.415 -03:00 [INF] Clearing depth stencil
+2025-07-26 21:01:02.415 -03:00 [INF] Rendering 9 game objects
+2025-07-26 21:01:02.415 -03:00 [INF] Object Ground has no render component
+2025-07-26 21:01:02.415 -03:00 [INF] Object Cube 0 has no render component
+2025-07-26 21:01:02.415 -03:00 [INF] Object Cube 1 has no render component
+2025-07-26 21:01:02.415 -03:00 [INF] Object Cube 2 has no render component
+2025-07-26 21:01:02.415 -03:00 [INF] Object Cube 3 has no render component
+2025-07-26 21:01:02.415 -03:00 [INF] Object Cube 4 has no render component
+2025-07-26 21:01:02.415 -03:00 [INF] Object Sphere 0 has no render component
+2025-07-26 21:01:02.415 -03:00 [INF] Object Sphere 1 has no render component
+2025-07-26 21:01:02.415 -03:00 [INF] Object Sphere 2 has no render component
+2025-07-26 21:01:02.415 -03:00 [INF] Rendered 0 objects
+2025-07-26 21:01:02.415 -03:00 [INF] Ending command list
+2025-07-26 21:01:02.415 -03:00 [INF] Submitting commands
+2025-07-26 21:01:02.415 -03:00 [INF] Swapping buffers
+2025-07-26 21:01:02.431 -03:00 [INF] Render() completed
+2025-07-26 21:01:02.432 -03:00 [INF] Render() called
+2025-07-26 21:01:02.432 -03:00 [INF] Framebuffer size: 1280x720
+2025-07-26 21:01:02.432 -03:00 [INF] Camera position: <0,19042537. 3,0000002. 6,99741>, target: <0. 0. 0>
+2025-07-26 21:01:02.432 -03:00 [INF] Beginning command list
+2025-07-26 21:01:02.432 -03:00 [INF] Setting framebuffer
+2025-07-26 21:01:02.432 -03:00 [INF] Clearing color target
+2025-07-26 21:01:02.432 -03:00 [INF] Clearing depth stencil
+2025-07-26 21:01:02.432 -03:00 [INF] Rendering 9 game objects
+2025-07-26 21:01:02.432 -03:00 [INF] Object Ground has no render component
+2025-07-26 21:01:02.432 -03:00 [INF] Object Cube 0 has no render component
+2025-07-26 21:01:02.432 -03:00 [INF] Object Cube 1 has no render component
+2025-07-26 21:01:02.432 -03:00 [INF] Object Cube 2 has no render component
+2025-07-26 21:01:02.432 -03:00 [INF] Object Cube 3 has no render component
+2025-07-26 21:01:02.432 -03:00 [INF] Object Cube 4 has no render component
+2025-07-26 21:01:02.432 -03:00 [INF] Object Sphere 0 has no render component
+2025-07-26 21:01:02.432 -03:00 [INF] Object Sphere 1 has no render component
+2025-07-26 21:01:02.432 -03:00 [INF] Object Sphere 2 has no render component
+2025-07-26 21:01:02.432 -03:00 [INF] Rendered 0 objects
+2025-07-26 21:01:02.432 -03:00 [INF] Ending command list
+2025-07-26 21:01:02.432 -03:00 [INF] Submitting commands
+2025-07-26 21:01:02.432 -03:00 [INF] Swapping buffers
+2025-07-26 21:01:02.448 -03:00 [INF] Render() completed
+2025-07-26 21:01:02.448 -03:00 [INF] Render() called
+2025-07-26 21:01:02.448 -03:00 [INF] Framebuffer size: 1280x720
+2025-07-26 21:01:02.448 -03:00 [INF] Camera position: <0,21368437. 2,9999998. 6,9967375>, target: <0. 0. 0>
+2025-07-26 21:01:02.448 -03:00 [INF] Beginning command list
+2025-07-26 21:01:02.448 -03:00 [INF] Setting framebuffer
+2025-07-26 21:01:02.448 -03:00 [INF] Clearing color target
+2025-07-26 21:01:02.448 -03:00 [INF] Clearing depth stencil
+2025-07-26 21:01:02.448 -03:00 [INF] Rendering 9 game objects
+2025-07-26 21:01:02.448 -03:00 [INF] Object Ground has no render component
+2025-07-26 21:01:02.448 -03:00 [INF] Object Cube 0 has no render component
+2025-07-26 21:01:02.449 -03:00 [INF] Object Cube 1 has no render component
+2025-07-26 21:01:02.449 -03:00 [INF] Object Cube 2 has no render component
+2025-07-26 21:01:02.449 -03:00 [INF] Object Cube 3 has no render component
+2025-07-26 21:01:02.449 -03:00 [INF] Object Cube 4 has no render component
+2025-07-26 21:01:02.449 -03:00 [INF] Object Sphere 0 has no render component
+2025-07-26 21:01:02.449 -03:00 [INF] Object Sphere 1 has no render component
+2025-07-26 21:01:02.449 -03:00 [INF] Object Sphere 2 has no render component
+2025-07-26 21:01:02.449 -03:00 [INF] Rendered 0 objects
+2025-07-26 21:01:02.449 -03:00 [INF] Ending command list
+2025-07-26 21:01:02.449 -03:00 [INF] Submitting commands
+2025-07-26 21:01:02.449 -03:00 [INF] Swapping buffers
+2025-07-26 21:01:02.465 -03:00 [INF] Render() completed
+2025-07-26 21:01:02.465 -03:00 [INF] Render() called
+2025-07-26 21:01:02.465 -03:00 [INF] Framebuffer size: 1280x720
+2025-07-26 21:01:02.465 -03:00 [INF] Camera position: <0,23709618. 2,9999998. 6,995983>, target: <0. 0. 0>
+2025-07-26 21:01:02.465 -03:00 [INF] Beginning command list
+2025-07-26 21:01:02.465 -03:00 [INF] Setting framebuffer
+2025-07-26 21:01:02.465 -03:00 [INF] Clearing color target
+2025-07-26 21:01:02.465 -03:00 [INF] Clearing depth stencil
+2025-07-26 21:01:02.465 -03:00 [INF] Rendering 9 game objects
+2025-07-26 21:01:02.465 -03:00 [INF] Object Ground has no render component
+2025-07-26 21:01:02.466 -03:00 [INF] Object Cube 0 has no render component
+2025-07-26 21:01:02.466 -03:00 [INF] Object Cube 1 has no render component
+2025-07-26 21:01:02.466 -03:00 [INF] Object Cube 2 has no render component
+2025-07-26 21:01:02.466 -03:00 [INF] Object Cube 3 has no render component
+2025-07-26 21:01:02.466 -03:00 [INF] Object Cube 4 has no render component
+2025-07-26 21:01:02.466 -03:00 [INF] Object Sphere 0 has no render component
+2025-07-26 21:01:02.466 -03:00 [INF] Object Sphere 1 has no render component
+2025-07-26 21:01:02.466 -03:00 [INF] Object Sphere 2 has no render component
+2025-07-26 21:01:02.466 -03:00 [INF] Rendered 0 objects
+2025-07-26 21:01:02.466 -03:00 [INF] Ending command list
+2025-07-26 21:01:02.466 -03:00 [INF] Submitting commands
+2025-07-26 21:01:02.466 -03:00 [INF] Swapping buffers
+2025-07-26 21:01:02.481 -03:00 [INF] Render() completed
+2025-07-26 21:01:02.482 -03:00 [INF] Render() called
+2025-07-26 21:01:02.482 -03:00 [INF] Framebuffer size: 1280x720
+2025-07-26 21:01:02.482 -03:00 [INF] Camera position: <0,26016816. 3. 6,995164>, target: <0. 0. 0>
+2025-07-26 21:01:02.482 -03:00 [INF] Beginning command list
+2025-07-26 21:01:02.482 -03:00 [INF] Setting framebuffer
+2025-07-26 21:01:02.482 -03:00 [INF] Clearing color target
+2025-07-26 21:01:02.482 -03:00 [INF] Clearing depth stencil
+2025-07-26 21:01:02.482 -03:00 [INF] Rendering 9 game objects
+2025-07-26 21:01:02.482 -03:00 [INF] Object Ground has no render component
+2025-07-26 21:01:02.482 -03:00 [INF] Object Cube 0 has no render component
+2025-07-26 21:01:02.482 -03:00 [INF] Object Cube 1 has no render component
+2025-07-26 21:01:02.482 -03:00 [INF] Object Cube 2 has no render component
+2025-07-26 21:01:02.482 -03:00 [INF] Object Cube 3 has no render component
+2025-07-26 21:01:02.482 -03:00 [INF] Object Cube 4 has no render component
+2025-07-26 21:01:02.482 -03:00 [INF] Object Sphere 0 has no render component
+2025-07-26 21:01:02.482 -03:00 [INF] Object Sphere 1 has no render component
+2025-07-26 21:01:02.482 -03:00 [INF] Object Sphere 2 has no render component
+2025-07-26 21:01:02.482 -03:00 [INF] Rendered 0 objects
+2025-07-26 21:01:02.482 -03:00 [INF] Ending command list
+2025-07-26 21:01:02.482 -03:00 [INF] Submitting commands
+2025-07-26 21:01:02.482 -03:00 [INF] Swapping buffers
+2025-07-26 21:01:02.498 -03:00 [INF] Render() completed
+2025-07-26 21:01:02.498 -03:00 [INF] Render() called
+2025-07-26 21:01:02.498 -03:00 [INF] Framebuffer size: 1280x720
+2025-07-26 21:01:02.498 -03:00 [INF] Camera position: <0,28336644. 3,0000002. 6,994262>, target: <0. 0. 0>
+2025-07-26 21:01:02.498 -03:00 [INF] Beginning command list
+2025-07-26 21:01:02.498 -03:00 [INF] Setting framebuffer
+2025-07-26 21:01:02.498 -03:00 [INF] Clearing color target
+2025-07-26 21:01:02.498 -03:00 [INF] Clearing depth stencil
+2025-07-26 21:01:02.498 -03:00 [INF] Rendering 9 game objects
+2025-07-26 21:01:02.498 -03:00 [INF] Object Ground has no render component
+2025-07-26 21:01:02.498 -03:00 [INF] Object Cube 0 has no render component
+2025-07-26 21:01:02.498 -03:00 [INF] Object Cube 1 has no render component
+2025-07-26 21:01:02.498 -03:00 [INF] Object Cube 2 has no render component
+2025-07-26 21:01:02.499 -03:00 [INF] Object Cube 3 has no render component
+2025-07-26 21:01:02.499 -03:00 [INF] Object Cube 4 has no render component
+2025-07-26 21:01:02.499 -03:00 [INF] Object Sphere 0 has no render component
+2025-07-26 21:01:02.499 -03:00 [INF] Object Sphere 1 has no render component
+2025-07-26 21:01:02.499 -03:00 [INF] Object Sphere 2 has no render component
+2025-07-26 21:01:02.499 -03:00 [INF] Rendered 0 objects
+2025-07-26 21:01:02.499 -03:00 [INF] Ending command list
+2025-07-26 21:01:02.499 -03:00 [INF] Submitting commands
+2025-07-26 21:01:02.499 -03:00 [INF] Swapping buffers
+2025-07-26 21:01:02.515 -03:00 [INF] Render() completed
+2025-07-26 21:01:02.515 -03:00 [INF] Render() called
+2025-07-26 21:01:02.515 -03:00 [INF] Framebuffer size: 1280x720
+2025-07-26 21:01:02.515 -03:00 [INF] Camera position: <0,30703616. 3. 6,9932632>, target: <0. 0. 0>
+2025-07-26 21:01:02.515 -03:00 [INF] Beginning command list
+2025-07-26 21:01:02.515 -03:00 [INF] Setting framebuffer
+2025-07-26 21:01:02.515 -03:00 [INF] Clearing color target
+2025-07-26 21:01:02.515 -03:00 [INF] Clearing depth stencil
+2025-07-26 21:01:02.515 -03:00 [INF] Rendering 9 game objects
+2025-07-26 21:01:02.515 -03:00 [INF] Object Ground has no render component
+2025-07-26 21:01:02.515 -03:00 [INF] Object Cube 0 has no render component
+2025-07-26 21:01:02.515 -03:00 [INF] Object Cube 1 has no render component
+2025-07-26 21:01:02.515 -03:00 [INF] Object Cube 2 has no render component
+2025-07-26 21:01:02.515 -03:00 [INF] Object Cube 3 has no render component
+2025-07-26 21:01:02.515 -03:00 [INF] Object Cube 4 has no render component
+2025-07-26 21:01:02.515 -03:00 [INF] Object Sphere 0 has no render component
+2025-07-26 21:01:02.515 -03:00 [INF] Object Sphere 1 has no render component
+2025-07-26 21:01:02.515 -03:00 [INF] Object Sphere 2 has no render component
+2025-07-26 21:01:02.515 -03:00 [INF] Rendered 0 objects
+2025-07-26 21:01:02.515 -03:00 [INF] Ending command list
+2025-07-26 21:01:02.515 -03:00 [INF] Submitting commands
+2025-07-26 21:01:02.515 -03:00 [INF] Swapping buffers
+2025-07-26 21:01:02.531 -03:00 [INF] Render() completed
+2025-07-26 21:01:02.532 -03:00 [INF] Render() called
+2025-07-26 21:01:02.532 -03:00 [INF] Framebuffer size: 1280x720
+2025-07-26 21:01:02.532 -03:00 [INF] Camera position: <0,33017543. 3. 6,992209>, target: <0. 0. 0>
+2025-07-26 21:01:02.532 -03:00 [INF] Beginning command list
+2025-07-26 21:01:02.532 -03:00 [INF] Setting framebuffer
+2025-07-26 21:01:02.532 -03:00 [INF] Clearing color target
+2025-07-26 21:01:02.532 -03:00 [INF] Clearing depth stencil
+2025-07-26 21:01:02.532 -03:00 [INF] Rendering 9 game objects
+2025-07-26 21:01:02.532 -03:00 [INF] Object Ground has no render component
+2025-07-26 21:01:02.532 -03:00 [INF] Object Cube 0 has no render component
+2025-07-26 21:01:02.532 -03:00 [INF] Object Cube 1 has no render component
+2025-07-26 21:01:02.532 -03:00 [INF] Object Cube 2 has no render component
+2025-07-26 21:01:02.532 -03:00 [INF] Object Cube 3 has no render component
+2025-07-26 21:01:02.532 -03:00 [INF] Object Cube 4 has no render component
+2025-07-26 21:01:02.532 -03:00 [INF] Object Sphere 0 has no render component
+2025-07-26 21:01:02.532 -03:00 [INF] Object Sphere 1 has no render component
+2025-07-26 21:01:02.532 -03:00 [INF] Object Sphere 2 has no render component
+2025-07-26 21:01:02.532 -03:00 [INF] Rendered 0 objects
+2025-07-26 21:01:02.532 -03:00 [INF] Ending command list
+2025-07-26 21:01:02.532 -03:00 [INF] Submitting commands
+2025-07-26 21:01:02.532 -03:00 [INF] Swapping buffers
+2025-07-26 21:01:02.548 -03:00 [INF] Render() completed
+2025-07-26 21:01:02.548 -03:00 [INF] Render() called
+2025-07-26 21:01:02.548 -03:00 [INF] Framebuffer size: 1280x720
+2025-07-26 21:01:02.548 -03:00 [INF] Camera position: <0,35344642. 3. 6,9910707>, target: <0. 0. 0>
+2025-07-26 21:01:02.548 -03:00 [INF] Beginning command list
+2025-07-26 21:01:02.548 -03:00 [INF] Setting framebuffer
+2025-07-26 21:01:02.548 -03:00 [INF] Clearing color target
+2025-07-26 21:01:02.548 -03:00 [INF] Clearing depth stencil
+2025-07-26 21:01:02.548 -03:00 [INF] Rendering 9 game objects
+2025-07-26 21:01:02.548 -03:00 [INF] Object Ground has no render component
+2025-07-26 21:01:02.549 -03:00 [INF] Object Cube 0 has no render component
+2025-07-26 21:01:02.549 -03:00 [INF] Object Cube 1 has no render component
+2025-07-26 21:01:02.549 -03:00 [INF] Object Cube 2 has no render component
+2025-07-26 21:01:02.549 -03:00 [INF] Object Cube 3 has no render component
+2025-07-26 21:01:02.549 -03:00 [INF] Object Cube 4 has no render component
+2025-07-26 21:01:02.549 -03:00 [INF] Object Sphere 0 has no render component
+2025-07-26 21:01:02.549 -03:00 [INF] Object Sphere 1 has no render component
+2025-07-26 21:01:02.549 -03:00 [INF] Object Sphere 2 has no render component
+2025-07-26 21:01:02.549 -03:00 [INF] Rendered 0 objects
+2025-07-26 21:01:02.549 -03:00 [INF] Ending command list
+2025-07-26 21:01:02.549 -03:00 [INF] Submitting commands
+2025-07-26 21:01:02.549 -03:00 [INF] Swapping buffers
+2025-07-26 21:01:02.564 -03:00 [INF] Render() completed
+2025-07-26 21:01:02.565 -03:00 [INF] Render() called
+2025-07-26 21:01:02.565 -03:00 [INF] Framebuffer size: 1280x720
+2025-07-26 21:01:02.565 -03:00 [INF] Camera position: <0,37658. 3. 6,989863>, target: <0. 0. 0>
+2025-07-26 21:01:02.565 -03:00 [INF] Beginning command list
+2025-07-26 21:01:02.565 -03:00 [INF] Setting framebuffer
+2025-07-26 21:01:02.565 -03:00 [INF] Clearing color target
+2025-07-26 21:01:02.565 -03:00 [INF] Clearing depth stencil
+2025-07-26 21:01:02.565 -03:00 [INF] Rendering 9 game objects
+2025-07-26 21:01:02.565 -03:00 [INF] Object Ground has no render component
+2025-07-26 21:01:02.565 -03:00 [INF] Object Cube 0 has no render component
+2025-07-26 21:01:02.565 -03:00 [INF] Object Cube 1 has no render component
+2025-07-26 21:01:02.565 -03:00 [INF] Object Cube 2 has no render component
+2025-07-26 21:01:02.565 -03:00 [INF] Object Cube 3 has no render component
+2025-07-26 21:01:02.565 -03:00 [INF] Object Cube 4 has no render component
+2025-07-26 21:01:02.565 -03:00 [INF] Object Sphere 0 has no render component
+2025-07-26 21:01:02.565 -03:00 [INF] Object Sphere 1 has no render component
+2025-07-26 21:01:02.565 -03:00 [INF] Object Sphere 2 has no render component
+2025-07-26 21:01:02.565 -03:00 [INF] Rendered 0 objects
+2025-07-26 21:01:02.565 -03:00 [INF] Ending command list
+2025-07-26 21:01:02.565 -03:00 [INF] Submitting commands
+2025-07-26 21:01:02.565 -03:00 [INF] Swapping buffers
+2025-07-26 21:01:02.581 -03:00 [INF] Render() completed
+2025-07-26 21:01:02.582 -03:00 [INF] Render() called
+2025-07-26 21:01:02.582 -03:00 [INF] Framebuffer size: 1280x720
+2025-07-26 21:01:02.582 -03:00 [INF] Camera position: <0,40007928. 2,9999998. 6,9885573>, target: <0. 0. 0>
+2025-07-26 21:01:02.582 -03:00 [INF] Beginning command list
+2025-07-26 21:01:02.582 -03:00 [INF] Setting framebuffer
+2025-07-26 21:01:02.582 -03:00 [INF] Clearing color target
+2025-07-26 21:01:02.582 -03:00 [INF] Clearing depth stencil
+2025-07-26 21:01:02.582 -03:00 [INF] Rendering 9 game objects
+2025-07-26 21:01:02.582 -03:00 [INF] Object Ground has no render component
+2025-07-26 21:01:02.582 -03:00 [INF] Object Cube 0 has no render component
+2025-07-26 21:01:02.582 -03:00 [INF] Object Cube 1 has no render component
+2025-07-26 21:01:02.582 -03:00 [INF] Object Cube 2 has no render component
+2025-07-26 21:01:02.582 -03:00 [INF] Object Cube 3 has no render component
+2025-07-26 21:01:02.582 -03:00 [INF] Object Cube 4 has no render component
+2025-07-26 21:01:02.582 -03:00 [INF] Object Sphere 0 has no render component
+2025-07-26 21:01:02.582 -03:00 [INF] Object Sphere 1 has no render component
+2025-07-26 21:01:02.582 -03:00 [INF] Object Sphere 2 has no render component
+2025-07-26 21:01:02.582 -03:00 [INF] Rendered 0 objects
+2025-07-26 21:01:02.582 -03:00 [INF] Ending command list
+2025-07-26 21:01:02.582 -03:00 [INF] Submitting commands
+2025-07-26 21:01:02.582 -03:00 [INF] Swapping buffers
+2025-07-26 21:01:02.598 -03:00 [INF] Render() completed
+2025-07-26 21:01:02.599 -03:00 [INF] Render() called
+2025-07-26 21:01:02.599 -03:00 [INF] Framebuffer size: 1280x720
+2025-07-26 21:01:02.599 -03:00 [INF] Camera position: <0,42377502. 3,0000002. 6,9871607>, target: <0. 0. 0>
+2025-07-26 21:01:02.599 -03:00 [INF] Beginning command list
+2025-07-26 21:01:02.599 -03:00 [INF] Setting framebuffer
+2025-07-26 21:01:02.599 -03:00 [INF] Clearing color target
+2025-07-26 21:01:02.599 -03:00 [INF] Clearing depth stencil
+2025-07-26 21:01:02.599 -03:00 [INF] Rendering 9 game objects
+2025-07-26 21:01:02.599 -03:00 [INF] Object Ground has no render component
+2025-07-26 21:01:02.599 -03:00 [INF] Object Cube 0 has no render component
+2025-07-26 21:01:02.599 -03:00 [INF] Object Cube 1 has no render component
+2025-07-26 21:01:02.600 -03:00 [INF] Object Cube 2 has no render component
+2025-07-26 21:01:02.600 -03:00 [INF] Object Cube 3 has no render component
+2025-07-26 21:01:02.600 -03:00 [INF] Object Cube 4 has no render component
+2025-07-26 21:01:02.600 -03:00 [INF] Object Sphere 0 has no render component
+2025-07-26 21:01:02.600 -03:00 [INF] Object Sphere 1 has no render component
+2025-07-26 21:01:02.600 -03:00 [INF] Object Sphere 2 has no render component
+2025-07-26 21:01:02.600 -03:00 [INF] Rendered 0 objects
+2025-07-26 21:01:02.600 -03:00 [INF] Ending command list
+2025-07-26 21:01:02.600 -03:00 [INF] Submitting commands
+2025-07-26 21:01:02.600 -03:00 [INF] Swapping buffers
+2025-07-26 21:01:02.615 -03:00 [INF] Render() completed
+2025-07-26 21:01:02.615 -03:00 [INF] Render() called
+2025-07-26 21:01:02.615 -03:00 [INF] Framebuffer size: 1280x720
+2025-07-26 21:01:02.615 -03:00 [INF] Camera position: <0,44720918. 3. 6,985699>, target: <0. 0. 0>
+2025-07-26 21:01:02.615 -03:00 [INF] Beginning command list
+2025-07-26 21:01:02.615 -03:00 [INF] Setting framebuffer
+2025-07-26 21:01:02.615 -03:00 [INF] Clearing color target
+2025-07-26 21:01:02.615 -03:00 [INF] Clearing depth stencil
+2025-07-26 21:01:02.615 -03:00 [INF] Rendering 9 game objects
+2025-07-26 21:01:02.615 -03:00 [INF] Object Ground has no render component
+2025-07-26 21:01:02.616 -03:00 [INF] Object Cube 0 has no render component
+2025-07-26 21:01:02.616 -03:00 [INF] Object Cube 1 has no render component
+2025-07-26 21:01:02.616 -03:00 [INF] Object Cube 2 has no render component
+2025-07-26 21:01:02.616 -03:00 [INF] Object Cube 3 has no render component
+2025-07-26 21:01:02.616 -03:00 [INF] Object Cube 4 has no render component
+2025-07-26 21:01:02.616 -03:00 [INF] Object Sphere 0 has no render component
+2025-07-26 21:01:02.616 -03:00 [INF] Object Sphere 1 has no render component
+2025-07-26 21:01:02.616 -03:00 [INF] Object Sphere 2 has no render component
+2025-07-26 21:01:02.616 -03:00 [INF] Rendered 0 objects
+2025-07-26 21:01:02.616 -03:00 [INF] Ending command list
+2025-07-26 21:01:02.616 -03:00 [INF] Submitting commands
+2025-07-26 21:01:02.616 -03:00 [INF] Swapping buffers
+2025-07-26 21:01:02.631 -03:00 [INF] Render() completed
+2025-07-26 21:01:02.632 -03:00 [INF] Render() called
+2025-07-26 21:01:02.632 -03:00 [INF] Framebuffer size: 1280x720
+2025-07-26 21:01:02.632 -03:00 [INF] Camera position: <0,46996087. 2,9999998. 6,984206>, target: <0. 0. 0>
+2025-07-26 21:01:02.632 -03:00 [INF] Beginning command list
+2025-07-26 21:01:02.632 -03:00 [INF] Setting framebuffer
+2025-07-26 21:01:02.632 -03:00 [INF] Clearing color target
+2025-07-26 21:01:02.632 -03:00 [INF] Clearing depth stencil
+2025-07-26 21:01:02.632 -03:00 [INF] Rendering 9 game objects
+2025-07-26 21:01:02.632 -03:00 [INF] Object Ground has no render component
+2025-07-26 21:01:02.632 -03:00 [INF] Object Cube 0 has no render component
+2025-07-26 21:01:02.632 -03:00 [INF] Object Cube 1 has no render component
+2025-07-26 21:01:02.632 -03:00 [INF] Object Cube 2 has no render component
+2025-07-26 21:01:02.632 -03:00 [INF] Object Cube 3 has no render component
+2025-07-26 21:01:02.632 -03:00 [INF] Object Cube 4 has no render component
+2025-07-26 21:01:02.632 -03:00 [INF] Object Sphere 0 has no render component
+2025-07-26 21:01:02.632 -03:00 [INF] Object Sphere 1 has no render component
+2025-07-26 21:01:02.632 -03:00 [INF] Object Sphere 2 has no render component
+2025-07-26 21:01:02.632 -03:00 [INF] Rendered 0 objects
+2025-07-26 21:01:02.632 -03:00 [INF] Ending command list
+2025-07-26 21:01:02.632 -03:00 [INF] Submitting commands
+2025-07-26 21:01:02.632 -03:00 [INF] Swapping buffers
+2025-07-26 21:01:02.648 -03:00 [INF] Render() completed
+2025-07-26 21:01:02.648 -03:00 [INF] Render() called
+2025-07-26 21:01:02.648 -03:00 [INF] Framebuffer size: 1280x720
+2025-07-26 21:01:02.649 -03:00 [INF] Camera position: <0,49339002. 3,0000002. 6,98259>, target: <0. 0. 0>
+2025-07-26 21:01:02.649 -03:00 [INF] Beginning command list
+2025-07-26 21:01:02.649 -03:00 [INF] Setting framebuffer
+2025-07-26 21:01:02.649 -03:00 [INF] Clearing color target
+2025-07-26 21:01:02.649 -03:00 [INF] Clearing depth stencil
+2025-07-26 21:01:02.649 -03:00 [INF] Rendering 9 game objects
+2025-07-26 21:01:02.649 -03:00 [INF] Object Ground has no render component
+2025-07-26 21:01:02.649 -03:00 [INF] Object Cube 0 has no render component
+2025-07-26 21:01:02.649 -03:00 [INF] Object Cube 1 has no render component
+2025-07-26 21:01:02.649 -03:00 [INF] Object Cube 2 has no render component
+2025-07-26 21:01:02.649 -03:00 [INF] Object Cube 3 has no render component
+2025-07-26 21:01:02.649 -03:00 [INF] Object Cube 4 has no render component
+2025-07-26 21:01:02.649 -03:00 [INF] Object Sphere 0 has no render component
+2025-07-26 21:01:02.649 -03:00 [INF] Object Sphere 1 has no render component
+2025-07-26 21:01:02.649 -03:00 [INF] Object Sphere 2 has no render component
+2025-07-26 21:01:02.649 -03:00 [INF] Rendered 0 objects
+2025-07-26 21:01:02.649 -03:00 [INF] Ending command list
+2025-07-26 21:01:02.649 -03:00 [INF] Submitting commands
+2025-07-26 21:01:02.649 -03:00 [INF] Swapping buffers
+2025-07-26 21:01:02.664 -03:00 [INF] Render() completed
+2025-07-26 21:01:02.665 -03:00 [INF] Render() called
+2025-07-26 21:01:02.665 -03:00 [INF] Framebuffer size: 1280x720
+2025-07-26 21:01:02.665 -03:00 [INF] Camera position: <0,5164338. 2,9999998. 6,9809237>, target: <0. 0. 0>
+2025-07-26 21:01:02.665 -03:00 [INF] Beginning command list
+2025-07-26 21:01:02.665 -03:00 [INF] Setting framebuffer
+2025-07-26 21:01:02.665 -03:00 [INF] Clearing color target
+2025-07-26 21:01:02.665 -03:00 [INF] Clearing depth stencil
+2025-07-26 21:01:02.665 -03:00 [INF] Rendering 9 game objects
+2025-07-26 21:01:02.665 -03:00 [INF] Object Ground has no render component
+2025-07-26 21:01:02.665 -03:00 [INF] Object Cube 0 has no render component
+2025-07-26 21:01:02.665 -03:00 [INF] Object Cube 1 has no render component
+2025-07-26 21:01:02.665 -03:00 [INF] Object Cube 2 has no render component
+2025-07-26 21:01:02.665 -03:00 [INF] Object Cube 3 has no render component
+2025-07-26 21:01:02.665 -03:00 [INF] Object Cube 4 has no render component
+2025-07-26 21:01:02.665 -03:00 [INF] Object Sphere 0 has no render component
+2025-07-26 21:01:02.665 -03:00 [INF] Object Sphere 1 has no render component
+2025-07-26 21:01:02.665 -03:00 [INF] Object Sphere 2 has no render component
+2025-07-26 21:01:02.665 -03:00 [INF] Rendered 0 objects
+2025-07-26 21:01:02.665 -03:00 [INF] Ending command list
+2025-07-26 21:01:02.665 -03:00 [INF] Submitting commands
+2025-07-26 21:01:02.665 -03:00 [INF] Swapping buffers
+2025-07-26 21:01:02.681 -03:00 [INF] Render() completed
+2025-07-26 21:01:02.682 -03:00 [INF] Render() called
+2025-07-26 21:01:02.682 -03:00 [INF] Framebuffer size: 1280x720
+2025-07-26 21:01:02.682 -03:00 [INF] Camera position: <0,53978986. 3. 6,9791565>, target: <0. 0. 0>
+2025-07-26 21:01:02.682 -03:00 [INF] Beginning command list
+2025-07-26 21:01:02.682 -03:00 [INF] Setting framebuffer
+2025-07-26 21:01:02.682 -03:00 [INF] Clearing color target
+2025-07-26 21:01:02.682 -03:00 [INF] Clearing depth stencil
+2025-07-26 21:01:02.682 -03:00 [INF] Rendering 9 game objects
+2025-07-26 21:01:02.682 -03:00 [INF] Object Ground has no render component
+2025-07-26 21:01:02.682 -03:00 [INF] Object Cube 0 has no render component
+2025-07-26 21:01:02.682 -03:00 [INF] Object Cube 1 has no render component
+2025-07-26 21:01:02.682 -03:00 [INF] Object Cube 2 has no render component
+2025-07-26 21:01:02.682 -03:00 [INF] Object Cube 3 has no render component
+2025-07-26 21:01:02.682 -03:00 [INF] Object Cube 4 has no render component
+2025-07-26 21:01:02.682 -03:00 [INF] Object Sphere 0 has no render component
+2025-07-26 21:01:02.682 -03:00 [INF] Object Sphere 1 has no render component
+2025-07-26 21:01:02.682 -03:00 [INF] Object Sphere 2 has no render component
+2025-07-26 21:01:02.682 -03:00 [INF] Rendered 0 objects
+2025-07-26 21:01:02.682 -03:00 [INF] Ending command list
+2025-07-26 21:01:02.682 -03:00 [INF] Submitting commands
+2025-07-26 21:01:02.682 -03:00 [INF] Swapping buffers
+2025-07-26 21:01:02.698 -03:00 [INF] Render() completed
+2025-07-26 21:01:02.698 -03:00 [INF] Render() called
+2025-07-26 21:01:02.698 -03:00 [INF] Framebuffer size: 1280x720
+2025-07-26 21:01:02.698 -03:00 [INF] Camera position: <0,5629845. 2,9999998. 6,9773235>, target: <0. 0. 0>
+2025-07-26 21:01:02.698 -03:00 [INF] Beginning command list
+2025-07-26 21:01:02.698 -03:00 [INF] Setting framebuffer
+2025-07-26 21:01:02.698 -03:00 [INF] Clearing color target
+2025-07-26 21:01:02.698 -03:00 [INF] Clearing depth stencil
+2025-07-26 21:01:02.698 -03:00 [INF] Rendering 9 game objects
+2025-07-26 21:01:02.698 -03:00 [INF] Object Ground has no render component
+2025-07-26 21:01:02.698 -03:00 [INF] Object Cube 0 has no render component
+2025-07-26 21:01:02.698 -03:00 [INF] Object Cube 1 has no render component
+2025-07-26 21:01:02.698 -03:00 [INF] Object Cube 2 has no render component
+2025-07-26 21:01:02.698 -03:00 [INF] Object Cube 3 has no render component
+2025-07-26 21:01:02.698 -03:00 [INF] Object Cube 4 has no render component
+2025-07-26 21:01:02.698 -03:00 [INF] Object Sphere 0 has no render component
+2025-07-26 21:01:02.698 -03:00 [INF] Object Sphere 1 has no render component
+2025-07-26 21:01:02.699 -03:00 [INF] Object Sphere 2 has no render component
+2025-07-26 21:01:02.699 -03:00 [INF] Rendered 0 objects
+2025-07-26 21:01:02.699 -03:00 [INF] Ending command list
+2025-07-26 21:01:02.699 -03:00 [INF] Submitting commands
+2025-07-26 21:01:02.699 -03:00 [INF] Swapping buffers
+2025-07-26 21:01:02.715 -03:00 [INF] Render() completed
+2025-07-26 21:01:02.715 -03:00 [INF] Render() called
+2025-07-26 21:01:02.715 -03:00 [INF] Framebuffer size: 1280x720
+2025-07-26 21:01:02.715 -03:00 [INF] Camera position: <0,5864072. 3,0000002. 6,9753942>, target: <0. 0. 0>
+2025-07-26 21:01:02.715 -03:00 [INF] Beginning command list
+2025-07-26 21:01:02.715 -03:00 [INF] Setting framebuffer
+2025-07-26 21:01:02.715 -03:00 [INF] Clearing color target
+2025-07-26 21:01:02.715 -03:00 [INF] Clearing depth stencil
+2025-07-26 21:01:02.716 -03:00 [INF] Rendering 9 game objects
+2025-07-26 21:01:02.716 -03:00 [INF] Object Ground has no render component
+2025-07-26 21:01:02.716 -03:00 [INF] Object Cube 0 has no render component
+2025-07-26 21:01:02.716 -03:00 [INF] Object Cube 1 has no render component
+2025-07-26 21:01:02.716 -03:00 [INF] Object Cube 2 has no render component
+2025-07-26 21:01:02.716 -03:00 [INF] Object Cube 3 has no render component
+2025-07-26 21:01:02.716 -03:00 [INF] Object Cube 4 has no render component
+2025-07-26 21:01:02.716 -03:00 [INF] Object Sphere 0 has no render component
+2025-07-26 21:01:02.716 -03:00 [INF] Object Sphere 1 has no render component
+2025-07-26 21:01:02.716 -03:00 [INF] Object Sphere 2 has no render component
+2025-07-26 21:01:02.716 -03:00 [INF] Rendered 0 objects
+2025-07-26 21:01:02.716 -03:00 [INF] Ending command list
+2025-07-26 21:01:02.716 -03:00 [INF] Submitting commands
+2025-07-26 21:01:02.716 -03:00 [INF] Swapping buffers
+2025-07-26 21:01:02.731 -03:00 [INF] Render() completed
+2025-07-26 21:01:02.732 -03:00 [INF] Render() called
+2025-07-26 21:01:02.732 -03:00 [INF] Framebuffer size: 1280x720
+2025-07-26 21:01:02.732 -03:00 [INF] Camera position: <0,6093782. 3. 6,973425>, target: <0. 0. 0>
+2025-07-26 21:01:02.732 -03:00 [INF] Beginning command list
+2025-07-26 21:01:02.732 -03:00 [INF] Setting framebuffer
+2025-07-26 21:01:02.732 -03:00 [INF] Clearing color target
+2025-07-26 21:01:02.732 -03:00 [INF] Clearing depth stencil
+2025-07-26 21:01:02.732 -03:00 [INF] Rendering 9 game objects
+2025-07-26 21:01:02.732 -03:00 [INF] Object Ground has no render component
+2025-07-26 21:01:02.732 -03:00 [INF] Object Cube 0 has no render component
+2025-07-26 21:01:02.732 -03:00 [INF] Object Cube 1 has no render component
+2025-07-26 21:01:02.732 -03:00 [INF] Object Cube 2 has no render component
+2025-07-26 21:01:02.732 -03:00 [INF] Object Cube 3 has no render component
+2025-07-26 21:01:02.732 -03:00 [INF] Object Cube 4 has no render component
+2025-07-26 21:01:02.732 -03:00 [INF] Object Sphere 0 has no render component
+2025-07-26 21:01:02.732 -03:00 [INF] Object Sphere 1 has no render component
+2025-07-26 21:01:02.732 -03:00 [INF] Object Sphere 2 has no render component
+2025-07-26 21:01:02.732 -03:00 [INF] Rendered 0 objects
+2025-07-26 21:01:02.732 -03:00 [INF] Ending command list
+2025-07-26 21:01:02.732 -03:00 [INF] Submitting commands
+2025-07-26 21:01:02.732 -03:00 [INF] Swapping buffers
+2025-07-26 21:01:02.748 -03:00 [INF] Render() completed
+2025-07-26 21:01:02.748 -03:00 [INF] Render() called
+2025-07-26 21:01:02.748 -03:00 [INF] Framebuffer size: 1280x720
+2025-07-26 21:01:02.748 -03:00 [INF] Camera position: <0,6327348. 3. 6,9713445>, target: <0. 0. 0>
+2025-07-26 21:01:02.748 -03:00 [INF] Beginning command list
+2025-07-26 21:01:02.748 -03:00 [INF] Setting framebuffer
+2025-07-26 21:01:02.748 -03:00 [INF] Clearing color target
+2025-07-26 21:01:02.748 -03:00 [INF] Clearing depth stencil
+2025-07-26 21:01:02.748 -03:00 [INF] Rendering 9 game objects
+2025-07-26 21:01:02.748 -03:00 [INF] Object Ground has no render component
+2025-07-26 21:01:02.748 -03:00 [INF] Object Cube 0 has no render component
+2025-07-26 21:01:02.748 -03:00 [INF] Object Cube 1 has no render component
+2025-07-26 21:01:02.748 -03:00 [INF] Object Cube 2 has no render component
+2025-07-26 21:01:02.748 -03:00 [INF] Object Cube 3 has no render component
+2025-07-26 21:01:02.748 -03:00 [INF] Object Cube 4 has no render component
+2025-07-26 21:01:02.748 -03:00 [INF] Object Sphere 0 has no render component
+2025-07-26 21:01:02.748 -03:00 [INF] Object Sphere 1 has no render component
+2025-07-26 21:01:02.748 -03:00 [INF] Object Sphere 2 has no render component
+2025-07-26 21:01:02.749 -03:00 [INF] Rendered 0 objects
+2025-07-26 21:01:02.749 -03:00 [INF] Ending command list
+2025-07-26 21:01:02.749 -03:00 [INF] Submitting commands
+2025-07-26 21:01:02.749 -03:00 [INF] Swapping buffers
+2025-07-26 21:01:02.765 -03:00 [INF] Render() completed
+2025-07-26 21:01:02.765 -03:00 [INF] Render() called
+2025-07-26 21:01:02.765 -03:00 [INF] Framebuffer size: 1280x720
+2025-07-26 21:01:02.765 -03:00 [INF] Camera position: <0,65632105. 3. 6,969164>, target: <0. 0. 0>
+2025-07-26 21:01:02.765 -03:00 [INF] Beginning command list
+2025-07-26 21:01:02.765 -03:00 [INF] Setting framebuffer
+2025-07-26 21:01:02.765 -03:00 [INF] Clearing color target
+2025-07-26 21:01:02.765 -03:00 [INF] Clearing depth stencil
+2025-07-26 21:01:02.765 -03:00 [INF] Rendering 9 game objects
+2025-07-26 21:01:02.765 -03:00 [INF] Object Ground has no render component
+2025-07-26 21:01:02.765 -03:00 [INF] Object Cube 0 has no render component
+2025-07-26 21:01:02.765 -03:00 [INF] Object Cube 1 has no render component
+2025-07-26 21:01:02.765 -03:00 [INF] Object Cube 2 has no render component
+2025-07-26 21:01:02.765 -03:00 [INF] Object Cube 3 has no render component
+2025-07-26 21:01:02.765 -03:00 [INF] Object Cube 4 has no render component
+2025-07-26 21:01:02.765 -03:00 [INF] Object Sphere 0 has no render component
+2025-07-26 21:01:02.765 -03:00 [INF] Object Sphere 1 has no render component
+2025-07-26 21:01:02.765 -03:00 [INF] Object Sphere 2 has no render component
+2025-07-26 21:01:02.765 -03:00 [INF] Rendered 0 objects
+2025-07-26 21:01:02.765 -03:00 [INF] Ending command list
+2025-07-26 21:01:02.765 -03:00 [INF] Submitting commands
+2025-07-26 21:01:02.766 -03:00 [INF] Swapping buffers
+2025-07-26 21:01:02.781 -03:00 [INF] Render() completed
+2025-07-26 21:01:02.781 -03:00 [INF] Render() called
+2025-07-26 21:01:02.781 -03:00 [INF] Framebuffer size: 1280x720
+2025-07-26 21:01:02.782 -03:00 [INF] Camera position: <0,67912126. 3. 6,9669785>, target: <0. 0. 0>
+2025-07-26 21:01:02.782 -03:00 [INF] Beginning command list
+2025-07-26 21:01:02.782 -03:00 [INF] Setting framebuffer
+2025-07-26 21:01:02.782 -03:00 [INF] Clearing color target
+2025-07-26 21:01:02.782 -03:00 [INF] Clearing depth stencil
+2025-07-26 21:01:02.782 -03:00 [INF] Rendering 9 game objects
+2025-07-26 21:01:02.782 -03:00 [INF] Object Ground has no render component
+2025-07-26 21:01:02.782 -03:00 [INF] Object Cube 0 has no render component
+2025-07-26 21:01:02.782 -03:00 [INF] Object Cube 1 has no render component
+2025-07-26 21:01:02.782 -03:00 [INF] Object Cube 2 has no render component
+2025-07-26 21:01:02.782 -03:00 [INF] Object Cube 3 has no render component
+2025-07-26 21:01:02.782 -03:00 [INF] Object Cube 4 has no render component
+2025-07-26 21:01:02.782 -03:00 [INF] Object Sphere 0 has no render component
+2025-07-26 21:01:02.782 -03:00 [INF] Object Sphere 1 has no render component
+2025-07-26 21:01:02.782 -03:00 [INF] Object Sphere 2 has no render component
+2025-07-26 21:01:02.782 -03:00 [INF] Rendered 0 objects
+2025-07-26 21:01:02.782 -03:00 [INF] Ending command list
+2025-07-26 21:01:02.782 -03:00 [INF] Submitting commands
+2025-07-26 21:01:02.782 -03:00 [INF] Swapping buffers
+2025-07-26 21:01:02.798 -03:00 [INF] Render() completed
+2025-07-26 21:01:02.798 -03:00 [INF] Render() called
+2025-07-26 21:01:02.798 -03:00 [INF] Framebuffer size: 1280x720
+2025-07-26 21:01:02.798 -03:00 [INF] Camera position: <0,7025658. 3. 6,964654>, target: <0. 0. 0>
+2025-07-26 21:01:02.798 -03:00 [INF] Beginning command list
+2025-07-26 21:01:02.798 -03:00 [INF] Setting framebuffer
+2025-07-26 21:01:02.798 -03:00 [INF] Clearing color target
+2025-07-26 21:01:02.798 -03:00 [INF] Clearing depth stencil
+2025-07-26 21:01:02.798 -03:00 [INF] Rendering 9 game objects
+2025-07-26 21:01:02.798 -03:00 [INF] Object Ground has no render component
+2025-07-26 21:01:02.798 -03:00 [INF] Object Cube 0 has no render component
+2025-07-26 21:01:02.799 -03:00 [INF] Object Cube 1 has no render component
+2025-07-26 21:01:02.799 -03:00 [INF] Object Cube 2 has no render component
+2025-07-26 21:01:02.799 -03:00 [INF] Object Cube 3 has no render component
+2025-07-26 21:01:02.799 -03:00 [INF] Object Cube 4 has no render component
+2025-07-26 21:01:02.799 -03:00 [INF] Object Sphere 0 has no render component
+2025-07-26 21:01:02.799 -03:00 [INF] Object Sphere 1 has no render component
+2025-07-26 21:01:02.799 -03:00 [INF] Object Sphere 2 has no render component
+2025-07-26 21:01:02.799 -03:00 [INF] Rendered 0 objects
+2025-07-26 21:01:02.799 -03:00 [INF] Ending command list
+2025-07-26 21:01:02.799 -03:00 [INF] Submitting commands
+2025-07-26 21:01:02.799 -03:00 [INF] Swapping buffers
+2025-07-26 21:01:02.815 -03:00 [INF] Render() completed
+2025-07-26 21:01:02.815 -03:00 [INF] Render() called
+2025-07-26 21:01:02.815 -03:00 [INF] Framebuffer size: 1280x720
+2025-07-26 21:01:02.815 -03:00 [INF] Camera position: <0,7259207. 2,9999998. 6,962258>, target: <0. 0. 0>
+2025-07-26 21:01:02.815 -03:00 [INF] Beginning command list
+2025-07-26 21:01:02.815 -03:00 [INF] Setting framebuffer
+2025-07-26 21:01:02.815 -03:00 [INF] Clearing color target
+2025-07-26 21:01:02.815 -03:00 [INF] Clearing depth stencil
+2025-07-26 21:01:02.816 -03:00 [INF] Rendering 9 game objects
+2025-07-26 21:01:02.816 -03:00 [INF] Object Ground has no render component
+2025-07-26 21:01:02.816 -03:00 [INF] Object Cube 0 has no render component
+2025-07-26 21:01:02.816 -03:00 [INF] Object Cube 1 has no render component
+2025-07-26 21:01:02.816 -03:00 [INF] Object Cube 2 has no render component
+2025-07-26 21:01:02.816 -03:00 [INF] Object Cube 3 has no render component
+2025-07-26 21:01:02.816 -03:00 [INF] Object Cube 4 has no render component
+2025-07-26 21:01:02.816 -03:00 [INF] Object Sphere 0 has no render component
+2025-07-26 21:01:02.816 -03:00 [INF] Object Sphere 1 has no render component
+2025-07-26 21:01:02.816 -03:00 [INF] Object Sphere 2 has no render component
+2025-07-26 21:01:02.816 -03:00 [INF] Rendered 0 objects
+2025-07-26 21:01:02.816 -03:00 [INF] Ending command list
+2025-07-26 21:01:02.816 -03:00 [INF] Submitting commands
+2025-07-26 21:01:02.816 -03:00 [INF] Swapping buffers
+2025-07-26 21:01:02.831 -03:00 [INF] Render() completed
+2025-07-26 21:01:02.832 -03:00 [INF] Render() called
+2025-07-26 21:01:02.832 -03:00 [INF] Framebuffer size: 1280x720
+2025-07-26 21:01:02.832 -03:00 [INF] Camera position: <0,7490957. 3. 6,9598026>, target: <0. 0. 0>
+2025-07-26 21:01:02.832 -03:00 [INF] Beginning command list
+2025-07-26 21:01:02.832 -03:00 [INF] Setting framebuffer
+2025-07-26 21:01:02.832 -03:00 [INF] Clearing color target
+2025-07-26 21:01:02.832 -03:00 [INF] Clearing depth stencil
+2025-07-26 21:01:02.832 -03:00 [INF] Rendering 9 game objects
+2025-07-26 21:01:02.832 -03:00 [INF] Object Ground has no render component
+2025-07-26 21:01:02.832 -03:00 [INF] Object Cube 0 has no render component
+2025-07-26 21:01:02.832 -03:00 [INF] Object Cube 1 has no render component
+2025-07-26 21:01:02.832 -03:00 [INF] Object Cube 2 has no render component
+2025-07-26 21:01:02.832 -03:00 [INF] Object Cube 3 has no render component
+2025-07-26 21:01:02.832 -03:00 [INF] Object Cube 4 has no render component
+2025-07-26 21:01:02.832 -03:00 [INF] Object Sphere 0 has no render component
+2025-07-26 21:01:02.832 -03:00 [INF] Object Sphere 1 has no render component
+2025-07-26 21:01:02.832 -03:00 [INF] Object Sphere 2 has no render component
+2025-07-26 21:01:02.832 -03:00 [INF] Rendered 0 objects
+2025-07-26 21:01:02.832 -03:00 [INF] Ending command list
+2025-07-26 21:01:02.832 -03:00 [INF] Submitting commands
+2025-07-26 21:01:02.832 -03:00 [INF] Swapping buffers
+2025-07-26 21:01:02.848 -03:00 [INF] Render() completed
+2025-07-26 21:01:02.848 -03:00 [INF] Render() called
+2025-07-26 21:01:02.848 -03:00 [INF] Framebuffer size: 1280x720
+2025-07-26 21:01:02.848 -03:00 [INF] Camera position: <0,7722676. 3. 6,9572697>, target: <0. 0. 0>
+2025-07-26 21:01:02.848 -03:00 [INF] Beginning command list
+2025-07-26 21:01:02.848 -03:00 [INF] Setting framebuffer
+2025-07-26 21:01:02.848 -03:00 [INF] Clearing color target
+2025-07-26 21:01:02.848 -03:00 [INF] Clearing depth stencil
+2025-07-26 21:01:02.848 -03:00 [INF] Rendering 9 game objects
+2025-07-26 21:01:02.848 -03:00 [INF] Object Ground has no render component
+2025-07-26 21:01:02.848 -03:00 [INF] Object Cube 0 has no render component
+2025-07-26 21:01:02.848 -03:00 [INF] Object Cube 1 has no render component
+2025-07-26 21:01:02.848 -03:00 [INF] Object Cube 2 has no render component
+2025-07-26 21:01:02.848 -03:00 [INF] Object Cube 3 has no render component
+2025-07-26 21:01:02.848 -03:00 [INF] Object Cube 4 has no render component
+2025-07-26 21:01:02.848 -03:00 [INF] Object Sphere 0 has no render component
+2025-07-26 21:01:02.849 -03:00 [INF] Object Sphere 1 has no render component
+2025-07-26 21:01:02.849 -03:00 [INF] Object Sphere 2 has no render component
+2025-07-26 21:01:02.849 -03:00 [INF] Rendered 0 objects
+2025-07-26 21:01:02.849 -03:00 [INF] Ending command list
+2025-07-26 21:01:02.849 -03:00 [INF] Submitting commands
+2025-07-26 21:01:02.849 -03:00 [INF] Swapping buffers
+2025-07-26 21:01:02.864 -03:00 [INF] Render() completed
+2025-07-26 21:01:02.865 -03:00 [INF] Render() called
+2025-07-26 21:01:02.865 -03:00 [INF] Framebuffer size: 1280x720
+2025-07-26 21:01:02.865 -03:00 [INF] Camera position: <0,7950685. 3. 6,954701>, target: <0. 0. 0>
+2025-07-26 21:01:02.865 -03:00 [INF] Beginning command list
+2025-07-26 21:01:02.865 -03:00 [INF] Setting framebuffer
+2025-07-26 21:01:02.865 -03:00 [INF] Clearing color target
+2025-07-26 21:01:02.865 -03:00 [INF] Clearing depth stencil
+2025-07-26 21:01:02.865 -03:00 [INF] Rendering 9 game objects
+2025-07-26 21:01:02.865 -03:00 [INF] Object Ground has no render component
+2025-07-26 21:01:02.865 -03:00 [INF] Object Cube 0 has no render component
+2025-07-26 21:01:02.865 -03:00 [INF] Object Cube 1 has no render component
+2025-07-26 21:01:02.865 -03:00 [INF] Object Cube 2 has no render component
+2025-07-26 21:01:02.865 -03:00 [INF] Object Cube 3 has no render component
+2025-07-26 21:01:02.865 -03:00 [INF] Object Cube 4 has no render component
+2025-07-26 21:01:02.865 -03:00 [INF] Object Sphere 0 has no render component
+2025-07-26 21:01:02.865 -03:00 [INF] Object Sphere 1 has no render component
+2025-07-26 21:01:02.865 -03:00 [INF] Object Sphere 2 has no render component
+2025-07-26 21:01:02.865 -03:00 [INF] Rendered 0 objects
+2025-07-26 21:01:02.865 -03:00 [INF] Ending command list
+2025-07-26 21:01:02.865 -03:00 [INF] Submitting commands
+2025-07-26 21:01:02.865 -03:00 [INF] Swapping buffers
+2025-07-26 21:01:02.881 -03:00 [INF] Render() completed
+2025-07-26 21:01:02.882 -03:00 [INF] Render() called
+2025-07-26 21:01:02.882 -03:00 [INF] Framebuffer size: 1280x720
+2025-07-26 21:01:02.882 -03:00 [INF] Camera position: <0,8184372. 3. 6,9519897>, target: <0. 0. 0>
+2025-07-26 21:01:02.882 -03:00 [INF] Beginning command list
+2025-07-26 21:01:02.882 -03:00 [INF] Setting framebuffer
+2025-07-26 21:01:02.882 -03:00 [INF] Clearing color target
+2025-07-26 21:01:02.882 -03:00 [INF] Clearing depth stencil
+2025-07-26 21:01:02.882 -03:00 [INF] Rendering 9 game objects
+2025-07-26 21:01:02.882 -03:00 [INF] Object Ground has no render component
+2025-07-26 21:01:02.882 -03:00 [INF] Object Cube 0 has no render component
+2025-07-26 21:01:02.882 -03:00 [INF] Object Cube 1 has no render component
+2025-07-26 21:01:02.882 -03:00 [INF] Object Cube 2 has no render component
+2025-07-26 21:01:02.882 -03:00 [INF] Object Cube 3 has no render component
+2025-07-26 21:01:02.882 -03:00 [INF] Object Cube 4 has no render component
+2025-07-26 21:01:02.882 -03:00 [INF] Object Sphere 0 has no render component
+2025-07-26 21:01:02.882 -03:00 [INF] Object Sphere 1 has no render component
+2025-07-26 21:01:02.882 -03:00 [INF] Object Sphere 2 has no render component
+2025-07-26 21:01:02.882 -03:00 [INF] Rendered 0 objects
+2025-07-26 21:01:02.882 -03:00 [INF] Ending command list
+2025-07-26 21:01:02.882 -03:00 [INF] Submitting commands
+2025-07-26 21:01:02.882 -03:00 [INF] Swapping buffers
+2025-07-26 21:01:02.898 -03:00 [INF] Render() completed
+2025-07-26 21:01:02.898 -03:00 [INF] Render() called
+2025-07-26 21:01:02.898 -03:00 [INF] Framebuffer size: 1280x720
+2025-07-26 21:01:02.898 -03:00 [INF] Camera position: <0,8416233. 3. 6,9492207>, target: <0. 0. 0>
+2025-07-26 21:01:02.898 -03:00 [INF] Beginning command list
+2025-07-26 21:01:02.898 -03:00 [INF] Setting framebuffer
+2025-07-26 21:01:02.899 -03:00 [INF] Clearing color target
+2025-07-26 21:01:02.899 -03:00 [INF] Clearing depth stencil
+2025-07-26 21:01:02.899 -03:00 [INF] Rendering 9 game objects
+2025-07-26 21:01:02.899 -03:00 [INF] Object Ground has no render component
+2025-07-26 21:01:02.899 -03:00 [INF] Object Cube 0 has no render component
+2025-07-26 21:01:02.899 -03:00 [INF] Object Cube 1 has no render component
+2025-07-26 21:01:02.899 -03:00 [INF] Object Cube 2 has no render component
+2025-07-26 21:01:02.899 -03:00 [INF] Object Cube 3 has no render component
+2025-07-26 21:01:02.899 -03:00 [INF] Object Cube 4 has no render component
+2025-07-26 21:01:02.899 -03:00 [INF] Object Sphere 0 has no render component
+2025-07-26 21:01:02.899 -03:00 [INF] Object Sphere 1 has no render component
+2025-07-26 21:01:02.899 -03:00 [INF] Object Sphere 2 has no render component
+2025-07-26 21:01:02.899 -03:00 [INF] Rendered 0 objects
+2025-07-26 21:01:02.899 -03:00 [INF] Ending command list
+2025-07-26 21:01:02.899 -03:00 [INF] Submitting commands
+2025-07-26 21:01:02.899 -03:00 [INF] Swapping buffers
+2025-07-26 21:01:02.915 -03:00 [INF] Render() completed
+2025-07-26 21:01:02.915 -03:00 [INF] Render() called
+2025-07-26 21:01:02.915 -03:00 [INF] Framebuffer size: 1280x720
+2025-07-26 21:01:02.915 -03:00 [INF] Camera position: <0,86487764. 3. 6,9463654>, target: <0. 0. 0>
+2025-07-26 21:01:02.915 -03:00 [INF] Beginning command list
+2025-07-26 21:01:02.915 -03:00 [INF] Setting framebuffer
+2025-07-26 21:01:02.915 -03:00 [INF] Clearing color target
+2025-07-26 21:01:02.915 -03:00 [INF] Clearing depth stencil
+2025-07-26 21:01:02.915 -03:00 [INF] Rendering 9 game objects
+2025-07-26 21:01:02.915 -03:00 [INF] Object Ground has no render component
+2025-07-26 21:01:02.915 -03:00 [INF] Object Cube 0 has no render component
+2025-07-26 21:01:02.915 -03:00 [INF] Object Cube 1 has no render component
+2025-07-26 21:01:02.915 -03:00 [INF] Object Cube 2 has no render component
+2025-07-26 21:01:02.915 -03:00 [INF] Object Cube 3 has no render component
+2025-07-26 21:01:02.915 -03:00 [INF] Object Cube 4 has no render component
+2025-07-26 21:01:02.915 -03:00 [INF] Object Sphere 0 has no render component
+2025-07-26 21:01:02.915 -03:00 [INF] Object Sphere 1 has no render component
+2025-07-26 21:01:02.915 -03:00 [INF] Object Sphere 2 has no render component
+2025-07-26 21:01:02.915 -03:00 [INF] Rendered 0 objects
+2025-07-26 21:01:02.915 -03:00 [INF] Ending command list
+2025-07-26 21:01:02.915 -03:00 [INF] Submitting commands
+2025-07-26 21:01:02.915 -03:00 [INF] Swapping buffers
+2025-07-26 21:01:02.931 -03:00 [INF] Render() completed
+2025-07-26 21:01:02.932 -03:00 [INF] Render() called
+2025-07-26 21:01:02.932 -03:00 [INF] Framebuffer size: 1280x720
+2025-07-26 21:01:02.932 -03:00 [INF] Camera position: <0,888181. 3. 6,943424>, target: <0. 0. 0>
+2025-07-26 21:01:02.932 -03:00 [INF] Beginning command list
+2025-07-26 21:01:02.932 -03:00 [INF] Setting framebuffer
+2025-07-26 21:01:02.932 -03:00 [INF] Clearing color target
+2025-07-26 21:01:02.932 -03:00 [INF] Clearing depth stencil
+2025-07-26 21:01:02.932 -03:00 [INF] Rendering 9 game objects
+2025-07-26 21:01:02.932 -03:00 [INF] Object Ground has no render component
+2025-07-26 21:01:02.932 -03:00 [INF] Object Cube 0 has no render component
+2025-07-26 21:01:02.932 -03:00 [INF] Object Cube 1 has no render component
+2025-07-26 21:01:02.932 -03:00 [INF] Object Cube 2 has no render component
+2025-07-26 21:01:02.932 -03:00 [INF] Object Cube 3 has no render component
+2025-07-26 21:01:02.932 -03:00 [INF] Object Cube 4 has no render component
+2025-07-26 21:01:02.932 -03:00 [INF] Object Sphere 0 has no render component
+2025-07-26 21:01:02.932 -03:00 [INF] Object Sphere 1 has no render component
+2025-07-26 21:01:02.932 -03:00 [INF] Object Sphere 2 has no render component
+2025-07-26 21:01:02.932 -03:00 [INF] Rendered 0 objects
+2025-07-26 21:01:02.932 -03:00 [INF] Ending command list
+2025-07-26 21:01:02.932 -03:00 [INF] Submitting commands
+2025-07-26 21:01:02.932 -03:00 [INF] Swapping buffers
+2025-07-26 21:01:02.949 -03:00 [INF] Render() completed
+2025-07-26 21:01:02.949 -03:00 [INF] Render() called
+2025-07-26 21:01:02.950 -03:00 [INF] Framebuffer size: 1280x720
+2025-07-26 21:01:02.950 -03:00 [INF] Camera position: <0,9126061. 3. 6,940256>, target: <0. 0. 0>
+2025-07-26 21:01:02.950 -03:00 [INF] Beginning command list
+2025-07-26 21:01:02.950 -03:00 [INF] Setting framebuffer
+2025-07-26 21:01:02.950 -03:00 [INF] Clearing color target
+2025-07-26 21:01:02.950 -03:00 [INF] Clearing depth stencil
+2025-07-26 21:01:02.950 -03:00 [INF] Rendering 9 game objects
+2025-07-26 21:01:02.950 -03:00 [INF] Object Ground has no render component
+2025-07-26 21:01:02.950 -03:00 [INF] Object Cube 0 has no render component
+2025-07-26 21:01:02.950 -03:00 [INF] Object Cube 1 has no render component
+2025-07-26 21:01:02.950 -03:00 [INF] Object Cube 2 has no render component
+2025-07-26 21:01:02.950 -03:00 [INF] Object Cube 3 has no render component
+2025-07-26 21:01:02.950 -03:00 [INF] Object Cube 4 has no render component
+2025-07-26 21:01:02.950 -03:00 [INF] Object Sphere 0 has no render component
+2025-07-26 21:01:02.950 -03:00 [INF] Object Sphere 1 has no render component
+2025-07-26 21:01:02.950 -03:00 [INF] Object Sphere 2 has no render component
+2025-07-26 21:01:02.950 -03:00 [INF] Rendered 0 objects
+2025-07-26 21:01:02.950 -03:00 [INF] Ending command list
+2025-07-26 21:01:02.950 -03:00 [INF] Submitting commands
+2025-07-26 21:01:02.950 -03:00 [INF] Swapping buffers
+2025-07-26 21:01:02.964 -03:00 [INF] Render() completed
+2025-07-26 21:01:02.965 -03:00 [INF] Render() called
+2025-07-26 21:01:02.965 -03:00 [INF] Framebuffer size: 1280x720
+2025-07-26 21:01:02.965 -03:00 [INF] Camera position: <0,93382984. 3. 6,9374323>, target: <0. 0. 0>
+2025-07-26 21:01:02.965 -03:00 [INF] Beginning command list
+2025-07-26 21:01:02.965 -03:00 [INF] Setting framebuffer
+2025-07-26 21:01:02.965 -03:00 [INF] Clearing color target
+2025-07-26 21:01:02.965 -03:00 [INF] Clearing depth stencil
+2025-07-26 21:01:02.965 -03:00 [INF] Rendering 9 game objects
+2025-07-26 21:01:02.965 -03:00 [INF] Object Ground has no render component
+2025-07-26 21:01:02.965 -03:00 [INF] Object Cube 0 has no render component
+2025-07-26 21:01:02.965 -03:00 [INF] Object Cube 1 has no render component
+2025-07-26 21:01:02.965 -03:00 [INF] Object Cube 2 has no render component
+2025-07-26 21:01:02.965 -03:00 [INF] Object Cube 3 has no render component
+2025-07-26 21:01:02.965 -03:00 [INF] Object Cube 4 has no render component
+2025-07-26 21:01:02.965 -03:00 [INF] Object Sphere 0 has no render component
+2025-07-26 21:01:02.965 -03:00 [INF] Object Sphere 1 has no render component
+2025-07-26 21:01:02.965 -03:00 [INF] Object Sphere 2 has no render component
+2025-07-26 21:01:02.965 -03:00 [INF] Rendered 0 objects
+2025-07-26 21:01:02.965 -03:00 [INF] Ending command list
+2025-07-26 21:01:02.965 -03:00 [INF] Submitting commands
+2025-07-26 21:01:02.965 -03:00 [INF] Swapping buffers
+2025-07-26 21:01:02.981 -03:00 [INF] Render() completed
+2025-07-26 21:01:02.982 -03:00 [INF] Render() called
+2025-07-26 21:01:02.982 -03:00 [INF] Framebuffer size: 1280x720
+2025-07-26 21:01:02.982 -03:00 [INF] Camera position: <0,9574134. 3. 6,9342165>, target: <0. 0. 0>
+2025-07-26 21:01:02.982 -03:00 [INF] Beginning command list
+2025-07-26 21:01:02.982 -03:00 [INF] Setting framebuffer
+2025-07-26 21:01:02.982 -03:00 [INF] Clearing color target
+2025-07-26 21:01:02.982 -03:00 [INF] Clearing depth stencil
+2025-07-26 21:01:02.982 -03:00 [INF] Rendering 9 game objects
+2025-07-26 21:01:02.982 -03:00 [INF] Object Ground has no render component
+2025-07-26 21:01:02.982 -03:00 [INF] Object Cube 0 has no render component
+2025-07-26 21:01:02.982 -03:00 [INF] Object Cube 1 has no render component
+2025-07-26 21:01:02.982 -03:00 [INF] Object Cube 2 has no render component
+2025-07-26 21:01:02.982 -03:00 [INF] Object Cube 3 has no render component
+2025-07-26 21:01:02.982 -03:00 [INF] Object Cube 4 has no render component
+2025-07-26 21:01:02.982 -03:00 [INF] Object Sphere 0 has no render component
+2025-07-26 21:01:02.982 -03:00 [INF] Object Sphere 1 has no render component
+2025-07-26 21:01:02.982 -03:00 [INF] Object Sphere 2 has no render component
+2025-07-26 21:01:02.982 -03:00 [INF] Rendered 0 objects
+2025-07-26 21:01:02.982 -03:00 [INF] Ending command list
+2025-07-26 21:01:02.982 -03:00 [INF] Submitting commands
+2025-07-26 21:01:02.982 -03:00 [INF] Swapping buffers
+2025-07-26 21:01:02.998 -03:00 [INF] Render() completed
+2025-07-26 21:01:02.999 -03:00 [INF] Render() called
+2025-07-26 21:01:02.999 -03:00 [INF] Framebuffer size: 1280x720
+2025-07-26 21:01:02.999 -03:00 [INF] Camera position: <0,98098546. 3. 6,9309216>, target: <0. 0. 0>
+2025-07-26 21:01:02.999 -03:00 [INF] Beginning command list
+2025-07-26 21:01:02.999 -03:00 [INF] Setting framebuffer
+2025-07-26 21:01:02.999 -03:00 [INF] Clearing color target
+2025-07-26 21:01:02.999 -03:00 [INF] Clearing depth stencil
+2025-07-26 21:01:02.999 -03:00 [INF] Rendering 9 game objects
+2025-07-26 21:01:02.999 -03:00 [INF] Object Ground has no render component
+2025-07-26 21:01:02.999 -03:00 [INF] Object Cube 0 has no render component
+2025-07-26 21:01:02.999 -03:00 [INF] Object Cube 1 has no render component
+2025-07-26 21:01:02.999 -03:00 [INF] Object Cube 2 has no render component
+2025-07-26 21:01:02.999 -03:00 [INF] Object Cube 3 has no render component
+2025-07-26 21:01:02.999 -03:00 [INF] Object Cube 4 has no render component
+2025-07-26 21:01:02.999 -03:00 [INF] Object Sphere 0 has no render component
+2025-07-26 21:01:02.999 -03:00 [INF] Object Sphere 1 has no render component
+2025-07-26 21:01:02.999 -03:00 [INF] Object Sphere 2 has no render component
+2025-07-26 21:01:02.999 -03:00 [INF] Rendered 0 objects
+2025-07-26 21:01:02.999 -03:00 [INF] Ending command list
+2025-07-26 21:01:02.999 -03:00 [INF] Submitting commands
+2025-07-26 21:01:02.999 -03:00 [INF] Swapping buffers
+2025-07-26 21:01:03.015 -03:00 [INF] Render() completed
+2025-07-26 21:01:03.015 -03:00 [INF] Render() called
+2025-07-26 21:01:03.015 -03:00 [INF] Framebuffer size: 1280x720
+2025-07-26 21:01:03.015 -03:00 [INF] Camera position: <1,0036929. 3. 6,927669>, target: <0. 0. 0>
+2025-07-26 21:01:03.015 -03:00 [INF] Beginning command list
+2025-07-26 21:01:03.015 -03:00 [INF] Setting framebuffer
+2025-07-26 21:01:03.015 -03:00 [INF] Clearing color target
+2025-07-26 21:01:03.015 -03:00 [INF] Clearing depth stencil
+2025-07-26 21:01:03.015 -03:00 [INF] Rendering 9 game objects
+2025-07-26 21:01:03.015 -03:00 [INF] Object Ground has no render component
+2025-07-26 21:01:03.015 -03:00 [INF] Object Cube 0 has no render component
+2025-07-26 21:01:03.015 -03:00 [INF] Object Cube 1 has no render component
+2025-07-26 21:01:03.015 -03:00 [INF] Object Cube 2 has no render component
+2025-07-26 21:01:03.015 -03:00 [INF] Object Cube 3 has no render component
+2025-07-26 21:01:03.015 -03:00 [INF] Object Cube 4 has no render component
+2025-07-26 21:01:03.015 -03:00 [INF] Object Sphere 0 has no render component
+2025-07-26 21:01:03.016 -03:00 [INF] Object Sphere 1 has no render component
+2025-07-26 21:01:03.016 -03:00 [INF] Object Sphere 2 has no render component
+2025-07-26 21:01:03.016 -03:00 [INF] Rendered 0 objects
+2025-07-26 21:01:03.016 -03:00 [INF] Ending command list
+2025-07-26 21:01:03.016 -03:00 [INF] Submitting commands
+2025-07-26 21:01:03.016 -03:00 [INF] Swapping buffers
+2025-07-26 21:01:03.031 -03:00 [INF] Render() completed
+2025-07-26 21:01:03.032 -03:00 [INF] Render() called
+2025-07-26 21:01:03.032 -03:00 [INF] Framebuffer size: 1280x720
+2025-07-26 21:01:03.032 -03:00 [INF] Camera position: <1,0267857. 3,0000002. 6,9242845>, target: <0. 0. 0>
+2025-07-26 21:01:03.032 -03:00 [INF] Beginning command list
+2025-07-26 21:01:03.032 -03:00 [INF] Setting framebuffer
+2025-07-26 21:01:03.032 -03:00 [INF] Clearing color target
+2025-07-26 21:01:03.032 -03:00 [INF] Clearing depth stencil
+2025-07-26 21:01:03.032 -03:00 [INF] Rendering 9 game objects
+2025-07-26 21:01:03.032 -03:00 [INF] Object Ground has no render component
+2025-07-26 21:01:03.032 -03:00 [INF] Object Cube 0 has no render component
+2025-07-26 21:01:03.032 -03:00 [INF] Object Cube 1 has no render component
+2025-07-26 21:01:03.032 -03:00 [INF] Object Cube 2 has no render component
+2025-07-26 21:01:03.032 -03:00 [INF] Object Cube 3 has no render component
+2025-07-26 21:01:03.032 -03:00 [INF] Object Cube 4 has no render component
+2025-07-26 21:01:03.032 -03:00 [INF] Object Sphere 0 has no render component
+2025-07-26 21:01:03.032 -03:00 [INF] Object Sphere 1 has no render component
+2025-07-26 21:01:03.032 -03:00 [INF] Object Sphere 2 has no render component
+2025-07-26 21:01:03.032 -03:00 [INF] Rendered 0 objects
+2025-07-26 21:01:03.032 -03:00 [INF] Ending command list
+2025-07-26 21:01:03.032 -03:00 [INF] Submitting commands
+2025-07-26 21:01:03.032 -03:00 [INF] Swapping buffers
+2025-07-26 21:01:03.049 -03:00 [INF] Render() completed
+2025-07-26 21:01:03.049 -03:00 [INF] Render() called
+2025-07-26 21:01:03.049 -03:00 [INF] Framebuffer size: 1280x720
+2025-07-26 21:01:03.049 -03:00 [INF] Camera position: <1,0507562. 3. 6,920687>, target: <0. 0. 0>
+2025-07-26 21:01:03.049 -03:00 [INF] Beginning command list
+2025-07-26 21:01:03.049 -03:00 [INF] Setting framebuffer
+2025-07-26 21:01:03.049 -03:00 [INF] Clearing color target
+2025-07-26 21:01:03.049 -03:00 [INF] Clearing depth stencil
+2025-07-26 21:01:03.049 -03:00 [INF] Rendering 9 game objects
+2025-07-26 21:01:03.049 -03:00 [INF] Object Ground has no render component
+2025-07-26 21:01:03.049 -03:00 [INF] Object Cube 0 has no render component
+2025-07-26 21:01:03.049 -03:00 [INF] Object Cube 1 has no render component
+2025-07-26 21:01:03.049 -03:00 [INF] Object Cube 2 has no render component
+2025-07-26 21:01:03.049 -03:00 [INF] Object Cube 3 has no render component
+2025-07-26 21:01:03.049 -03:00 [INF] Object Cube 4 has no render component
+2025-07-26 21:01:03.049 -03:00 [INF] Object Sphere 0 has no render component
+2025-07-26 21:01:03.049 -03:00 [INF] Object Sphere 1 has no render component
+2025-07-26 21:01:03.049 -03:00 [INF] Object Sphere 2 has no render component
+2025-07-26 21:01:03.049 -03:00 [INF] Rendered 0 objects
+2025-07-26 21:01:03.049 -03:00 [INF] Ending command list
+2025-07-26 21:01:03.049 -03:00 [INF] Submitting commands
+2025-07-26 21:01:03.049 -03:00 [INF] Swapping buffers
+2025-07-26 21:01:03.065 -03:00 [INF] Render() completed
+2025-07-26 21:01:03.066 -03:00 [INF] Render() called
+2025-07-26 21:01:03.066 -03:00 [INF] Framebuffer size: 1280x720
+2025-07-26 21:01:03.066 -03:00 [INF] Camera position: <1,0735698. 3,0000002. 6,9171853>, target: <0. 0. 0>
+2025-07-26 21:01:03.066 -03:00 [INF] Beginning command list
+2025-07-26 21:01:03.066 -03:00 [INF] Setting framebuffer
+2025-07-26 21:01:03.066 -03:00 [INF] Clearing color target
+2025-07-26 21:01:03.066 -03:00 [INF] Clearing depth stencil
+2025-07-26 21:01:03.066 -03:00 [INF] Rendering 9 game objects
+2025-07-26 21:01:03.066 -03:00 [INF] Object Ground has no render component
+2025-07-26 21:01:03.066 -03:00 [INF] Object Cube 0 has no render component
+2025-07-26 21:01:03.066 -03:00 [INF] Object Cube 1 has no render component
+2025-07-26 21:01:03.066 -03:00 [INF] Object Cube 2 has no render component
+2025-07-26 21:01:03.066 -03:00 [INF] Object Cube 3 has no render component
+2025-07-26 21:01:03.066 -03:00 [INF] Object Cube 4 has no render component
+2025-07-26 21:01:03.066 -03:00 [INF] Object Sphere 0 has no render component
+2025-07-26 21:01:03.066 -03:00 [INF] Object Sphere 1 has no render component
+2025-07-26 21:01:03.066 -03:00 [INF] Object Sphere 2 has no render component
+2025-07-26 21:01:03.066 -03:00 [INF] Rendered 0 objects
+2025-07-26 21:01:03.066 -03:00 [INF] Ending command list
+2025-07-26 21:01:03.066 -03:00 [INF] Submitting commands
+2025-07-26 21:01:03.066 -03:00 [INF] Swapping buffers
+2025-07-26 21:01:03.083 -03:00 [INF] Render() completed
+2025-07-26 21:01:03.083 -03:00 [INF] Render() called
+2025-07-26 21:01:03.083 -03:00 [INF] Framebuffer size: 1280x720
+2025-07-26 21:01:03.083 -03:00 [INF] Camera position: <1,0977237. 3,0000002. 6,9133935>, target: <0. 0. 0>
+2025-07-26 21:01:03.083 -03:00 [INF] Beginning command list
+2025-07-26 21:01:03.083 -03:00 [INF] Setting framebuffer
+2025-07-26 21:01:03.083 -03:00 [INF] Clearing color target
+2025-07-26 21:01:03.083 -03:00 [INF] Clearing depth stencil
+2025-07-26 21:01:03.083 -03:00 [INF] Rendering 9 game objects
+2025-07-26 21:01:03.083 -03:00 [INF] Object Ground has no render component
+2025-07-26 21:01:03.083 -03:00 [INF] Object Cube 0 has no render component
+2025-07-26 21:01:03.083 -03:00 [INF] Object Cube 1 has no render component
+2025-07-26 21:01:03.083 -03:00 [INF] Object Cube 2 has no render component
+2025-07-26 21:01:03.083 -03:00 [INF] Object Cube 3 has no render component
+2025-07-26 21:01:03.083 -03:00 [INF] Object Cube 4 has no render component
+2025-07-26 21:01:03.083 -03:00 [INF] Object Sphere 0 has no render component
+2025-07-26 21:01:03.083 -03:00 [INF] Object Sphere 1 has no render component
+2025-07-26 21:01:03.083 -03:00 [INF] Object Sphere 2 has no render component
+2025-07-26 21:01:03.083 -03:00 [INF] Rendered 0 objects
+2025-07-26 21:01:03.083 -03:00 [INF] Ending command list
+2025-07-26 21:01:03.083 -03:00 [INF] Submitting commands
+2025-07-26 21:01:03.083 -03:00 [INF] Swapping buffers
+2025-07-26 21:01:03.098 -03:00 [INF] Render() completed
+2025-07-26 21:01:03.099 -03:00 [INF] Render() called
+2025-07-26 21:01:03.099 -03:00 [INF] Framebuffer size: 1280x720
+2025-07-26 21:01:03.099 -03:00 [INF] Camera position: <1,1192931. 3. 6,9099336>, target: <0. 0. 0>
+2025-07-26 21:01:03.099 -03:00 [INF] Beginning command list
+2025-07-26 21:01:03.099 -03:00 [INF] Setting framebuffer
+2025-07-26 21:01:03.099 -03:00 [INF] Clearing color target
+2025-07-26 21:01:03.099 -03:00 [INF] Clearing depth stencil
+2025-07-26 21:01:03.099 -03:00 [INF] Rendering 9 game objects
+2025-07-26 21:01:03.099 -03:00 [INF] Object Ground has no render component
+2025-07-26 21:01:03.099 -03:00 [INF] Object Cube 0 has no render component
+2025-07-26 21:01:03.099 -03:00 [INF] Object Cube 1 has no render component
+2025-07-26 21:01:03.099 -03:00 [INF] Object Cube 2 has no render component
+2025-07-26 21:01:03.099 -03:00 [INF] Object Cube 3 has no render component
+2025-07-26 21:01:03.099 -03:00 [INF] Object Cube 4 has no render component
+2025-07-26 21:01:03.099 -03:00 [INF] Object Sphere 0 has no render component
+2025-07-26 21:01:03.099 -03:00 [INF] Object Sphere 1 has no render component
+2025-07-26 21:01:03.099 -03:00 [INF] Object Sphere 2 has no render component
+2025-07-26 21:01:03.099 -03:00 [INF] Rendered 0 objects
+2025-07-26 21:01:03.099 -03:00 [INF] Ending command list
+2025-07-26 21:01:03.099 -03:00 [INF] Submitting commands
+2025-07-26 21:01:03.099 -03:00 [INF] Swapping buffers
+2025-07-26 21:01:03.115 -03:00 [INF] Render() completed
+2025-07-26 21:01:03.115 -03:00 [INF] Render() called
+2025-07-26 21:01:03.115 -03:00 [INF] Framebuffer size: 1280x720
+2025-07-26 21:01:03.115 -03:00 [INF] Camera position: <1,142019. 2,9999998. 6,9062138>, target: <0. 0. 0>
+2025-07-26 21:01:03.115 -03:00 [INF] Beginning command list
+2025-07-26 21:01:03.115 -03:00 [INF] Setting framebuffer
+2025-07-26 21:01:03.115 -03:00 [INF] Clearing color target
+2025-07-26 21:01:03.115 -03:00 [INF] Clearing depth stencil
+2025-07-26 21:01:03.115 -03:00 [INF] Rendering 9 game objects
+2025-07-26 21:01:03.115 -03:00 [INF] Object Ground has no render component
+2025-07-26 21:01:03.115 -03:00 [INF] Object Cube 0 has no render component
+2025-07-26 21:01:03.115 -03:00 [INF] Object Cube 1 has no render component
+2025-07-26 21:01:03.115 -03:00 [INF] Object Cube 2 has no render component
+2025-07-26 21:01:03.115 -03:00 [INF] Object Cube 3 has no render component
+2025-07-26 21:01:03.115 -03:00 [INF] Object Cube 4 has no render component
+2025-07-26 21:01:03.115 -03:00 [INF] Object Sphere 0 has no render component
+2025-07-26 21:01:03.115 -03:00 [INF] Object Sphere 1 has no render component
+2025-07-26 21:01:03.115 -03:00 [INF] Object Sphere 2 has no render component
+2025-07-26 21:01:03.115 -03:00 [INF] Rendered 0 objects
+2025-07-26 21:01:03.115 -03:00 [INF] Ending command list
+2025-07-26 21:01:03.115 -03:00 [INF] Submitting commands
+2025-07-26 21:01:03.115 -03:00 [INF] Swapping buffers
+2025-07-26 21:01:03.131 -03:00 [INF] Render() completed
+2025-07-26 21:01:03.131 -03:00 [INF] Render() called
+2025-07-26 21:01:03.131 -03:00 [INF] Framebuffer size: 1280x720
+2025-07-26 21:01:03.131 -03:00 [INF] Camera position: <1,1646925. 3. 6,9024267>, target: <0. 0. 0>
+2025-07-26 21:01:03.132 -03:00 [INF] Beginning command list
+2025-07-26 21:01:03.132 -03:00 [INF] Setting framebuffer
+2025-07-26 21:01:03.132 -03:00 [INF] Clearing color target
+2025-07-26 21:01:03.132 -03:00 [INF] Clearing depth stencil
+2025-07-26 21:01:03.132 -03:00 [INF] Rendering 9 game objects
+2025-07-26 21:01:03.132 -03:00 [INF] Object Ground has no render component
+2025-07-26 21:01:03.132 -03:00 [INF] Object Cube 0 has no render component
+2025-07-26 21:01:03.132 -03:00 [INF] Object Cube 1 has no render component
+2025-07-26 21:01:03.132 -03:00 [INF] Object Cube 2 has no render component
+2025-07-26 21:01:03.132 -03:00 [INF] Object Cube 3 has no render component
+2025-07-26 21:01:03.132 -03:00 [INF] Object Cube 4 has no render component
+2025-07-26 21:01:03.132 -03:00 [INF] Object Sphere 0 has no render component
+2025-07-26 21:01:03.132 -03:00 [INF] Object Sphere 1 has no render component
+2025-07-26 21:01:03.132 -03:00 [INF] Object Sphere 2 has no render component
+2025-07-26 21:01:03.132 -03:00 [INF] Rendered 0 objects
+2025-07-26 21:01:03.132 -03:00 [INF] Ending command list
+2025-07-26 21:01:03.132 -03:00 [INF] Submitting commands
+2025-07-26 21:01:03.132 -03:00 [INF] Swapping buffers
+2025-07-26 21:01:03.148 -03:00 [INF] Render() completed
+2025-07-26 21:01:03.148 -03:00 [INF] Render() called
+2025-07-26 21:01:03.148 -03:00 [INF] Framebuffer size: 1280x720
+2025-07-26 21:01:03.148 -03:00 [INF] Camera position: <1,1878251. 2,9999998. 6,8984833>, target: <0. 0. 0>
+2025-07-26 21:01:03.148 -03:00 [INF] Beginning command list
+2025-07-26 21:01:03.148 -03:00 [INF] Setting framebuffer
+2025-07-26 21:01:03.148 -03:00 [INF] Clearing color target
+2025-07-26 21:01:03.148 -03:00 [INF] Clearing depth stencil
+2025-07-26 21:01:03.148 -03:00 [INF] Rendering 9 game objects
+2025-07-26 21:01:03.148 -03:00 [INF] Object Ground has no render component
+2025-07-26 21:01:03.148 -03:00 [INF] Object Cube 0 has no render component
+2025-07-26 21:01:03.148 -03:00 [INF] Object Cube 1 has no render component
+2025-07-26 21:01:03.148 -03:00 [INF] Object Cube 2 has no render component
+2025-07-26 21:01:03.148 -03:00 [INF] Object Cube 3 has no render component
+2025-07-26 21:01:03.148 -03:00 [INF] Object Cube 4 has no render component
+2025-07-26 21:01:03.148 -03:00 [INF] Object Sphere 0 has no render component
+2025-07-26 21:01:03.148 -03:00 [INF] Object Sphere 1 has no render component
+2025-07-26 21:01:03.148 -03:00 [INF] Object Sphere 2 has no render component
+2025-07-26 21:01:03.148 -03:00 [INF] Rendered 0 objects
+2025-07-26 21:01:03.148 -03:00 [INF] Ending command list
+2025-07-26 21:01:03.148 -03:00 [INF] Submitting commands
+2025-07-26 21:01:03.148 -03:00 [INF] Swapping buffers
+2025-07-26 21:01:03.164 -03:00 [INF] Render() completed
+2025-07-26 21:01:03.165 -03:00 [INF] Render() called
+2025-07-26 21:01:03.165 -03:00 [INF] Framebuffer size: 1280x720
+2025-07-26 21:01:03.165 -03:00 [INF] Camera position: <1,2107419. 3,0000002. 6,894498>, target: <0. 0. 0>
+2025-07-26 21:01:03.165 -03:00 [INF] Beginning command list
+2025-07-26 21:01:03.165 -03:00 [INF] Setting framebuffer
+2025-07-26 21:01:03.165 -03:00 [INF] Clearing color target
+2025-07-26 21:01:03.165 -03:00 [INF] Clearing depth stencil
+2025-07-26 21:01:03.165 -03:00 [INF] Rendering 9 game objects
+2025-07-26 21:01:03.165 -03:00 [INF] Object Ground has no render component
+2025-07-26 21:01:03.165 -03:00 [INF] Object Cube 0 has no render component
+2025-07-26 21:01:03.165 -03:00 [INF] Object Cube 1 has no render component
+2025-07-26 21:01:03.165 -03:00 [INF] Object Cube 2 has no render component
+2025-07-26 21:01:03.165 -03:00 [INF] Object Cube 3 has no render component
+2025-07-26 21:01:03.165 -03:00 [INF] Object Cube 4 has no render component
+2025-07-26 21:01:03.165 -03:00 [INF] Object Sphere 0 has no render component
+2025-07-26 21:01:03.165 -03:00 [INF] Object Sphere 1 has no render component
+2025-07-26 21:01:03.165 -03:00 [INF] Object Sphere 2 has no render component
+2025-07-26 21:01:03.165 -03:00 [INF] Rendered 0 objects
+2025-07-26 21:01:03.165 -03:00 [INF] Ending command list
+2025-07-26 21:01:03.165 -03:00 [INF] Submitting commands
+2025-07-26 21:01:03.165 -03:00 [INF] Swapping buffers
+2025-07-26 21:01:03.181 -03:00 [INF] Render() completed
+2025-07-26 21:01:03.181 -03:00 [INF] Render() called
+2025-07-26 21:01:03.181 -03:00 [INF] Framebuffer size: 1280x720
+2025-07-26 21:01:03.181 -03:00 [INF] Camera position: <1,2337317. 3. 6,890421>, target: <0. 0. 0>
+2025-07-26 21:01:03.181 -03:00 [INF] Beginning command list
+2025-07-26 21:01:03.182 -03:00 [INF] Setting framebuffer
+2025-07-26 21:01:03.182 -03:00 [INF] Clearing color target
+2025-07-26 21:01:03.182 -03:00 [INF] Clearing depth stencil
+2025-07-26 21:01:03.182 -03:00 [INF] Rendering 9 game objects
+2025-07-26 21:01:03.182 -03:00 [INF] Object Ground has no render component
+2025-07-26 21:01:03.182 -03:00 [INF] Object Cube 0 has no render component
+2025-07-26 21:01:03.182 -03:00 [INF] Object Cube 1 has no render component
+2025-07-26 21:01:03.182 -03:00 [INF] Object Cube 2 has no render component
+2025-07-26 21:01:03.182 -03:00 [INF] Object Cube 3 has no render component
+2025-07-26 21:01:03.182 -03:00 [INF] Object Cube 4 has no render component
+2025-07-26 21:01:03.182 -03:00 [INF] Object Sphere 0 has no render component
+2025-07-26 21:01:03.182 -03:00 [INF] Object Sphere 1 has no render component
+2025-07-26 21:01:03.182 -03:00 [INF] Object Sphere 2 has no render component
+2025-07-26 21:01:03.182 -03:00 [INF] Rendered 0 objects
+2025-07-26 21:01:03.182 -03:00 [INF] Ending command list
+2025-07-26 21:01:03.182 -03:00 [INF] Submitting commands
+2025-07-26 21:01:03.182 -03:00 [INF] Swapping buffers
+2025-07-26 21:01:03.198 -03:00 [INF] Render() completed
+2025-07-26 21:01:03.198 -03:00 [INF] Render() called
+2025-07-26 21:01:03.198 -03:00 [INF] Framebuffer size: 1280x720
+2025-07-26 21:01:03.198 -03:00 [INF] Camera position: <1,2566069. 2,9999998. 6,886286>, target: <0. 0. 0>
+2025-07-26 21:01:03.198 -03:00 [INF] Beginning command list
+2025-07-26 21:01:03.198 -03:00 [INF] Setting framebuffer
+2025-07-26 21:01:03.198 -03:00 [INF] Clearing color target
+2025-07-26 21:01:03.198 -03:00 [INF] Clearing depth stencil
+2025-07-26 21:01:03.198 -03:00 [INF] Rendering 9 game objects
+2025-07-26 21:01:03.198 -03:00 [INF] Object Ground has no render component
+2025-07-26 21:01:03.198 -03:00 [INF] Object Cube 0 has no render component
+2025-07-26 21:01:03.198 -03:00 [INF] Object Cube 1 has no render component
+2025-07-26 21:01:03.198 -03:00 [INF] Object Cube 2 has no render component
+2025-07-26 21:01:03.198 -03:00 [INF] Object Cube 3 has no render component
+2025-07-26 21:01:03.198 -03:00 [INF] Object Cube 4 has no render component
+2025-07-26 21:01:03.198 -03:00 [INF] Object Sphere 0 has no render component
+2025-07-26 21:01:03.198 -03:00 [INF] Object Sphere 1 has no render component
+2025-07-26 21:01:03.198 -03:00 [INF] Object Sphere 2 has no render component
+2025-07-26 21:01:03.198 -03:00 [INF] Rendered 0 objects
+2025-07-26 21:01:03.198 -03:00 [INF] Ending command list
+2025-07-26 21:01:03.198 -03:00 [INF] Submitting commands
+2025-07-26 21:01:03.198 -03:00 [INF] Swapping buffers
+2025-07-26 21:01:03.215 -03:00 [INF] Render() completed
+2025-07-26 21:01:03.215 -03:00 [INF] Render() called
+2025-07-26 21:01:03.215 -03:00 [INF] Framebuffer size: 1280x720
+2025-07-26 21:01:03.215 -03:00 [INF] Camera position: <1,280103. 3. 6,8819575>, target: <0. 0. 0>
+2025-07-26 21:01:03.215 -03:00 [INF] Beginning command list
+2025-07-26 21:01:03.215 -03:00 [INF] Setting framebuffer
+2025-07-26 21:01:03.215 -03:00 [INF] Clearing color target
+2025-07-26 21:01:03.215 -03:00 [INF] Clearing depth stencil
+2025-07-26 21:01:03.215 -03:00 [INF] Rendering 9 game objects
+2025-07-26 21:01:03.215 -03:00 [INF] Object Ground has no render component
+2025-07-26 21:01:03.215 -03:00 [INF] Object Cube 0 has no render component
+2025-07-26 21:01:03.215 -03:00 [INF] Object Cube 1 has no render component
+2025-07-26 21:01:03.215 -03:00 [INF] Object Cube 2 has no render component
+2025-07-26 21:01:03.215 -03:00 [INF] Object Cube 3 has no render component
+2025-07-26 21:01:03.215 -03:00 [INF] Object Cube 4 has no render component
+2025-07-26 21:01:03.215 -03:00 [INF] Object Sphere 0 has no render component
+2025-07-26 21:01:03.215 -03:00 [INF] Object Sphere 1 has no render component
+2025-07-26 21:01:03.215 -03:00 [INF] Object Sphere 2 has no render component
+2025-07-26 21:01:03.215 -03:00 [INF] Rendered 0 objects
+2025-07-26 21:01:03.215 -03:00 [INF] Ending command list
+2025-07-26 21:01:03.215 -03:00 [INF] Submitting commands
+2025-07-26 21:01:03.215 -03:00 [INF] Swapping buffers
+2025-07-26 21:01:03.231 -03:00 [INF] Render() completed
+2025-07-26 21:01:03.232 -03:00 [INF] Render() called
+2025-07-26 21:01:03.232 -03:00 [INF] Framebuffer size: 1280x720
+2025-07-26 21:01:03.232 -03:00 [INF] Camera position: <1,3028362. 3,0000002. 6,8776903>, target: <0. 0. 0>
+2025-07-26 21:01:03.232 -03:00 [INF] Beginning command list
+2025-07-26 21:01:03.232 -03:00 [INF] Setting framebuffer
+2025-07-26 21:01:03.232 -03:00 [INF] Clearing color target
+2025-07-26 21:01:03.232 -03:00 [INF] Clearing depth stencil
+2025-07-26 21:01:03.232 -03:00 [INF] Rendering 9 game objects
+2025-07-26 21:01:03.232 -03:00 [INF] Object Ground has no render component
+2025-07-26 21:01:03.232 -03:00 [INF] Object Cube 0 has no render component
+2025-07-26 21:01:03.232 -03:00 [INF] Object Cube 1 has no render component
+2025-07-26 21:01:03.232 -03:00 [INF] Object Cube 2 has no render component
+2025-07-26 21:01:03.232 -03:00 [INF] Object Cube 3 has no render component
+2025-07-26 21:01:03.232 -03:00 [INF] Object Cube 4 has no render component
+2025-07-26 21:01:03.232 -03:00 [INF] Object Sphere 0 has no render component
+2025-07-26 21:01:03.232 -03:00 [INF] Object Sphere 1 has no render component
+2025-07-26 21:01:03.232 -03:00 [INF] Object Sphere 2 has no render component
+2025-07-26 21:01:03.232 -03:00 [INF] Rendered 0 objects
+2025-07-26 21:01:03.232 -03:00 [INF] Ending command list
+2025-07-26 21:01:03.232 -03:00 [INF] Submitting commands
+2025-07-26 21:01:03.232 -03:00 [INF] Swapping buffers
+2025-07-26 21:01:03.248 -03:00 [INF] Render() completed
+2025-07-26 21:01:03.248 -03:00 [INF] Render() called
+2025-07-26 21:01:03.248 -03:00 [INF] Framebuffer size: 1280x720
+2025-07-26 21:01:03.248 -03:00 [INF] Camera position: <1,3254986. 3. 6,8733587>, target: <0. 0. 0>
+2025-07-26 21:01:03.248 -03:00 [INF] Beginning command list
+2025-07-26 21:01:03.248 -03:00 [INF] Setting framebuffer
+2025-07-26 21:01:03.248 -03:00 [INF] Clearing color target
+2025-07-26 21:01:03.248 -03:00 [INF] Clearing depth stencil
+2025-07-26 21:01:03.248 -03:00 [INF] Rendering 9 game objects
+2025-07-26 21:01:03.248 -03:00 [INF] Object Ground has no render component
+2025-07-26 21:01:03.248 -03:00 [INF] Object Cube 0 has no render component
+2025-07-26 21:01:03.248 -03:00 [INF] Object Cube 1 has no render component
+2025-07-26 21:01:03.248 -03:00 [INF] Object Cube 2 has no render component
+2025-07-26 21:01:03.248 -03:00 [INF] Object Cube 3 has no render component
+2025-07-26 21:01:03.248 -03:00 [INF] Object Cube 4 has no render component
+2025-07-26 21:01:03.248 -03:00 [INF] Object Sphere 0 has no render component
+2025-07-26 21:01:03.248 -03:00 [INF] Object Sphere 1 has no render component
+2025-07-26 21:01:03.248 -03:00 [INF] Object Sphere 2 has no render component
+2025-07-26 21:01:03.248 -03:00 [INF] Rendered 0 objects
+2025-07-26 21:01:03.248 -03:00 [INF] Ending command list
+2025-07-26 21:01:03.248 -03:00 [INF] Submitting commands
+2025-07-26 21:01:03.248 -03:00 [INF] Swapping buffers
+2025-07-26 21:01:03.264 -03:00 [INF] Render() completed
+2025-07-26 21:01:03.265 -03:00 [INF] Render() called
+2025-07-26 21:01:03.265 -03:00 [INF] Framebuffer size: 1280x720
+2025-07-26 21:01:03.265 -03:00 [INF] Camera position: <1,3484565. 3,0000002. 6,8688912>, target: <0. 0. 0>
+2025-07-26 21:01:03.265 -03:00 [INF] Beginning command list
+2025-07-26 21:01:03.265 -03:00 [INF] Setting framebuffer
+2025-07-26 21:01:03.265 -03:00 [INF] Clearing color target
+2025-07-26 21:01:03.265 -03:00 [INF] Clearing depth stencil
+2025-07-26 21:01:03.265 -03:00 [INF] Rendering 9 game objects
+2025-07-26 21:01:03.265 -03:00 [INF] Object Ground has no render component
+2025-07-26 21:01:03.265 -03:00 [INF] Object Cube 0 has no render component
+2025-07-26 21:01:03.265 -03:00 [INF] Object Cube 1 has no render component
+2025-07-26 21:01:03.265 -03:00 [INF] Object Cube 2 has no render component
+2025-07-26 21:01:03.265 -03:00 [INF] Object Cube 3 has no render component
+2025-07-26 21:01:03.265 -03:00 [INF] Object Cube 4 has no render component
+2025-07-26 21:01:03.265 -03:00 [INF] Object Sphere 0 has no render component
+2025-07-26 21:01:03.265 -03:00 [INF] Object Sphere 1 has no render component
+2025-07-26 21:01:03.265 -03:00 [INF] Object Sphere 2 has no render component
+2025-07-26 21:01:03.265 -03:00 [INF] Rendered 0 objects
+2025-07-26 21:01:03.265 -03:00 [INF] Ending command list
+2025-07-26 21:01:03.265 -03:00 [INF] Submitting commands
+2025-07-26 21:01:03.265 -03:00 [INF] Swapping buffers
+2025-07-26 21:01:03.281 -03:00 [INF] Render() completed
+2025-07-26 21:01:03.281 -03:00 [INF] Frame 60
+2025-07-26 21:01:03.281 -03:00 [INF] Render() called
+2025-07-26 21:01:03.281 -03:00 [INF] Framebuffer size: 1280x720
+2025-07-26 21:01:03.282 -03:00 [INF] Camera position: <1,3713112. 3. 6,8643656>, target: <0. 0. 0>
+2025-07-26 21:01:03.282 -03:00 [INF] Beginning command list
+2025-07-26 21:01:03.282 -03:00 [INF] Setting framebuffer
+2025-07-26 21:01:03.282 -03:00 [INF] Clearing color target
+2025-07-26 21:01:03.282 -03:00 [INF] Clearing depth stencil
+2025-07-26 21:01:03.282 -03:00 [INF] Rendering 9 game objects
+2025-07-26 21:01:03.282 -03:00 [INF] Object Ground has no render component
+2025-07-26 21:01:03.282 -03:00 [INF] Object Cube 0 has no render component
+2025-07-26 21:01:03.282 -03:00 [INF] Object Cube 1 has no render component
+2025-07-26 21:01:03.282 -03:00 [INF] Object Cube 2 has no render component
+2025-07-26 21:01:03.282 -03:00 [INF] Object Cube 3 has no render component
+2025-07-26 21:01:03.282 -03:00 [INF] Object Cube 4 has no render component
+2025-07-26 21:01:03.282 -03:00 [INF] Object Sphere 0 has no render component
+2025-07-26 21:01:03.282 -03:00 [INF] Object Sphere 1 has no render component
+2025-07-26 21:01:03.282 -03:00 [INF] Object Sphere 2 has no render component
+2025-07-26 21:01:03.282 -03:00 [INF] Rendered 0 objects
+2025-07-26 21:01:03.282 -03:00 [INF] Ending command list
+2025-07-26 21:01:03.282 -03:00 [INF] Submitting commands
+2025-07-26 21:01:03.282 -03:00 [INF] Swapping buffers
+2025-07-26 21:01:03.298 -03:00 [INF] Render() completed
+2025-07-26 21:01:03.298 -03:00 [INF] Render() called
+2025-07-26 21:01:03.298 -03:00 [INF] Framebuffer size: 1280x720
+2025-07-26 21:01:03.298 -03:00 [INF] Camera position: <1,3940226. 3. 6,859789>, target: <0. 0. 0>
+2025-07-26 21:01:03.298 -03:00 [INF] Beginning command list
+2025-07-26 21:01:03.298 -03:00 [INF] Setting framebuffer
+2025-07-26 21:01:03.298 -03:00 [INF] Clearing color target
+2025-07-26 21:01:03.298 -03:00 [INF] Clearing depth stencil
+2025-07-26 21:01:03.298 -03:00 [INF] Rendering 9 game objects
+2025-07-26 21:01:03.298 -03:00 [INF] Object Ground has no render component
+2025-07-26 21:01:03.298 -03:00 [INF] Object Cube 0 has no render component
+2025-07-26 21:01:03.298 -03:00 [INF] Object Cube 1 has no render component
+2025-07-26 21:01:03.298 -03:00 [INF] Object Cube 2 has no render component
+2025-07-26 21:01:03.298 -03:00 [INF] Object Cube 3 has no render component
+2025-07-26 21:01:03.298 -03:00 [INF] Object Cube 4 has no render component
+2025-07-26 21:01:03.298 -03:00 [INF] Object Sphere 0 has no render component
+2025-07-26 21:01:03.298 -03:00 [INF] Object Sphere 1 has no render component
+2025-07-26 21:01:03.298 -03:00 [INF] Object Sphere 2 has no render component
+2025-07-26 21:01:03.298 -03:00 [INF] Rendered 0 objects
+2025-07-26 21:01:03.298 -03:00 [INF] Ending command list
+2025-07-26 21:01:03.298 -03:00 [INF] Submitting commands
+2025-07-26 21:01:03.298 -03:00 [INF] Swapping buffers
+2025-07-26 21:01:03.315 -03:00 [INF] Render() completed
+2025-07-26 21:01:03.315 -03:00 [INF] Render() called
+2025-07-26 21:01:03.315 -03:00 [INF] Framebuffer size: 1280x720
+2025-07-26 21:01:03.315 -03:00 [INF] Camera position: <1,4175768. 3,0000002. 6,8549604>, target: <0. 0. 0>
+2025-07-26 21:01:03.315 -03:00 [INF] Beginning command list
+2025-07-26 21:01:03.315 -03:00 [INF] Setting framebuffer
+2025-07-26 21:01:03.315 -03:00 [INF] Clearing color target
+2025-07-26 21:01:03.315 -03:00 [INF] Clearing depth stencil
+2025-07-26 21:01:03.315 -03:00 [INF] Rendering 9 game objects
+2025-07-26 21:01:03.315 -03:00 [INF] Object Ground has no render component
+2025-07-26 21:01:03.315 -03:00 [INF] Object Cube 0 has no render component
+2025-07-26 21:01:03.315 -03:00 [INF] Object Cube 1 has no render component
+2025-07-26 21:01:03.315 -03:00 [INF] Object Cube 2 has no render component
+2025-07-26 21:01:03.315 -03:00 [INF] Object Cube 3 has no render component
+2025-07-26 21:01:03.315 -03:00 [INF] Object Cube 4 has no render component
+2025-07-26 21:01:03.315 -03:00 [INF] Object Sphere 0 has no render component
+2025-07-26 21:01:03.315 -03:00 [INF] Object Sphere 1 has no render component
+2025-07-26 21:01:03.315 -03:00 [INF] Object Sphere 2 has no render component
+2025-07-26 21:01:03.315 -03:00 [INF] Rendered 0 objects
+2025-07-26 21:01:03.315 -03:00 [INF] Ending command list
+2025-07-26 21:01:03.315 -03:00 [INF] Submitting commands
+2025-07-26 21:01:03.316 -03:00 [INF] Swapping buffers
+2025-07-26 21:01:03.331 -03:00 [INF] Render() completed
+2025-07-26 21:01:03.332 -03:00 [INF] Render() called
+2025-07-26 21:01:03.332 -03:00 [INF] Framebuffer size: 1280x720
+2025-07-26 21:01:03.332 -03:00 [INF] Camera position: <1,4399433. 3. 6,8502975>, target: <0. 0. 0>
+2025-07-26 21:01:03.332 -03:00 [INF] Beginning command list
+2025-07-26 21:01:03.332 -03:00 [INF] Setting framebuffer
+2025-07-26 21:01:03.332 -03:00 [INF] Clearing color target
+2025-07-26 21:01:03.332 -03:00 [INF] Clearing depth stencil
+2025-07-26 21:01:03.332 -03:00 [INF] Rendering 9 game objects
+2025-07-26 21:01:03.332 -03:00 [INF] Object Ground has no render component
+2025-07-26 21:01:03.332 -03:00 [INF] Object Cube 0 has no render component
+2025-07-26 21:01:03.332 -03:00 [INF] Object Cube 1 has no render component
+2025-07-26 21:01:03.332 -03:00 [INF] Object Cube 2 has no render component
+2025-07-26 21:01:03.332 -03:00 [INF] Object Cube 3 has no render component
+2025-07-26 21:01:03.332 -03:00 [INF] Object Cube 4 has no render component
+2025-07-26 21:01:03.332 -03:00 [INF] Object Sphere 0 has no render component
+2025-07-26 21:01:03.332 -03:00 [INF] Object Sphere 1 has no render component
+2025-07-26 21:01:03.332 -03:00 [INF] Object Sphere 2 has no render component
+2025-07-26 21:01:03.332 -03:00 [INF] Rendered 0 objects
+2025-07-26 21:01:03.332 -03:00 [INF] Ending command list
+2025-07-26 21:01:03.332 -03:00 [INF] Submitting commands
+2025-07-26 21:01:03.332 -03:00 [INF] Swapping buffers
+2025-07-26 21:01:03.348 -03:00 [INF] Render() completed
+2025-07-26 21:01:03.383 -03:00 [INF] Render() called
+2025-07-26 21:01:03.383 -03:00 [INF] Framebuffer size: 1280x720
+2025-07-26 21:01:03.383 -03:00 [INF] Camera position: <1,4631622. 3. 6,8453746>, target: <0. 0. 0>
+2025-07-26 21:01:03.383 -03:00 [INF] Beginning command list
+2025-07-26 21:01:03.383 -03:00 [INF] Setting framebuffer
+2025-07-26 21:01:03.383 -03:00 [INF] Clearing color target
+2025-07-26 21:01:03.383 -03:00 [INF] Clearing depth stencil
+2025-07-26 21:01:03.383 -03:00 [INF] Rendering 9 game objects
+2025-07-26 21:01:03.383 -03:00 [INF] Object Ground has no render component
+2025-07-26 21:01:03.383 -03:00 [INF] Object Cube 0 has no render component
+2025-07-26 21:01:03.383 -03:00 [INF] Object Cube 1 has no render component
+2025-07-26 21:01:03.383 -03:00 [INF] Object Cube 2 has no render component
+2025-07-26 21:01:03.383 -03:00 [INF] Object Cube 3 has no render component
+2025-07-26 21:01:03.383 -03:00 [INF] Object Cube 4 has no render component
+2025-07-26 21:01:03.383 -03:00 [INF] Object Sphere 0 has no render component
+2025-07-26 21:01:03.383 -03:00 [INF] Object Sphere 1 has no render component
+2025-07-26 21:01:03.383 -03:00 [INF] Object Sphere 2 has no render component
+2025-07-26 21:01:03.383 -03:00 [INF] Rendered 0 objects
+2025-07-26 21:01:03.383 -03:00 [INF] Ending command list
+2025-07-26 21:01:03.383 -03:00 [INF] Submitting commands
+2025-07-26 21:01:03.383 -03:00 [INF] Swapping buffers
+2025-07-26 21:01:03.383 -03:00 [INF] Render() completed
+2025-07-26 21:01:03.384 -03:00 [INF] Render() called
+2025-07-26 21:01:03.384 -03:00 [INF] Framebuffer size: 1280x720
+2025-07-26 21:01:03.384 -03:00 [INF] Camera position: <1,5110043. 3. 6,8349733>, target: <0. 0. 0>
+2025-07-26 21:01:03.384 -03:00 [INF] Beginning command list
+2025-07-26 21:01:03.384 -03:00 [INF] Setting framebuffer
+2025-07-26 21:01:03.384 -03:00 [INF] Clearing color target
+2025-07-26 21:01:03.384 -03:00 [INF] Clearing depth stencil
+2025-07-26 21:01:03.384 -03:00 [INF] Rendering 9 game objects
+2025-07-26 21:01:03.384 -03:00 [INF] Object Ground has no render component
+2025-07-26 21:01:03.384 -03:00 [INF] Object Cube 0 has no render component
+2025-07-26 21:01:03.384 -03:00 [INF] Object Cube 1 has no render component
+2025-07-26 21:01:03.384 -03:00 [INF] Object Cube 2 has no render component
+2025-07-26 21:01:03.384 -03:00 [INF] Object Cube 3 has no render component
+2025-07-26 21:01:03.384 -03:00 [INF] Object Cube 4 has no render component
+2025-07-26 21:01:03.385 -03:00 [INF] Object Sphere 0 has no render component
+2025-07-26 21:01:03.385 -03:00 [INF] Object Sphere 1 has no render component
+2025-07-26 21:01:03.385 -03:00 [INF] Object Sphere 2 has no render component
+2025-07-26 21:01:03.385 -03:00 [INF] Rendered 0 objects
+2025-07-26 21:01:03.385 -03:00 [INF] Ending command list
+2025-07-26 21:01:03.385 -03:00 [INF] Submitting commands
+2025-07-26 21:01:03.385 -03:00 [INF] Swapping buffers
+2025-07-26 21:01:03.385 -03:00 [INF] Render() completed
+2025-07-26 21:01:03.385 -03:00 [INF] Render() called
+2025-07-26 21:01:03.385 -03:00 [INF] Framebuffer size: 1280x720
+2025-07-26 21:01:03.385 -03:00 [INF] Camera position: <1,5130477. 3. 6,834522>, target: <0. 0. 0>
+2025-07-26 21:01:03.385 -03:00 [INF] Beginning command list
+2025-07-26 21:01:03.385 -03:00 [INF] Setting framebuffer
+2025-07-26 21:01:03.385 -03:00 [INF] Clearing color target
+2025-07-26 21:01:03.385 -03:00 [INF] Clearing depth stencil
+2025-07-26 21:01:03.385 -03:00 [INF] Rendering 9 game objects
+2025-07-26 21:01:03.385 -03:00 [INF] Object Ground has no render component
+2025-07-26 21:01:03.385 -03:00 [INF] Object Cube 0 has no render component
+2025-07-26 21:01:03.385 -03:00 [INF] Object Cube 1 has no render component
+2025-07-26 21:01:03.385 -03:00 [INF] Object Cube 2 has no render component
+2025-07-26 21:01:03.385 -03:00 [INF] Object Cube 3 has no render component
+2025-07-26 21:01:03.385 -03:00 [INF] Object Cube 4 has no render component
+2025-07-26 21:01:03.385 -03:00 [INF] Object Sphere 0 has no render component
+2025-07-26 21:01:03.385 -03:00 [INF] Object Sphere 1 has no render component
+2025-07-26 21:01:03.385 -03:00 [INF] Object Sphere 2 has no render component
+2025-07-26 21:01:03.385 -03:00 [INF] Rendered 0 objects
+2025-07-26 21:01:03.385 -03:00 [INF] Ending command list
+2025-07-26 21:01:03.385 -03:00 [INF] Submitting commands
+2025-07-26 21:01:03.385 -03:00 [INF] Swapping buffers
+2025-07-26 21:01:03.398 -03:00 [INF] Render() completed
+2025-07-26 21:01:03.398 -03:00 [INF] Render() called
+2025-07-26 21:01:03.398 -03:00 [INF] Framebuffer size: 1280x720
+2025-07-26 21:01:03.398 -03:00 [INF] Camera position: <1,5309215. 3,0000002. 6,8305407>, target: <0. 0. 0>
+2025-07-26 21:01:03.398 -03:00 [INF] Beginning command list
+2025-07-26 21:01:03.398 -03:00 [INF] Setting framebuffer
+2025-07-26 21:01:03.398 -03:00 [INF] Clearing color target
+2025-07-26 21:01:03.398 -03:00 [INF] Clearing depth stencil
+2025-07-26 21:01:03.398 -03:00 [INF] Rendering 9 game objects
+2025-07-26 21:01:03.398 -03:00 [INF] Object Ground has no render component
+2025-07-26 21:01:03.398 -03:00 [INF] Object Cube 0 has no render component
+2025-07-26 21:01:03.398 -03:00 [INF] Object Cube 1 has no render component
+2025-07-26 21:01:03.398 -03:00 [INF] Object Cube 2 has no render component
+2025-07-26 21:01:03.398 -03:00 [INF] Object Cube 3 has no render component
+2025-07-26 21:01:03.398 -03:00 [INF] Object Cube 4 has no render component
+2025-07-26 21:01:03.398 -03:00 [INF] Object Sphere 0 has no render component
+2025-07-26 21:01:03.398 -03:00 [INF] Object Sphere 1 has no render component
+2025-07-26 21:01:03.398 -03:00 [INF] Object Sphere 2 has no render component
+2025-07-26 21:01:03.398 -03:00 [INF] Rendered 0 objects
+2025-07-26 21:01:03.398 -03:00 [INF] Ending command list
+2025-07-26 21:01:03.398 -03:00 [INF] Submitting commands
+2025-07-26 21:01:03.398 -03:00 [INF] Swapping buffers
+2025-07-26 21:01:03.415 -03:00 [INF] Render() completed
+2025-07-26 21:01:03.416 -03:00 [INF] Render() called
+2025-07-26 21:01:03.416 -03:00 [INF] Framebuffer size: 1280x720
+2025-07-26 21:01:03.416 -03:00 [INF] Camera position: <1,5546002. 2,9999998. 6,8251896>, target: <0. 0. 0>
+2025-07-26 21:01:03.416 -03:00 [INF] Beginning command list
+2025-07-26 21:01:03.416 -03:00 [INF] Setting framebuffer
+2025-07-26 21:01:03.416 -03:00 [INF] Clearing color target
+2025-07-26 21:01:03.416 -03:00 [INF] Clearing depth stencil
+2025-07-26 21:01:03.416 -03:00 [INF] Rendering 9 game objects
+2025-07-26 21:01:03.416 -03:00 [INF] Object Ground has no render component
+2025-07-26 21:01:03.416 -03:00 [INF] Object Cube 0 has no render component
+2025-07-26 21:01:03.416 -03:00 [INF] Object Cube 1 has no render component
+2025-07-26 21:01:03.416 -03:00 [INF] Object Cube 2 has no render component
+2025-07-26 21:01:03.416 -03:00 [INF] Object Cube 3 has no render component
+2025-07-26 21:01:03.416 -03:00 [INF] Object Cube 4 has no render component
+2025-07-26 21:01:03.416 -03:00 [INF] Object Sphere 0 has no render component
+2025-07-26 21:01:03.416 -03:00 [INF] Object Sphere 1 has no render component
+2025-07-26 21:01:03.416 -03:00 [INF] Object Sphere 2 has no render component
+2025-07-26 21:01:03.416 -03:00 [INF] Rendered 0 objects
+2025-07-26 21:01:03.416 -03:00 [INF] Ending command list
+2025-07-26 21:01:03.416 -03:00 [INF] Submitting commands
+2025-07-26 21:01:03.416 -03:00 [INF] Swapping buffers
+2025-07-26 21:01:03.431 -03:00 [INF] Render() completed
+2025-07-26 21:01:03.432 -03:00 [INF] Render() called
+2025-07-26 21:01:03.432 -03:00 [INF] Framebuffer size: 1280x720
+2025-07-26 21:01:03.432 -03:00 [INF] Camera position: <1,5765581. 3,0000002. 6,8201513>, target: <0. 0. 0>
+2025-07-26 21:01:03.432 -03:00 [INF] Beginning command list
+2025-07-26 21:01:03.432 -03:00 [INF] Setting framebuffer
+2025-07-26 21:01:03.432 -03:00 [INF] Clearing color target
+2025-07-26 21:01:03.432 -03:00 [INF] Clearing depth stencil
+2025-07-26 21:01:03.432 -03:00 [INF] Rendering 9 game objects
+2025-07-26 21:01:03.432 -03:00 [INF] Object Ground has no render component
+2025-07-26 21:01:03.432 -03:00 [INF] Object Cube 0 has no render component
+2025-07-26 21:01:03.432 -03:00 [INF] Object Cube 1 has no render component
+2025-07-26 21:01:03.432 -03:00 [INF] Object Cube 2 has no render component
+2025-07-26 21:01:03.432 -03:00 [INF] Object Cube 3 has no render component
+2025-07-26 21:01:03.432 -03:00 [INF] Object Cube 4 has no render component
+2025-07-26 21:01:03.432 -03:00 [INF] Object Sphere 0 has no render component
+2025-07-26 21:01:03.432 -03:00 [INF] Object Sphere 1 has no render component
+2025-07-26 21:01:03.432 -03:00 [INF] Object Sphere 2 has no render component
+2025-07-26 21:01:03.432 -03:00 [INF] Rendered 0 objects
+2025-07-26 21:01:03.432 -03:00 [INF] Ending command list
+2025-07-26 21:01:03.432 -03:00 [INF] Submitting commands
+2025-07-26 21:01:03.432 -03:00 [INF] Swapping buffers
+2025-07-26 21:01:03.448 -03:00 [INF] Render() completed
+2025-07-26 21:01:03.449 -03:00 [INF] Render() called
+2025-07-26 21:01:03.449 -03:00 [INF] Framebuffer size: 1280x720
+2025-07-26 21:01:03.449 -03:00 [INF] Camera position: <1,5995972. 3. 6,8147845>, target: <0. 0. 0>
+2025-07-26 21:01:03.449 -03:00 [INF] Beginning command list
+2025-07-26 21:01:03.449 -03:00 [INF] Setting framebuffer
+2025-07-26 21:01:03.449 -03:00 [INF] Clearing color target
+2025-07-26 21:01:03.449 -03:00 [INF] Clearing depth stencil
+2025-07-26 21:01:03.449 -03:00 [INF] Rendering 9 game objects
+2025-07-26 21:01:03.449 -03:00 [INF] Object Ground has no render component
+2025-07-26 21:01:03.449 -03:00 [INF] Object Cube 0 has no render component
+2025-07-26 21:01:03.449 -03:00 [INF] Object Cube 1 has no render component
+2025-07-26 21:01:03.449 -03:00 [INF] Object Cube 2 has no render component
+2025-07-26 21:01:03.449 -03:00 [INF] Object Cube 3 has no render component
+2025-07-26 21:01:03.449 -03:00 [INF] Object Cube 4 has no render component
+2025-07-26 21:01:03.449 -03:00 [INF] Object Sphere 0 has no render component
+2025-07-26 21:01:03.449 -03:00 [INF] Object Sphere 1 has no render component
+2025-07-26 21:01:03.449 -03:00 [INF] Object Sphere 2 has no render component
+2025-07-26 21:01:03.449 -03:00 [INF] Rendered 0 objects
+2025-07-26 21:01:03.449 -03:00 [INF] Ending command list
+2025-07-26 21:01:03.449 -03:00 [INF] Submitting commands
+2025-07-26 21:01:03.449 -03:00 [INF] Swapping buffers
+2025-07-26 21:01:03.465 -03:00 [INF] Render() completed
+2025-07-26 21:01:03.479 -03:00 [INF] Render() called
+2025-07-26 21:01:03.479 -03:00 [INF] Framebuffer size: 1280x720
+2025-07-26 21:01:03.479 -03:00 [INF] Camera position: <1,622447. 3. 6,8093805>, target: <0. 0. 0>
+2025-07-26 21:01:03.479 -03:00 [INF] Beginning command list
+2025-07-26 21:01:03.479 -03:00 [INF] Setting framebuffer
+2025-07-26 21:01:03.479 -03:00 [INF] Clearing color target
+2025-07-26 21:01:03.479 -03:00 [INF] Clearing depth stencil
+2025-07-26 21:01:03.479 -03:00 [INF] Rendering 9 game objects
+2025-07-26 21:01:03.480 -03:00 [INF] Object Ground has no render component
+2025-07-26 21:01:03.480 -03:00 [INF] Object Cube 0 has no render component
+2025-07-26 21:01:03.480 -03:00 [INF] Object Cube 1 has no render component
+2025-07-26 21:01:03.480 -03:00 [INF] Object Cube 2 has no render component
+2025-07-26 21:01:03.480 -03:00 [INF] Object Cube 3 has no render component
+2025-07-26 21:01:03.480 -03:00 [INF] Object Cube 4 has no render component
+2025-07-26 21:01:03.480 -03:00 [INF] Object Sphere 0 has no render component
+2025-07-26 21:01:03.480 -03:00 [INF] Object Sphere 1 has no render component
+2025-07-26 21:01:03.480 -03:00 [INF] Object Sphere 2 has no render component
+2025-07-26 21:01:03.480 -03:00 [INF] Rendered 0 objects
+2025-07-26 21:01:03.480 -03:00 [INF] Ending command list
+2025-07-26 21:01:03.480 -03:00 [INF] Submitting commands
+2025-07-26 21:01:03.480 -03:00 [INF] Swapping buffers
+2025-07-26 21:01:03.481 -03:00 [INF] Render() completed
+2025-07-26 21:01:03.484 -03:00 [INF] Render() called
+2025-07-26 21:01:03.484 -03:00 [INF] Framebuffer size: 1280x720
+2025-07-26 21:01:03.484 -03:00 [INF] Camera position: <1,644773. 3. 6,8040223>, target: <0. 0. 0>
+2025-07-26 21:01:03.484 -03:00 [INF] Beginning command list
+2025-07-26 21:01:03.484 -03:00 [INF] Setting framebuffer
+2025-07-26 21:01:03.484 -03:00 [INF] Clearing color target
+2025-07-26 21:01:03.484 -03:00 [INF] Clearing depth stencil
+2025-07-26 21:01:03.484 -03:00 [INF] Rendering 9 game objects
+2025-07-26 21:01:03.484 -03:00 [INF] Object Ground has no render component
+2025-07-26 21:01:03.484 -03:00 [INF] Object Cube 0 has no render component
+2025-07-26 21:01:03.484 -03:00 [INF] Object Cube 1 has no render component
+2025-07-26 21:01:03.484 -03:00 [INF] Object Cube 2 has no render component
+2025-07-26 21:01:03.484 -03:00 [INF] Object Cube 3 has no render component
+2025-07-26 21:01:03.484 -03:00 [INF] Object Cube 4 has no render component
+2025-07-26 21:01:03.484 -03:00 [INF] Object Sphere 0 has no render component
+2025-07-26 21:01:03.484 -03:00 [INF] Object Sphere 1 has no render component
+2025-07-26 21:01:03.484 -03:00 [INF] Object Sphere 2 has no render component
+2025-07-26 21:01:03.484 -03:00 [INF] Rendered 0 objects
+2025-07-26 21:01:03.484 -03:00 [INF] Ending command list
+2025-07-26 21:01:03.484 -03:00 [INF] Submitting commands
+2025-07-26 21:01:03.484 -03:00 [INF] Swapping buffers
+2025-07-26 21:01:03.498 -03:00 [INF] Render() completed
+2025-07-26 21:01:03.499 -03:00 [INF] Render() called
+2025-07-26 21:01:03.499 -03:00 [INF] Framebuffer size: 1280x720
+2025-07-26 21:01:03.499 -03:00 [INF] Camera position: <1,6680427. 3. 6,7983556>, target: <0. 0. 0>
+2025-07-26 21:01:03.499 -03:00 [INF] Beginning command list
+2025-07-26 21:01:03.499 -03:00 [INF] Setting framebuffer
+2025-07-26 21:01:03.499 -03:00 [INF] Clearing color target
+2025-07-26 21:01:03.499 -03:00 [INF] Clearing depth stencil
+2025-07-26 21:01:03.499 -03:00 [INF] Rendering 9 game objects
+2025-07-26 21:01:03.499 -03:00 [INF] Object Ground has no render component
+2025-07-26 21:01:03.499 -03:00 [INF] Object Cube 0 has no render component
+2025-07-26 21:01:03.499 -03:00 [INF] Object Cube 1 has no render component
+2025-07-26 21:01:03.499 -03:00 [INF] Object Cube 2 has no render component
+2025-07-26 21:01:03.499 -03:00 [INF] Object Cube 3 has no render component
+2025-07-26 21:01:03.499 -03:00 [INF] Object Cube 4 has no render component
+2025-07-26 21:01:03.499 -03:00 [INF] Object Sphere 0 has no render component
+2025-07-26 21:01:03.499 -03:00 [INF] Object Sphere 1 has no render component
+2025-07-26 21:01:03.499 -03:00 [INF] Object Sphere 2 has no render component
+2025-07-26 21:01:03.499 -03:00 [INF] Rendered 0 objects
+2025-07-26 21:01:03.499 -03:00 [INF] Ending command list
+2025-07-26 21:01:03.499 -03:00 [INF] Submitting commands
+2025-07-26 21:01:03.499 -03:00 [INF] Swapping buffers
+2025-07-26 21:01:03.514 -03:00 [INF] Render() completed
+2025-07-26 21:01:03.515 -03:00 [INF] Render() called
+2025-07-26 21:01:03.515 -03:00 [INF] Framebuffer size: 1280x720
+2025-07-26 21:01:03.515 -03:00 [INF] Camera position: <1,6900747. 3. 6,792911>, target: <0. 0. 0>
+2025-07-26 21:01:03.515 -03:00 [INF] Beginning command list
+2025-07-26 21:01:03.515 -03:00 [INF] Setting framebuffer
+2025-07-26 21:01:03.515 -03:00 [INF] Clearing color target
+2025-07-26 21:01:03.515 -03:00 [INF] Clearing depth stencil
+2025-07-26 21:01:03.515 -03:00 [INF] Rendering 9 game objects
+2025-07-26 21:01:03.515 -03:00 [INF] Object Ground has no render component
+2025-07-26 21:01:03.515 -03:00 [INF] Object Cube 0 has no render component
+2025-07-26 21:01:03.515 -03:00 [INF] Object Cube 1 has no render component
+2025-07-26 21:01:03.515 -03:00 [INF] Object Cube 2 has no render component
+2025-07-26 21:01:03.515 -03:00 [INF] Object Cube 3 has no render component
+2025-07-26 21:01:03.515 -03:00 [INF] Object Cube 4 has no render component
+2025-07-26 21:01:03.515 -03:00 [INF] Object Sphere 0 has no render component
+2025-07-26 21:01:03.515 -03:00 [INF] Object Sphere 1 has no render component
+2025-07-26 21:01:03.515 -03:00 [INF] Object Sphere 2 has no render component
+2025-07-26 21:01:03.515 -03:00 [INF] Rendered 0 objects
+2025-07-26 21:01:03.515 -03:00 [INF] Ending command list
+2025-07-26 21:01:03.515 -03:00 [INF] Submitting commands
+2025-07-26 21:01:03.516 -03:00 [INF] Swapping buffers

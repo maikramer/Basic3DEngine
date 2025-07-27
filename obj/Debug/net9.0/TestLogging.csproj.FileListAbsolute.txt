@@ -1,0 +1,5 @@
+/home/maikeu/MeusProgramas/TestQwen/obj/Debug/net9.0/TestLogging.csproj.AssemblyReference.cache
+/home/maikeu/MeusProgramas/TestQwen/obj/Debug/net9.0/TestLogging.GeneratedMSBuildEditorConfig.editorconfig
+/home/maikeu/MeusProgramas/TestQwen/obj/Debug/net9.0/TestLogging.AssemblyInfoInputs.cache
+/home/maikeu/MeusProgramas/TestQwen/obj/Debug/net9.0/TestLogging.AssemblyInfo.cs
+/home/maikeu/MeusProgramas/TestQwen/obj/Debug/net9.0/TestLogging.csproj.CoreCompileInputs.cache

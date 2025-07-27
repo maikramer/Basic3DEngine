@@ -1,0 +1,400 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/maikeu/MeusProgramas/TestQwen/TestLogging.csproj": {}
+  },
+  "projects": {
+    "/home/maikeu/MeusProgramas/TestQwen/Basic3DEngine/Basic3DEngine.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/maikeu/MeusProgramas/TestQwen/Basic3DEngine/Basic3DEngine.csproj",
+        "projectName": "Basic3DEngine",
+        "projectPath": "/home/maikeu/MeusProgramas/TestQwen/Basic3DEngine/Basic3DEngine.csproj",
+        "packagesPath": "/home/maikeu/.nuget/packages/",
+        "outputPath": "/home/maikeu/MeusProgramas/TestQwen/Basic3DEngine/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/maikeu/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "/usr/lib/dotnet/library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "/home/maikeu/MeusProgramas/TestQwen/bepuphysics2/BepuPhysics/BepuPhysics.csproj": {
+                "projectPath": "/home/maikeu/MeusProgramas/TestQwen/bepuphysics2/BepuPhysics/BepuPhysics.csproj"
+              },
+              "/home/maikeu/MeusProgramas/TestQwen/bepuphysics2/BepuUtilities/BepuUtilities.csproj": {
+                "projectPath": "/home/maikeu/MeusProgramas/TestQwen/bepuphysics2/BepuUtilities/BepuUtilities.csproj"
+              },
+              "/home/maikeu/MeusProgramas/TestQwen/bepuphysics2/DemoUtilities/DemoUtilities.csproj": {
+                "projectPath": "/home/maikeu/MeusProgramas/TestQwen/bepuphysics2/DemoUtilities/DemoUtilities.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.100"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "Serilog": {
+              "target": "Package",
+              "version": "[3.1.1, )"
+            },
+            "Serilog.Sinks.Console": {
+              "target": "Package",
+              "version": "[5.0.1, )"
+            },
+            "Serilog.Sinks.File": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "System.Numerics.Vectors": {
+              "target": "Package",
+              "version": "[4.6.1, )"
+            },
+            "Veldrid": {
+              "target": "Package",
+              "version": "[4.9.0, )"
+            },
+            "Veldrid.ImageSharp": {
+              "target": "Package",
+              "version": "[4.9.0, )"
+            },
+            "Veldrid.StartupUtilities": {
+              "target": "Package",
+              "version": "[4.9.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/9.0.107/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/maikeu/MeusProgramas/TestQwen/TestLogging.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/maikeu/MeusProgramas/TestQwen/TestLogging.csproj",
+        "projectName": "TestLogging",
+        "projectPath": "/home/maikeu/MeusProgramas/TestQwen/TestLogging.csproj",
+        "packagesPath": "/home/maikeu/.nuget/packages/",
+        "outputPath": "/home/maikeu/MeusProgramas/TestQwen/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/maikeu/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "/usr/lib/dotnet/library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "/home/maikeu/MeusProgramas/TestQwen/Basic3DEngine/Basic3DEngine.csproj": {
+                "projectPath": "/home/maikeu/MeusProgramas/TestQwen/Basic3DEngine/Basic3DEngine.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.100"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/9.0.107/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/maikeu/MeusProgramas/TestQwen/bepuphysics2/BepuPhysics/BepuPhysics.csproj": {
+      "version": "2.5.0-beta.24",
+      "restore": {
+        "projectUniqueName": "/home/maikeu/MeusProgramas/TestQwen/bepuphysics2/BepuPhysics/BepuPhysics.csproj",
+        "projectName": "BepuPhysics",
+        "projectPath": "/home/maikeu/MeusProgramas/TestQwen/bepuphysics2/BepuPhysics/BepuPhysics.csproj",
+        "packagesPath": "/home/maikeu/.nuget/packages/",
+        "outputPath": "/home/maikeu/MeusProgramas/TestQwen/bepuphysics2/BepuPhysics/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/maikeu/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "/usr/lib/dotnet/library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "/home/maikeu/MeusProgramas/TestQwen/bepuphysics2/BepuUtilities/BepuUtilities.csproj": {
+                "projectPath": "/home/maikeu/MeusProgramas/TestQwen/bepuphysics2/BepuUtilities/BepuUtilities.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.100"
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.SourceLink.GitHub": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.1.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.17, 8.0.17]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.17, 8.0.17]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/9.0.107/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/maikeu/MeusProgramas/TestQwen/bepuphysics2/BepuUtilities/BepuUtilities.csproj": {
+      "version": "2.5.0-beta.24",
+      "restore": {
+        "projectUniqueName": "/home/maikeu/MeusProgramas/TestQwen/bepuphysics2/BepuUtilities/BepuUtilities.csproj",
+        "projectName": "BepuUtilities",
+        "projectPath": "/home/maikeu/MeusProgramas/TestQwen/bepuphysics2/BepuUtilities/BepuUtilities.csproj",
+        "packagesPath": "/home/maikeu/.nuget/packages/",
+        "outputPath": "/home/maikeu/MeusProgramas/TestQwen/bepuphysics2/BepuUtilities/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/maikeu/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "/usr/lib/dotnet/library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.100"
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.SourceLink.GitHub": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.1.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.17, 8.0.17]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.17, 8.0.17]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/9.0.107/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/maikeu/MeusProgramas/TestQwen/bepuphysics2/DemoUtilities/DemoUtilities.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/maikeu/MeusProgramas/TestQwen/bepuphysics2/DemoUtilities/DemoUtilities.csproj",
+        "projectName": "DemoUtilities",
+        "projectPath": "/home/maikeu/MeusProgramas/TestQwen/bepuphysics2/DemoUtilities/DemoUtilities.csproj",
+        "packagesPath": "/home/maikeu/.nuget/packages/",
+        "outputPath": "/home/maikeu/MeusProgramas/TestQwen/bepuphysics2/DemoUtilities/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/maikeu/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "/usr/lib/dotnet/library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "/home/maikeu/MeusProgramas/TestQwen/bepuphysics2/BepuUtilities/BepuUtilities.csproj": {
+                "projectPath": "/home/maikeu/MeusProgramas/TestQwen/bepuphysics2/BepuUtilities/BepuUtilities.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.100"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "OpenTK.NETCore": {
+              "target": "Package",
+              "version": "[1.1.2749.6433, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/9.0.107/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

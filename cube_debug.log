@@ -1,0 +1,207 @@
+[20:26:00.147] Cube.CreateResources() called
+[20:26:00.147] Creating vertex buffer
+[20:26:00.150] Vertex buffer created successfully
+[20:26:00.150] Creating index buffer
+[20:26:00.150] Index buffer created successfully
+[20:26:00.150] Creating shaders
+[20:26:00.150] Cube.CreateShaders() called
+[20:26:00.150] Creating vertex shader
+[20:26:00.158] Creating fragment shader
+[20:26:00.159] Shaders created successfully
+[20:26:00.159] Shaders created successfully
+[20:26:00.159] Creating uniform buffer
+[20:26:00.159] Uniform buffer created successfully
+[20:26:00.159] Creating resource layout
+[20:26:00.159] Resource layout created successfully
+[20:26:00.159] Creating resource set
+[20:26:00.160] Resource set created successfully
+[20:26:00.160] Creating pipeline
+[20:26:00.161] Cube.CreatePipeline() called
+[20:26:00.162] Creating graphics pipeline
+[20:26:00.162] Graphics pipeline created successfully
+[20:26:00.162] Pipeline created successfully
+[20:26:00.162] Cube.CreateResources() completed
+[20:26:00.171] Cube.CreateResources() called
+[20:26:00.171] Creating vertex buffer
+[20:26:00.171] Vertex buffer created successfully
+[20:26:00.171] Creating index buffer
+[20:26:00.171] Index buffer created successfully
+[20:26:00.171] Creating shaders
+[20:26:00.171] Cube.CreateShaders() called
+[20:26:00.171] Creating vertex shader
+[20:26:00.171] Creating fragment shader
+[20:26:00.171] Shaders created successfully
+[20:26:00.171] Shaders created successfully
+[20:26:00.171] Creating uniform buffer
+[20:26:00.171] Uniform buffer created successfully
+[20:26:00.171] Creating resource layout
+[20:26:00.171] Resource layout created successfully
+[20:26:00.171] Creating resource set
+[20:26:00.171] Resource set created successfully
+[20:26:00.171] Creating pipeline
+[20:26:00.171] Cube.CreatePipeline() called
+[20:26:00.172] Creating graphics pipeline
+[20:26:00.172] Graphics pipeline created successfully
+[20:26:00.172] Pipeline created successfully
+[20:26:00.172] Cube.CreateResources() completed
+[20:26:00.174] Cube.CreateResources() called
+[20:26:00.174] Creating vertex buffer
+[20:26:00.174] Vertex buffer created successfully
+[20:26:00.174] Creating index buffer
+[20:26:00.174] Index buffer created successfully
+[20:26:00.174] Creating shaders
+[20:26:00.174] Cube.CreateShaders() called
+[20:26:00.174] Creating vertex shader
+[20:26:00.174] Creating fragment shader
+[20:26:00.174] Shaders created successfully
+[20:26:00.174] Shaders created successfully
+[20:26:00.174] Creating uniform buffer
+[20:26:00.174] Uniform buffer created successfully
+[20:26:00.174] Creating resource layout
+[20:26:00.174] Resource layout created successfully
+[20:26:00.174] Creating resource set
+[20:26:00.174] Resource set created successfully
+[20:26:00.174] Creating pipeline
+[20:26:00.174] Cube.CreatePipeline() called
+[20:26:00.174] Creating graphics pipeline
+[20:26:00.174] Graphics pipeline created successfully
+[20:26:00.174] Pipeline created successfully
+[20:26:00.174] Cube.CreateResources() completed
+[20:26:00.174] Cube.CreateResources() called
+[20:26:00.174] Creating vertex buffer
+[20:26:00.174] Vertex buffer created successfully
+[20:26:00.174] Creating index buffer
+[20:26:00.174] Index buffer created successfully
+[20:26:00.174] Creating shaders
+[20:26:00.174] Cube.CreateShaders() called
+[20:26:00.174] Creating vertex shader
+[20:26:00.174] Creating fragment shader
+[20:26:00.174] Shaders created successfully
+[20:26:00.174] Shaders created successfully
+[20:26:00.174] Creating uniform buffer
+[20:26:00.174] Uniform buffer created successfully
+[20:26:00.174] Creating resource layout
+[20:26:00.174] Resource layout created successfully
+[20:26:00.174] Creating resource set
+[20:26:00.174] Resource set created successfully
+[20:26:00.174] Creating pipeline
+[20:26:00.174] Cube.CreatePipeline() called
+[20:26:00.174] Creating graphics pipeline
+[20:26:00.174] Graphics pipeline created successfully
+[20:26:00.174] Pipeline created successfully
+[20:26:00.174] Cube.CreateResources() completed
+[20:26:00.176] Cube.CreateResources() called
+[20:26:00.176] Creating vertex buffer
+[20:26:00.176] Vertex buffer created successfully
+[20:26:00.176] Creating index buffer
+[20:26:00.176] Index buffer created successfully
+[20:26:00.176] Creating shaders
+[20:26:00.176] Cube.CreateShaders() called
+[20:26:00.176] Creating vertex shader
+[20:26:00.176] Creating fragment shader
+[20:26:00.176] Shaders created successfully
+[20:26:00.176] Shaders created successfully
+[20:26:00.176] Creating uniform buffer
+[20:26:00.176] Uniform buffer created successfully
+[20:26:00.176] Creating resource layout
+[20:26:00.176] Resource layout created successfully
+[20:26:00.176] Creating resource set
+[20:26:00.176] Resource set created successfully
+[20:26:00.176] Creating pipeline
+[20:26:00.176] Cube.CreatePipeline() called
+[20:26:00.176] Creating graphics pipeline
+[20:26:00.176] Graphics pipeline created successfully
+[20:26:00.176] Pipeline created successfully
+[20:26:00.176] Cube.CreateResources() completed
+[20:26:00.176] Cube.CreateResources() called
+[20:26:00.176] Creating vertex buffer
+[20:26:00.176] Vertex buffer created successfully
+[20:26:00.176] Creating index buffer
+[20:26:00.176] Index buffer created successfully
+[20:26:00.176] Creating shaders
+[20:26:00.176] Cube.CreateShaders() called
+[20:26:00.176] Creating vertex shader
+[20:26:00.176] Creating fragment shader
+[20:26:00.176] Shaders created successfully
+[20:26:00.176] Shaders created successfully
+[20:26:00.176] Creating uniform buffer
+[20:26:00.176] Uniform buffer created successfully
+[20:26:00.176] Creating resource layout
+[20:26:00.176] Resource layout created successfully
+[20:26:00.176] Creating resource set
+[20:26:00.176] Resource set created successfully
+[20:26:00.176] Creating pipeline
+[20:26:00.176] Cube.CreatePipeline() called
+[20:26:00.176] Creating graphics pipeline
+[20:26:00.176] Graphics pipeline created successfully
+[20:26:00.176] Pipeline created successfully
+[20:26:00.176] Cube.CreateResources() completed
+[20:26:00.176] Cube.CreateResources() called
+[20:26:00.176] Creating vertex buffer
+[20:26:00.176] Vertex buffer created successfully
+[20:26:00.176] Creating index buffer
+[20:26:00.176] Index buffer created successfully
+[20:26:00.176] Creating shaders
+[20:26:00.176] Cube.CreateShaders() called
+[20:26:00.176] Creating vertex shader
+[20:26:00.176] Creating fragment shader
+[20:26:00.176] Shaders created successfully
+[20:26:00.176] Shaders created successfully
+[20:26:00.176] Creating uniform buffer
+[20:26:00.176] Uniform buffer created successfully
+[20:26:00.176] Creating resource layout
+[20:26:00.176] Resource layout created successfully
+[20:26:00.176] Creating resource set
+[20:26:00.176] Resource set created successfully
+[20:26:00.176] Creating pipeline
+[20:26:00.176] Cube.CreatePipeline() called
+[20:26:00.176] Creating graphics pipeline
+[20:26:00.176] Graphics pipeline created successfully
+[20:26:00.176] Pipeline created successfully
+[20:26:00.176] Cube.CreateResources() completed
+[20:26:00.178] Cube.CreateResources() called
+[20:26:00.178] Creating vertex buffer
+[20:26:00.178] Vertex buffer created successfully
+[20:26:00.178] Creating index buffer
+[20:26:00.178] Index buffer created successfully
+[20:26:00.178] Creating shaders
+[20:26:00.178] Cube.CreateShaders() called
+[20:26:00.178] Creating vertex shader
+[20:26:00.178] Creating fragment shader
+[20:26:00.178] Shaders created successfully
+[20:26:00.178] Shaders created successfully
+[20:26:00.178] Creating uniform buffer
+[20:26:00.178] Uniform buffer created successfully
+[20:26:00.178] Creating resource layout
+[20:26:00.178] Resource layout created successfully
+[20:26:00.178] Creating resource set
+[20:26:00.178] Resource set created successfully
+[20:26:00.178] Creating pipeline
+[20:26:00.178] Cube.CreatePipeline() called
+[20:26:00.178] Creating graphics pipeline
+[20:26:00.178] Graphics pipeline created successfully
+[20:26:00.178] Pipeline created successfully
+[20:26:00.178] Cube.CreateResources() completed
+[20:26:00.178] Cube.CreateResources() called
+[20:26:00.178] Creating vertex buffer
+[20:26:00.178] Vertex buffer created successfully
+[20:26:00.178] Creating index buffer
+[20:26:00.178] Index buffer created successfully
+[20:26:00.178] Creating shaders
+[20:26:00.178] Cube.CreateShaders() called
+[20:26:00.178] Creating vertex shader
+[20:26:00.178] Creating fragment shader
+[20:26:00.178] Shaders created successfully
+[20:26:00.178] Shaders created successfully
+[20:26:00.178] Creating uniform buffer
+[20:26:00.178] Uniform buffer created successfully
+[20:26:00.178] Creating resource layout
+[20:26:00.178] Resource layout created successfully
+[20:26:00.178] Creating resource set
+[20:26:00.178] Resource set created successfully
+[20:26:00.178] Creating pipeline
+[20:26:00.178] Cube.CreatePipeline() called
+[20:26:00.178] Creating graphics pipeline
+[20:26:00.178] Graphics pipeline created successfully
+[20:26:00.178] Pipeline created successfully
+[20:26:00.178] Cube.CreateResources() completed
