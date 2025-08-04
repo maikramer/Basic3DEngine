@@ -1,0 +1,51 @@
+# Padrões de Código C#
+
+## Convenções de Nomenclatura
+- **Classes**: PascalCase (GameObject, RenderComponent)
+- **Métodos públicos**: PascalCase (CreateCube, AddComponent)
+- **Propriedades**: PascalCase (Position, Enabled)
+- **Campos privados**: _camelCase (_gameObjects, _physicsWorld)
+- **Variáveis locais**: camelCase (deltaTime, gameObject)
+
+## Documentação XML
+- **SEMPRE documente** métodos públicos usando XML comments
+- **Use <summary>** para descrever o propósito
+- **Use <param>** para parâmetros
+- **Use <returns>** para valores de retorno
+
+```csharp
+/// <summary>
+/// Cria um cubo físico simples e intuitivo
+/// </summary>
+/// <param name="name">Nome do objeto</param>
+/// <param name="position">Posição do centro do cubo</param>
+/// <param name="mass">Massa (0 = estático)</param>
+/// <returns>GameObject criado</returns>
+public GameObject CreateCube(string name, Vector3 position, float mass = 1f)
+```
+
+## Logging
+- **SEMPRE use** [LoggingService.cs](mdc:Basic3DEngine/Services/LoggingService.cs)
+- **LogInfo**: Para eventos importantes
+- **LogWarning**: Para situações suspeitas mas não críticas
+- **LogError**: Para erros que podem causar problemas
+- **LogDebug**: Para debug detalhado
+
+```csharp
+LoggingService.LogInfo($"Creating cube: {name} at {position}");
+LoggingService.LogWarning($"GameObject {name} has no RenderComponent");
+LoggingService.LogError($"Failed to create physics body: {ex.Message}");
+```
+
+## Estrutura de Métodos
+- **Validação primeiro**: Verificar parâmetros e estado
+- **Logging**: Registrar operações importantes
+- **Operação principal**: Executar a lógica
+- **Cleanup**: Liberar recursos se necessário
+
+## Tratamento de Erros
+- **Use try-catch** em operações que podem falhar
+- **Log erros** antes de re-throw ou return
+- **Valide parâmetros** no início de métodos públicos
+- **Use InvalidOperationException** para estado inválido
+

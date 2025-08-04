@@ -1,0 +1,46 @@
+# Basic3DEngine - Visão Geral do Projeto
+
+Motor de jogos 3D em C# (.NET 9.0) que abstrai Veldrid (renderização) e BepuPhysics (física) para oferecer uma API simples e intuitiva.
+
+## Arquivos Importantes
+- [Engine.cs](mdc:Basic3DEngine/Engine.cs) - Ponto de entrada principal
+- [GameObject.cs](mdc:Basic3DEngine/Entities/GameObject.cs) - Sistema Entity-Component
+- [PhysicsWorldBepu.cs](mdc:Basic3DEngine/Physics/PhysicsWorldBepu.cs) - Abstração da física
+- [DemoGame.cs](mdc:Basic3DEngine.Demo/DemoGame.cs) - Exemplo de uso
+
+## Regras do Projeto
+Este projeto tem várias regras específicas que devem ser seguidas:
+
+1. **Arquitetura Geral** - Estrutura e filosofia do motor
+2. **Sistema GameObject/Component** - Como entidades e componentes funcionam
+3. **Sistema de Física** - Abstração do BepuPhysics
+4. **Padrões de Código** - Convenções de nomenclatura e documentação
+5. **Padrões para Demos** - Como criar exemplos corretos
+6. **Estrutura de Namespaces** - Organização e dependências
+
+## API Principal da Engine
+
+### Criação de Objetos
+```csharp
+// Objetos físicos completos
+engine.CreateCube(name, position, size, color, mass);
+engine.CreateSphere(name, position, radius, color, mass);
+engine.CreateGround(position, size, color); // Estático
+
+// Configuração global
+engine.SetGravity(9.81f);
+engine.SetGlobalDamping(linearDamping, angularDamping);
+```
+
+### Princípios Fundamentais
+- **Abstração completa**: Nunca exponha Veldrid ou BepuPhysics
+- **API intuitiva**: Métodos simples para tarefas complexas
+- **Demos mínimas**: Código de exemplo deve ser o mais simples possível
+- **Logging consistente**: Use LoggingService para todas as mensagens
+
+## Para Desenvolver
+1. **Engine**: Pode usar qualquer dependência, mas deve abstrair tudo
+2. **Demos**: APENAS Basic3DEngine e System.Numerics
+3. **Sempre**: Documente métodos públicos com XML comments
+4. **Sempre**: Use LoggingService para debug e informações
+

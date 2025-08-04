@@ -1,0 +1,54 @@
+# Sistema de Física (BepuPhysics Abstraído)
+
+O sistema de física é completamente abstraído através do [PhysicsWorldBepu.cs](mdc:Basic3DEngine/Physics/PhysicsWorldBepu.cs) e nunca deve ser acessado diretamente.
+
+## Classes Principais
+
+### PhysicsWorldBepu
+- **Mundo físico** gerenciado automaticamente pela Engine
+- **Fixed timestep**: 1/60s (60 FPS) definido em [Time.cs](mdc:Basic3DEngine/Core/Time.cs)
+- **Métodos**: AddBody(), RemoveBody(), Step(), Raycast()
+
+### RigidbodyComponent
+- **Componente de física** que conecta GameObject ao mundo físico
+- **Propriedades**: Shape, Material, Pose, LinearVelocity, AngularVelocity
+- **Estados**: Estático (mass <= 0) ou Dinâmico (mass > 0)
+
+### Shapes (IPhysicsShape)
+- **BoxShape**: Definida por Vector3 (dimensões completas)
+- **SphereShape**: Definida por raio (float)
+- Interface [IPhysicsShape.cs](mdc:Basic3DEngine/Core/Interfaces/IPhysicsShape.cs)
+
+### Materials
+- **Materiais pré-definidos** em [Material.cs](mdc:Basic3DEngine/Physics/Material.cs)
+- **Propriedades**: Friction, Restitution, Density, Damping
+- **Exemplos**: Material.Default, Material.Wood, Material.Metal, Material.Rubber
+
+## API Simplificada da Engine
+
+### Métodos de Criação
+```csharp
+// Criar objetos físicos completos
+engine.CreateCube(name, position, size, color, mass);
+engine.CreateSphere(name, position, radius, color, mass);
+engine.CreateGround(position, size, color); // mass = 0 (estático)
+
+// Configurar física globalmente
+engine.SetGravity(9.81f);
+engine.SetGlobalDamping(linearDamping, angularDamping);
+
+// Raycast
+engine.Raycast(origin, direction, maxDistance, out hit);
+```
+
+### Convenções de Física
+- **Massa 0 ou negativa** = Objeto estático
+- **Massa positiva** = Objeto dinâmico
+- **Posição** = Centro de massa do objeto
+- **Escala** = Dimensões completas (não half-extents)
+
+## NUNCA FAÇA
+- Não importe ou use BepuPhysics diretamente
+- Não acesse _simulation ou _physicsWorld diretamente
+- Não configure BodyDescription manualmente
+- Use sempre os métodos da Engine para física

@@ -1,0 +1,88 @@
+# Padrões para Demos e Exemplos
+
+O projeto Basic3DEngine.Demo mostra como usar a engine corretamente. Veja [DemoGame.cs](mdc:Basic3DEngine.Demo/DemoGame.cs) como exemplo de referência.
+
+## Estrutura de Demo
+
+### Classe Game Herda de Game
+```csharp
+public class MeuJogo : Game
+{
+    public override void Initialize(Engine engine)
+    {
+        _engine = engine;
+        // Configurações iniciais
+        _engine.SetGravity(9.81f);
+        
+        // Criar objetos da cena
+        CriarCena();
+    }
+    
+    public override void Update(float deltaTime)
+    {
+        // Lógica de jogo específica (opcional)
+    }
+}
+```
+
+### Padrão de Criação de Cena
+```csharp
+private void CriarCena()
+{
+    // Chão sempre primeiro
+    _engine.CreateGround(new Vector3(0, -0.5f, 0), new Vector3(20, 1, 20), RgbaFloat.Gray);
+    
+    // Objetos dinâmicos
+    _engine.CreateCube("Cubo1", new Vector3(0, 5, 0), Vector3.One, RgbaFloat.Red, 1f);
+    _engine.CreateSphere("Esfera1", new Vector3(2, 5, 0), 0.5f, RgbaFloat.Blue, 1f);
+    
+    // Objetos estáticos (massa = 0)
+    _engine.CreateStaticCube("Parede", new Vector3(10, 2, 0), new Vector3(1, 4, 10), RgbaFloat.Brown);
+}
+```
+
+## Princípios para Demos
+
+### SEMPRE Faça
+- **Use métodos da Engine**: CreateCube(), CreateSphere(), CreateGround()
+- **Configure física globalmente**: SetGravity(), SetGlobalDamping()
+- **Use cores diferentes**: Para distinguir objetos visualmente
+- **Posicione acima do chão**: Y > 0 para objetos que devem cair
+- **Nomeie objetos**: Para debug e logging
+
+### NUNCA Faça
+- **Não instancie** GameObject manualmente se a Engine tem método equivalente
+- **Não configure** Veldrid ou BepuPhysics diretamente
+- **Não use using** para Veldrid ou BepuPhysics namespaces
+- **Não acesse** campos privados da Engine (_gd, _physicsWorld, etc.)
+
+## Exemplos de Cenas Típicas
+
+### Cena de Teste de Física
+```csharp
+// Chão
+_engine.CreateGround(Vector3.Zero, new Vector3(20, 1, 20), RgbaFloat.Gray);
+
+// Torre de cubos
+for (int i = 0; i < 5; i++)
+{
+    _engine.CreateCube($"Cubo{i}", new Vector3(0, 1 + i * 1.1f, 0), Vector3.One, RgbaFloat.Red, 1f);
+}
+
+// Esfera rolante
+_engine.CreateSphere("EsferaRolante", new Vector3(-5, 5, 0), 0.5f, RgbaFloat.Blue, 2f);
+```
+
+### Cena com Rampa
+```csharp
+// Chão
+_engine.CreateGround(new Vector3(0, -0.5f, 0), new Vector3(30, 1, 20), RgbaFloat.Gray);
+
+// Rampa
+_engine.CreateRamp("Rampa", new Vector3(-5, 3, 0), new Vector3(10, 0.5f, 6), -15f, RgbaFloat.Brown);
+
+// Objetos para rolar
+_engine.CreateSphere("Esfera1", new Vector3(-8, 8, 0), 0.5f, RgbaFloat.Red, 1f);
+_engine.CreateCube("Cubo1", new Vector3(-6, 8, 0), Vector3.One * 0.8f, RgbaFloat.Green, 1f);
+```
+

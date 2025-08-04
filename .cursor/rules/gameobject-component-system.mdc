@@ -1,0 +1,53 @@
+---
+alwaysApply: true
+---
+
+# Sistema GameObject/Component
+
+O Basic3DEngine usa um sistema Entity-Component baseado em [GameObject.cs](mdc:Basic3DEngine/Entities/GameObject.cs) e [Component.cs](mdc:Basic3DEngine/Entities/Component.cs).
+
+## Estrutura Base
+
+### GameObject
+- **Propriedades básicas**: Name, Tag, Position, Rotation, Scale, Enabled
+- **Gerenciamento de componentes**: AddComponent<T>(), GetComponent<T>(), HasComponent<T>(), RemoveComponent<T>()
+- **Ciclo de vida**: Update(float deltaTime) atualiza todos os componentes
+
+### Component
+- **Classe abstrata** que todos os componentes herdam
+- **Referência automática**: GameObject é definido automaticamente ao adicionar o componente
+- **Ciclo de vida**: Update(float deltaTime) virtual
+
+## Componentes Principais
+
+### RenderComponent (Abstrato)
+- **CubeRenderComponent**: Renderiza cubos usando [Cube.cs](mdc:Basic3DEngine/Entities/Primitives/Cube.cs)
+- **SphereRenderComponent**: Renderiza esferas usando [Icosphere.cs](mdc:Basic3DEngine/Entities/Primitives/Icosphere.cs)
+
+### RigidbodyComponent
+- Adiciona física ao GameObject através do [PhysicsWorldBepu.cs](mdc:Basic3DEngine/Physics/PhysicsWorldBepu.cs)
+- Gerencia Shape, Material, Pose, velocidades e interação com BepuPhysics
+
+## Padrão de Uso
+```csharp
+// Criar GameObject
+var gameObject = new GameObject("MinhaEntidade");
+gameObject.Position = new Vector3(0, 5, 0);
+
+// Adicionar componentes
+var rigidbody = engine.CreateRigidbody(mass: 1f);
+rigidbody.Shape = engine.CreateBoxShape(Vector3.One);
+gameObject.AddComponent(rigidbody);
+
+var renderer = engine.CreateCubeRenderer(RgbaFloat.Red);
+gameObject.AddComponent(renderer);
+
+// Adicionar à cena
+engine.AddGameObject(gameObject);
+```
+
+## Métodos Convenientes
+Prefira usar os métodos simplificados da Engine:
+- `engine.CreateCube()` - Cria cubo completo com física e renderização
+- `engine.CreateSphere()` - Cria esfera completa com física e renderização
+- `engine.CreateGround()` - Cria chão estático

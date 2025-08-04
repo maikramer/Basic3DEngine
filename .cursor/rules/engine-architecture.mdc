@@ -1,0 +1,30 @@
+---
+alwaysApply: true
+---
+
+# Basic3DEngine - Arquitetura Geral
+
+O Basic3DEngine é um motor de jogos 3D construído em C# (.NET 9.0) que abstrai completamente as bibliotecas subjacentes para oferecer uma API simples e intuitiva.
+
+## Estrutura de Projetos
+- **Basic3DEngine** - Biblioteca principal da engine
+- **Basic3DEngine.Demo** - Projeto de demonstração que mostra como usar a engine
+
+## Bibliotecas Base (Abstraídas)
+- **Veldrid** - Renderização cross-platform (totalmente abstraída)
+- **BepuPhysics** - Simulação física (totalmente abstraída)  
+- **Serilog** - Sistema de logging (acessível via LoggingService)
+- **SDL2** - Gerenciamento de janelas (abstraído no Engine)
+
+## Ponto de Entrada
+A [Engine.cs](mdc:Basic3DEngine/Engine.cs) é o ponto central que:
+- Gerencia o loop principal do jogo
+- Coordena renderização, física e input
+- Oferece métodos convenientes (CreateCube, CreateSphere, etc.)
+- Abstrai toda a complexidade das bibliotecas subjacentes
+
+## Filosofia de Design
+- **Demos mínimas**: O código de demonstração deve ser o mais simples possível
+- **Abstração completa**: Nunca exponha Veldrid ou BepuPhysics diretamente
+- **API intuitiva**: Prefira métodos como `engine.CreateCube()` ao invés de configuração manual
+- **Gerenciamento interno**: A engine deve gerenciar recursos, estados e ciclos de vida

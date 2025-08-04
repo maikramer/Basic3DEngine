@@ -4,6 +4,7 @@ using Basic3DEngine.Core.Interfaces;
 using Basic3DEngine.Entities;
 using Basic3DEngine.Physics;
 using Basic3DEngine.Physics.Shapes;
+using Basic3DEngine.Rendering;
 using Basic3DEngine.Services;
 using Veldrid;
 using Veldrid.Sdl2;
@@ -13,10 +14,8 @@ namespace Basic3DEngine;
 
 public class Engine
 {
-    // Camera
-    private Vector3 _cameraPosition = new(0, 8, 15); // Mais alta e mais longe para ver o chão
-    private float _cameraRotation;
-    private readonly Vector3 _cameraTarget = new(0, 2, 0); // Olhando um pouco acima do chão
+    // Camera controlável
+    private Camera _camera = new(new Vector3(0, 8, 15), 0f, -0.3f); // Posição inicial + ligeira inclinação para baixo
     private CommandList? _cl;
     private ResourceFactory? _factory;
 
@@ -26,6 +25,9 @@ public class Engine
 
     // Physics
     private PhysicsWorldBepu? _physicsWorldBepu;
+    
+    // Lighting
+    private LightingSystem _lightingSystem = new();
     
     // Game instance
     private Game? _game;
@@ -43,6 +45,16 @@ public class Engine
     /// Mundo físico da engine
     /// </summary>
     public PhysicsWorldBepu? PhysicsWorld => _physicsWorldBepu;
+    
+    /// <summary>
+    /// Câmera controlável da engine
+    /// </summary>
+    public Camera Camera => _camera;
+    
+    /// <summary>
+    /// Sistema de iluminação da engine
+    /// </summary>
+    public LightingSystem Lighting => _lightingSystem;
 
     /// <summary>
     /// Executa um jogo usando a engine
@@ -83,6 +95,10 @@ public class Engine
         _physicsWorldBepu = new PhysicsWorldBepu();
         LoggingService.LogInfo("Physics world initialized");
 
+        // Inicializar iluminação padrão
+        _lightingSystem.SetupDefaultLighting();
+        LoggingService.LogInfo("Lighting system initialized");
+
         // Inicializar o jogo
         _game.Initialize(this);
         LoggingService.LogInfo("Game initialized");
@@ -122,13 +138,19 @@ public class Engine
                 // Atualizar o jogo
                 _game.Update(Time.DeltaTime);
 
-                // Processar eventos da janela
-                _window.PumpEvents();
+                // Processar eventos da janela e input
+                var inputSnapshot = _window.PumpEvents();
+                InputService.Update(inputSnapshot);
 
-                // Atualizar câmera
-                _cameraRotation += Time.DeltaTime * 0.2f;
-                _cameraPosition = Vector3.Transform(new Vector3(0, 8, 15),
-                    Quaternion.CreateFromAxisAngle(Vector3.UnitY, _cameraRotation));
+                // Atualizar câmera controlável
+                _camera.Update(Time.DeltaTime);
+                
+                // Verificar se o usuário quer sair
+                if (InputService.IsExitRequested())
+                {
+                    LoggingService.LogInfo("Exit requested by user");
+                    break;
+                }
 
                 // Renderizar
                 Render();
@@ -197,6 +219,10 @@ public class Engine
         _physicsWorldBepu = new PhysicsWorldBepu();
         LoggingService.LogInfo("Physics world initialized");
 
+        // Inicializar iluminação padrão
+        _lightingSystem.SetupDefaultLighting();
+        LoggingService.LogInfo("Lighting system initialized");
+
         // Loop principal
         LoggingService.LogInfo("Entering main game loop");
         var previousTime = DateTime.Now.TimeOfDay.TotalSeconds;
@@ -227,8 +253,19 @@ public class Engine
             foreach (var gameObject in _gameObjects) 
                 gameObject?.Update(Time.DeltaTime);
 
-            // Processar eventos da janela
+            // Processar eventos da janela e input
             var inputSnapshot = _window.PumpEvents();
+            InputService.Update(inputSnapshot);
+
+            // Atualizar câmera controlável
+            _camera.Update(Time.DeltaTime);
+            
+            // Verificar se o usuário quer sair
+            if (InputService.IsExitRequested())
+            {
+                LoggingService.LogInfo("Exit requested by user");
+                break;
+            }
             
             // Renderizar
             Render();
@@ -584,6 +621,81 @@ public class Engine
         
         return gameObject;
     }
+    
+    /// <summary>
+    /// Cria um componente de renderização de cubo com iluminação
+    /// </summary>
+    public CubeRenderComponentLit CreateCubeRendererLit(RgbaFloat color)
+    {
+        if (_gd == null || _factory == null || _cl == null)
+            throw new InvalidOperationException("Engine not initialized");
+            
+        return new CubeRenderComponentLit(_gd, _factory, _cl, color, _lightingSystem);
+    }
+    
+    /// <summary>
+    /// Cria um cubo físico com iluminação avançada
+    /// </summary>
+    /// <param name="name">Nome do objeto</param>
+    /// <param name="position">Posição do centro do cubo</param>
+    /// <param name="size">Dimensões completas do cubo</param>
+    /// <param name="color">Cor do cubo</param>
+    /// <param name="mass">Massa (0 = estático)</param>
+    /// <param name="shininess">Brilho especular (padrão: 32)</param>
+    /// <param name="specularIntensity">Intensidade especular (padrão: 0.3)</param>
+    /// <returns>GameObject criado</returns>
+    public GameObject CreateCubeLit(string name, Vector3 position, Vector3 size, RgbaFloat color, 
+        float mass = 1f, float shininess = 32f, float specularIntensity = 0.3f)
+    {
+        var gameObject = new GameObject(name)
+        {
+            Position = position,
+            Scale = size
+        };
+        
+        // Criar rigidbody com física correta
+        bool isStatic = mass <= 0f;
+        var rigidbody = CreateRigidbody(Math.Max(mass, 1f), isStatic);
+        
+        var halfExtents = size;
+        rigidbody.Shape = new BoxShape(halfExtents);
+        rigidbody.Material = Material.Default;
+        rigidbody.Pose = new BepuPhysics.RigidPose(position, Quaternion.Identity);
+        
+        gameObject.AddComponent(rigidbody);
+        
+        // Renderização com iluminação
+        var renderer = CreateCubeRendererLit(color);
+        renderer.Shininess = shininess;
+        renderer.SpecularIntensity = specularIntensity;
+        gameObject.AddComponent(renderer);
+        
+        // Adicionar ao mundo físico e cena
+        _physicsWorldBepu?.AddBody(rigidbody);
+        AddGameObject(gameObject);
+        
+        LoggingService.LogInfo($"CreateCubeLit - {name}: lit cube with shininess {shininess}, specular {specularIntensity}");
+        
+        return gameObject;
+    }
+    
+    /// <summary>
+    /// Cria um chão físico com iluminação
+    /// </summary>
+    public GameObject CreateGroundLit(Vector3 position, Vector3 size, RgbaFloat color, 
+        float shininess = 8f, float specularIntensity = 0.1f)
+    {
+        return CreateCubeLit("Ground", position, size, color, 0f, shininess, specularIntensity);
+    }
+    
+    /// <summary>
+    /// Cria um objeto estático com iluminação
+    /// </summary>
+    public GameObject CreateStaticCubeLit(string name, Vector3 position, Vector3 size, RgbaFloat color,
+        float shininess = 16f, float specularIntensity = 0.2f)
+    {
+        return CreateCubeLit(name, position, size, color, 0f, shininess, specularIntensity);
+    }
 
     private void Render()
     {
@@ -592,12 +704,10 @@ public class Engine
 
         _renderFrameCount++;
 
-        // Criar matrizes de visualização e projeção
-        var viewMatrix = Matrix4x4.CreateLookAt(_cameraPosition, _cameraTarget, Vector3.UnitY);
-        var projectionMatrix = Matrix4x4.CreatePerspectiveFieldOfView(
-            (float)Math.PI / 3f,
-            (float)_gd.MainSwapchain.Framebuffer.Width / _gd.MainSwapchain.Framebuffer.Height,
-            0.1f, 1000f);
+        // Criar matrizes de visualização e projeção usando a câmera controlável
+        var aspectRatio = (float)_gd.MainSwapchain.Framebuffer.Width / _gd.MainSwapchain.Framebuffer.Height;
+        var viewMatrix = _camera.GetViewMatrix();
+        var projectionMatrix = _camera.GetProjectionMatrix(aspectRatio);
 
         // Começar o comando de renderização
         _cl.Begin();

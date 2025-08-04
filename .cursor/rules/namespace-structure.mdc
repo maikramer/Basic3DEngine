@@ -1,0 +1,93 @@
+# Estrutura de Namespaces e Dependências
+
+## Hierarquia de Namespaces
+
+### Basic3DEngine (Raiz)
+- **Engine.cs** - Classe principal da engine
+- **Game.cs** - Classe base abstrata para jogos
+
+### Basic3DEngine.Core
+- **Time.cs** - Gerenciamento de tempo
+- **Interfaces/** - Interfaces do sistema (IPhysicsShape)
+
+### Basic3DEngine.Entities
+- **GameObject.cs** - Entidade base do sistema
+- **Component.cs** - Componente base abstrato
+- **RenderComponent.cs** - Componente de renderização base
+- **CubeRenderComponent.cs** - Renderização de cubos
+- **SphereRenderComponent.cs** - Renderização de esferas
+- **Primitives/** - Geometrias primitivas (Cube, Icosphere, SimpleSphere)
+
+### Basic3DEngine.Physics
+- **PhysicsWorldBepu.cs** - Mundo físico (abstração BepuPhysics)
+- **RigidbodyComponent.cs** - Componente de física
+- **Material.cs** - Materiais físicos
+- **Shapes/** - Formas físicas (BoxShape, SphereShape)
+
+### Basic3DEngine.Rendering
+- **Components/** - Componentes de renderização específicos
+- **Shapes/** - Renderização de formas específicas
+
+### Basic3DEngine.Services
+- **LoggingService.cs** - Serviço de logging centralizado
+- **ShaderLoader.cs** - Carregamento de shaders
+
+## Regras de Dependência
+
+### Permitido
+```csharp
+using System.Numerics;           // Sempre permitido
+using Basic3DEngine.Core;        // Interfaces e utilitários
+using Basic3DEngine.Entities;    // GameObjects e Components
+using Basic3DEngine.Physics;     // Sistema de física abstraído
+using Basic3DEngine.Services;    // Serviços da engine
+using Veldrid;                   // APENAS em classes de renderização
+```
+
+### PROIBIDO em Demos
+```csharp
+using BepuPhysics;              // Nunca em demos!
+using BepuPhysics.Collidables;  // Nunca em demos!
+using BepuUtilities;            // Nunca em demos!
+using Veldrid.Sdl2;             // Nunca em demos!
+```
+
+### Dependências por Projeto
+
+#### Basic3DEngine.csproj
+- **Veldrid** - Renderização
+- **BepuPhysics** - Física  
+- **Serilog** - Logging
+- **System.Numerics** - Matemática
+
+#### Basic3DEngine.Demo.csproj
+- **APENAS** referência ao Basic3DEngine
+- **NUNCA** referências diretas às bibliotecas base
+
+## Convenções de Import
+
+### Em Classes da Engine
+```csharp
+using System.Numerics;
+using Basic3DEngine.Core;
+using Basic3DEngine.Entities;
+using Basic3DEngine.Physics;
+using Basic3DEngine.Services;
+using Veldrid;                  // Se necessário para renderização
+using BepuPhysics;             // Se necessário para física interna
+```
+
+### Em Demos
+```csharp
+using System.Numerics;
+using Basic3DEngine;           // Para acessar Engine
+using Basic3DEngine.Entities;  // Se usar GameObjects diretamente  
+using Basic3DEngine.Services;  // Para logging
+using Veldrid;                 // APENAS para RgbaFloat
+```
+
+### Validação
+- **Engine**: Pode importar qualquer dependência necessária
+- **Demo**: APENAS Basic3DEngine e System.Numerics
+- **Testes**: Mesmas regras que demos
+
