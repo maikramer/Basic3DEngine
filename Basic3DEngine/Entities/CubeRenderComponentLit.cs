@@ -20,9 +20,11 @@ public class CubeRenderComponentLit : RenderComponent, IShadowCaster
     private Pipeline? _pipeline;
     private ResourceSet? _uniformResourceSet;
     private ResourceSet? _lightingResourceSet;
+    private ResourceSet? _shadowResourceSet;
     private Shader[]? _shaders;
     private ResourceLayout? _uniformLayout;
     private ResourceLayout? _lightingLayout;
+    private ResourceLayout? _shadowLayout;
     
     // Propriedades do material
     public float Shininess { get; set; } = 32f;
@@ -150,6 +152,10 @@ public class CubeRenderComponentLit : RenderComponent, IShadowCaster
         _lightingLayout = _factory.CreateResourceLayout(new ResourceLayoutDescription(
             new ResourceLayoutElementDescription("LightingData", ResourceKind.UniformBuffer, ShaderStages.Fragment)));
         
+        // Layout de recursos para shadow map
+        _shadowLayout = _factory.CreateResourceLayout(new ResourceLayoutDescription(
+            new ResourceLayoutElementDescription("ShadowMap", ResourceKind.TextureReadOnly, ShaderStages.Fragment)));
+        
         // Descrição do pipeline
         var pipelineDescription = new GraphicsPipelineDescription(
             BlendStateDescription.SingleOverrideBlend,
@@ -159,7 +165,7 @@ public class CubeRenderComponentLit : RenderComponent, IShadowCaster
             new ShaderSetDescription(
                 new[] { VertexPositionNormalColor.GetVertexLayoutDescription() },
                 _shaders),
-            new[] { _uniformLayout, _lightingLayout },
+            new[] { _uniformLayout, _lightingLayout, _shadowLayout },
             hdrOutputDescription ?? _graphicsDevice.SwapchainFramebuffer.OutputDescription);
         
         _pipeline = _factory.CreateGraphicsPipeline(pipelineDescription);
@@ -167,9 +173,9 @@ public class CubeRenderComponentLit : RenderComponent, IShadowCaster
     
     private void CreateBuffers()
     {
-        // Buffer para matrizes de transformação
+        // Buffer para matrizes de transformação (incluindo shadow matrix)
         _uniformBuffer = _factory.CreateBuffer(new BufferDescription(
-            (uint)(3 * 16 * sizeof(float)), // 3 matrizes 4x4
+            (uint)(4 * 16 * sizeof(float)), // 4 matrizes 4x4 (Projection, View, World, ShadowMatrix)
             BufferUsage.UniformBuffer));
         
         // Buffer para dados de iluminação
@@ -183,6 +189,14 @@ public class CubeRenderComponentLit : RenderComponent, IShadowCaster
         
         _lightingResourceSet = _factory.CreateResourceSet(new ResourceSetDescription(
             _lightingLayout, _lightingBuffer));
+        
+        // Shadow resource set (será atualizado no render com a shadow map da lighting system)
+        var shadowMapTexture = _lightingSystem.ShadowRenderer?.ShadowMapView;
+        if (shadowMapTexture != null)
+        {
+            _shadowResourceSet = _factory.CreateResourceSet(new ResourceSetDescription(
+                _shadowLayout, shadowMapTexture));
+        }
     }
     
     public override void Render(CommandList commandList, Matrix4x4 viewMatrix, Matrix4x4 projectionMatrix)
@@ -197,11 +211,15 @@ public class CubeRenderComponentLit : RenderComponent, IShadowCaster
                              GameObject?.Rotation.Z ?? 0) *
                          Matrix4x4.CreateTranslation(GameObject?.Position ?? Vector3.Zero);
         
+        // Obter shadow matrix da lighting system
+        var shadowMatrix = _lightingSystem.GetMainShadowMatrix();
+        
         var uniformData = new UniformBufferObject
         {
             Projection = projectionMatrix,
             View = viewMatrix,
-            World = worldMatrix
+            World = worldMatrix,
+            ShadowMatrix = shadowMatrix
         };
         
         commandList.UpdateBuffer(_uniformBuffer, 0, uniformData);
@@ -215,6 +233,13 @@ public class CubeRenderComponentLit : RenderComponent, IShadowCaster
         commandList.SetIndexBuffer(_indexBuffer, IndexFormat.UInt16);
         commandList.SetGraphicsResourceSet(0, _uniformResourceSet);
         commandList.SetGraphicsResourceSet(1, _lightingResourceSet);
+        
+        // Set 2: Shadow map
+        if (_shadowResourceSet != null)
+        {
+            commandList.SetGraphicsResourceSet(2, _shadowResourceSet);
+        }
+        
         commandList.DrawIndexed(36, 1, 0, 0, 0); // 12 triângulos * 3 vértices = 36 índices
     }
     

@@ -9,12 +9,14 @@ uniform ProjectionViewWorld
     mat4 projection;
     mat4 view;
     mat4 world;
+    mat4 shadowMatrix;   // Matriz de transformação para shadow map
 };
 
 out vec3 fsin_WorldPos;      // Posição no mundo
 out vec3 fsin_Normal;        // Normal no espaço mundial
 out vec4 fsin_Color;         // Cor base
 out vec3 fsin_ViewPos;       // Posição da câmera no mundo
+out vec4 fsin_ShadowCoord;   // Coordenada no shadow map
 
 void main()
 {
@@ -28,6 +30,9 @@ void main()
     
     // Calcular posição da câmera no mundo (inverso da view matrix)
     fsin_ViewPos = vec3(inverse(view)[3]);
+    
+    // Calcular coordenada do shadow map
+    fsin_ShadowCoord = shadowMatrix * worldPosition;
     
     // Posição final no clip space
     vec4 viewPosition = view * worldPosition;

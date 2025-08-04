@@ -25,6 +25,14 @@ namespace Basic3DEngine.Rendering
         private ResourceSet _toneMappingResourceSet;
         private DeviceBuffer _toneMappingParamsBuffer;
         
+        // Bloom parameters
+        private DeviceBuffer _bloomParamsBuffer;
+        private DeviceBuffer _blurParamsBuffer;
+        
+        // Resource layouts
+        private ResourceLayout _bloomExtractLayout;
+        private ResourceLayout _bloomBlurLayout;
+        
         // Bloom
         private Texture _bloomTexture1;
         private Texture _bloomTexture2;
@@ -44,9 +52,9 @@ namespace Basic3DEngine.Rendering
         private DeviceBuffer _quadIndexBuffer;
         
         // Configurações HDR
-        public float Exposure { get; set; } = 1.0f;
-        public float BloomThreshold { get; set; } = 1.0f;
-        public float BloomIntensity { get; set; } = 0.3f;
+        public float Exposure { get; set; } = 0.4f;       // Reduzido para imagem mais realista
+        public float BloomThreshold { get; set; } = 1.2f;  // Threshold para areas muito brilhantes  
+        public float BloomIntensity { get; set; } = 0.6f;  // Intensidade do bloom aumentada
         
         public uint Width { get; private set; }
         public uint Height { get; private set; }
@@ -146,8 +154,212 @@ namespace Basic3DEngine.Rendering
 
         private void CreatePipelines()
         {
-            // Criar shaders de tone mapping básico
+            // Criar pipelines HDR + Bloom
+            CreateBloomExtractPipeline();
+            CreateBloomBlurPipelines();
             CreateToneMappingPipeline();
+        }
+        
+        private void CreateBloomExtractPipeline()
+        {
+            // Vertex shader simples (reutilizado)
+            var vertexCode = @"
+#version 450
+
+layout(location = 0) out vec2 fsin_texCoords;
+
+void main()
+{
+    float x = -1.0 + float((gl_VertexID & 1) << 2);
+    float y = -1.0 + float((gl_VertexID & 2) << 1);
+    fsin_texCoords.x = (x + 1.0) * 0.5;
+    fsin_texCoords.y = (y + 1.0) * 0.5;
+    gl_Position = vec4(x, y, 0, 1);
+}";
+
+            // Fragment shader para bright pass extraction
+            var fragmentCode = @"
+#version 450
+
+layout(location = 0) in vec2 fsin_texCoords;
+layout(location = 0) out vec4 fsout_color;
+
+layout(binding = 0) uniform sampler2D HDRTexture;
+
+layout(binding = 1) uniform BloomParams {
+    float threshold;    // Limiar de brilho (ex: 1.0)
+    float intensity;    // Intensidade do bloom (ex: 0.8)
+    float padding1;
+    float padding2;
+};
+
+void main()
+{
+    vec3 color = texture(HDRTexture, fsin_texCoords).rgb;
+    
+    // Calcular luminância
+    float luminance = dot(color, vec3(0.2126, 0.7152, 0.0722));
+    
+    // Bright pass com soft threshold
+    float factor = max(0.0, luminance - threshold) / max(luminance, 0.001);
+    factor = smoothstep(0.0, 1.0, factor);
+    
+    // Aplicar intensidade e preservar cor
+    fsout_color = vec4(color * factor * intensity, 1.0);
+}";
+
+            // Criar shaders
+            var vertexShader = _factory.CreateShader(new ShaderDescription(ShaderStages.Vertex, System.Text.Encoding.UTF8.GetBytes(vertexCode), "main"));
+            var fragmentShader = _factory.CreateShader(new ShaderDescription(ShaderStages.Fragment, System.Text.Encoding.UTF8.GetBytes(fragmentCode), "main"));
+
+            // Layout de recursos
+            _bloomExtractLayout = _factory.CreateResourceLayout(new ResourceLayoutDescription(
+                new ResourceLayoutElementDescription("HDRTexture", ResourceKind.TextureReadOnly, ShaderStages.Fragment),
+                new ResourceLayoutElementDescription("BloomParams", ResourceKind.UniformBuffer, ShaderStages.Fragment)
+            ));
+
+            // Pipeline
+            _bloomExtractPipeline = _factory.CreateGraphicsPipeline(new GraphicsPipelineDescription(
+                BlendStateDescription.SingleDisabled,
+                DepthStencilStateDescription.Disabled,
+                RasterizerStateDescription.CullNone,
+                PrimitiveTopology.TriangleList,
+                new ShaderSetDescription(Array.Empty<VertexLayoutDescription>(), new[] { vertexShader, fragmentShader }),
+                new[] { _bloomExtractLayout },
+                _bloomFramebuffer1.OutputDescription
+            ));
+
+            // Resource sets serão criados em UpdateResourceSets
+            vertexShader.Dispose();
+            fragmentShader.Dispose();
+        }
+
+        private void CreateBloomBlurPipelines()
+        {
+            // Vertex shader (mesmo usado anteriormente)
+            var vertexCode = @"
+#version 450
+
+layout(location = 0) out vec2 fsin_texCoords;
+
+void main()
+{
+    float x = -1.0 + float((gl_VertexID & 1) << 2);
+    float y = -1.0 + float((gl_VertexID & 2) << 1);
+    fsin_texCoords.x = (x + 1.0) * 0.5;
+    fsin_texCoords.y = (y + 1.0) * 0.5;
+    gl_Position = vec4(x, y, 0, 1);
+}";
+
+            // Fragment shader para blur horizontal
+            var horizontalBlurCode = @"
+#version 450
+
+layout(location = 0) in vec2 fsin_texCoords;
+layout(location = 0) out vec4 fsout_color;
+
+layout(binding = 0) uniform sampler2D InputTexture;
+
+layout(binding = 1) uniform BlurParams {
+    float texelSizeX;
+    float texelSizeY;
+    float padding1;
+    float padding2;
+};
+
+void main()
+{
+    vec3 result = vec3(0.0);
+    
+    // Gaussian weights (9-tap)
+    float weights[5] = float[](0.227027, 0.1945946, 0.1216216, 0.054054, 0.016216);
+    
+    // Centro
+    result += texture(InputTexture, fsin_texCoords).rgb * weights[0];
+    
+    // Horizontal blur
+    for(int i = 1; i < 5; ++i)
+    {
+        result += texture(InputTexture, fsin_texCoords + vec2(texelSizeX * i, 0.0)).rgb * weights[i];
+        result += texture(InputTexture, fsin_texCoords - vec2(texelSizeX * i, 0.0)).rgb * weights[i];
+    }
+    
+    fsout_color = vec4(result, 1.0);
+}";
+
+            // Fragment shader para blur vertical
+            var verticalBlurCode = @"
+#version 450
+
+layout(location = 0) in vec2 fsin_texCoords;
+layout(location = 0) out vec4 fsout_color;
+
+layout(binding = 0) uniform sampler2D InputTexture;
+
+layout(binding = 1) uniform BlurParams {
+    float texelSizeX;
+    float texelSizeY;
+    float padding1;
+    float padding2;
+};
+
+void main()
+{
+    vec3 result = vec3(0.0);
+    
+    // Gaussian weights (9-tap)
+    float weights[5] = float[](0.227027, 0.1945946, 0.1216216, 0.054054, 0.016216);
+    
+    // Centro
+    result += texture(InputTexture, fsin_texCoords).rgb * weights[0];
+    
+    // Vertical blur
+    for(int i = 1; i < 5; ++i)
+    {
+        result += texture(InputTexture, fsin_texCoords + vec2(0.0, texelSizeY * i)).rgb * weights[i];
+        result += texture(InputTexture, fsin_texCoords - vec2(0.0, texelSizeY * i)).rgb * weights[i];
+    }
+    
+    fsout_color = vec4(result, 1.0);
+}";
+
+            // Criar shaders
+            var vertexShader = _factory.CreateShader(new ShaderDescription(ShaderStages.Vertex, System.Text.Encoding.UTF8.GetBytes(vertexCode), "main"));
+            var horizontalFragmentShader = _factory.CreateShader(new ShaderDescription(ShaderStages.Fragment, System.Text.Encoding.UTF8.GetBytes(horizontalBlurCode), "main"));
+            var verticalFragmentShader = _factory.CreateShader(new ShaderDescription(ShaderStages.Fragment, System.Text.Encoding.UTF8.GetBytes(verticalBlurCode), "main"));
+
+            // Layout de recursos para blur
+            _bloomBlurLayout = _factory.CreateResourceLayout(new ResourceLayoutDescription(
+                new ResourceLayoutElementDescription("InputTexture", ResourceKind.TextureReadOnly, ShaderStages.Fragment),
+                new ResourceLayoutElementDescription("BlurParams", ResourceKind.UniformBuffer, ShaderStages.Fragment)
+            ));
+
+            // Pipeline horizontal blur
+            _bloomBlurHorizontalPipeline = _factory.CreateGraphicsPipeline(new GraphicsPipelineDescription(
+                BlendStateDescription.SingleDisabled,
+                DepthStencilStateDescription.Disabled,
+                RasterizerStateDescription.CullNone,
+                PrimitiveTopology.TriangleList,
+                new ShaderSetDescription(Array.Empty<VertexLayoutDescription>(), new[] { vertexShader, horizontalFragmentShader }),
+                new[] { _bloomBlurLayout },
+                _bloomFramebuffer2.OutputDescription
+            ));
+
+            // Pipeline vertical blur
+            _bloomBlurVerticalPipeline = _factory.CreateGraphicsPipeline(new GraphicsPipelineDescription(
+                BlendStateDescription.SingleDisabled,
+                DepthStencilStateDescription.Disabled,
+                RasterizerStateDescription.CullNone,
+                PrimitiveTopology.TriangleList,
+                new ShaderSetDescription(Array.Empty<VertexLayoutDescription>(), new[] { vertexShader, verticalFragmentShader }),
+                new[] { _bloomBlurLayout },
+                _bloomFramebuffer1.OutputDescription
+            ));
+
+            // Cleanup
+            vertexShader.Dispose();
+            horizontalFragmentShader.Dispose();
+            verticalFragmentShader.Dispose();
         }
         
         private void CreateToneMappingPipeline()
@@ -168,7 +380,7 @@ void main()
     gl_Position = vec4(x, y, 0, 1);
 }";
 
-            // Shader de fragment para tone mapping ACES (OpenGL)
+            // Shader de fragment para tone mapping ACES + Bloom (OpenGL)
             var fragmentCode = @"
 #version 450
 
@@ -176,8 +388,9 @@ layout(location = 0) in vec2 fsin_texCoords;
 layout(location = 0) out vec4 fsout_color;
 
 layout(binding = 0) uniform sampler2D HDRTexture;
+layout(binding = 1) uniform sampler2D BloomTexture;
 
-layout(binding = 1) uniform ToneMappingParams {
+layout(binding = 2) uniform ToneMappingParams {
     float exposure;
     float bloomThreshold;
     float bloomIntensity;
@@ -198,12 +411,16 @@ vec3 ACESFilm(vec3 x)
 void main()
 {
     vec3 hdrColor = texture(HDRTexture, fsin_texCoords).rgb;
+    vec3 bloomColor = texture(BloomTexture, fsin_texCoords).rgb;
+    
+    // Combinar HDR + Bloom
+    vec3 finalColor = hdrColor + (bloomColor * bloomIntensity);
     
     // Aplicar exposição
-    hdrColor *= exposure;
+    finalColor *= exposure;
     
     // Tone mapping ACES
-    vec3 mapped = ACESFilm(hdrColor);
+    vec3 mapped = ACESFilm(finalColor);
     
     // Gamma correction
     mapped = pow(mapped, vec3(1.0/2.2));
@@ -215,9 +432,10 @@ void main()
             var vertexShader = _factory.CreateShader(new ShaderDescription(ShaderStages.Vertex, System.Text.Encoding.UTF8.GetBytes(vertexCode), "main"));
             var fragmentShader = _factory.CreateShader(new ShaderDescription(ShaderStages.Fragment, System.Text.Encoding.UTF8.GetBytes(fragmentCode), "main"));
 
-            // Layout de recursos para tone mapping (OpenGL)
+            // Layout de recursos para tone mapping + bloom (OpenGL)
             _toneMappingLayout = _factory.CreateResourceLayout(new ResourceLayoutDescription(
                 new ResourceLayoutElementDescription("HDRTexture", ResourceKind.TextureReadOnly, ShaderStages.Fragment),
+                new ResourceLayoutElementDescription("BloomTexture", ResourceKind.TextureReadOnly, ShaderStages.Fragment),
                 new ResourceLayoutElementDescription("ToneMappingParams", ResourceKind.UniformBuffer, ShaderStages.Fragment)
             ));
 
@@ -244,13 +462,43 @@ void main()
                 16, // 4 floats: exposure, bloomThreshold, bloomIntensity, padding
                 BufferUsage.UniformBuffer));
             
+            // Bloom parameters (bright pass)
+            _bloomParamsBuffer = _factory.CreateBuffer(new BufferDescription(
+                16, // 4 floats: threshold, intensity, padding1, padding2
+                BufferUsage.UniformBuffer));
+            
+            // Blur parameters
+            _blurParamsBuffer = _factory.CreateBuffer(new BufferDescription(
+                16, // 4 floats: texelSizeX, texelSizeY, padding1, padding2
+                BufferUsage.UniformBuffer));
+            
             UpdateToneMappingParams();
+            UpdateBloomParams();
+            UpdateBlurParams();
 
-            // Resource set para tone mapping (OpenGL)
+            // Resource set para tone mapping + bloom
             _toneMappingResourceSet = _factory.CreateResourceSet(new ResourceSetDescription(
                 _toneMappingLayout,
                 _hdrColorView,
+                _bloomView1, // Final bloom result
                 _toneMappingParamsBuffer));
+            
+            // Resource set para bloom extraction
+            _bloomExtractResourceSet = _factory.CreateResourceSet(new ResourceSetDescription(
+                _bloomExtractLayout,
+                _hdrColorView,
+                _bloomParamsBuffer));
+            
+            // Resource sets para blur
+            _bloomBlur1ResourceSet = _factory.CreateResourceSet(new ResourceSetDescription(
+                _bloomBlurLayout,
+                _bloomView1,
+                _blurParamsBuffer));
+                
+            _bloomBlur2ResourceSet = _factory.CreateResourceSet(new ResourceSetDescription(
+                _bloomBlurLayout,
+                _bloomView2,
+                _blurParamsBuffer));
         }
 
         private void UpdateToneMappingParams()
@@ -265,6 +513,33 @@ void main()
             
             _graphicsDevice.UpdateBuffer(_toneMappingParamsBuffer, 0, toneMappingParams);
         }
+        
+        private void UpdateBloomParams()
+        {
+            var bloomParams = new float[]
+            {
+                1.0f, // threshold (valores acima de 1.0 HDR são brilhantes)
+                1.5f, // intensity multiplier na extraction
+                0.0f, // padding1
+                0.0f  // padding2
+            };
+            _graphicsDevice.UpdateBuffer(_bloomParamsBuffer, 0, bloomParams);
+        }
+        
+        private void UpdateBlurParams()
+        {
+            var bloomWidth = Width / 2;
+            var bloomHeight = Height / 2;
+            
+            var blurParams = new float[]
+            {
+                1.0f / bloomWidth,  // texelSizeX
+                1.0f / bloomHeight, // texelSizeY
+                0.0f, // padding1
+                0.0f  // padding2
+            };
+            _graphicsDevice.UpdateBuffer(_blurParamsBuffer, 0, blurParams);
+        }
 
         public Framebuffer GetHDRFramebuffer()
         {
@@ -276,19 +551,44 @@ void main()
             if (_toneMappingPipeline == null || _toneMappingResourceSet == null)
                 return;
 
-            // Atualizar parâmetros de tone mapping
-            UpdateToneMappingParams();
+            // **BLOOM PIPELINE COMPLETO**
+            
+            // 1. BLOOM EXTRACTION - Extrair pixels brilhantes
+            commandList.SetFramebuffer(_bloomFramebuffer1);
+            commandList.ClearColorTarget(0, RgbaFloat.Black);
+            commandList.SetFullViewports();
+            
+            commandList.SetPipeline(_bloomExtractPipeline);
+            commandList.SetGraphicsResourceSet(0, _bloomExtractResourceSet);
+            commandList.Draw(3, 1, 0, 0);
+            
+            // 2. HORIZONTAL BLUR - Blur horizontal
+            commandList.SetFramebuffer(_bloomFramebuffer2);
+            commandList.ClearColorTarget(0, RgbaFloat.Black);
+            commandList.SetFullViewports();
+            
+            commandList.SetPipeline(_bloomBlurHorizontalPipeline);
+            commandList.SetGraphicsResourceSet(0, _bloomBlur1ResourceSet);
+            commandList.Draw(3, 1, 0, 0);
+            
+            // 3. VERTICAL BLUR - Blur vertical (resultado final em _bloomFramebuffer1)
+            commandList.SetFramebuffer(_bloomFramebuffer1);
+            commandList.ClearColorTarget(0, RgbaFloat.Black);
+            commandList.SetFullViewports();
+            
+            commandList.SetPipeline(_bloomBlurVerticalPipeline);
+            commandList.SetGraphicsResourceSet(0, _bloomBlur2ResourceSet);
+            commandList.Draw(3, 1, 0, 0);
 
-            // Renderizar tone mapping para LDR
+            // 4. TONE MAPPING FINAL - Combinar HDR + Bloom
+            UpdateToneMappingParams();
+            
             commandList.SetFramebuffer(targetFramebuffer);
             commandList.ClearColorTarget(0, RgbaFloat.Black);
             commandList.SetFullViewports();
             
-            // Usar pipeline de tone mapping
             commandList.SetPipeline(_toneMappingPipeline);
             commandList.SetGraphicsResourceSet(0, _toneMappingResourceSet);
-            
-            // Renderizar quad de tela cheia sem vertex buffer (usando gl_VertexIndex)
             commandList.Draw(3, 1, 0, 0);
         }
 
