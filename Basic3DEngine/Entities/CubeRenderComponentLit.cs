@@ -33,14 +33,15 @@ public class CubeRenderComponentLit : RenderComponent, IShadowCaster
     
     private readonly LightingSystem _lightingSystem;
     
-    public CubeRenderComponentLit(GraphicsDevice graphicsDevice, ResourceFactory factory, CommandList commandList, RgbaFloat color, LightingSystem lightingSystem)
+    public CubeRenderComponentLit(GraphicsDevice graphicsDevice, ResourceFactory factory, CommandList commandList, 
+        RgbaFloat color, LightingSystem lightingSystem, OutputDescription? hdrOutputDescription = null)
         : base(graphicsDevice, factory, commandList, color)
     {
         _lightingSystem = lightingSystem;
-        CreateResources();
+        CreateResources(hdrOutputDescription);
     }
     
-    private void CreateResources()
+    private void CreateResources(OutputDescription? hdrOutputDescription = null)
     {
         // Criar geometria do cubo com normais
         CreateCubeGeometry();
@@ -49,7 +50,7 @@ public class CubeRenderComponentLit : RenderComponent, IShadowCaster
         CreateShaders();
         
         // Criar pipeline
-        CreatePipeline();
+        CreatePipeline(hdrOutputDescription);
         
         // Criar buffers uniformes
         CreateBuffers();
@@ -139,7 +140,7 @@ public class CubeRenderComponentLit : RenderComponent, IShadowCaster
         _shaders = new[] { vertexShader, fragmentShader };
     }
     
-    private void CreatePipeline()
+    private void CreatePipeline(OutputDescription? hdrOutputDescription = null)
     {
         // Layout de recursos para matrizes de transformação
         _uniformLayout = _factory.CreateResourceLayout(new ResourceLayoutDescription(
@@ -159,7 +160,7 @@ public class CubeRenderComponentLit : RenderComponent, IShadowCaster
                 new[] { VertexPositionNormalColor.GetVertexLayoutDescription() },
                 _shaders),
             new[] { _uniformLayout, _lightingLayout },
-            _graphicsDevice.SwapchainFramebuffer.OutputDescription);
+            hdrOutputDescription ?? _graphicsDevice.SwapchainFramebuffer.OutputDescription);
         
         _pipeline = _factory.CreateGraphicsPipeline(pipelineDescription);
     }

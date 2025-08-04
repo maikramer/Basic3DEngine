@@ -28,6 +28,7 @@ public class Engine
     
     // Lighting
     private LightingSystem _lightingSystem = new();
+    private PostProcessingManager? _postProcessingManager;
     
     // Game instance
     private Game? _game;
@@ -79,16 +80,17 @@ public class Engine
         };
 
         var options = new GraphicsDeviceOptions(
-            false,
+            debug: false,
             syncToVerticalBlank: true,
-            swapchainDepthFormat: PixelFormat.D24_UNorm_S8_UInt
+            swapchainDepthFormat: PixelFormat.D24_UNorm_S8_UInt  // OpenGL padrão
         );
         
-        VeldridStartup.CreateWindowAndGraphicsDevice(windowCi, options, out _window, out _gd);
+        // Voltar para OpenGL por enquanto - implementar Vulkan depois
+        VeldridStartup.CreateWindowAndGraphicsDevice(windowCi, options, GraphicsBackend.OpenGL, out _window, out _gd);
         _factory = _gd.ResourceFactory;
         _cl = _factory.CreateCommandList();
 
-        LoggingService.LogInfo($"Graphics device created: {_gd.BackendType}");
+        LoggingService.LogInfo($"Graphics device created: {_gd.BackendType} (HDR READY)");
         LoggingService.LogInfo("Command list created");
 
         // Inicializar física
@@ -102,6 +104,11 @@ public class Engine
         // Inicializar shadow mapping
         _lightingSystem.InitializeShadowMapping(_gd, _factory);
         LoggingService.LogInfo("Shadow mapping initialized");
+        
+        // Inicializar post-processing HDR
+        _postProcessingManager = new PostProcessingManager(_gd, _factory, 
+            (uint)_window.Width, (uint)_window.Height);
+        LoggingService.LogInfo("HDR Post-processing system initialized");
         
         // Configurar eventos da janela
         _window.Resized += () => {
@@ -222,16 +229,17 @@ public class Engine
         };
 
         var options = new GraphicsDeviceOptions(
-            false,
+            debug: false,
             syncToVerticalBlank: true,
-            swapchainDepthFormat: PixelFormat.D24_UNorm_S8_UInt
+            swapchainDepthFormat: PixelFormat.D24_UNorm_S8_UInt  // OpenGL padrão
         );
         
-        VeldridStartup.CreateWindowAndGraphicsDevice(windowCi, options, out _window, out _gd);
+        // Voltar para OpenGL por enquanto - implementar Vulkan depois
+        VeldridStartup.CreateWindowAndGraphicsDevice(windowCi, options, GraphicsBackend.OpenGL, out _window, out _gd);
         _factory = _gd.ResourceFactory;
         _cl = _factory.CreateCommandList();
 
-        LoggingService.LogInfo($"Graphics device created: {_gd.BackendType}");
+        LoggingService.LogInfo($"Graphics device created: {_gd.BackendType} (HDR READY)");
         LoggingService.LogInfo("Command list created");
 
         // Inicializar física
@@ -356,7 +364,8 @@ public class Engine
         if (_gd == null || _factory == null)
             throw new InvalidOperationException("Engine not initialized");
             
-        return new SphereRenderComponent(_gd, _factory, _factory.CreateCommandList(), color, resolution);
+        var hdrOutputDesc = _postProcessingManager?.GetHDRFramebuffer().OutputDescription;
+        return new SphereRenderComponent(_gd, _factory, _factory.CreateCommandList(), color, resolution, hdrOutputDesc);
     }
     
     /// <summary>
@@ -649,7 +658,8 @@ public class Engine
         if (_gd == null || _factory == null || _cl == null)
             throw new InvalidOperationException("Engine not initialized");
             
-        return new CubeRenderComponentLit(_gd, _factory, _cl, color, _lightingSystem);
+        var hdrOutputDesc = _postProcessingManager?.GetHDRFramebuffer().OutputDescription;
+        return new CubeRenderComponentLit(_gd, _factory, _cl, color, _lightingSystem, hdrOutputDesc);
     }
     
     /// <summary>
@@ -731,7 +741,8 @@ public class Engine
         skyboxObject.Scale = Vector3.One * 50f; // Skybox grande o suficiente
         
         // Adicionar o componente de renderização do skybox
-        var skyboxRenderer = new SkyboxRenderComponent(_gd, _factory, _cl, _lightingSystem);
+        var hdrOutputDesc = _postProcessingManager?.GetHDRFramebuffer().OutputDescription;
+        var skyboxRenderer = new SkyboxRenderComponent(_gd, _factory, _cl, _lightingSystem, hdrOutputDesc);
         skyboxObject.AddComponent(skyboxRenderer);
         
         // Adicionar à lista de objetos (skybox deve ser renderizado primeiro)
@@ -754,6 +765,9 @@ public class Engine
             // Recriar o swapchain com o novo tamanho
             _gd.MainSwapchain?.Dispose();
             _gd.ResizeMainWindow((uint)_window.Width, (uint)_window.Height);
+            
+            // Redimensionar post-processing framebuffers
+            _postProcessingManager?.Resize((uint)_window.Width, (uint)_window.Height);
             
             LoggingService.LogInfo($"Swapchain resized to {_window.Width}x{_window.Height}");
         }
@@ -783,8 +797,9 @@ public class Engine
             go.GetAllComponents().OfType<IShadowCaster>().Any(sc => sc.CastsShadows)).ToList();
         _lightingSystem.RenderShadowMaps(_cl, shadowCasters, (uint)_renderFrameCount);
         
-        // 2. MAIN PASS - Renderização principal
-        _cl.SetFramebuffer(_gd.MainSwapchain.Framebuffer);
+        // 2. HDR PASS - Renderização principal para framebuffer HDR
+        var hdrFramebuffer = _postProcessingManager?.GetHDRFramebuffer() ?? _gd.MainSwapchain.Framebuffer;
+        _cl.SetFramebuffer(hdrFramebuffer);
         _cl.ClearColorTarget(0, RgbaFloat.Black);
         _cl.ClearDepthStencil(1f);
 
@@ -802,6 +817,9 @@ public class Engine
                 LoggingService.LogWarning($"GameObject {gameObject.Name} has no RenderComponent");
             }
         }
+
+        // 3. POST-PROCESSING HDR PASS - Aplicar tone mapping e efeitos
+        _postProcessingManager?.ProcessAndPresent(_cl, _gd.MainSwapchain.Framebuffer);
 
         // Finalizar e executar os comandos
         _cl.End();

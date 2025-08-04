@@ -56,15 +56,16 @@ namespace Basic3DEngine.Entities
             4, 5, 0, 0, 5, 1
         };
 
-        public SkyboxRenderComponent(GraphicsDevice device, ResourceFactory factory, CommandList commandList, LightingSystem lightingSystem) 
+        public SkyboxRenderComponent(GraphicsDevice device, ResourceFactory factory, CommandList commandList, 
+            LightingSystem lightingSystem, OutputDescription? hdrOutputDescription = null) 
             : base(device, factory, commandList, RgbaFloat.Clear)
         {
             _lightingSystem = lightingSystem;
             
-            CreateResources();
+            CreateResources(hdrOutputDescription);
         }
 
-        private void CreateResources()
+        private void CreateResources(OutputDescription? hdrOutputDescription = null)
         {
             // Vertex buffer
             _vertexBuffer = _factory.CreateBuffer(new BufferDescription(
@@ -137,7 +138,7 @@ namespace Basic3DEngine.Entities
                     new[] { vertexLayout },
                     new[] { vertexShader, fragmentShader }),
                 new[] { _layout },
-                _graphicsDevice.MainSwapchain.Framebuffer.OutputDescription));
+                hdrOutputDescription ?? _graphicsDevice.MainSwapchain.Framebuffer.OutputDescription));
 
             LoggingService.LogInfo("SkyboxRenderComponent initialized with procedural shaders");
         }

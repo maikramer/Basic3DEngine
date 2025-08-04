@@ -11,7 +11,7 @@ public class SphereRenderComponent : RenderComponent
     private readonly Icosphere _sphere;
 
     public SphereRenderComponent(GraphicsDevice graphicsDevice, ResourceFactory factory, CommandList commandList,
-        RgbaFloat color, int resolution = 2)
+        RgbaFloat color, int resolution = 2, OutputDescription? hdrOutputDescription = null)
         : base(graphicsDevice, factory, commandList, color)
     {
         Log("Creating SphereRenderComponent with corrected Icosphere");
@@ -21,7 +21,7 @@ public class SphereRenderComponent : RenderComponent
         {
             Log("About to create SimpleSphere...");
             // Usar SimpleSphere que funciona como Cube mas com geometria de esfera
-            _sphere = new Icosphere(graphicsDevice, factory, commandList, Vector3.Zero, color);
+            _sphere = new Icosphere(graphicsDevice, factory, commandList, Vector3.Zero, color, 2, hdrOutputDescription);
             Log("SimpleSphere created successfully");   
         }
         catch (Exception ex)

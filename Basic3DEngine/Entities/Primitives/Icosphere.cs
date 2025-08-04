@@ -19,7 +19,7 @@ namespace Basic3DEngine.Entities.Primitives
 
         public RgbaFloat Color { get; set; }
 
-        public Icosphere(GraphicsDevice graphicsDevice, ResourceFactory factory, CommandList commandList, Vector3 position, RgbaFloat color, int subdivisions = 2)
+        public Icosphere(GraphicsDevice graphicsDevice, ResourceFactory factory, CommandList commandList, Vector3 position, RgbaFloat color, int subdivisions = 2, OutputDescription? hdrOutputDescription = null)
             : base(graphicsDevice, factory, commandList, position)
         {
             Position = position;
@@ -46,12 +46,12 @@ namespace Basic3DEngine.Entities.Primitives
                 BufferUsage.UniformBuffer));
 
             // Criar shader e pipeline
-            CreateShaderAndPipeline(factory);
+            CreateShaderAndPipeline(factory, hdrOutputDescription);
 
             // Criar resource set após criar o pipeline
         }
 
-        private void CreateShaderAndPipeline(ResourceFactory factory)
+        private void CreateShaderAndPipeline(ResourceFactory factory, OutputDescription? hdrOutputDescription = null)
         {
             try
             {
@@ -87,7 +87,7 @@ namespace Basic3DEngine.Entities.Primitives
                         new[] { vertexLayout },
                         new[] { vertexShader, fragmentShader }),
                     new[] { resourceLayout },
-                    _graphicsDevice.MainSwapchain.Framebuffer.OutputDescription));
+                    hdrOutputDescription ?? _graphicsDevice.MainSwapchain.Framebuffer.OutputDescription));
 
                 // Criar resource set
                 _resourceSet = factory.CreateResourceSet(new ResourceSetDescription(
