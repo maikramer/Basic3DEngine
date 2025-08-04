@@ -11,7 +11,7 @@ namespace Basic3DEngine.Entities;
 /// <summary>
 /// Componente de renderização de cubo com suporte a iluminação
 /// </summary>
-public class CubeRenderComponentLit : RenderComponent
+public class CubeRenderComponentLit : RenderComponent, IShadowCaster
 {
     private DeviceBuffer? _vertexBuffer;
     private DeviceBuffer? _indexBuffer;
@@ -291,6 +291,22 @@ public class CubeRenderComponentLit : RenderComponent
         
         var lightingData = lightingDataList.ToArray();
         commandList.UpdateBuffer(_lightingBuffer, 0, lightingData);
+    }
+    
+    // Implementação da interface IShadowCaster
+    public bool CastsShadows => true;
+    
+    public void RenderShadowGeometry(CommandList commandList, Matrix4x4 worldMatrix)
+    {
+        if (_vertexBuffer == null || _indexBuffer == null)
+            return;
+            
+        // Bind apenas a geometria (sem pipeline complexo)
+        commandList.SetVertexBuffer(0, _vertexBuffer);
+        commandList.SetIndexBuffer(_indexBuffer, IndexFormat.UInt16);
+        
+        // Renderizar índices do cubo
+        commandList.DrawIndexed(36, 1, 0, 0, 0);
     }
     
     public void Dispose()

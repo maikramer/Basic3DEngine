@@ -99,6 +99,10 @@ public class Engine
         _lightingSystem.SetupDefaultLighting();
         LoggingService.LogInfo("Lighting system initialized");
         
+        // Inicializar shadow mapping
+        _lightingSystem.InitializeShadowMapping(_gd, _factory);
+        LoggingService.LogInfo("Shadow mapping initialized");
+        
         // Configurar eventos da janela
         _window.Resized += () => {
             LoggingService.LogInfo($"Window resized to {_window.Width}x{_window.Height}");
@@ -773,6 +777,13 @@ public class Engine
 
         // Começar o comando de renderização
         _cl.Begin();
+        
+        // 1. SHADOW PASS - Renderizar shadow maps primeiro (apenas uma vez por frame)
+        var shadowCasters = _gameObjects.Where(go => 
+            go.GetAllComponents().OfType<IShadowCaster>().Any(sc => sc.CastsShadows)).ToList();
+        _lightingSystem.RenderShadowMaps(_cl, shadowCasters, (uint)_renderFrameCount);
+        
+        // 2. MAIN PASS - Renderização principal
         _cl.SetFramebuffer(_gd.MainSwapchain.Framebuffer);
         _cl.ClearColorTarget(0, RgbaFloat.Black);
         _cl.ClearDepthStencil(1f);

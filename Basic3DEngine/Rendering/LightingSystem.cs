@@ -1,4 +1,5 @@
 using System.Numerics;
+using Veldrid;
 using Basic3DEngine.Services;
 
 namespace Basic3DEngine.Rendering;
@@ -60,11 +61,16 @@ public struct LightData
 /// <summary>
 /// Sistema de gerenciamento de iluminação
 /// </summary>
-public class LightingSystem
+public class LightingSystem : IDisposable
 {
     private readonly List<LightData> _lights = new();
     private Vector3 _ambientColor = new(0.2f, 0.2f, 0.3f); // Luz ambiente azulada suave
     private float _ambientIntensity = 0.3f;
+    
+    // Shadow mapping
+    private ShadowMapRenderer? _shadowMapRenderer;
+    private bool _shadowsEnabled = true; // Reabilitado!
+    private Vector3 _sceneCenter = Vector3.Zero;
     
     // Limites do sistema
     public const int MaxLights = 8; // Máximo de luzes simultâneas
@@ -91,6 +97,29 @@ public class LightingSystem
     /// Lista atual de luzes
     /// </summary>
     public IReadOnlyList<LightData> Lights => _lights.AsReadOnly();
+    
+    /// <summary>
+    /// Sombras habilitadas
+    /// </summary>
+    public bool ShadowsEnabled 
+    { 
+        get => _shadowsEnabled; 
+        set => _shadowsEnabled = value; 
+    }
+    
+    /// <summary>
+    /// Centro da cena para cálculo de sombras
+    /// </summary>
+    public Vector3 SceneCenter 
+    { 
+        get => _sceneCenter; 
+        set => _sceneCenter = value; 
+    }
+    
+    /// <summary>
+    /// Acesso ao renderer de shadow maps
+    /// </summary>
+    public ShadowMapRenderer? ShadowRenderer => _shadowMapRenderer;
     
     /// <summary>
     /// Adiciona uma luz ao sistema
@@ -243,5 +272,69 @@ public class LightingSystem
         );
         
         AddLight(flashlight);
+        LoggingService.LogInfo("Flashlight added to lighting system");
+    }
+    
+    /// <summary>
+    /// Inicializa o sistema de shadow mapping
+    /// </summary>
+    public void InitializeShadowMapping(GraphicsDevice graphicsDevice, ResourceFactory factory)
+    {
+        if (!_shadowsEnabled)
+        {
+            LoggingService.LogInfo("Shadow mapping disabled - skipping initialization");
+            return;
+        }
+        
+        _shadowMapRenderer?.Dispose();
+        _shadowMapRenderer = new ShadowMapRenderer(graphicsDevice, factory);
+        LoggingService.LogInfo("Shadow mapping system initialized");
+    }
+    
+    // Cache para evitar renderizar shadow maps múltiplas vezes por frame
+    private uint _lastShadowFrame = 0;
+    
+    /// <summary>
+    /// Renderiza shadow maps para todas as luzes que projetam sombras (apenas uma vez por frame)
+    /// </summary>
+    public void RenderShadowMaps(CommandList commandList, List<Basic3DEngine.Entities.GameObject> shadowCasters, uint frameNumber)
+    {
+        if (!_shadowsEnabled || _shadowMapRenderer == null)
+            return;
+            
+        // Evitar renderizar shadow maps múltiplas vezes no mesmo frame
+        if (_lastShadowFrame == frameNumber)
+            return;
+            
+        _lastShadowFrame = frameNumber;
+            
+        // Renderizar shadow map da primeira luz direcional
+        var directionalLight = _lights.FirstOrDefault(l => l.Type == LightType.Directional);
+        if (directionalLight.Type == LightType.Directional)
+        {
+            _shadowMapRenderer.RenderShadowMap(commandList, directionalLight, _sceneCenter, shadowCasters);
+        }
+    }
+    
+    /// <summary>
+    /// Obtém a matrix de sombra da primeira luz direcional
+    /// </summary>
+    public Matrix4x4 GetMainShadowMatrix()
+    {
+        if (_shadowMapRenderer == null)
+            return Matrix4x4.Identity;
+            
+        var directionalLight = _lights.FirstOrDefault(l => l.Type == LightType.Directional);
+        if (directionalLight.Type == LightType.Directional)
+        {
+            return _shadowMapRenderer.GetShadowMatrix(directionalLight, _sceneCenter);
+        }
+        
+        return Matrix4x4.Identity;
+    }
+    
+    public void Dispose()
+    {
+        _shadowMapRenderer?.Dispose();
     }
 } 
