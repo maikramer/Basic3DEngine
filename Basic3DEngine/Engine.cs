@@ -98,6 +98,15 @@ public class Engine
         // Inicializar iluminação padrão
         _lightingSystem.SetupDefaultLighting();
         LoggingService.LogInfo("Lighting system initialized");
+        
+        // Configurar eventos da janela
+        _window.Resized += () => {
+            LoggingService.LogInfo($"Window resized to {_window.Width}x{_window.Height}");
+            OnWindowResized();
+        };
+        
+        // Ativar mouse capture automaticamente
+        InputService.SetMouseCaptured(true);
 
         // Inicializar o jogo
         _game.Initialize(this);
@@ -144,6 +153,12 @@ public class Engine
 
                 // Atualizar câmera controlável
                 _camera.Update(Time.DeltaTime);
+                
+                // Controles de mouse capture
+                if (InputService.IsKeyPressed(Key.F1))
+                {
+                    InputService.SetMouseCaptured(!InputService.IsMouseCaptured);
+                }
                 
                 // Verificar se o usuário quer sair
                 if (InputService.IsExitRequested())
@@ -695,6 +710,53 @@ public class Engine
         float shininess = 16f, float specularIntensity = 0.2f)
     {
         return CreateCubeLit(name, position, size, color, 0f, shininess, specularIntensity);
+    }
+    
+    /// <summary>
+    /// Cria um skybox procedural com nuvens em movimento
+    /// </summary>
+    public GameObject CreateSkybox()
+    {
+        if (_gd == null || _factory == null || _cl == null)
+            throw new InvalidOperationException("Graphics device not initialized");
+
+        var skyboxObject = new GameObject("Skybox");
+        
+        // Posicionar o skybox no centro da câmera (será sempre seguido)
+        skyboxObject.Position = Vector3.Zero;
+        skyboxObject.Scale = Vector3.One * 50f; // Skybox grande o suficiente
+        
+        // Adicionar o componente de renderização do skybox
+        var skyboxRenderer = new SkyboxRenderComponent(_gd, _factory, _cl, _lightingSystem);
+        skyboxObject.AddComponent(skyboxRenderer);
+        
+        // Adicionar à lista de objetos (skybox deve ser renderizado primeiro)
+        _gameObjects.Insert(0, skyboxObject);
+        
+        LoggingService.LogInfo("Procedural skybox created with animated clouds");
+        
+        return skyboxObject;
+    }
+    
+    /// <summary>
+    /// Trata o redimensionamento da janela
+    /// </summary>
+    private void OnWindowResized()
+    {
+        if (_gd == null) return;
+        
+        try
+        {
+            // Recriar o swapchain com o novo tamanho
+            _gd.MainSwapchain?.Dispose();
+            _gd.ResizeMainWindow((uint)_window.Width, (uint)_window.Height);
+            
+            LoggingService.LogInfo($"Swapchain resized to {_window.Width}x{_window.Height}");
+        }
+        catch (Exception ex)
+        {
+            LoggingService.LogError($"Error resizing window: {ex.Message}");
+        }
     }
 
     private void Render()

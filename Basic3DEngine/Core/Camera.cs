@@ -71,12 +71,15 @@ public class Camera
     /// </summary>
     public void Update(float deltaTime)
     {
-        // Controle de mouse para rotação
-        var mouseDelta = InputService.MouseDelta;
-        if (mouseDelta.LengthSquared() > 0)
+        // Controle de mouse para rotação (só quando capturado)
+        if (InputService.IsMouseCaptured)
         {
-            Yaw += mouseDelta.X * MouseSensitivity;
-            Pitch -= mouseDelta.Y * MouseSensitivity; // Invertido para sentir mais natural
+            var mouseDelta = InputService.MouseDelta;
+            if (mouseDelta.LengthSquared() > 0)
+            {
+                Yaw += mouseDelta.X * MouseSensitivity;
+                Pitch -= mouseDelta.Y * MouseSensitivity; // Invertido para sentir mais natural
+            }
         }
         
         // Controle de teclado para movimento

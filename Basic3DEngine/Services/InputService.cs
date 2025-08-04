@@ -25,6 +25,10 @@ public static class InputService
     private static Vector2 _mouseDelta = Vector2.Zero;
     private static Vector2 _previousMousePosition = Vector2.Zero;
     private static float _mouseWheelDelta = 0f;
+    
+    // Mouse capture
+    private static bool _isMouseCaptured = false;
+    private static bool _firstMouseUpdate = true;
 
     /// <summary>
     /// Atualiza o estado do input (chamado pela Engine)
@@ -78,7 +82,17 @@ public static class InputService
         // Atualizar posição do mouse e delta
         _previousMousePosition = _mousePosition;
         _mousePosition = _currentSnapshot.MousePosition;
-        _mouseDelta = _mousePosition - _previousMousePosition;
+        
+        // Prevenir "jump" na primeira atualização ou quando mouse capture muda
+        if (_firstMouseUpdate || !_isMouseCaptured)
+        {
+            _mouseDelta = Vector2.Zero;
+            _firstMouseUpdate = false;
+        }
+        else
+        {
+            _mouseDelta = _mousePosition - _previousMousePosition;
+        }
         
         // Wheel delta
         _mouseWheelDelta = _currentSnapshot.WheelDelta;
@@ -177,4 +191,24 @@ public static class InputService
     {
         return IsKeyPressed(Key.Escape);
     }
+    
+    // === MOUSE CAPTURE ===
+    
+    /// <summary>
+    /// Ativa/desativa mouse capture para FPS controls
+    /// </summary>
+    public static void SetMouseCaptured(bool captured)
+    {
+        if (_isMouseCaptured != captured)
+        {
+            _isMouseCaptured = captured;
+            _firstMouseUpdate = true; // Reset para evitar jump
+            LoggingService.LogInfo($"Mouse capture: {(_isMouseCaptured ? "ON" : "OFF")}");
+        }
+    }
+    
+    /// <summary>
+    /// Verifica se o mouse está capturado
+    /// </summary>
+    public static bool IsMouseCaptured => _isMouseCaptured;
 } 

@@ -30,8 +30,17 @@ public class DemoGame
             LoggingService.LogInfo("Gravity set to: <0. -9,81. 0>");
             _engine.SetGravity(9.81f);
             
-            LoggingService.LogInfo($"Creating simple scene... Lighting mode: {(_useLighting ? "LIT" : "UNLIT")}");
-            LoggingService.LogInfo("Press L to toggle lighting mode");
+                    LoggingService.LogInfo($"Creating simple scene... Lighting mode: {(_useLighting ? "LIT" : "UNLIT")}");
+        LoggingService.LogInfo("=== CONTROLS ===");
+        LoggingService.LogInfo("WASD: Move camera");
+        LoggingService.LogInfo("Space/LShift: Up/Down");
+        LoggingService.LogInfo("Mouse: Look around (when captured)");
+        LoggingService.LogInfo("F1: Toggle mouse capture");
+        LoggingService.LogInfo("L: Toggle lighting mode");
+        LoggingService.LogInfo("Left Click: Spawn sphere");
+        LoggingService.LogInfo("Right Click: Spawn cube");
+        LoggingService.LogInfo("ESC: Exit");
+        LoggingService.LogInfo("================");
             
             // Criar cenário simples usando métodos intuitivos da engine
             CreateSimpleScene();
@@ -63,6 +72,10 @@ public class DemoGame
     
     private void CreateRollingScene()
     {
+        // Criar skybox procedural primeiro
+        _engine.CreateSkybox();
+        LoggingService.LogInfo("Procedural skybox added to scene");
+        
         // Cores da demo
         var groundColor = new RgbaFloat(0.7f, 0.7f, 0.7f, 1f);
         var rampColor = new RgbaFloat(0.8f, 0.6f, 0.4f, 1f);
