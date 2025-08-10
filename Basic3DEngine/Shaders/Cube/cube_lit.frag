@@ -55,8 +55,11 @@ float calculateShadowFactor()
         return 1.0;
     }
     
-    // Bias para evitar shadow acne
-    float bias = 0.005;
+    // Bias para evitar shadow acne (slope-scaled)
+    // Aproximação: usar derivadas da profundidade projetada
+    float ndotl = max(dot(normalize(fsin_Normal), normalize(-directionalLightDirections[0].xyz)), 0.0);
+    float slopeBias = (1.0 - ndotl) * 0.01; // ajustável
+    float bias = 0.001 + slopeBias;
     float currentDepth = shadowCoords.z - bias;
     
     // PCF (Percentage Closer Filtering) para sombras suaves

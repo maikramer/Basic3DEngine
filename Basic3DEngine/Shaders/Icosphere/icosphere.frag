@@ -18,7 +18,11 @@ float calculateShadowFactor()
         shadowCoords.z > 1.0) {
         return 1.0;
     }
-    float bias = 0.005;
+    // Bias com dependência do ângulo entre normal e luz direcional aproximada
+    vec3 lightDir = normalize(vec3(-0.3, -0.8, -0.2));
+    float ndotl = max(dot(normalize(fsin_Normal), -lightDir), 0.0);
+    float slopeBias = (1.0 - ndotl) * 0.01;
+    float bias = 0.001 + slopeBias;
     float currentDepth = shadowCoords.z - bias;
     vec2 texelSize = 1.0 / textureSize(ShadowMap, 0);
     float shadow = 0.0;

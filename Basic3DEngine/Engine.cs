@@ -42,6 +42,9 @@ public class Engine
     // Time management
     private float _fixedTimeAccumulator;
 
+    // Camera FPS controls
+    private bool _useFPSCameraControls = true;
+
     /// <summary>
     /// Mundo físico da engine
     /// </summary>
@@ -58,11 +61,23 @@ public class Engine
     public LightingSystem Lighting => _lightingSystem;
 
     /// <summary>
+    /// Liga/desliga os controles de câmera FPS (WASD/mouse) da engine.
+    /// Quando desligado, a câmera só se move se algum componente (ex.: FollowCameraComponent) ajustá-la.
+    /// </summary>
+    public void EnableFPSCameraControls(bool enabled)
+    {
+        _useFPSCameraControls = enabled;
+        InputService.SetMouseCaptured(enabled);
+        LoggingService.LogInfo($"FPS camera controls: {(enabled ? "ON" : "OFF")}");
+    }
+
+    /// <summary>
     /// Executa um jogo usando a engine
     /// </summary>
     public void Run(Game game)
     {
         _game = game;
+        EngineSingleton.Instance = this;
         
         // Inicializar o serviço de logging
         var logPath = Path.Combine(Directory.GetCurrentDirectory(), "logs", "engine.log");
@@ -116,8 +131,8 @@ public class Engine
             OnWindowResized();
         };
         
-        // Ativar mouse capture automaticamente
-        InputService.SetMouseCaptured(true);
+        // Mouse capture depende do modo de câmera FPS
+        InputService.SetMouseCaptured(_useFPSCameraControls);
 
         // Inicializar o jogo
         _game.Initialize(this);
@@ -142,36 +157,45 @@ public class Engine
                 Time.DeltaTime = deltaTime * Time.TimeScale;
                 Time.TotalTime += Time.DeltaTime;
 
-                // Física com fixed timestep
+                // Processar eventos da janela e input ANTES da lógica
+                var inputSnapshot = _window.PumpEvents();
+                InputService.Update(inputSnapshot);
+                
+                // Toggle FPS camera controls
+                if (InputService.IsKeyPressed(Key.F1))
+                {
+                    EnableFPSCameraControls(!_useFPSCameraControls);
+                }
+                
+                // Atualizar o jogo (lógica global)
+                _game.Update(Time.DeltaTime);
+
+                // Atualizar GameObjects (lógica de input/comportamento)
+                foreach (var gameObject in _gameObjects)
+                    gameObject?.Update(Time.DeltaTime);
+
+                // Física com fixed timestep DEPOIS da lógica
                 _fixedTimeAccumulator += Time.DeltaTime;
                 while (_fixedTimeAccumulator >= Time.FixedDeltaTime)
                 {
-                    // Atualizar física
                     _physicsWorldBepu?.Step(Time.FixedDeltaTime);
                     _fixedTimeAccumulator -= Time.FixedDeltaTime;
                 }
 
-                // Atualizar GameObjects
-                foreach (var gameObject in _gameObjects) 
-                    gameObject?.Update(Time.DeltaTime);
-                    
-                // Atualizar o jogo
-                _game.Update(Time.DeltaTime);
+                // Após atualizar física, sincronizar transform com estado físico para render
+                foreach (var gameObject in _gameObjects)
+                {
+                    var rb = gameObject.GetComponent<RigidbodyComponent>();
+                    rb?.SyncFromPhysics();
+                }
 
-                // Processar eventos da janela e input
-                var inputSnapshot = _window.PumpEvents();
-                InputService.Update(inputSnapshot);
-
-                // Atualizar câmera controlável
-                _camera.Update(Time.DeltaTime);
+                // Atualizar câmera controlável (somente no modo FPS)
+                if (_useFPSCameraControls)
+                {
+                    _camera.Update(Time.DeltaTime);
+                }
                 // Atualizar centro da cena para sombras baseado na câmera
                 _lightingSystem.UpdateSceneCenter(_camera.Position);
-                
-                // Controles de mouse capture
-                if (InputService.IsKeyPressed(Key.F1))
-                {
-                    InputService.SetMouseCaptured(!InputService.IsMouseCaptured);
-                }
                 
                 // Verificar se o usuário quer sair
                 if (InputService.IsExitRequested())
@@ -208,6 +232,7 @@ public class Engine
         _physicsWorldBepu?.Dispose();
         
         LoggingService.LogInfo("Resources disposed - Engine shutdown complete");
+        EngineSingleton.Instance = null;
     }
 
     /// <summary>
@@ -215,6 +240,7 @@ public class Engine
     /// </summary>
     public void Run()
     {
+        EngineSingleton.Instance = this;
         // Inicializar o serviço de logging
         var logPath = Path.Combine(Directory.GetCurrentDirectory(), "logs", "engine.log");
         LoggingService.Initialize(logPath);
@@ -313,6 +339,7 @@ public class Engine
         _gd?.Dispose();
         _window?.Close();
         LoggingService.LogInfo("Engine shutdown complete");
+        EngineSingleton.Instance = null;
     }
 
     /// <summary>
@@ -321,6 +348,15 @@ public class Engine
     public void AddGameObject(GameObject gameObject)
     {
         _gameObjects.Add(gameObject);
+        // Ajustar speculative margin por shape (CCD leve)
+        var rb = gameObject.GetComponent<RigidbodyComponent>();
+        if (rb != null && rb.Shape != null && _physicsWorldBepu != null)
+        {
+            // Usa ApproximateRadius da forma para setar um speculative margin razoável
+            var radius = rb.Shape.ApproximateRadius;
+            // Não expomos API para set direto; rely on default via callbacks com DefaultSpeculativeMargin
+            // Poderíamos ajustar por layers no futuro.
+        }
     }
     
     /// <summary>
@@ -355,7 +391,40 @@ public class Engine
         if (_gd == null || _factory == null)
             throw new InvalidOperationException("Engine not initialized");
             
-        return new CubeRenderComponent(_gd, _factory, _factory.CreateCommandList(), color);
+        // Passar o OutputDescription do framebuffer HDR se existir, para compatibilizar o pipeline
+        var hdrOutputDesc = _postProcessingManager?.GetHDRFramebuffer().OutputDescription;
+        return new CubeRenderComponent(_gd, _factory, _factory.CreateCommandList(), color, hdrOutputDesc);
+    }
+
+    /// <summary>
+    /// Cria um carro simples (caixa) com física e controle de veículo.
+    /// </summary>
+    public GameObject CreateCar(string name, Vector3 position, Vector3 size, RgbaFloat color, float mass = 800f)
+    {
+        var go = new GameObject(name)
+        {
+            Position = position,
+            Scale = size
+        };
+
+        bool isStatic = mass <= 0f;
+        var rb = CreateRigidbody(Math.Max(mass, 1f), isStatic);
+        rb.Shape = new BoxShape(size);
+        rb.Material = Material.Default;
+        // Elevar levemente no spawn para evitar interpenetração com o chão por discretização
+        var spawnPos = position + new Vector3(0, 0.25f, 0);
+        rb.Pose = new BepuPhysics.RigidPose(spawnPos, Quaternion.Identity);
+        go.AddComponent(rb);
+
+        var renderer = CreateCubeRendererLit(color);
+        go.AddComponent(renderer);
+
+        var controller = new VehicleControllerComponent(rb) { IsPlayerControlled = true };
+        go.AddComponent(controller);
+
+        _physicsWorldBepu?.AddBody(rb);
+        AddGameObject(go);
+        return go;
     }
     
     /// <summary>
@@ -368,6 +437,18 @@ public class Engine
             
         var hdrOutputDesc = _postProcessingManager?.GetHDRFramebuffer().OutputDescription;
         return new SphereRenderComponent(_gd, _factory, _factory.CreateCommandList(), color, resolution, hdrOutputDesc, _lightingSystem);
+    }
+
+    /// <summary>
+    /// Cria um componente de renderização de cilindro
+    /// </summary>
+    public CylinderRenderComponent CreateCylinderRenderer(RgbaFloat color)
+    {
+        if (_gd == null || _factory == null)
+            throw new InvalidOperationException("Engine not initialized");
+
+        var hdrOutputDesc = _postProcessingManager?.GetHDRFramebuffer().OutputDescription;
+        return new CylinderRenderComponent(_gd, _factory, _factory.CreateCommandList(), color, hdrOutputDesc);
     }
     
     /// <summary>
@@ -398,6 +479,14 @@ public class Engine
     {
         return new SphereShape(radius);
     }
+
+    /// <summary>
+    /// Cria uma forma de cilindro (raio, comprimentoY)
+    /// </summary>
+    public Physics.Shapes.CylinderShape CreateCylinderShape(float radius, float length)
+    {
+        return new Physics.Shapes.CylinderShape(radius, length);
+    }
     
     /// <summary>
     /// Adiciona física de caixa a um rigidbody (método de compatibilidade)
@@ -414,6 +503,15 @@ public class Engine
     public void AddSpherePhysics(RigidbodyComponent rigidbody, float radius)
     {
         rigidbody.Shape = CreateSphereShape(radius);
+        _physicsWorldBepu?.AddBody(rigidbody);
+    }
+
+    /// <summary>
+    /// Adiciona física de cilindro a um rigidbody
+    /// </summary>
+    public void AddCylinderPhysics(RigidbodyComponent rigidbody, float radius, float length)
+    {
+        rigidbody.Shape = CreateCylinderShape(radius, length);
         _physicsWorldBepu?.AddBody(rigidbody);
     }
     
@@ -486,7 +584,7 @@ public class Engine
         rigidbody.Material = material;
         
         // IMPORTANTE: Definir a pose ANTES de adicionar ao mundo físico
-        rigidbody.Pose = new BepuPhysics.RigidPose(position, Quaternion.Identity);
+        rigidbody.Pose = new BepuPhysics.RigidPose(position + new Vector3(0, 0.25f, 0), Quaternion.Identity);
         
         gameObject.AddComponent(rigidbody);
         
@@ -520,13 +618,12 @@ public class Engine
         bool isStatic = mass <= 0f;
         var rigidbody = CreateRigidbody(Math.Max(mass, 1f), isStatic);
         
-        // Converter dimensões completas para half-extents que o BepuPhysics espera
-        var halfExtents = size * 0.5f;
-        rigidbody.Shape = new BoxShape(halfExtents); // BepuPhysics usa half-extents
+        // BoxShape espera dimensões completas; a forma do Bepu converte internamente para half extents
+        rigidbody.Shape = new BoxShape(size);
         rigidbody.Material = Material.Default;
         rigidbody.Pose = new BepuPhysics.RigidPose(position, Quaternion.Identity);
         
-        LoggingService.LogInfo($"CreateCube - {name}: visual size {size}, physics halfExtents {halfExtents}, position: {position}");
+        LoggingService.LogInfo($"CreateCube - {name}: visual size {size}, physics size {size}, position: {position}");
         
         gameObject.AddComponent(rigidbody);
         
@@ -580,6 +677,66 @@ public class Engine
         _physicsWorldBepu?.AddBody(rigidbody);
         AddGameObject(gameObject);
         
+        return gameObject;
+    }
+
+    /// <summary>
+    /// Cria um cilindro físico simples e intuitivo
+    /// </summary>
+    public GameObject CreateCylinder(string name, Vector3 position, float radius, float length, RgbaFloat color, float mass = 1f)
+    {
+        var gameObject = new GameObject(name)
+        {
+            Position = position,
+            // Escala visual: raio em X/Z e comprimento em Y
+            Scale = new Vector3(radius, length, radius)
+        };
+
+        bool isStatic = mass <= 0f;
+        var rigidbody = CreateRigidbody(Math.Max(mass, 1f), isStatic);
+        rigidbody.Shape = new Physics.Shapes.CylinderShape(radius, length);
+        rigidbody.Material = Material.Default;
+        rigidbody.Pose = new BepuPhysics.RigidPose(position, Quaternion.Identity);
+        gameObject.AddComponent(rigidbody);
+
+        var renderer = CreateCylinderRenderer(color);
+        gameObject.AddComponent(renderer);
+
+        _physicsWorldBepu?.AddBody(rigidbody);
+        AddGameObject(gameObject);
+        return gameObject;
+    }
+
+    /// <summary>
+    /// Cria um objeto composto por primitivas físicas (Compound)
+    /// </summary>
+    public GameObject CreateCompound(string name, Vector3 position, IEnumerable<Physics.Shapes.CompoundShape.Child> children, RgbaFloat color, float mass)
+    {
+        var gameObject = new GameObject(name)
+        {
+            Position = position,
+            Scale = Vector3.One
+        };
+
+        bool isStatic = mass <= 0f;
+        var rigidbody = CreateRigidbody(Math.Max(mass, 1f), isStatic);
+        var compound = new Physics.Shapes.CompoundShape(children);
+        rigidbody.Shape = compound;
+        rigidbody.Material = Material.Default;
+        rigidbody.Pose = new BepuPhysics.RigidPose(position, Quaternion.Identity);
+        gameObject.AddComponent(rigidbody);
+
+        // Renderização composta simples
+        var hdrOutputDesc = _postProcessingManager?.GetHDRFramebuffer().OutputDescription;
+        var compoundRenderer = new CompoundRenderComponent(_gd!, _factory!, _factory!.CreateCommandList(), hdrOutputDesc);
+        gameObject.AddComponent(compoundRenderer);
+
+        if (_physicsWorldBepu != null)
+        {
+            // AddBody precisa aceitar shapes que requerem BufferPool; tratar lá
+            _physicsWorldBepu.AddBody(rigidbody);
+        }
+        AddGameObject(gameObject);
         return gameObject;
     }
     
@@ -688,8 +845,8 @@ public class Engine
         bool isStatic = mass <= 0f;
         var rigidbody = CreateRigidbody(Math.Max(mass, 1f), isStatic);
         
-        var halfExtents = size;
-        rigidbody.Shape = new BoxShape(halfExtents);
+        // BoxShape espera dimensões completas
+        rigidbody.Shape = new BoxShape(size);
         rigidbody.Material = Material.Default;
         rigidbody.Pose = new BepuPhysics.RigidPose(position, Quaternion.Identity);
         
@@ -716,6 +873,8 @@ public class Engine
     public GameObject CreateGroundLit(Vector3 position, Vector3 size, RgbaFloat color, 
         float shininess = 8f, float specularIntensity = 0.1f)
     {
+        // Elevar levemente o chão e aumentar a espessura mínima para evitar tunneling por discretização
+        if (size.Y < 0.5f) size.Y = 0.5f;
         return CreateCubeLit("Ground", position, size, color, 0f, shininess, specularIntensity);
     }
     
@@ -818,6 +977,10 @@ public class Engine
         
         foreach (var gameObject in _gameObjects)
         {
+            // Garantir sync final por segurança
+            var rb = gameObject.GetComponent<RigidbodyComponent>();
+            rb?.SyncFromPhysics();
+
             var renderComponent = gameObject.GetComponent<RenderComponent>();
             if (renderComponent != null)
             {

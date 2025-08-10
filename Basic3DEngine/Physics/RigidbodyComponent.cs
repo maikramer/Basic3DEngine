@@ -113,25 +113,30 @@ public sealed class RigidbodyComponent : Component
         
         if (!IsStatic && _physicsWorld != null && GameObject != null)
         {
-            // Obter estado atual do corpo físico
+            // Sincroniza dados locais com o corpo físico
             var bodyRef = _physicsWorld.GetBodyReference(BodyHandle);
             _pose = bodyRef.Pose;
             _linearVelocity = bodyRef.Velocity.Linear;
             _angularVelocity = bodyRef.Velocity.Angular;
-            
-            // Debug removido - física funcionando corretamente
-            
-            // Verificar se as posições são válidas
-            if (float.IsNaN(_pose.Position.X) || float.IsNaN(_pose.Position.Y) || float.IsNaN(_pose.Position.Z))
-            {
-                LoggingService.LogError("TestSphere has invalid position (NaN)");
-                return;
-            }
-            
-            // Atualizar posição e rotação do GameObject
-            GameObject.Position = _pose.Position;
-            GameObject.Rotation = QuaternionToEuler(_pose.Orientation);
         }
+    }
+
+    /// <summary>
+    /// Sincroniza a posição e rotação do GameObject a partir do estado atual do corpo físico.
+    /// Chame isto após o passo de física para refletir o estado mais recente antes de renderizar.
+    /// </summary>
+    public void SyncFromPhysics()
+    {
+        if (IsStatic || _physicsWorld == null || GameObject == null || BodyHandle.Value < 0) return;
+        var bodyRef = _physicsWorld.GetBodyReference(BodyHandle);
+        var pose = bodyRef.Pose;
+        if (float.IsNaN(pose.Position.X) || float.IsNaN(pose.Position.Y) || float.IsNaN(pose.Position.Z))
+        {
+            LoggingService.LogError("Rigidbody has invalid position (NaN)");
+            return;
+        }
+        GameObject.Position = pose.Position;
+        GameObject.Rotation = QuaternionToEuler(pose.Orientation);
     }
     
     /// <summary>

@@ -19,6 +19,11 @@ public struct MaterialNarrowPhaseCallbacks : INarrowPhaseCallbacks
     public CollidableProperty<Material> CollidableMaterials;
     
     /// <summary>
+    /// Mapeia referências de colisão para suas camadas (bitmask). Contatos só são gerados se (A & B) != 0
+    /// </summary>
+    public CollidableProperty<uint> CollidableLayers;
+    
+    /// <summary>
     /// Threshold para aplicação de atrito estático
     /// </summary>
     public float StaticFrictionThreshold;
@@ -29,24 +34,45 @@ public struct MaterialNarrowPhaseCallbacks : INarrowPhaseCallbacks
     public float TwistFrictionScale;
     
     /// <summary>
+    /// Margem especulativa padrão para CCD preventiva (aumenta estabilidade e reduz tunneling)
+    /// </summary>
+    public float DefaultSpeculativeMargin;
+    
+    /// <summary>
     /// Cria callbacks com valores padrão
     /// </summary>
-    public MaterialNarrowPhaseCallbacks(float staticFrictionThreshold = 0.01f, float twistFrictionScale = 1.0f) : this()
+    public MaterialNarrowPhaseCallbacks(float staticFrictionThreshold = 0.01f, float twistFrictionScale = 1.0f, float defaultSpeculativeMargin = 0.02f) : this()
     {
         StaticFrictionThreshold = staticFrictionThreshold;
         TwistFrictionScale = twistFrictionScale;
         CollidableMaterials = new CollidableProperty<Material>();
+        CollidableLayers = new CollidableProperty<uint>();
+        DefaultSpeculativeMargin = defaultSpeculativeMargin;
     }
 
     public void Initialize(Simulation simulation)
     {
         CollidableMaterials.Initialize(simulation);
+        CollidableLayers.Initialize(simulation);
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public bool AllowContactGeneration(int workerIndex, CollidableReference a, CollidableReference b,
         ref float speculativeMargin)
     {
+        // Aumentar margem especulativa para melhorar CCD
+        if (DefaultSpeculativeMargin > 0f)
+            speculativeMargin = MathF.Max(speculativeMargin, DefaultSpeculativeMargin);
+
+        // Filtragem por camadas
+        var layersA = CollidableLayers[a];
+        var layersB = CollidableLayers[b];
+        // Se não configurado (0), considerar como 'todas as camadas'
+        uint aMask = layersA == 0 ? 0xFFFFFFFFu : layersA;
+        uint bMask = layersB == 0 ? 0xFFFFFFFFu : layersB;
+        if ((aMask & bMask) == 0)
+            return false;
+
         // Pelo menos um dos corpos precisa ser dinâmico
         return a.Mobility == CollidableMobility.Dynamic || b.Mobility == CollidableMobility.Dynamic;
     }

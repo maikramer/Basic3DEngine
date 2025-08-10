@@ -3,6 +3,8 @@ using Basic3DEngine.Core.Interfaces;
 using Basic3DEngine.Physics.Shapes;
 using BepuPhysics;
 using BepuPhysics.Collidables;
+using BepuUtilities.Memory;
+using BepuPhysics.Constraints;
 using BepuPhysics.Trees;
 using BepuUtilities;
 using BepuUtilities.Memory;
@@ -16,14 +18,15 @@ public sealed class PhysicsWorldBepu : IDisposable
 {
     private BufferPool _bufferPool;
     private CollidableProperty<Material> _collidableMaterials;
+    private CollidableProperty<uint> _collidableLayers;
     private readonly List<RigidbodyComponent> _rigidbodies = new();
     private Simulation _simulation;
     private ThreadDispatcher _threadDispatcher;
     
     // Configurações padrão
     private Vector3 _defaultGravity = new(0, -9.81f, 0);
-    private float _defaultLinearDamping = 0.03f;
-    private float _defaultAngularDamping = 0.03f;
+        private float _defaultLinearDamping = 0.05f;
+        private float _defaultAngularDamping = 0.08f;
 
     public PhysicsWorldBepu()
     {
@@ -32,6 +35,7 @@ public sealed class PhysicsWorldBepu : IDisposable
 
         // Inicializar as propriedades de materiais (sem simulação ainda)
         _collidableMaterials = new CollidableProperty<Material>();
+        _collidableLayers = new CollidableProperty<uint>();
 
         // Criar a simulação no modo simples
         CreateSimulation();
@@ -65,24 +69,27 @@ public sealed class PhysicsWorldBepu : IDisposable
         // A mudança de damping será aplicada nas próximas integrações
     }
     
-    private void CreateSimulation()
+        private void CreateSimulation()
     {
         // Criar callbacks de narrow phase
-        var narrowPhaseCallbacks = new MaterialNarrowPhaseCallbacks(0.01f, 1.0f);
+        var narrowPhaseCallbacks = new MaterialNarrowPhaseCallbacks(0.01f, 1.0f, 0.03f);
         
-        // Usar callbacks básicos de integração
-        _simulation = Simulation.Create(
-            _bufferPool,
-            narrowPhaseCallbacks,
-            new PoseIntegratorCallbacks(_defaultGravity, _defaultLinearDamping, _defaultAngularDamping),
-            new SolveDescription(8, 1)
-        );
+            // Usar integrador avançado e aumentar iterações do solver
+            var integrator = new AdvancedPoseIntegratorCallbacks(_defaultGravity, _defaultLinearDamping, _defaultAngularDamping);
+            _simulation = Simulation.Create(
+                _bufferPool,
+                narrowPhaseCallbacks,
+                integrator,
+                new SolveDescription(12, 2)
+            );
         
         // Inicializar o CollidableMaterials com a simulação
         _collidableMaterials.Initialize(_simulation);
+        _collidableLayers.Initialize(_simulation);
         
         // Configurar o CollidableMaterials nos callbacks
         narrowPhaseCallbacks.CollidableMaterials = _collidableMaterials;
+        narrowPhaseCallbacks.CollidableLayers = _collidableLayers;
     }
 
     /// <summary>
@@ -93,7 +100,16 @@ public sealed class PhysicsWorldBepu : IDisposable
         if (rigidbody.Shape == null)
             throw new InvalidOperationException("Rigidbody must have a shape before being added to physics world");
 
-        var shapeIndex = rigidbody.Shape.CreateShape(_simulation.Shapes);
+        TypedIndex shapeIndex;
+        // Alguns shapes (como Compound) exigem acesso ao BufferPool para criação
+        if (rigidbody.Shape is Basic3DEngine.Core.Interfaces.IRequiresBufferPoolShape req)
+        {
+            shapeIndex = req.CreateShape(_simulation.Shapes, _bufferPool);
+        }
+        else
+        {
+            shapeIndex = rigidbody.Shape.CreateShape(_simulation.Shapes);
+        }
         
         if (rigidbody.IsStatic)
         {
@@ -109,6 +125,7 @@ public sealed class PhysicsWorldBepu : IDisposable
 
             // Associar material ao corpo estático
             _collidableMaterials.Allocate(staticHandle) = rigidbody.Material;
+            _collidableLayers.Allocate(staticHandle) = 0xFFFFFFFF;
         }
         else
         {
@@ -127,7 +144,7 @@ public sealed class PhysicsWorldBepu : IDisposable
                 pose,
                 inertia,
                 shapeIndex,
-                0.01f // Atividade
+                0.1f // Atividade
             );
 
             var handle = _simulation.Bodies.Add(bodyDescription);
@@ -135,10 +152,20 @@ public sealed class PhysicsWorldBepu : IDisposable
 
             // Associar material ao corpo dinâmico
             _collidableMaterials.Allocate(handle) = rigidbody.Material;
+            _collidableLayers.Allocate(handle) = 0xFFFFFFFF;
 
             // Adicionar à lista de rigidbodies dinâmicos
             _rigidbodies.Add(rigidbody);
         }
+    }
+
+    /// <summary>
+    /// Ajusta parâmetros do solver (iterações e subiterações)
+    /// </summary>
+    public void SetSolverIterations(int velocityIterations = 12, int substepCount = 2)
+    {
+        _simulation.Solver.VelocityIterationCount = Math.Max(1, velocityIterations);
+        _simulation.Solver.SubstepCount = Math.Max(1, substepCount);
     }
 
     /// <summary>
@@ -163,6 +190,55 @@ public sealed class PhysicsWorldBepu : IDisposable
     public BodyReference GetBodyReference(BodyHandle handle)
     {
         return _simulation.Bodies[handle];
+    }
+
+    /// <summary>
+    /// Adiciona uma junta do tipo hinge (rotação em 1 eixo) entre dois rigidbodies.
+    /// Eixos locais devem estar alinhados no espaço do mundo.
+    /// </summary>
+    public ConstraintHandle AddHingeConstraint(
+        RigidbodyComponent bodyA,
+        RigidbodyComponent bodyB,
+        Vector3 localOffsetA,
+        Vector3 localOffsetB,
+        Vector3 localAxisA,
+        Vector3 localAxisB,
+        SpringSettings? spring = null)
+    {
+        var s = spring ?? new SpringSettings(30, 1);
+        var hinge = new Hinge
+        {
+            LocalOffsetA = localOffsetA,
+            LocalOffsetB = localOffsetB,
+            LocalHingeAxisA = Vector3.Normalize(localAxisA),
+            LocalHingeAxisB = Vector3.Normalize(localAxisB),
+            SpringSettings = s.Value
+        };
+        return _simulation.Solver.Add(bodyA.BodyHandle, bodyB.BodyHandle, hinge);
+    }
+
+    /// <summary>
+    /// Adiciona um motor angular no eixo especificado entre dois corpos.
+    /// </summary>
+    public ConstraintHandle AddAngularAxisMotor(
+        RigidbodyComponent bodyA,
+        RigidbodyComponent bodyB,
+        Vector3 localAxisA,
+        Vector3 localAxisB,
+        float targetVelocity,
+        float maximumForce)
+    {
+        var motor = new AngularAxisMotor
+        {
+            LocalAxisA = Vector3.Normalize(localAxisA),
+            LocalAxisB = Vector3.Normalize(localAxisB),
+            Settings = new MotorSettings(maximumForce, 1e-3f)
+        };
+        var handle = _simulation.Solver.Add(bodyA.BodyHandle, bodyB.BodyHandle, motor);
+        // Definir velocidade alvo (usa descrição de servo/motor em estados); aqui usamos API simplificada do demo
+        _simulation.Solver.ApplyDescription(handle, motor);
+        // Observação: Para controlar velocidade continuamente, atualizar descrição fora desta função.
+        return handle;
     }
 
     /// <summary>

@@ -10,12 +10,14 @@ public class Cube : Geometry
 {
     private static StreamWriter _logFile;
     private readonly RgbaFloat _color;
+    private readonly OutputDescription? _targetOutputDescription;
 
     public Cube(GraphicsDevice graphicsDevice, ResourceFactory factory, CommandList commandList, Vector3 position,
-        RgbaFloat color)
+        RgbaFloat color, OutputDescription? targetOutputDescription = null)
         : base(graphicsDevice, factory, commandList, position)
     {
         _color = color;
+        _targetOutputDescription = targetOutputDescription;
         CreateResources();
     }
 
@@ -188,7 +190,7 @@ public class Cube : Geometry
                 new[] { vertexLayout },
                 _shaders),
             new[] { _resourceLayout },
-            _graphicsDevice.MainSwapchain.Framebuffer.OutputDescription);
+            _targetOutputDescription ?? _graphicsDevice.MainSwapchain.Framebuffer.OutputDescription);
 
         try
         {
@@ -229,8 +231,8 @@ public class Cube : Geometry
             return;
         }
 
-        // Criar estrutura para as matrizes
-        var ubo = new UniformBufferObject
+        // Criar estrutura para as matrizes (apenas 3 para este shader)
+        var ubo = new CubeUniforms
         {
             Projection = projectionMatrix,
             View = viewMatrix,
@@ -259,6 +261,14 @@ public class Cube : Geometry
             0);
 
         Log("Cube.Render() completed");
+    }
+
+    // Estrutura específica deste cubo (shader básico) com 3 matrizes = 192 bytes
+    private struct CubeUniforms
+    {
+        public Matrix4x4 Projection;
+        public Matrix4x4 View;
+        public Matrix4x4 World;
     }
 
     public override void Dispose()

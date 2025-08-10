@@ -9,8 +9,8 @@ internal class Program
         // Cria a engine
         var engine = new Engine();
         
-        // Criar classe wrapper que chama o DemoGame no Update
-        var gameWrapper = new DemoGameWrapper(engine);
+        // Carrega a demo de corrida (RaceGame)
+        var gameWrapper = new RaceGameWrapper(engine);
         
         // Executa o jogo usando a engine
         engine.Run(gameWrapper);

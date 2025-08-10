@@ -7,13 +7,15 @@ public class CubeRenderComponent : RenderComponent
 {
     private static StreamWriter _logFile;
     private readonly Cube _cube;
+    private readonly OutputDescription? _targetOutputDescription;
 
     public CubeRenderComponent(GraphicsDevice graphicsDevice, ResourceFactory factory, CommandList commandList,
-        RgbaFloat color)
+        RgbaFloat color, OutputDescription? targetOutputDescription = null)
         : base(graphicsDevice, factory, commandList, color)
     {
         Log("Creating CubeRenderComponent");
-        _cube = new Cube(graphicsDevice, factory, commandList, Vector3.Zero, color);
+        _targetOutputDescription = targetOutputDescription;
+        _cube = new Cube(graphicsDevice, factory, commandList, Vector3.Zero, color, _targetOutputDescription);
         Log("CubeRenderComponent created successfully");
     }
 

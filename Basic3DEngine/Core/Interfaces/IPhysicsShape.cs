@@ -18,4 +18,9 @@ public interface IPhysicsShape
     /// Calcula a inércia para a forma
     /// </summary>
     BodyInertia ComputeInertia(float mass);
+
+    /// <summary>
+    /// Raio aproximado para CCD (usado para ajustar speculative margin quando necessário)
+    /// </summary>
+    float ApproximateRadius { get => 1f; }
 } 

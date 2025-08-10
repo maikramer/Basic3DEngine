@@ -40,4 +40,6 @@ public sealed class BoxShape(Vector3 size) : IPhysicsShape
         var box = new Box(Size.X, Size.Y, Size.Z);
         return box.ComputeInertia(safeMass);
     }
+
+    public float ApproximateRadius => MathF.Max(Size.X, MathF.Max(Size.Y, Size.Z)) * 0.5f;
 } 
