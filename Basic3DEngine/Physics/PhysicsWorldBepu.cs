@@ -212,7 +212,7 @@ public sealed class PhysicsWorldBepu : IDisposable
             LocalOffsetB = localOffsetB,
             LocalHingeAxisA = Vector3.Normalize(localAxisA),
             LocalHingeAxisB = Vector3.Normalize(localAxisB),
-            SpringSettings = s.Value
+            SpringSettings = s
         };
         return _simulation.Solver.Add(bodyA.BodyHandle, bodyB.BodyHandle, hinge);
     }
@@ -224,20 +224,16 @@ public sealed class PhysicsWorldBepu : IDisposable
         RigidbodyComponent bodyA,
         RigidbodyComponent bodyB,
         Vector3 localAxisA,
-        Vector3 localAxisB,
         float targetVelocity,
         float maximumForce)
     {
         var motor = new AngularAxisMotor
         {
             LocalAxisA = Vector3.Normalize(localAxisA),
-            LocalAxisB = Vector3.Normalize(localAxisB),
+            TargetVelocity = targetVelocity,
             Settings = new MotorSettings(maximumForce, 1e-3f)
         };
         var handle = _simulation.Solver.Add(bodyA.BodyHandle, bodyB.BodyHandle, motor);
-        // Definir velocidade alvo (usa descrição de servo/motor em estados); aqui usamos API simplificada do demo
-        _simulation.Solver.ApplyDescription(handle, motor);
-        // Observação: Para controlar velocidade continuamente, atualizar descrição fora desta função.
         return handle;
     }
 

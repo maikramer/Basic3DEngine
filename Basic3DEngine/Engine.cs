@@ -171,7 +171,8 @@ public class Engine
                 _game.Update(Time.DeltaTime);
 
                 // Atualizar GameObjects (lógica de input/comportamento)
-                foreach (var gameObject in _gameObjects)
+                var snapshot = _gameObjects.ToArray();
+                foreach (var gameObject in snapshot)
                     gameObject?.Update(Time.DeltaTime);
 
                 // Física com fixed timestep DEPOIS da lógica
@@ -183,7 +184,8 @@ public class Engine
                 }
 
                 // Após atualizar física, sincronizar transform com estado físico para render
-                foreach (var gameObject in _gameObjects)
+                snapshot = _gameObjects.ToArray();
+                foreach (var gameObject in snapshot)
                 {
                     var rb = gameObject.GetComponent<RigidbodyComponent>();
                     rb?.SyncFromPhysics();
@@ -401,30 +403,71 @@ public class Engine
     /// </summary>
     public GameObject CreateCar(string name, Vector3 position, Vector3 size, RgbaFloat color, float mass = 800f)
     {
-        var go = new GameObject(name)
+        // Carro composto: chassi e rodas ligadas por hingees
+        var car = new GameObject(name) { Position = position };
+
+        // Chassi como corpo principal
+        var chassisRb = CreateRigidbody(Math.Max(mass, 1f), false);
+        chassisRb.Shape = new BoxShape(size);
+        chassisRb.Material = Material.Metal;
+        var chassisCenter = position + new Vector3(0, size.Y * 0.5f, 0);
+        chassisRb.Pose = new BepuPhysics.RigidPose(chassisCenter, Quaternion.Identity);
+        car.AddComponent(chassisRb);
+        _physicsWorldBepu?.AddBody(chassisRb);
+
+        // Visual do chassi
+        var chassisRenderer = CreateCubeRendererLit(color);
+        car.AddComponent(chassisRenderer);
+
+        // Rodas (cilindros), eixo Y do cilindro é o comprimento (nosso shape físico segue Bepu local Y)
+        float wheelRadius = MathF.Min(size.Y, size.X) * 0.35f;
+        float wheelLength = MathF.Min(size.Y * 0.5f, 0.5f);
+        var wheelColor = new RgbaFloat(0.1f, 0.1f, 0.1f, 1f);
+
+        // Offsets no espaço local do chassi
+        var xSide = size.X * 0.5f + wheelLength * 0.5f + 0.02f;
+        var yDown = -size.Y * 0.5f + wheelRadius;
+        var zFront = size.Z * 0.5f - wheelRadius * 0.8f;
+        Vector3[] wheelOffsets =
         {
-            Position = position,
-            Scale = size
+            new(+xSide, yDown, +zFront), // FR
+            new(-xSide, yDown, +zFront), // FL
+            new(+xSide, yDown, -zFront), // RR
+            new(-xSide, yDown, -zFront)  // RL
         };
 
-        bool isStatic = mass <= 0f;
-        var rb = CreateRigidbody(Math.Max(mass, 1f), isStatic);
-        rb.Shape = new BoxShape(size);
-        rb.Material = Material.Default;
-        // Elevar levemente no spawn para evitar interpenetração com o chão por discretização
-        var spawnPos = position + new Vector3(0, 0.25f, 0);
-        rb.Pose = new BepuPhysics.RigidPose(spawnPos, Quaternion.Identity);
-        go.AddComponent(rb);
+        var wheels = new List<GameObject>();
+        foreach (var offLocal in wheelOffsets)
+        {
+            var wheelWorldPos = chassisCenter + offLocal;
+            var wheel = new GameObject("Wheel") { Position = wheelWorldPos, Scale = new Vector3(wheelRadius * 2f, wheelLength, wheelRadius * 2f) };
+            var wrb = CreateRigidbody(20f, false);
+            wrb.Shape = new Physics.Shapes.CylinderShape(wheelRadius, wheelLength);
+            wrb.Material = Material.Rubber;
+            // Rodar 90° em Z para o eixo do cilindro (Y local) alinhar ao eixo X do carro
+            var wheelOrientation = Quaternion.CreateFromAxisAngle(Vector3.UnitZ, MathF.PI * 0.5f);
+            wrb.Pose = new BepuPhysics.RigidPose(wheelWorldPos, wheelOrientation);
+            wheel.AddComponent(wrb);
+            _physicsWorldBepu?.AddBody(wrb);
+            var wr = CreateCylinderRenderer(wheelColor);
+            wheel.AddComponent(wr);
+            AddGameObject(wheel);
+            wheels.Add(wheel);
 
-        var renderer = CreateCubeRendererLit(color);
-        go.AddComponent(renderer);
+            // Hinge: rodas giram ao redor do eixo X do chassi (eixo Y local da roda após rotação)
+            var localOffsetA = offLocal;
+            var localOffsetB = Vector3.Zero;
+            var axisA = Vector3.UnitX; // chassi
+            var axisB = Vector3.UnitY; // roda (após rotação, Y local = X do chassi)
+            _physicsWorldBepu?.AddHingeConstraint(chassisRb, wrb, localOffsetA, localOffsetB, axisA, axisB);
+        }
 
-        var controller = new VehicleControllerComponent(rb) { IsPlayerControlled = true };
-        go.AddComponent(controller);
+        // Controlador de veículo atua no chassi
+        var controller = new VehicleControllerComponent(chassisRb) { IsPlayerControlled = true };
+        car.AddComponent(controller);
 
-        _physicsWorldBepu?.AddBody(rb);
-        AddGameObject(go);
-        return go;
+        AddGameObject(car);
+        return car;
     }
     
     /// <summary>

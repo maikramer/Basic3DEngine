@@ -41,6 +41,13 @@ public sealed class VehicleControllerComponent : Component
         base.Update(deltaTime);
         if (!Enabled || GameObject == null) return;
 
+        // Se o GameObject do controller não é o mesmo do chassi, sincronizar a posição/rotação do "carro" com o chassi
+        if (GameObject != _rigidbody.GameObject)
+        {
+            GameObject.Position = _rigidbody.Pose.Position;
+            GameObject.Rotation = QuaternionToEuler(_rigidbody.Pose.Orientation);
+        }
+
         // Atualizar boost
         if (_boostTimer > 0f)
         {
@@ -157,6 +164,36 @@ public sealed class VehicleControllerComponent : Component
         angVel.X *= 0.2f; // amortecer em vez de zerar para evitar jitter
         angVel.Z *= 0.2f;
         _rigidbody.AngularVelocity = angVel;
+    }
+
+    private static Vector3 QuaternionToEuler(Quaternion q)
+    {
+        float sqw = q.W * q.W;
+        float sqx = q.X * q.X;
+        float sqy = q.Y * q.Y;
+        float sqz = q.Z * q.Z;
+        float unit = sqx + sqy + sqz + sqw;
+        float test = q.X * q.Y + q.Z * q.W;
+        Vector3 euler;
+        if (test > 0.499f * unit)
+        {
+            euler.Y = 2f * MathF.Atan2(q.X, q.W);
+            euler.X = MathF.PI / 2f;
+            euler.Z = 0f;
+        }
+        else if (test < -0.499f * unit)
+        {
+            euler.Y = -2f * MathF.Atan2(q.X, q.W);
+            euler.X = -MathF.PI / 2f;
+            euler.Z = 0f;
+        }
+        else
+        {
+            euler.Y = MathF.Atan2(2f * q.Y * q.W - 2f * q.X * q.Z, sqx - sqy - sqz + sqw);
+            euler.X = MathF.Asin(2f * test / unit);
+            euler.Z = MathF.Atan2(2f * q.X * q.W - 2f * q.Y * q.Z, -sqx + sqy - sqz + sqw);
+        }
+        return euler;
     }
 
     /// <summary>
