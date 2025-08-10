@@ -1,17 +1,17 @@
-#version 450
+#version 330
 
-layout(location = 0) in vec3 FragDirection;
-layout(location = 0) out vec4 FragColor;
+in vec3 FragDirection;
+out vec4 FragColor;
 
 // Uniform buffers
-layout(binding = 1) uniform TimeData {
+uniform TimeData {
     float time;
     float windSpeed;
     float cloudScale;
     float sunIntensity;
 };
 
-layout(binding = 2) uniform LightData {
+uniform LightData {
     vec4 sunDirection;
     vec4 sunColor;
 };

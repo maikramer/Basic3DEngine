@@ -32,6 +32,7 @@ void main()
     fsin_ViewPos = vec3(inverse(view)[3]);
     
     // Calcular coordenada do shadow map
+    // shadowMatrix já deve estar no espaço de recorte da luz com bias aplicado no CPU
     fsin_ShadowCoord = shadowMatrix * worldPosition;
     
     // Posição final no clip space

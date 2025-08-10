@@ -9,11 +9,14 @@ public class SphereRenderComponent : RenderComponent
     private static StreamWriter _logFile;
     private int _resolution;
     private readonly Icosphere _sphere;
+    private readonly Basic3DEngine.Rendering.LightingSystem? _lightingSystem;
 
     public SphereRenderComponent(GraphicsDevice graphicsDevice, ResourceFactory factory, CommandList commandList,
-        RgbaFloat color, int resolution = 2, OutputDescription? hdrOutputDescription = null)
+        RgbaFloat color, int resolution = 2, OutputDescription? hdrOutputDescription = null,
+        Basic3DEngine.Rendering.LightingSystem? lightingSystem = null)
         : base(graphicsDevice, factory, commandList, color)
     {
+        _lightingSystem = lightingSystem;
         Log("Creating SphereRenderComponent with corrected Icosphere");
         _resolution = resolution;
         
@@ -43,6 +46,12 @@ public class SphereRenderComponent : RenderComponent
             _sphere.Position = GameObject.Position;
             _sphere.Rotation = GameObject.Rotation;
             _sphere.Scale = GameObject.Scale;
+
+            // Passar shadow matrix externa se disponível
+            if (_lightingSystem != null)
+            {
+                _sphere.ExternalShadowMatrix = _lightingSystem.GetMainShadowMatrix();
+            }
 
             _sphere.Render(commandList, viewMatrix, projectionMatrix);
         }

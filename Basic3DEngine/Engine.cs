@@ -164,6 +164,8 @@ public class Engine
 
                 // Atualizar câmera controlável
                 _camera.Update(Time.DeltaTime);
+                // Atualizar centro da cena para sombras baseado na câmera
+                _lightingSystem.UpdateSceneCenter(_camera.Position);
                 
                 // Controles de mouse capture
                 if (InputService.IsKeyPressed(Key.F1))
@@ -365,7 +367,7 @@ public class Engine
             throw new InvalidOperationException("Engine not initialized");
             
         var hdrOutputDesc = _postProcessingManager?.GetHDRFramebuffer().OutputDescription;
-        return new SphereRenderComponent(_gd, _factory, _factory.CreateCommandList(), color, resolution, hdrOutputDesc);
+        return new SphereRenderComponent(_gd, _factory, _factory.CreateCommandList(), color, resolution, hdrOutputDesc, _lightingSystem);
     }
     
     /// <summary>
@@ -519,7 +521,7 @@ public class Engine
         var rigidbody = CreateRigidbody(Math.Max(mass, 1f), isStatic);
         
         // Converter dimensões completas para half-extents que o BepuPhysics espera
-        var halfExtents = size;
+        var halfExtents = size * 0.5f;
         rigidbody.Shape = new BoxShape(halfExtents); // BepuPhysics usa half-extents
         rigidbody.Material = Material.Default;
         rigidbody.Pose = new BepuPhysics.RigidPose(position, Quaternion.Identity);
@@ -561,8 +563,8 @@ public class Engine
         var rigidbody = CreateRigidbody(Math.Max(mass, 1f), isStatic);
         
         // TESTE: Dobrar o raio na física para compensar problema de escala
-        var physicsRadius = radius * 2f;
-        rigidbody.Shape = new SphereShape(physicsRadius); // TESTE: Usar raio dobrado
+        var physicsRadius = radius;
+        rigidbody.Shape = new SphereShape(physicsRadius);
         rigidbody.Material = Material.Default;
         rigidbody.Pose = new BepuPhysics.RigidPose(position, Quaternion.Identity);
         
@@ -627,7 +629,7 @@ public class Engine
         
         // Criar rigidbody estático (rampas não se movem)
         var rigidbody = CreateRigidbody(1f, true); // Estático
-        var halfExtents = size;
+        var halfExtents = size * 0.5f;
         rigidbody.Shape = new BoxShape(halfExtents);
         rigidbody.Material = Material.Default;
         
@@ -764,12 +766,21 @@ public class Engine
         {
             // Recriar o swapchain com o novo tamanho
             _gd.MainSwapchain?.Dispose();
-            _gd.ResizeMainWindow((uint)_window.Width, (uint)_window.Height);
+            if (_window != null)
+            {
+                _gd.ResizeMainWindow((uint)_window.Width, (uint)_window.Height);
+            }
             
             // Redimensionar post-processing framebuffers
-            _postProcessingManager?.Resize((uint)_window.Width, (uint)_window.Height);
+            if (_window != null)
+            {
+                _postProcessingManager?.Resize((uint)_window.Width, (uint)_window.Height);
+            }
             
-            LoggingService.LogInfo($"Swapchain resized to {_window.Width}x{_window.Height}");
+            if (_window != null)
+            {
+                LoggingService.LogInfo($"Swapchain resized to {_window.Width}x{_window.Height}");
+            }
         }
         catch (Exception ex)
         {

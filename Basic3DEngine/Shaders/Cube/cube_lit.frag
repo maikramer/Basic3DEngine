@@ -12,7 +12,7 @@ out vec4 OutputColor;
 uniform sampler2D ShadowMap;
 
 // TESTE SIMPLES: Usar uniform buffer direto
-layout(std140) uniform LightingData
+uniform LightingData
 {
     // Ambient (16 bytes)
     vec3 ambientColor;
@@ -44,9 +44,9 @@ layout(std140) uniform LightingData
 
 float calculateShadowFactor()
 {
-    // Converter shadow coord para [0,1] range
-    vec3 shadowCoords = fsin_ShadowCoord.xyz / fsin_ShadowCoord.w;
-    shadowCoords = shadowCoords * 0.5 + 0.5;
+    // Converter shadow coord de clip space da luz para [0,1] range
+    vec3 shadowCoords = fsin_ShadowCoord.xyz / max(fsin_ShadowCoord.w, 1e-6);
+    shadowCoords = shadowCoords * 0.5 + 0.5; // NDC [-1,1] -> [0,1]
     
     // Se fora da shadow map, sem sombra
     if (shadowCoords.x < 0.0 || shadowCoords.x > 1.0 || 
@@ -62,14 +62,19 @@ float calculateShadowFactor()
     // PCF (Percentage Closer Filtering) para sombras suaves
     float shadow = 0.0;
     vec2 texelSize = 1.0 / textureSize(ShadowMap, 0);
-    
-    for(int x = -1; x <= 1; ++x) {
-        for(int y = -1; y <= 1; ++y) {
+    // PCF 5x5 com peso gaussiano leve
+    float kernel[5];
+    kernel[0] = 0.06; kernel[1] = 0.12; kernel[2] = 0.64; kernel[3] = 0.12; kernel[4] = 0.06;
+    float weightSum = 0.0;
+    for (int x = -2; x <= 2; ++x) {
+        for (int y = -2; y <= 2; ++y) {
+            float w = kernel[x+2] * kernel[y+2];
             float pcfDepth = texture(ShadowMap, shadowCoords.xy + vec2(x, y) * texelSize).r;
-            shadow += currentDepth > pcfDepth ? 0.0 : 1.0;
+            shadow += (currentDepth <= pcfDepth ? 1.0 : 0.0) * w;
+            weightSum += w;
         }
     }
-    shadow /= 9.0; // 3x3 grid
+    shadow /= weightSum;
     
     return shadow;
 }
@@ -151,14 +156,7 @@ void main()
         pointContribution += calculatePointLight(i, normal, fsin_WorldPos, viewDir, baseColor);
     }
     
-    // Resultado final
+    // Resultado final EM ESPAÇO LINEAR (sem clamp/gamma). Tone mapping fará o mapeamento para LDR.
     vec3 finalColor = ambient + directionalContribution + pointContribution;
-    
-    // Gamma correction para visual mais realista
-    finalColor = pow(finalColor, vec3(1.0/2.2));
-    
-    // Garantir que não ultrapasse 1.0 e não seja negativo
-    finalColor = clamp(finalColor, 0.0, 1.0);
-    
     OutputColor = vec4(finalColor, fsin_Color.a);
 } 

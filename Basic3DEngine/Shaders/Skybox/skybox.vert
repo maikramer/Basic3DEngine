@@ -1,11 +1,11 @@
-#version 450
+#version 330
 
-layout(location = 0) in vec3 Position;
+in vec3 Position;
 
-layout(location = 0) out vec3 FragDirection;
+out vec3 FragDirection;
 
 // MVP matrix como uniform buffer
-layout(binding = 0) uniform MVP {
+uniform MVP {
     mat4 mvpMatrix;
 };
 

@@ -115,6 +115,14 @@ public class LightingSystem : IDisposable
         get => _sceneCenter; 
         set => _sceneCenter = value; 
     }
+
+    /// <summary>
+    /// Atualiza o centro da cena com base na posição da câmera para melhorar a estabilidade das sombras.
+    /// </summary>
+    public void UpdateSceneCenter(Vector3 cameraPosition)
+    {
+        _sceneCenter = cameraPosition;
+    }
     
     /// <summary>
     /// Acesso ao renderer de shadow maps
@@ -214,7 +222,7 @@ public class LightingSystem : IDisposable
         
         // 🌫️ AMBIENTE GLOBAL - Simula Global Illumination
         AmbientColor = new Vector3(0.4f, 0.45f, 0.5f);   // Azul-acinzentado do céu
-        AmbientIntensity = 0.6f;                          // Bem claro para simular GI
+        AmbientIntensity = 0.18f;                         // Mais baixo para que as sombras fiquem visíveis
         
         LoggingService.LogInfo("Default lighting setup complete: Simulated Global Illumination (Sun + Sky + Bounce + Horizon + Ambient)");
     }

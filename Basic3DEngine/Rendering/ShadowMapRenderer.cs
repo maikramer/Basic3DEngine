@@ -47,12 +47,19 @@ namespace Basic3DEngine.Rendering
             LoggingService.LogInfo($"ShadowMapRenderer initialized - {ShadowMapSize}x{ShadowMapSize}");
         }
 
+        private struct ShadowUniforms
+        {
+            public Matrix4x4 Projection;
+            public Matrix4x4 View;
+            public Matrix4x4 World;
+        }
+
         private void CreateShadowMapResources()
         {
             // Criar shadow map texture (depth only)
             _shadowMapTexture = _factory.CreateTexture(new TextureDescription(
                 ShadowMapSize, ShadowMapSize, 1, 1, 1,
-                PixelFormat.D32_Float_S8_UInt,
+                PixelFormat.D24_UNorm_S8_UInt,
                 TextureUsage.DepthStencil | TextureUsage.Sampled,
                 TextureType.Texture2D));
 
@@ -61,9 +68,9 @@ namespace Basic3DEngine.Rendering
             // Criar framebuffer para shadow rendering
             _shadowFramebuffer = _factory.CreateFramebuffer(new FramebufferDescription(_shadowMapTexture));
             
-            // MVP buffer para shadow rendering
+            // Buffer de uniformes: projection, view, world (3 matrizes 4x4)
             _shadowMvpBuffer = _factory.CreateBuffer(new BufferDescription(
-                64, // mat4 (16 floats * 4 bytes)
+                64u * 3u, // 3 matrizes (16 floats * 4 bytes)
                 BufferUsage.UniformBuffer));
         }
 
@@ -78,7 +85,7 @@ namespace Basic3DEngine.Rendering
                 System.IO.Path.Combine(shaderPath, "Shadow", "shadow.frag"), 
                 ShaderStages.Fragment);
 
-            // Resource layout para MVP matrix
+            // Resource layout para matrizes de sombra
             _shadowLayout = _factory.CreateResourceLayout(new ResourceLayoutDescription(
                 new ResourceLayoutElementDescription("ShadowMVP", ResourceKind.UniformBuffer, ShaderStages.Vertex)));
 
@@ -86,9 +93,8 @@ namespace Basic3DEngine.Rendering
             _shadowResourceSet = _factory.CreateResourceSet(new ResourceSetDescription(
                 _shadowLayout, _shadowMvpBuffer));
 
-            // Vertex layout (apenas position)
-            var vertexLayout = new VertexLayoutDescription(
-                new VertexElementDescription("Position", VertexElementSemantic.TextureCoordinate, VertexElementFormat.Float3));
+            // Vertex layout compatível com os buffers de geometria (pos, normal, color)
+            var vertexLayout = Basic3DEngine.Entities.VertexPositionNormalColor.GetVertexLayoutDescription();
 
             // Pipeline para shadow rendering
             _shadowPipeline = _factory.CreateGraphicsPipeline(new GraphicsPipelineDescription(
@@ -122,8 +128,6 @@ namespace Basic3DEngine.Rendering
             // Calcular orthographic projection para luz direcional
             var lightProjection = Matrix4x4.CreateOrthographic(
                 ShadowDistance, ShadowDistance, 0.1f, ShadowDistance);
-            
-            var lightMvp = lightView * lightProjection;
 
             // Setup shadow rendering
             commandList.SetFramebuffer(_shadowFramebuffer);
@@ -133,14 +137,11 @@ namespace Basic3DEngine.Rendering
             commandList.SetPipeline(_shadowPipeline);
             commandList.SetGraphicsResourceSet(0, _shadowResourceSet);
             
-            // Update MVP buffer
-            commandList.UpdateBuffer(_shadowMvpBuffer, 0, lightMvp);
-            
             // Renderizar objetos que fazem sombra
             var shadowCasterCount = 0;
             foreach (var gameObject in shadowCasters)
             {
-                if (RenderGameObjectShadow(commandList, gameObject))
+                if (RenderGameObjectShadow(commandList, gameObject, lightProjection, lightView))
                     shadowCasterCount++;
             }
             
@@ -152,7 +153,7 @@ namespace Basic3DEngine.Rendering
             }
         }
 
-        private bool RenderGameObjectShadow(CommandList commandList, GameObject gameObject)
+        private bool RenderGameObjectShadow(CommandList commandList, GameObject gameObject, Matrix4x4 lightProjection, Matrix4x4 lightView)
         {
             // Verificar se algum componente implementa IShadowCaster
             foreach (var component in gameObject.GetAllComponents())
@@ -168,6 +169,15 @@ namespace Basic3DEngine.Rendering
                         Matrix4x4.CreateScale(gameObject.Scale) *
                         rotationMatrix *
                         Matrix4x4.CreateTranslation(gameObject.Position);
+
+                    // Atualizar buffer de uniformes com P, V e W para este objeto
+                    var uniforms = new ShadowUniforms
+                    {
+                        Projection = lightProjection,
+                        View = lightView,
+                        World = worldMatrix
+                    };
+                    commandList.UpdateBuffer(_shadowMvpBuffer, 0, uniforms);
                     
                     shadowCaster.RenderShadowGeometry(commandList, worldMatrix);
                     return true; // Renderizou com sucesso
@@ -196,7 +206,8 @@ namespace Basic3DEngine.Rendering
                 0.0f, 0.0f, 0.5f, 0.5f,
                 0.0f, 0.0f, 0.0f, 1.0f);
             
-            return lightView * lightProjection * biasMatrix;
+            // Retornar apenas Projection * View; o bias e a conversão para [0,1] serão feitos no fragment shader
+            return lightProjection * lightView;
         }
 
         public void Dispose()

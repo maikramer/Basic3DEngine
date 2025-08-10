@@ -15,9 +15,14 @@ namespace Basic3DEngine.Entities.Primitives
             public Matrix4x4 View;
             public Matrix4x4 World;
             public Vector4 Color;
+            public Matrix4x4 ShadowMatrix;
         }
 
         public RgbaFloat Color { get; set; }
+        public Matrix4x4 ExternalShadowMatrix { get; set; } = Matrix4x4.Identity;
+
+        private ResourceLayout? _shadowLayout;
+        private ResourceSet? _shadowResourceSet;
 
         public Icosphere(GraphicsDevice graphicsDevice, ResourceFactory factory, CommandList commandList, Vector3 position, RgbaFloat color, int subdivisions = 2, OutputDescription? hdrOutputDescription = null)
             : base(graphicsDevice, factory, commandList, position)
@@ -232,7 +237,8 @@ namespace Basic3DEngine.Entities.Primitives
                 Projection = projectionMatrix,
                 View = viewMatrix,
                 World = _worldMatrix,
-                Color = new Vector4(Color.R, Color.G, Color.B, Color.A)
+                Color = new Vector4(Color.R, Color.G, Color.B, Color.A),
+                ShadowMatrix = ExternalShadowMatrix
             };
 
             // Atualiza o buffer de uniformes com as matrizes

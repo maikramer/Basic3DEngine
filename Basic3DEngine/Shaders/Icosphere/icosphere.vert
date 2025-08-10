@@ -10,10 +10,13 @@ uniform ProjectionViewWorldColor
     mat4 view;
     mat4 world;
     vec4 color;
+    mat4 shadowMatrix;
 };
 
 out vec4 fsin_Color;
 out vec3 fsin_Normal;
+out vec4 fsin_WorldPos;
+out vec4 fsin_ShadowCoord;
 
 void main()
 {
@@ -23,4 +26,6 @@ void main()
     gl_Position = clipPosition;
     fsin_Color = color;
     fsin_Normal = mat3(world) * Normal; // Transform normal to world space
+    fsin_WorldPos = worldPosition;
+    fsin_ShadowCoord = shadowMatrix * worldPosition;
 } 

@@ -1,14 +1,16 @@
-#version 450
+#version 330
 
 layout(location = 0) in vec3 Position;
 
-// Shadow MVP matrix
-layout(binding = 0) uniform ShadowMVP {
-    mat4 mvpMatrix;
+// Shadow matrices
+uniform ShadowMVP {
+    mat4 projection;
+    mat4 view;
+    mat4 world;
 };
 
 void main()
 {
-    // Transformar posição para espaço da luz
-    gl_Position = mvpMatrix * vec4(Position, 1.0);
+    // Transformar posição para espaço da luz (projeção * view * world)
+    gl_Position = projection * view * world * vec4(Position, 1.0);
 }

@@ -50,11 +50,14 @@ namespace Basic3DEngine.Rendering
         // Quad de tela cheia
         private DeviceBuffer _quadVertexBuffer;
         private DeviceBuffer _quadIndexBuffer;
+
+        // Sampler padrão para post-processing
+        private Sampler _linearClampSampler;
         
         // Configurações HDR
-        public float Exposure { get; set; } = 0.4f;       // Reduzido para imagem mais realista
-        public float BloomThreshold { get; set; } = 1.2f;  // Threshold para areas muito brilhantes  
-        public float BloomIntensity { get; set; } = 0.6f;  // Intensidade do bloom aumentada
+        public float Exposure { get; set; } = 1.0f;        // Mais visível por padrão
+        public float BloomThreshold { get; set; } = 0.8f;  // Threshold mais baixo para evidenciar bloom
+        public float BloomIntensity { get; set; } = 1.2f;  // Intensidade mais alta
         
         public uint Width { get; private set; }
         public uint Height { get; private set; }
@@ -76,6 +79,15 @@ namespace Basic3DEngine.Rendering
             CreateHDRFramebuffer();
             CreateBloomTextures();
             CreateQuadGeometry();
+            // Sampler linear/clamp usado em todas as amostragens
+            _linearClampSampler = _factory.CreateSampler(new SamplerDescription(
+                SamplerAddressMode.Clamp,
+                SamplerAddressMode.Clamp,
+                SamplerAddressMode.Clamp,
+                SamplerFilter.MinLinear_MagLinear_MipLinear,
+                null,
+                0, 0, 0, 0,
+                SamplerBorderColor.TransparentBlack));
             CreatePipelines();
             UpdateResourceSets();
         }
@@ -164,9 +176,9 @@ namespace Basic3DEngine.Rendering
         {
             // Vertex shader simples (reutilizado)
             var vertexCode = @"
-#version 450
+#version 330
 
-layout(location = 0) out vec2 fsin_texCoords;
+out vec2 fsin_texCoords;
 
 void main()
 {
@@ -179,14 +191,14 @@ void main()
 
             // Fragment shader para bright pass extraction
             var fragmentCode = @"
-#version 450
+#version 330
 
-layout(location = 0) in vec2 fsin_texCoords;
-layout(location = 0) out vec4 fsout_color;
+in vec2 fsin_texCoords;
+out vec4 fsout_color;
 
-layout(binding = 0) uniform sampler2D HDRTexture;
+uniform sampler2D HDRTexture;
 
-layout(binding = 1) uniform BloomParams {
+uniform BloomParams {
     float threshold;    // Limiar de brilho (ex: 1.0)
     float intensity;    // Intensidade do bloom (ex: 0.8)
     float padding1;
@@ -215,6 +227,7 @@ void main()
             // Layout de recursos
             _bloomExtractLayout = _factory.CreateResourceLayout(new ResourceLayoutDescription(
                 new ResourceLayoutElementDescription("HDRTexture", ResourceKind.TextureReadOnly, ShaderStages.Fragment),
+                new ResourceLayoutElementDescription("Sampler", ResourceKind.Sampler, ShaderStages.Fragment),
                 new ResourceLayoutElementDescription("BloomParams", ResourceKind.UniformBuffer, ShaderStages.Fragment)
             ));
 
@@ -238,9 +251,9 @@ void main()
         {
             // Vertex shader (mesmo usado anteriormente)
             var vertexCode = @"
-#version 450
+#version 330
 
-layout(location = 0) out vec2 fsin_texCoords;
+out vec2 fsin_texCoords;
 
 void main()
 {
@@ -253,14 +266,14 @@ void main()
 
             // Fragment shader para blur horizontal
             var horizontalBlurCode = @"
-#version 450
+#version 330
 
-layout(location = 0) in vec2 fsin_texCoords;
-layout(location = 0) out vec4 fsout_color;
+in vec2 fsin_texCoords;
+out vec4 fsout_color;
 
-layout(binding = 0) uniform sampler2D InputTexture;
+uniform sampler2D InputTexture;
 
-layout(binding = 1) uniform BlurParams {
+uniform BlurParams {
     float texelSizeX;
     float texelSizeY;
     float padding1;
@@ -289,14 +302,14 @@ void main()
 
             // Fragment shader para blur vertical
             var verticalBlurCode = @"
-#version 450
+#version 330
 
-layout(location = 0) in vec2 fsin_texCoords;
-layout(location = 0) out vec4 fsout_color;
+in vec2 fsin_texCoords;
+out vec4 fsout_color;
 
-layout(binding = 0) uniform sampler2D InputTexture;
+uniform sampler2D InputTexture;
 
-layout(binding = 1) uniform BlurParams {
+uniform BlurParams {
     float texelSizeX;
     float texelSizeY;
     float padding1;
@@ -331,6 +344,7 @@ void main()
             // Layout de recursos para blur
             _bloomBlurLayout = _factory.CreateResourceLayout(new ResourceLayoutDescription(
                 new ResourceLayoutElementDescription("InputTexture", ResourceKind.TextureReadOnly, ShaderStages.Fragment),
+                new ResourceLayoutElementDescription("Sampler", ResourceKind.Sampler, ShaderStages.Fragment),
                 new ResourceLayoutElementDescription("BlurParams", ResourceKind.UniformBuffer, ShaderStages.Fragment)
             ));
 
@@ -366,9 +380,9 @@ void main()
         {
             // Shader de vertex simples para quad de tela cheia (OpenGL)
             var vertexCode = @"
-#version 450
+#version 330
 
-layout(location = 0) out vec2 fsin_texCoords;
+out vec2 fsin_texCoords;
 
 void main()
 {
@@ -382,15 +396,15 @@ void main()
 
             // Shader de fragment para tone mapping ACES + Bloom (OpenGL)
             var fragmentCode = @"
-#version 450
+#version 330
 
-layout(location = 0) in vec2 fsin_texCoords;
-layout(location = 0) out vec4 fsout_color;
+in vec2 fsin_texCoords;
+out vec4 fsout_color;
 
-layout(binding = 0) uniform sampler2D HDRTexture;
-layout(binding = 1) uniform sampler2D BloomTexture;
+uniform sampler2D HDRTexture;
+uniform sampler2D BloomTexture;
 
-layout(binding = 2) uniform ToneMappingParams {
+uniform ToneMappingParams {
     float exposure;
     float bloomThreshold;
     float bloomIntensity;
@@ -435,7 +449,9 @@ void main()
             // Layout de recursos para tone mapping + bloom (OpenGL)
             _toneMappingLayout = _factory.CreateResourceLayout(new ResourceLayoutDescription(
                 new ResourceLayoutElementDescription("HDRTexture", ResourceKind.TextureReadOnly, ShaderStages.Fragment),
+                new ResourceLayoutElementDescription("SamplerHdr", ResourceKind.Sampler, ShaderStages.Fragment),
                 new ResourceLayoutElementDescription("BloomTexture", ResourceKind.TextureReadOnly, ShaderStages.Fragment),
+                new ResourceLayoutElementDescription("SamplerBloom", ResourceKind.Sampler, ShaderStages.Fragment),
                 new ResourceLayoutElementDescription("ToneMappingParams", ResourceKind.UniformBuffer, ShaderStages.Fragment)
             ));
 
@@ -480,24 +496,29 @@ void main()
             _toneMappingResourceSet = _factory.CreateResourceSet(new ResourceSetDescription(
                 _toneMappingLayout,
                 _hdrColorView,
+                _linearClampSampler,
                 _bloomView1, // Final bloom result
+                _linearClampSampler,
                 _toneMappingParamsBuffer));
             
             // Resource set para bloom extraction
             _bloomExtractResourceSet = _factory.CreateResourceSet(new ResourceSetDescription(
                 _bloomExtractLayout,
                 _hdrColorView,
+                _linearClampSampler,
                 _bloomParamsBuffer));
             
             // Resource sets para blur
             _bloomBlur1ResourceSet = _factory.CreateResourceSet(new ResourceSetDescription(
                 _bloomBlurLayout,
                 _bloomView1,
+                _linearClampSampler,
                 _blurParamsBuffer));
                 
             _bloomBlur2ResourceSet = _factory.CreateResourceSet(new ResourceSetDescription(
                 _bloomBlurLayout,
                 _bloomView2,
+                _linearClampSampler,
                 _blurParamsBuffer));
         }
 
@@ -518,10 +539,10 @@ void main()
         {
             var bloomParams = new float[]
             {
-                1.0f, // threshold (valores acima de 1.0 HDR são brilhantes)
-                1.5f, // intensity multiplier na extraction
-                0.0f, // padding1
-                0.0f  // padding2
+                BloomThreshold,
+                BloomIntensity,
+                0.0f,
+                0.0f
             };
             _graphicsDevice.UpdateBuffer(_bloomParamsBuffer, 0, bloomParams);
         }
@@ -615,6 +636,7 @@ void main()
             _hdrDepthTexture?.Dispose();
             _hdrColorView?.Dispose();
             _hdrFramebuffer?.Dispose();
+            _linearClampSampler?.Dispose();
             
             _bloomTexture1?.Dispose();
             _bloomTexture2?.Dispose();
